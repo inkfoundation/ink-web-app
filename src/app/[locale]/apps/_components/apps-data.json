@@ -92,6 +92,29 @@
       }
     },
     {
+      "id": "blackwid",
+      "name": "blackwid",
+      "description": "lknclknc",
+      "imageUrl": "/featured-apps/icons/blackwid.webp",
+      "category": [
+        "Bridge"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "data"
+      ],
+      "links": {
+        "mainnetWebsite": "http://evil.com",
+        "testnetWebsite": "http://evil.com",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "blockscout",
       "name": "Blockscout",
       "description": "Open-source, universally accessible, and fully customizable, the new Blockscout Explorer Portal is your definitive gateway to the blockchain world.",
