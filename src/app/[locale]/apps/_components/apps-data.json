@@ -396,6 +396,30 @@
       }
     },
     {
+      "id": "fnam",
+      "name": "Fnam",
+      "description": "fghfghf",
+      "imageUrl": "/featured-apps/icons/fnam.webp",
+      "category": [
+        "DeFi",
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "faucet"
+      ],
+      "links": {
+        "mainnetWebsite": "https://securyhub.com",
+        "testnetWebsite": "https://securyhub.com",
+        "x": "https://x.com/securyhub",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x6eCDB4E7472385984C32D8fE6b2e81EF390d017a"
+      }
+    },
+    {
       "id": "frax",
       "name": "Frax",
       "description": "The Decentralized Central Bank of Crypto.",
