@@ -396,6 +396,29 @@
       }
     },
     {
+      "id": "fnam",
+      "name": "Fnam",
+      "description": "aaaaa",
+      "imageUrl": "/featured-apps/icons/fnam.webp",
+      "category": [
+        "Explorers"
+      ],
+      "network": "Testnet",
+      "tags": [
+        "domain names"
+      ],
+      "links": {
+        "mainnetWebsite": "https://securyhub.com",
+        "testnetWebsite": "https://securyhub.com",
+        "x": "https://x.com/securyhub",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "frax",
       "name": "Frax",
       "description": "The Decentralized Central Bank of Crypto.",
