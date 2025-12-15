@@ -702,6 +702,32 @@
       }
     },
     {
+      "id": "interport-finance",
+      "name": "Interport Finance",
+      "description": "Interport is a comprehensive cross-chain hub offering seamless asset swaps, bridging, and gas transfer solutions across multiple chains.",
+      "imageUrl": "/featured-apps/icons/interport-finance.webp",
+      "category": [
+        "Bridge",
+        "DeFi",
+        "Infra"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "cross-chain",
+        "tools"
+      ],
+      "links": {
+        "mainnetWebsite": "https://app.interport.fi/",
+        "testnetWebsite": "https://x.com/InterportFi",
+        "x": "",
+        "discord": "https://discord.com/invite/interport",
+        "telegram": "https://t.me/interport_fi",
+        "github": "https://github.com/Interport-Finance",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x4F0c01b41741f8022c6FB9Fe357Ea480184719D4"
+      }
+    },
+    {
       "id": "ionic",
       "name": "Ionic",
       "description": "Absolute capital efficiency for the OP Superchain DeFi ecosystem. All assets - One intuitive UI.",
