@@ -889,6 +889,30 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
+        {
+      "id": "nado",
+      "name": "Nado",
+      "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
+      "imageUrl": "/featured-apps/icons/nado.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "dex"
+      ],
+      "links": {
+        "mainnetWebsite": "https://app.nado.xyz/",
+        "testnetWebsite": "https://app.nado.xyz/",
+        "x": "https://x.com/nadoHQ",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      },
+      "order": 1
+    },
     {
       "id": "net",
       "name": "Net",
@@ -1601,7 +1625,7 @@
         "farcaster": "",
         "smartContractUrl": ""
       },
-      "order": 1,
+      "order": 2,
       "pills": [
         "AIRDROP"
       ]
