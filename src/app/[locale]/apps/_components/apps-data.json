@@ -911,7 +911,10 @@
         "farcaster": "",
         "smartContractUrl": ""
       },
-      "order": 1
+      "order": 1,
+      "pills": [
+        "AIRDROP"
+      ]
     },
     {
       "id": "net",
