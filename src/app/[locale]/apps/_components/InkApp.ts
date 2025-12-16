@@ -57,7 +57,13 @@ const apps = appsData.apps
 export const inkApps: InkApp[] = apps;
 export const inkFeaturedApps = inkApps
   .filter((a) =>
-    ["tydro", "kraken-wallet", "reservoir:-relay", "velodrome"].includes(a.id)
+    [
+      "nado",
+      "tydro",
+      "kraken-wallet",
+      "reservoir:-relay",
+      "velodrome",
+    ].includes(a.id)
   )
   .sort((a, b) => {
     // For featured apps, sort by order if both have it
@@ -80,6 +86,7 @@ export const inkFeaturedApps = inkApps
 export const inkHomeApps = inkApps
   .filter((a) =>
     [
+      "nado",
       "tydro",
       "kraken-wallet",
       "deep-on-ink",

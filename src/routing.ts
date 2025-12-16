@@ -53,6 +53,7 @@ export const EXTERNAL_LINKS = {
   verifySupport: "https://support.kraken.com/hc/en-us/articles/kraken-verify",
   verifyDocs: "https://docs.inkonchain.com/build/verify",
   tydro: "https://app.tydro.com/",
+  nado: "https://app.nado.xyz/",
 } as const;
 
 type ExternalLinkValues = (typeof EXTERNAL_LINKS)[keyof typeof EXTERNAL_LINKS];
