@@ -535,6 +535,29 @@
       }
     },
     {
+      "id": "hyperfluid",
+      "name": "HyperFluid",
+      "description": "HyperFluid is a swapping aggregator and DEX, support 60+ blockchains, enabling seamless same-chain swaps and cross-chain bridging, including routing funds from over 60 chains directly into Inkonchain.",
+      "imageUrl": "/featured-apps/icons/hyperfluid.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "dex"
+      ],
+      "links": {
+        "mainnetWebsite": "https://HyperFluid.pro",
+        "testnetWebsite": "https://HyperFluid.pro",
+        "x": "https://x.com/HyperFluidx",
+        "discord": "https://discord.gg/4UjACCYfha",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "hypernative",
       "name": "Hypernative",
       "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
@@ -889,7 +912,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
