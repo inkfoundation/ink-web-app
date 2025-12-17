@@ -1515,6 +1515,30 @@
       }
     },
     {
+      "id": "sweep",
+      "name": "Sweep",
+      "description": "Sweep is a community-based Multi-Chain NFT launcher",
+      "imageUrl": "/featured-apps/icons/sweep.webp",
+      "category": [
+        "Social",
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "nfts"
+      ],
+      "links": {
+        "mainnetWebsite": "https://sweep.haus/",
+        "testnetWebsite": "https://sweep.haus/",
+        "x": "https://x.com/sweep_haus",
+        "discord": "",
+        "telegram": "https://t.me/Sweephaus",
+        "github": "https://github.com/sweep-haus",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "tenderly",
       "name": "Tenderly",
       "description": "Move fast from development to on-chain deployment with a multichain node RPC, integrated development environments, and debugging tools.",
