@@ -70,6 +70,30 @@
       }
     },
     {
+      "id": "aleph-cloud",
+      "name": "Aleph Cloud",
+      "description": "Aleph Cloud is a supercloud (commonly a DePIN), relying on hundreds of distributed nodes across the globe which offers developers access to database storage, confidential compute, and AI.",
+      "imageUrl": "/featured-apps/icons/aleph-cloud.webp",
+      "category": [
+        "Infra"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tools",
+        "data"
+      ],
+      "links": {
+        "mainnetWebsite": "https://aleph.im/",
+        "testnetWebsite": "https://aleph.im/",
+        "x": "https://x.com/aleph_im",
+        "discord": "https://discord.gg/alephcloud",
+        "telegram": "https://t.me/alephim",
+        "github": "https://github.com/aleph-im",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "astra-swap",
       "name": "Astra Swap",
       "description": "Trade, earn, and own crypto on the all-in-one multichain DEX.",
