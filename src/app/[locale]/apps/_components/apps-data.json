@@ -940,6 +940,31 @@
       }
     },
     {
+      "id": "multisender",
+      "name": "Multisender",
+      "description": "Multisender is a powerful dApp that streamlines the process of sending tokens to multiple addresses and creating airdrops",
+      "imageUrl": "/featured-apps/icons/multisender.webp",
+      "category": [
+        "DeFi",
+        "Infra",
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tools"
+      ],
+      "links": {
+        "mainnetWebsite": "https://multisender.app/",
+        "testnetWebsite": "https://multisender.app/",
+        "x": "https://twitter.com/multi_sender",
+        "discord": "",
+        "telegram": "https://t.me/multisenderapp",
+        "github": "https://github.com/Multisender-app/multisender/",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xA686afDd83Be95E6CFde9e8Cf21af3E297cDF184"
+      }
+    },
+    {
       "id": "nfts2me",
       "name": "NFTs2Me",
       "description": "Create, deploy and manage your NFT collection and minting page with custom subdomain for free. No-code Art Generator, Token Gating & much much more.",
