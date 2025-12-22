@@ -940,6 +940,29 @@
       }
     },
     {
+      "id": "mintiq-market",
+      "name": "Mintiq Market",
+      "description": "NFT Marketplace",
+      "imageUrl": "/featured-apps/icons/mintiq-market.webp",
+      "category": [
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "nfts"
+      ],
+      "links": {
+        "mainnetWebsite": "https://ink.mintiq.market/",
+        "testnetWebsite": "https://ink.mintiq.market/",
+        "x": "https://x.com/MintiqMarket/",
+        "discord": "",
+        "telegram": "https://t.me/MintiqMarket/",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x5a2834908cDEec8e08B75C64F1A2D49B12d7548e"
+      }
+    },
+    {
       "id": "nfts2me",
       "name": "NFTs2Me",
       "description": "Create, deploy and manage your NFT collection and minting page with custom subdomain for free. No-code Art Generator, Token Gating & much much more.",
