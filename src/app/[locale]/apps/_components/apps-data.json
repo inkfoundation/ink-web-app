@@ -1331,6 +1331,29 @@
       }
     },
     {
+      "id": "saddasdas",
+      "name": "saddasdas",
+      "description": "sdadsadsa",
+      "imageUrl": "/featured-apps/icons/saddasdas.webp",
+      "category": [
+        "Explorers"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "explorer"
+      ],
+      "links": {
+        "mainnetWebsite": "https://uniswap.oorg",
+        "testnetWebsite": "https://uniswap.oorg",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "safe",
       "name": "SAFE",
       "description": "Single unified balance. Instant cross-chain transactions.\nExecution guarantees. On any network.",
