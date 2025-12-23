@@ -235,6 +235,33 @@
       }
     },
     {
+      "id": "copink",
+      "name": "Copink",
+      "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
+      "imageUrl": "/featured-apps/icons/copink.webp",
+      "category": [
+        "DeFi",
+        "Explorers"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "yield",
+        "data",
+        "tokens",
+        "fun"
+      ],
+      "links": {
+        "mainnetWebsite": "https://www.copink.xyz/",
+        "testnetWebsite": "https://www.copink.xyz/",
+        "x": "https://x.com/copink_xyz",
+        "discord": "https://discord.com/invite/kYJJHjqy",
+        "telegram": "https://t.me/cop_ink",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "crypto-clash",
       "name": "Crypto Clash",
       "description": "Strategic card battles powered by crypto currency markets on Ink.   Battle mighty crypto houses in a game of Proof of Power ⚔️",
