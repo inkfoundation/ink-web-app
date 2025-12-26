@@ -1197,6 +1197,30 @@
       }
     },
     {
+      "id": "raj",
+      "name": "raj",
+      "description": "put",
+      "imageUrl": "/featured-apps/icons/raj.webp",
+      "category": [
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tools",
+        "tokens"
+      ],
+      "links": {
+        "mainnetWebsite": "https://www.bcmtoday.com/en",
+        "testnetWebsite": "https://www.bcmtoday.com/en",
+        "x": "https://x.com/iam_shimorekato",
+        "discord": "https://discord.gg/i",
+        "telegram": "https://t.me/usernam",
+        "github": "https://github.com/use",
+        "farcaster": "https://warpcast.com/us",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x8e69a4d22b44b80d98424638d693a99340ebd4a6"
+      }
+    },
+    {
       "id": "redstone",
       "name": "Redstone",
       "description": "The fastest-growing Oracle for DeFi and Institutions. Available on 50+ chains, trusted by 100+ clients.",
