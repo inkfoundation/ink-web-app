@@ -509,6 +509,29 @@
       }
     },
     {
+      "id": "hi-there",
+      "name": "HI there",
+      "description": "asdasdas",
+      "imageUrl": "/featured-apps/icons/hi-there.webp",
+      "category": [
+        "Explorers"
+      ],
+      "network": "Testnet",
+      "tags": [
+        "domain names"
+      ],
+      "links": {
+        "mainnetWebsite": "https://inkonchain.com/apps",
+        "testnetWebsite": "https://inkonchain.com/apps",
+        "x": "https://x.com/themr85ttt",
+        "discord": "https://discord.gg/invite",
+        "telegram": "https://t.me/username",
+        "github": "https://github.com/username",
+        "farcaster": "https://warpcast.com/username",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "holyheld",
       "name": "Holyheld",
       "description": "One card for all crypto.",
