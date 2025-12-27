@@ -396,6 +396,32 @@
       }
     },
     {
+      "id": "eswap",
+      "name": "Eswap",
+      "description": "Eswap: The World’s First 0% interest Spot Margin DEX with Ethical Leverage.",
+      "imageUrl": "/featured-apps/icons/eswap.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "dex",
+        "cross-chain",
+        "tokens",
+        "lending"
+      ],
+      "links": {
+        "mainnetWebsite": "https://ewap-margin.vercel.app/trade",
+        "testnetWebsite": "https://ewap-margin.vercel.app/trade",
+        "x": "https://x.com/ESWAP_DEX",
+        "discord": "https://discord.gg/ZfhqVwrW",
+        "telegram": "https://t.me/Eswap_margin",
+        "github": "https://github.com/EAbdelilah/Unilev",
+        "farcaster": "https://warpcast.com/eswap",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "frax",
       "name": "Frax",
       "description": "The Decentralized Central Bank of Crypto.",
@@ -889,7 +915,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
