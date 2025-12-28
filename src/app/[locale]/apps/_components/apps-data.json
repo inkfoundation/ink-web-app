@@ -602,6 +602,31 @@
       }
     },
     {
+      "id": "inkavern",
+      "name": "Inkavern",
+      "description": "Inkavern is an all in one dashboard for tracking ink wallets, positions, NFTs, and transactions in a single, clean, and fast interface.",
+      "imageUrl": "/featured-apps/icons/inkavern.webp",
+      "category": [
+        "Other",
+        "Explorers"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tools",
+        "data"
+      ],
+      "links": {
+        "mainnetWebsite": "https://www.inkavern.com/",
+        "testnetWebsite": "https://www.inkavern.com/",
+        "x": "https://x.com/inkavern",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "inkcheck",
       "name": "InkCheck",
       "description": "Deploy contracts on Ink . Earn NFTs. Track  Tydro  points. Building tools for quality on-chain activity.",
@@ -889,7 +914,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
