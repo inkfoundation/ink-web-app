@@ -9,7 +9,7 @@ jobs:
     if: github.repository == 'inkonchain/ink-web-app'
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: "Install Phrase CLI"
         run: brew install phrase-cli
         env:
