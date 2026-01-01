@@ -98,7 +98,7 @@ jobs:
           app-id: ${{ secrets.INK_CI_GITHUB_APP_ID }}
           private-key: ${{ secrets.INK_CI_GITHUB_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
-          repo: "ghcr.io/inkonchain/ink-web-app"
+          repo: "ghcr.io/inkfoundation/ink-web-app"
           digest: ${{ needs.image-build-push.outputs.image_digest }}
           app: "app-ink-web-app"
           environment: "ink-prod-eu-west-1"
