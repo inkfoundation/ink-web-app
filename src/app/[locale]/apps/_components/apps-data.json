@@ -1515,6 +1515,31 @@
       }
     },
     {
+      "id": "surf-layer",
+      "name": "Surf Layer",
+      "description": "SurfLayer — the home of on-chain rituals. Build your Web3 identity and earn rewards across 100+ EVM chains.",
+      "imageUrl": "/featured-apps/icons/surf-layer.webp",
+      "category": [
+        "Bridge",
+        "Social"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "cross-chain",
+        "fun"
+      ],
+      "links": {
+        "mainnetWebsite": "https://surflayer.xyz/",
+        "testnetWebsite": "https://surflayer.xyz/",
+        "x": "https://x.com/SurfLayer",
+        "discord": "https://discord.gg/CpDAkjGSZF",
+        "telegram": "",
+        "github": "https://github.com/surflayer/contract",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x3d97B802fFD7F36d50CE1498e8Ca5318C5c8e9EC"
+      }
+    },
+    {
       "id": "tenderly",
       "name": "Tenderly",
       "description": "Move fast from development to on-chain deployment with a multichain node RPC, integrated development environments, and debugging tools.",
