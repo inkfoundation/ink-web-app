@@ -92,6 +92,32 @@
       }
     },
     {
+      "id": "battledogs-arena",
+      "name": "Battledogs Arena",
+      "description": "A peer 2 peer NFT crypto game on Ink that focuses on using its transparent gaming finance to provide users  a Universal Basic Online Income through its Dual Token Drive Engine.",
+      "imageUrl": "/featured-apps/icons/battledogs-arena.webp",
+      "category": [
+        "Social",
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "nfts",
+        "fun",
+        "tokens"
+      ],
+      "links": {
+        "mainnetWebsite": "https://battledogs.fun/ink",
+        "testnetWebsite": "https://battledogs.fun/ink",
+        "x": "https://x.com/battledogsarena",
+        "discord": "https://discord.gg/tCdYyJk",
+        "telegram": "https://t.me/battledogsarena",
+        "github": "https://github.com/Battledog-Games",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xda405cb8Bd7e61A926D4Be2f3Cb5BB24Fea8f43b"
+      }
+    },
+    {
       "id": "blockscout",
       "name": "Blockscout",
       "description": "Open-source, universally accessible, and fully customizable, the new Blockscout Explorer Portal is your definitive gateway to the blockchain world.",
