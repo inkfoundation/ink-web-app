@@ -10,6 +10,9 @@ on:
       - ops/preview-2
     paths:
       - "**"
+permissions:
+  contents: read
+  packages: write
 jobs:
   image-build-push:
     runs-on: ubuntu-latest
