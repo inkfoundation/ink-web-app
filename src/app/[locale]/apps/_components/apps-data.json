@@ -557,6 +557,29 @@
       }
     },
     {
+      "id": "ink",
+      "name": "Ink",
+      "description": "Test",
+      "imageUrl": "/featured-apps/icons/ink.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "data"
+      ],
+      "links": {
+        "mainnetWebsite": "https://inkonchain.com/apps",
+        "testnetWebsite": "https://inkonchain.com/apps",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "ink-bunnies-nft",
       "name": "Ink Bunnies NFT",
       "description": "Collection of 2,222 unique Ink Bunnies each one digitally born, inked, and one of a kind. 🐰",
