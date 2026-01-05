@@ -889,7 +889,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
@@ -1535,6 +1535,29 @@
         "telegram": "",
         "github": "https://github.com/Tenderly",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "test",
+      "name": "Test",
+      "description": "Test",
+      "imageUrl": "/featured-apps/icons/test.webp",
+      "category": [
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "fun"
+      ],
+      "links": {
+        "mainnetWebsite": "https://test.ink",
+        "testnetWebsite": "https://test.ink",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
