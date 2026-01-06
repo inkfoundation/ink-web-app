@@ -396,6 +396,29 @@
       }
     },
     {
+      "id": "flowbot",
+      "name": "FlowBot",
+      "description": "FlowBot is a professional automated trading platform for Perp DEX traders. With $4B+ volume and 1M+ trades across 7 DEXs, maximize rebates and liquidity provision with proven strategies.",
+      "imageUrl": "/featured-apps/icons/flowbot.webp",
+      "category": [
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "dex"
+      ],
+      "links": {
+        "mainnetWebsite": "https://flowbot.pro/",
+        "testnetWebsite": "https://flowbot.pro/",
+        "x": "https://x.com/Flowbot_pro",
+        "discord": "https://discord.com/invite/flowbot",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "frax",
       "name": "Frax",
       "description": "The Decentralized Central Bank of Crypto.",
@@ -889,7 +912,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
