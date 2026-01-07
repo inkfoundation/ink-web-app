@@ -284,6 +284,32 @@
       }
     },
     {
+      "id": "cxds---canza-finance",
+      "name": "CXDS - Canza Finance",
+      "description": "CXDS (Centralized eXchange Default Swaps) enables users to create credit default swaps (CDS) for deposits held in centralized exchanges.",
+      "imageUrl": "/featured-apps/icons/cxds---canza-finance.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Testnet",
+      "tags": [
+        "yield",
+        "interop",
+        "data",
+        "cross-chain"
+      ],
+      "links": {
+        "mainnetWebsite": "https://cxds.netlify.app/cxds",
+        "testnetWebsite": "https://cxds.netlify.app/cxds",
+        "x": "https://x.com/Canza_Finance",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/CanzaApps/cxds_server",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "deep-on-ink",
       "name": "The Deep",
       "description": "Dive into DeFi on Ink.",
@@ -889,7 +915,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
