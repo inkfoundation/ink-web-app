@@ -769,6 +769,30 @@
       }
     },
     {
+      "id": "krakx",
+      "name": "KRAKX",
+      "description": "Launch your token with Krakx on X.   @LaunchbyKrakx  NAME+TICKER",
+      "imageUrl": "/featured-apps/icons/krakx.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tools",
+        "tokens"
+      ],
+      "links": {
+        "mainnetWebsite": "https://www.krakx.ink/",
+        "testnetWebsite": "https://www.krakx.ink/",
+        "x": "https://x.com/LaunchbyKrakx",
+        "discord": "",
+        "telegram": "https://t.me/LaunchbyKrakx",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "layerzero",
       "name": "LayerZero",
       "description": "LayerZero is a technology that enables applications to move data across blockchains, uniquely supporting censorship-resistant messages and permissionless development through immutable smart contracts.",
