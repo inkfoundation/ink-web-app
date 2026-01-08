@@ -1560,6 +1560,30 @@
       }
     },
     {
+      "id": "token-factory",
+      "name": "Token Factory",
+      "description": "Deploy ERC20 tokens on multiple blockchains with just a few clicks. Fast, secure, and decentralized.",
+      "imageUrl": "/featured-apps/icons/token-factory.webp",
+      "category": [
+        "Infra"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tokens",
+        "tools"
+      ],
+      "links": {
+        "mainnetWebsite": "https://scfactory.xyz/",
+        "testnetWebsite": "https://scfactory.xyz/",
+        "x": "https://x.com/0xtokenfactory",
+        "discord": "",
+        "telegram": "https://t.me/detaaqua",
+        "github": "https://github.com/0xtokenfactory",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x196caF32513aa0172Fa8d7add734B6EDB0b17de2"
+      }
+    },
+    {
       "id": "token-terminal",
       "name": "Token Terminal",
       "description": "Fundamentals for crypto. Available also on the Bloomberg Terminal App Portal at APPS TOKEN GO.",
