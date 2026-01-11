@@ -328,6 +328,29 @@
       }
     },
     {
+      "id": "dinox",
+      "name": "DinoX",
+      "description": "The first AI-powered GameFi on INK",
+      "imageUrl": "/featured-apps/icons/dinox.webp",
+      "category": [
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "nfts"
+      ],
+      "links": {
+        "mainnetWebsite": "https://dinox.ink/",
+        "testnetWebsite": "https://dinox.ink/",
+        "x": "https://x.com/DinoX_Game",
+        "discord": "",
+        "telegram": "https://t.me/DinoX_Game",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "dune",
       "name": "Dune",
       "description": "Query, visualize, share and export data across 75+ blockchains — build together with Web3's biggest data community.",
@@ -889,7 +912,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
