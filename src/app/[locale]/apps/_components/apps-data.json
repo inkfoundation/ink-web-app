@@ -396,6 +396,33 @@
       }
     },
     {
+      "id": "firefly-labs",
+      "name": "Firefly Labs",
+      "description": "A universal asset interoperability network that offers services for any token fiat asset type with swaps and bridge  on any chain",
+      "imageUrl": "/featured-apps/icons/firefly-labs.webp",
+      "category": [
+        "Bridge",
+        "DeFi",
+        "Infra"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "cross-chain",
+        "dex",
+        "faucet"
+      ],
+      "links": {
+        "mainnetWebsite": "https://fireflylabs.app",
+        "testnetWebsite": "https://fireflylabs.app",
+        "x": "https://x.com/FireflyLabs",
+        "discord": "https://discord.com/invite/rrFzuqe2RZ",
+        "telegram": "",
+        "github": "https://github.com/firefly-dao",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xcbCD511CcF92Da77245C4aE936e574B630FF0001"
+      }
+    },
+    {
       "id": "frax",
       "name": "Frax",
       "description": "The Decentralized Central Bank of Crypto.",
@@ -889,7 +916,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
