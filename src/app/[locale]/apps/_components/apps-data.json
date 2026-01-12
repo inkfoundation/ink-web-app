@@ -889,7 +889,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
@@ -1328,6 +1328,35 @@
         "github": "",
         "farcaster": "https://warpcast.com/routescan",
         "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "rubyscore",
+      "name": "RubyScore",
+      "description": "Analytics platform for blockchains and wallets, which combines on-chain data with a massive and constantly growing database containing millions of wallet labels",
+      "imageUrl": "/featured-apps/icons/rubyscore.webp",
+      "category": [
+        "Infra",
+        "Explorers",
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "data",
+        "explorer",
+        "nfts",
+        "tools",
+        "cross-chain"
+      ],
+      "links": {
+        "mainnetWebsite": "https://rubyscore.io/dashboard?net=ink",
+        "testnetWebsite": "https://rubyscore.io/dashboard?net=ink",
+        "x": "https://x.com/rubyscore_io",
+        "discord": "https://discord.com/invite/rubyscore",
+        "telegram": "https://t.me/RubyScore_ann",
+        "github": "https://github.com/rubyscoreio",
+        "farcaster": "https://warpcast.com/rubyscore",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x009DBFEe9E155766AF434ED1652CA3769B05E76f"
       }
     },
     {
