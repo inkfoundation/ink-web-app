@@ -91,10 +91,8 @@ export const inkHomeApps = inkApps
       "kraken-wallet",
       "deep-on-ink",
       "velodrome",
-      "dinero",
       "gm",
       "inkypump",
-      "superswap",
     ].includes(a.id)
   )
   .sort((a, b) => {
