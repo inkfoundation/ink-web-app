@@ -191,6 +191,30 @@
       }
     },
     {
+      "id": "clique",
+      "name": "Clique",
+      "description": "Token Operations",
+      "imageUrl": "/featured-apps/icons/clique.webp",
+      "category": [
+        "Infra"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tokens",
+        "tools"
+      ],
+      "links": {
+        "mainnetWebsite": "https://www.clique.tech/",
+        "testnetWebsite": "https://www.clique.tech/",
+        "x": "https://x.com/Clique2046",
+        "discord": "",
+        "telegram": "https://t.me/jpeg_yakuza",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "comet-protocol",
       "name": "Comet Protocol",
       "description": "Bridge to other chains.",
@@ -794,7 +818,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
