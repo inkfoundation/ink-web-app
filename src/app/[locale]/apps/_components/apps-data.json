@@ -166,28 +166,6 @@
       }
     },
     {
-      "id": "brid.gg",
-      "name": "Brid.gg",
-      "description": "Experience seamless blockchain interactions like never before with Brid.gg, your premier interface for transferring assets across Ethereum, Optimism and Superchain networks.",
-      "imageUrl": "/featured-apps/icons/brid.gg.webp",
-      "category": [
-        "Bridge"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
-      "links": {
-        "mainnetWebsite": "https://www.brid.gg/ink",
-        "testnetWebsite": "https://testnet.brid.gg/ink-sepolia?amount=&originChainId=11155111&token=ETH",
-        "x": "https://x.com/Brid_gg",
-        "discord": "",
-        "telegram": "",
-        "github": "",
-        "farcaster": ""
-      }
-    },
-    {
       "id": "bungee-exchange",
       "name": "Bungee Exchange",
       "description": "Bungee Protocol is a global liquidity marketplace that enables users to perform actions across chains. It's designed to optimize the experience for end users, powered by Socket Protocol.",
@@ -203,8 +181,8 @@
         "chain abstraction"
       ],
       "links": {
-        "mainnetWebsite": "https://new.bungee.exchange/",
-        "testnetWebsite": "https://new.bungee.exchange/",
+        "mainnetWebsite": "https://bungee.exchange/",
+        "testnetWebsite": "https://bungee.exchange/",
         "x": "https://twitter.com/BungeeExchange",
         "discord": "https://discord.gg/DrvfYq6fvc",
         "telegram": "",
@@ -231,6 +209,28 @@
         "discord": "https://discord.gg/ZTFQNNXcYs",
         "telegram": "",
         "github": "https://github.com/cometbridge",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "cobridge",
+      "name": "Co bridge",
+      "description": "Cross-chain bridge for seamless asset transfers.",
+      "imageUrl": "/featured-apps/icons/cobridge.webp",
+      "category": [
+        "Bridge"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "cross-chain"
+      ],
+      "links": {
+        "mainnetWebsite": "https://cobridge.xyz",
+        "testnetWebsite": "https://cobridge.xyz",
+        "x": "https://x.com/ConftApp",
+        "discord": "https://discord.gg/FU8MNfMRv8",
+        "telegram": "https://t.me/co_nft",
+        "github": "",
         "farcaster": ""
       }
     },
@@ -306,28 +306,6 @@
       }
     },
     {
-      "id": "dinero",
-      "name": "Dinero",
-      "description": "The yield baseplate of Ethereum. Formerly Redacted.",
-      "imageUrl": "/featured-apps/icons/dinero.webp",
-      "category": [
-        "DeFi"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "yield"
-      ],
-      "links": {
-        "mainnetWebsite": "https://ink.dinero.xyz/",
-        "testnetWebsite": "https://ink.dinero.xyz/",
-        "x": "https://x.com/dinero_xyz",
-        "discord": "https://discord.gg/dineroxyz",
-        "telegram": "",
-        "github": "",
-        "farcaster": ""
-      }
-    },
-    {
       "id": "dune",
       "name": "Dune",
       "description": "Query, visualize, share and export data across 75+ blockchains — build together with Web3's biggest data community.",
@@ -396,52 +374,6 @@
       }
     },
     {
-      "id": "frax",
-      "name": "Frax",
-      "description": "The Decentralized Central Bank of Crypto.",
-      "imageUrl": "/featured-apps/icons/frax.webp",
-      "category": [
-        "DeFi"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "dex",
-        "lending",
-        "yield"
-      ],
-      "links": {
-        "mainnetWebsite": "https://frax.finance/",
-        "testnetWebsite": "https://frax.finance/",
-        "x": "https://x.com/fraxfinance",
-        "discord": "https://discord.gg/fraxfinance",
-        "telegram": "https://t.me/fraxfinance",
-        "github": "https://github.com/FraxFinance",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "gas.zip",
-      "name": "Gas.zip",
-      "description": "Fastest one-stop gas refuel bridge for over 300+ chains.",
-      "imageUrl": "/featured-apps/icons/gas.zip.webp",
-      "category": [
-        "Bridge"
-      ],
-      "network": "Both",
-      "tags": [
-        "cross-chain"
-      ],
-      "links": {
-        "mainnetWebsite": "https://www.gas.zip/",
-        "testnetWebsite": "https://www.gas.zip/",
-        "x": "https://x.com/gasdotzip",
-        "discord": "https://discord.com/invite/gasdotzip",
-        "telegram": "",
-        "github": "",
-        "farcaster": ""
-      }
-    },
-    {
       "id": "gelato",
       "name": "Gelato",
       "description": "Build scalable, custom enterprise-grade Rollups with Gelato's Web3 Services natively integrated.",
@@ -506,32 +438,6 @@
         "telegram": "",
         "github": "https://github.com/goldsky-io",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "holyheld",
-      "name": "Holyheld",
-      "description": "One card for all crypto.",
-      "imageUrl": "/featured-apps/icons/holyheld.webp",
-      "category": [
-        "Other",
-        "DeFi",
-        "Infra"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "tokens",
-        "cross-chain"
-      ],
-      "links": {
-        "mainnetWebsite": "https://holyheld.com/",
-        "testnetWebsite": "https://holyheld.com/",
-        "x": "https://x.com/holyheld?s=21",
-        "discord": "",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
       }
     },
     {
@@ -607,7 +513,7 @@
       "description": "Deploy contracts on Ink . Earn NFTs. Track  Tydro  points. Building tools for quality on-chain activity.",
       "imageUrl": "/featured-apps/icons/inkcheck.webp",
       "category": [
-        "DeFi",
+        "Other",
         "Social"
       ],
       "network": "Mainnet",
@@ -699,29 +605,6 @@
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "ionic",
-      "name": "Ionic",
-      "description": "Absolute capital efficiency for the OP Superchain DeFi ecosystem. All assets - One intuitive UI.",
-      "imageUrl": "/featured-apps/icons/ionic.webp",
-      "category": [
-        "DeFi"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "lending",
-        "yield"
-      ],
-      "links": {
-        "mainnetWebsite": "https://app.ionic.money/market?chain=57073",
-        "testnetWebsite": "https://app.ionic.money/market?chain=57073",
-        "x": "https://twitter.com/ionicmoney",
-        "discord": "https://discord.gg/FmgedqR9wn",
-        "telegram": "https://t.me/ionicmoney",
-        "github": "https://github.com/ionicprotocol",
-        "farcaster": ""
       }
     },
     {
@@ -867,6 +750,28 @@
       }
     },
     {
+      "id": "meson",
+      "name": "Meson",
+      "description": "Fast and secure cross-chain bridge for stablecoins and ETH.",
+      "imageUrl": "/featured-apps/icons/meson.webp",
+      "category": [
+        "Bridge"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "cross-chain"
+      ],
+      "links": {
+        "mainnetWebsite": "https://meson.fi",
+        "testnetWebsite": "https://meson.fi",
+        "x": "https://x.com/mesonfi",
+        "discord": "https://meson.fi/join_discord",
+        "telegram": "https://t.me/mesonfi",
+        "github": "https://github.com/MesonFi",
+        "farcaster": ""
+      }
+    },
+    {
       "id": "mini-bridge",
       "name": "Mini Bridge",
       "description": "MiniBridge is a \"zero-fee\" cross-chain tool that offers multi-chain support for BTC/EVM/non-EVM and features such as fast transactions.",
@@ -922,7 +827,7 @@
       "description": "Net is a fully onchain NFT bazaar. All orders and sales are stored entirely onchain on Ink via Net  protocol. NFT trading is powered by Net protocol + Seaport.",
       "imageUrl": "/featured-apps/icons/net.webp",
       "category": [
-        "DeFi"
+        "Other"
       ],
       "network": "Mainnet",
       "tags": [
@@ -1242,6 +1147,28 @@
       }
     },
     {
+      "id": "rubyscore",
+      "name": "Rubyscore",
+      "description": "Social engagement and analytics platform for Web3 communities.",
+      "imageUrl": "/featured-apps/icons/rubyscore.webp",
+      "category": [
+        "Social"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tools"
+      ],
+      "links": {
+        "mainnetWebsite": "https://rubyscore.io",
+        "testnetWebsite": "https://rubyscore.io",
+        "x": "https://twitter.com/rubyscore_io",
+        "discord": "https://discord.gg/rubyscore",
+        "telegram": "https://t.me/RubyScore_ann",
+        "github": "",
+        "farcaster": ""
+      }
+    },
+    {
       "id": "reservoir:-relay",
       "name": "Reservoir: Relay",
       "description": "Instant, low-cost bridging\nand swapping.",
@@ -1260,28 +1187,6 @@
         "discord": "",
         "telegram": "",
         "github": "https://github.com/reservoirprotocol",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "reservoir:-swap",
-      "name": "Reservoir: Swap",
-      "description": "Buy, sell & trade Ethereum and other top tokens on Swap.",
-      "imageUrl": "/featured-apps/icons/reservoir_swap.webp",
-      "category": [
-        "DeFi"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "dex"
-      ],
-      "links": {
-        "mainnetWebsite": "https://reservoir.app/swap#/swap",
-        "testnetWebsite": "https://reservoir.app/swap#/swap",
-        "x": "https://x.com/reservoir0x",
-        "discord": "",
-        "telegram": "",
-        "github": "",
         "farcaster": ""
       }
     },
@@ -1492,29 +1397,6 @@
       }
     },
     {
-      "id": "superswap",
-      "name": "SuperSwap",
-      "description": "SuperSwap is a DEX aggregator on Ink Chain, uniting liquidity across DEXs to ensure the best rates, low slippage, and high returns. Simple, secure, and user-friendly trading at its best!",
-      "imageUrl": "/featured-apps/icons/superswap.webp",
-      "category": [
-        "DeFi"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "dex"
-      ],
-      "links": {
-        "mainnetWebsite": "https://SuperSwap.ink",
-        "testnetWebsite": "https://SuperSwap.ink",
-        "x": "https://x.com/superswapink",
-        "discord": "",
-        "telegram": "https://t.me/SuperSwapink",
-        "github": "https://github.com/SuperSwapink",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x5839389261D1F38aac7c8E91DcDa85646bEcB414"
-      }
-    },
-    {
       "id": "tenderly",
       "name": "Tenderly",
       "description": "Move fast from development to on-chain deployment with a multichain node RPC, integrated development environments, and debugging tools.",
@@ -1580,29 +1462,6 @@
         "telegram": "",
         "github": "",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "trade-on-ink",
-      "name": "Trade On INK",
-      "description": "A fast and secure telegram trading bot for  INK, enabling instant token buys and sells with real-time transaction tracking and no private key storage.",
-      "imageUrl": "/featured-apps/icons/trade-on-ink.webp",
-      "category": [
-        "Bridge"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "tools"
-      ],
-      "links": {
-        "mainnetWebsite": "https://t.me/TradeOnInk_bot",
-        "testnetWebsite": "https://t.me/TradeOnInk_bot",
-        "x": "https://x.com/Tradeonink",
-        "discord": "",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0xF44146f6533e8dff5FA02E16b0583B75dfC9aD90"
       }
     },
     {
@@ -1793,6 +1652,28 @@
         "x": "https://x.com/ZNSConnect",
         "discord": "https://discord.gg/2rrkuqT8pB",
         "telegram": "https://t.me/znsconnect",
+        "github": "",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "dinero",
+      "name": "Dinero",
+      "description": "The yield baseplate of Ethereum. Formerly Redacted.",
+      "imageUrl": "/featured-apps/icons/dinero.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "yield"
+      ],
+      "links": {
+        "mainnetWebsite": "https://ink.dinero.xyz/",
+        "testnetWebsite": "https://ink.dinero.xyz/",
+        "x": "https://x.com/dinero_xyz",
+        "discord": "https://discord.gg/dineroxyz",
+        "telegram": "",
         "github": "",
         "farcaster": ""
       }
