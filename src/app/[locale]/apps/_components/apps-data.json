@@ -185,21 +185,41 @@
       }
     },
     {
-      "id": "cobridge",
-      "name": "Co bridge",
-      "description": "Cross-chain bridge for seamless asset transfers.",
-      "imageUrl": "/featured-apps/icons/cobridge.webp",
-      "category": ["Bridge"],
+      "id": "clique",
+      "name": "Clique",
+      "description": "Token Operations",
+      "imageUrl": "/featured-apps/icons/clique.webp",
+      "category": ["Infra"],
       "network": "Mainnet",
-      "tags": ["cross-chain"],
+      "tags": ["tokens", "tools"],
       "links": {
-        "mainnetWebsite": "https://cobridge.xyz",
-        "testnetWebsite": "https://cobridge.xyz",
-        "x": "https://x.com/ConftApp",
-        "discord": "https://discord.gg/FU8MNfMRv8",
-        "telegram": "https://t.me/co_nft",
+        "mainnetWebsite": "https://www.clique.tech/",
+        "testnetWebsite": "https://www.clique.tech/",
+        "x": "https://x.com/Clique2046",
+        "discord": "",
+        "telegram": "https://t.me/jpeg_yakuza",
         "github": "",
-        "farcaster": ""
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "copink",
+      "name": "Copink",
+      "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
+      "imageUrl": "/featured-apps/icons/copink.webp",
+      "category": ["DeFi", "Explorers"],
+      "network": "Mainnet",
+      "tags": ["yield", "data", "tokens", "fun"],
+      "links": {
+        "mainnetWebsite": "https://www.copink.xyz/",
+        "testnetWebsite": "https://www.copink.xyz/",
+        "x": "https://x.com/copink_xyz",
+        "discord": "https://discord.com/invite/kYJJHjqy",
+        "telegram": "https://t.me/cop_ink",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
@@ -276,6 +296,25 @@
       }
     },
     {
+      "id": "dinox",
+      "name": "DinoX",
+      "description": "The first AI-powered GameFi on INK",
+      "imageUrl": "/featured-apps/icons/dinox.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["nfts"],
+      "links": {
+        "mainnetWebsite": "https://dinox.ink/",
+        "testnetWebsite": "https://dinox.ink/",
+        "x": "https://x.com/DinoX_Game",
+        "discord": "",
+        "telegram": "https://t.me/DinoX_Game",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "dyorswap",
       "name": "DYORSWAP",
       "description": "DYORSWAP is a multi-chain decentralized exchange (DEX) operating on multichain.",
@@ -310,6 +349,44 @@
         "telegram": "",
         "github": "https://github.com/ethereum-attestation-service",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "firefly-labs",
+      "name": "Firefly Labs",
+      "description": "A universal asset interoperability network that offers services for any token fiat asset type with swaps and bridge  on any chain",
+      "imageUrl": "/featured-apps/icons/firefly-labs.webp",
+      "category": ["Bridge", "DeFi", "Infra"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex", "faucet"],
+      "links": {
+        "mainnetWebsite": "https://fireflylabs.app",
+        "testnetWebsite": "https://fireflylabs.app",
+        "x": "https://x.com/FireflyLabs",
+        "discord": "https://discord.com/invite/rrFzuqe2RZ",
+        "telegram": "",
+        "github": "https://github.com/firefly-dao",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xcbCD511CcF92Da77245C4aE936e574B630FF0001"
+      }
+    },
+    {
+      "id": "flowbot",
+      "name": "FlowBot",
+      "description": "FlowBot is a professional automated trading platform for Perp DEX traders. With $4B+ volume and 1M+ trades across 7 DEXs, maximize rebates and liquidity provision with proven strategies.",
+      "imageUrl": "/featured-apps/icons/flowbot.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://flowbot.pro/",
+        "testnetWebsite": "https://flowbot.pro/",
+        "x": "https://x.com/Flowbot_pro",
+        "discord": "https://discord.com/invite/flowbot",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
@@ -382,6 +459,25 @@
         "telegram": "",
         "github": "",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "hyperfluid",
+      "name": "HyperFluid",
+      "description": "HyperFluid is a swapping aggregator and DEX, support 60+ blockchains, enabling seamless same-chain swaps and cross-chain bridging, including routing funds from over 60 chains directly into Inkonchain.",
+      "imageUrl": "/featured-apps/icons/hyperfluid.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://HyperFluid.pro",
+        "testnetWebsite": "https://HyperFluid.pro",
+        "x": "https://x.com/HyperFluidx",
+        "discord": "https://discord.gg/4UjACCYfha",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
@@ -492,6 +588,25 @@
         "x": "https://x.com/inkyswap",
         "discord": "",
         "telegram": "https://t.me/inkyswap",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "inkavern",
+      "name": "Inkavern",
+      "description": "Inkavern is an all in one dashboard for tracking ink wallets, positions, NFTs, and transactions.",
+      "imageUrl": "/featured-apps/icons/inkavern.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["data", "tools"],
+      "links": {
+        "mainnetWebsite": "https://www.inkavern.com",
+        "testnetWebsite": "https://www.inkavern.com",
+        "x": "https://x.com/inkavern",
+        "discord": "",
+        "telegram": "",
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
