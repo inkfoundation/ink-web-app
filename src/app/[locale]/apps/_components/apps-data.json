@@ -148,6 +148,25 @@
       }
     },
     {
+      "id": "cobridge",
+      "name": "coBridge",
+      "description": "coBridge is a fast and secure EVM cross-chain bridge enabling seamless asset and data transfers between Ethereum-compatible blockchains.",
+      "imageUrl": "/featured-apps/icons/cobridge.webp",
+      "category": ["Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://cobridge.xyz",
+        "testnetWebsite": "https://cobridge.xyz",
+        "x": "https://x.com/ConftApp",
+        "discord": "https://discord.com/invite/FU8MNfMRv8",
+        "telegram": "https://t.me/co_nft",
+        "github": "https://github.com/Conft-dev",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x38feA0959656FF4009a8d807aDaa5247dbFEB590"
+      }
+    },
+    {
       "id": "comet-protocol",
       "name": "Comet Protocol",
       "description": "Bridge to other chains.",
@@ -592,7 +611,7 @@
     {
       "id": "meson",
       "name": "Meson",
-      "description": "Fast and secure cross-chain bridge for stablecoins and ETH.",
+      "description": "Meson Finance is a leading unified cross-chain bridging protocol enabling staple digital assets like BTC, ETH, BNB, and stablecoins cross-chain between any of our supported 60+ blockchains.",
       "imageUrl": "/featured-apps/icons/meson.webp",
       "category": ["Bridge"],
       "network": "Mainnet",
@@ -601,10 +620,11 @@
         "mainnetWebsite": "https://meson.fi",
         "testnetWebsite": "https://meson.fi",
         "x": "https://x.com/mesonfi",
-        "discord": "https://meson.fi/join_discord",
+        "discord": "https://discord.gg/mesonfi",
         "telegram": "https://t.me/mesonfi",
         "github": "https://github.com/MesonFi",
-        "farcaster": ""
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x25aB3Efd52e6470681CE037cD546Dc60726948D3"
       }
     },
     {
@@ -907,20 +927,21 @@
     },
     {
       "id": "rubyscore",
-      "name": "Rubyscore",
-      "description": "Social engagement and analytics platform for Web3 communities.",
+      "name": "RubyScore",
+      "description": "Analytics platform for blockchains and wallets, which combines on-chain data with a massive and constantly growing database containing millions of wallet labels",
       "imageUrl": "/featured-apps/icons/rubyscore.webp",
-      "category": ["Social"],
+      "category": ["Infra", "Explorers", "Other"],
       "network": "Mainnet",
-      "tags": ["tools"],
+      "tags": ["data", "explorer", "nfts", "tools", "cross-chain"],
       "links": {
-        "mainnetWebsite": "https://rubyscore.io",
-        "testnetWebsite": "https://rubyscore.io",
-        "x": "https://twitter.com/rubyscore_io",
-        "discord": "https://discord.gg/rubyscore",
+        "mainnetWebsite": "https://rubyscore.io/dashboard?net=ink",
+        "testnetWebsite": "https://rubyscore.io/dashboard?net=ink",
+        "x": "https://x.com/rubyscore_io",
+        "discord": "https://discord.com/invite/rubyscore",
         "telegram": "https://t.me/RubyScore_ann",
-        "github": "",
-        "farcaster": ""
+        "github": "https://github.com/rubyscoreio",
+        "farcaster": "https://warpcast.com/rubyscore",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x009DBFEe9E155766AF434ED1652CA3769B05E76f"
       }
     },
     {
