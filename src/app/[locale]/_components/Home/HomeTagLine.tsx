@@ -2,9 +2,12 @@
 import { Button, Card, CardContent, InkIcon } from "@inkonchain/ink-kit";
 
 import { ColoredText } from "@/components/ColoredText";
+import { useBridgeAvailability } from "@/hooks/useBridgeAvailability";
 import { Link } from "@/routing";
 
 export const HomeTagLine = () => {
+  const { isAvailable: isBridgeAvailable } = useBridgeAvailability();
+
   return (
     <Card>
       <CardContent.Tagline
@@ -17,9 +20,11 @@ export const HomeTagLine = () => {
         }
         buttons={
           <>
-            <Button asChild size="lg" iconLeft={<InkIcon.Bridge />}>
-              <Link href="/bridge">Bridge now</Link>
-            </Button>
+            {isBridgeAvailable && (
+              <Button asChild size="lg" iconLeft={<InkIcon.Bridge />}>
+                <Link href="/bridge">Bridge now</Link>
+              </Button>
+            )}
             <Button
               asChild
               variant="secondary"

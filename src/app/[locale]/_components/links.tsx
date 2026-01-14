@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { InkIcon } from "@inkonchain/ink-kit";
 
+import { useBridgeAvailability } from "@/hooks/useBridgeAvailability";
 import { useFeatureFlag } from "@/hooks/useFeatureFlag";
 import { Link, Pathnames, usePathname } from "@/routing";
 import { FeatureFlagKey } from "@/util/feature-flags";
@@ -63,6 +64,7 @@ const links = [
 export function useLinks() {
   const pathname = usePathname();
   const verifyPage = useFeatureFlag("verifyPage");
+  const { isAvailable: isBridgeAvailable } = useBridgeAvailability();
   const flags = useMemo(
     () => ({
       verifyPage,
@@ -73,6 +75,10 @@ export function useLinks() {
   const filteredLinks = useMemo(
     () =>
       links.filter((link) => {
+        // Hide bridge link if bridge is not available
+        if (link.href === "/bridge") {
+          return isBridgeAvailable;
+        }
         if (link.flagKey) {
           return flags[link.flagKey];
         }
@@ -81,7 +87,7 @@ export function useLinks() {
         }
         return true;
       }),
-    [flags, pathname]
+    [flags, pathname, isBridgeAvailable]
   );
 
   return filteredLinks;
