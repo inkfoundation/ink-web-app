@@ -5,15 +5,9 @@
       "name": "0x",
       "description": "Embed swaps in your onchain app. Access 10+ million tokens with liquidity from 140+ exchanges, with the best prices and the smoothest trading experience.",
       "imageUrl": "/featured-apps/icons/0x.webp",
-      "category": [
-        "Infra",
-        "DeFi"
-      ],
+      "category": ["Infra", "DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "dex",
-        "tools"
-      ],
+      "tags": ["dex", "tools"],
       "links": {
         "mainnetWebsite": "https://0x.org",
         "testnetWebsite": "https://0x.org",
@@ -30,13 +24,9 @@
       "name": "3DNS",
       "description": "The first onchain web domain registrar, supporting .com, .xyz, .box, and over 420 more TLDs. Bring your domain onchain!",
       "imageUrl": "/featured-apps/icons/3dns.webp",
-      "category": [
-        "Social"
-      ],
+      "category": ["Social"],
       "network": "Mainnet",
-      "tags": [
-        "domain names"
-      ],
+      "tags": ["domain names"],
       "links": {
         "mainnetWebsite": "https://3dns.box/",
         "testnetWebsite": "https://3dns.box/",
@@ -52,13 +42,9 @@
       "name": "Across Protocol",
       "description": "Fast. Secure. Affordable. The bridge Ethereum deserves ✨",
       "imageUrl": "/featured-apps/icons/acrossprotocol.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://app.across.to/bridge",
         "testnetWebsite": "https://app.across.to/bridge",
@@ -74,13 +60,9 @@
       "name": "Astra Swap",
       "description": "Trade, earn, and own crypto on the all-in-one multichain DEX.",
       "imageUrl": "/featured-apps/icons/astraswap.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Testnet",
-      "tags": [
-        "dex"
-      ],
+      "tags": ["dex"],
       "links": {
         "mainnetWebsite": "https://astraswap.io/swap?chain=inkchain",
         "testnetWebsite": "https://astraswap.io/swap?chain=inkchain",
@@ -96,13 +78,9 @@
       "name": "Blockscout",
       "description": "Open-source, universally accessible, and fully customizable, the new Blockscout Explorer Portal is your definitive gateway to the blockchain world.",
       "imageUrl": "/featured-apps/icons/blockscout.webp",
-      "category": [
-        "Explorers"
-      ],
+      "category": ["Explorers"],
       "network": "Both",
-      "tags": [
-        "explorer"
-      ],
+      "tags": ["explorer"],
       "links": {
         "mainnetWebsite": "https://explorer.inkonchain.com/",
         "testnetWebsite": "https://explorer-sepolia.inkonchain.com/",
@@ -118,16 +96,9 @@
       "name": "BOI",
       "description": "First swipable NFT marketplace on Earth, built by the Bois for the Bois. Forget floors, swipe what you vibe with. Floor prices? Hidden deep for nerds. Real alpha: like the JPEG, not ROI math.",
       "imageUrl": "/featured-apps/icons/boi.webp",
-      "category": [
-        "Other",
-        "Social"
-      ],
+      "category": ["Other", "Social"],
       "network": "Mainnet",
-      "tags": [
-        "fun",
-        "nfts",
-        "tools"
-      ],
+      "tags": ["fun", "nfts", "tools"],
       "links": {
         "mainnetWebsite": "https://boi.andrukollor.ink/",
         "testnetWebsite": "https://boi.andrukollor.ink/",
@@ -144,16 +115,9 @@
       "name": "BOINK",
       "description": "Boink NFTs is a utility-driven ecosystem on Ink Chain featuring CoinFlip, NFT staking and an upcoming prediction market, while Boink 3D toys expand the brand beyond the blockchain.",
       "imageUrl": "/featured-apps/icons/boink.webp",
-      "category": [
-        "Other"
-      ],
+      "category": ["Other"],
       "network": "Testnet",
-      "tags": [
-        "nfts",
-        "tokens",
-        "fun",
-        "tools"
-      ],
+      "tags": ["nfts", "tokens", "fun", "tools"],
       "links": {
         "mainnetWebsite": "https://www.boinknfts.club",
         "testnetWebsite": "https://www.boinknfts.club",
@@ -170,16 +134,9 @@
       "name": "Bungee Exchange",
       "description": "Bungee Protocol is a global liquidity marketplace that enables users to perform actions across chains. It's designed to optimize the experience for end users, powered by Socket Protocol.",
       "imageUrl": "/featured-apps/icons/bungee.webp",
-      "category": [
-        "Bridge",
-        "DeFi"
-      ],
+      "category": ["Bridge", "DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain",
-        "interop",
-        "chain abstraction"
-      ],
+      "tags": ["cross-chain", "interop", "chain abstraction"],
       "links": {
         "mainnetWebsite": "https://bungee.exchange/",
         "testnetWebsite": "https://bungee.exchange/",
@@ -195,13 +152,9 @@
       "name": "Comet Protocol",
       "description": "Bridge to other chains.",
       "imageUrl": "/featured-apps/icons/cometprotocol.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Testnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://cometbridge.app/",
         "testnetWebsite": "https://cometbridge.app/",
@@ -217,13 +170,9 @@
       "name": "Co bridge",
       "description": "Cross-chain bridge for seamless asset transfers.",
       "imageUrl": "/featured-apps/icons/cobridge.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://cobridge.xyz",
         "testnetWebsite": "https://cobridge.xyz",
@@ -239,17 +188,9 @@
       "name": "Crypto Clash",
       "description": "Strategic card battles powered by crypto currency markets on Ink.   Battle mighty crypto houses in a game of Proof of Power ⚔️",
       "imageUrl": "/featured-apps/icons/crypto-clash.webp",
-      "category": [
-        "DeFi",
-        "Social",
-        "Other"
-      ],
+      "category": ["DeFi", "Social", "Other"],
       "network": "Mainnet",
-      "tags": [
-        "dex",
-        "fun",
-        "nfts"
-      ],
+      "tags": ["dex", "fun", "nfts"],
       "links": {
         "mainnetWebsite": "https://www.cryptoclash.ink",
         "testnetWebsite": "https://www.cryptoclash.ink",
@@ -266,13 +207,9 @@
       "name": "Curve",
       "description": "Creating deep on-chain liquidity using advanced bonding curves.",
       "imageUrl": "/featured-apps/icons/curve.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "dex"
-      ],
+      "tags": ["dex"],
       "links": {
         "mainnetWebsite": "https://curve.finance/",
         "testnetWebsite": "https://curve.finance/",
@@ -288,13 +225,9 @@
       "name": "The Deep",
       "description": "Dive into DeFi on Ink.",
       "imageUrl": "/featured-apps/icons/thedeep.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "yield"
-      ],
+      "tags": ["yield"],
       "links": {
         "mainnetWebsite": "https://thedeep.ink/",
         "testnetWebsite": "https://thedeep.ink/",
@@ -310,14 +243,9 @@
       "name": "Dune",
       "description": "Query, visualize, share and export data across 75+ blockchains — build together with Web3's biggest data community.",
       "imageUrl": "/featured-apps/icons/dune.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Mainnet",
-      "tags": [
-        "data",
-        "tools"
-      ],
+      "tags": ["data", "tools"],
       "links": {
         "mainnetWebsite": "https://dune.com/home",
         "testnetWebsite": "https://dune.com/home",
@@ -333,13 +261,9 @@
       "name": "DYORSWAP",
       "description": "DYORSWAP is a multi-chain decentralized exchange (DEX) operating on multichain.",
       "imageUrl": "/featured-apps/icons/dyorswap.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "dex"
-      ],
+      "tags": ["dex"],
       "links": {
         "mainnetWebsite": "https://dyorswap.finance/?chainId=57073",
         "testnetWebsite": "https://dyorswap.finance/?chainId=57073",
@@ -356,13 +280,9 @@
       "name": "EAS",
       "description": "Infrastructure public good that enables builders to structure and attest to any data onchain or offchain.",
       "imageUrl": "/featured-apps/icons/eas.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Both",
-      "tags": [
-        "tools"
-      ],
+      "tags": ["tools"],
       "links": {
         "mainnetWebsite": "https://attest.org/",
         "testnetWebsite": "https://attest.org/",
@@ -378,13 +298,9 @@
       "name": "Gelato",
       "description": "Build scalable, custom enterprise-grade Rollups with Gelato's Web3 Services natively integrated.",
       "imageUrl": "/featured-apps/icons/gelato.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Both",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://bridge.gelato.network/bridge/ink",
         "testnetWebsite": "https://testnet-bridge.gelato.network/bridge/ink-sepolia",
@@ -400,13 +316,9 @@
       "name": "GM",
       "description": "Tap to GM! Check in daily, say GM to friends, collect streaks, and climb the leaderboard.",
       "imageUrl": "/featured-apps/icons/gm.webp",
-      "category": [
-        "Social"
-      ],
+      "category": ["Social"],
       "network": "Mainnet",
-      "tags": [
-        "fun"
-      ],
+      "tags": ["fun"],
       "links": {
         "mainnetWebsite": "https://gm.inkonchain.com/",
         "testnetWebsite": "https://gm.inkonchain.com/",
@@ -422,14 +334,9 @@
       "name": "Goldsky",
       "description": "Goldsky powers hundreds of crypto businesses building rich, instant, data-driven experiences.",
       "imageUrl": "/featured-apps/icons/goldsky.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Both",
-      "tags": [
-        "data",
-        "tools"
-      ],
+      "tags": ["data", "tools"],
       "links": {
         "mainnetWebsite": "https://docs.goldsky.com/chains/ink",
         "testnetWebsite": "https://docs.goldsky.com/chains/ink",
@@ -445,13 +352,9 @@
       "name": "Hypernative",
       "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
       "imageUrl": "/featured-apps/icons/hypernative.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Both",
-      "tags": [
-        "security"
-      ],
+      "tags": ["security"],
       "links": {
         "mainnetWebsite": "https://www.hypernative.io/",
         "testnetWebsite": "https://www.hypernative.io/",
@@ -467,13 +370,9 @@
       "name": "Ink Bunnies NFT",
       "description": "Collection of 2,222 unique Ink Bunnies each one digitally born, inked, and one of a kind. 🐰",
       "imageUrl": "/featured-apps/icons/ink-bunnies-nft.webp",
-      "category": [
-        "Other"
-      ],
+      "category": ["Other"],
       "network": "Mainnet",
-      "tags": [
-        "nfts"
-      ],
+      "tags": ["nfts"],
       "links": {
         "mainnetWebsite": "https://www.inkbunnies.xyz",
         "testnetWebsite": "https://www.inkbunnies.xyz",
@@ -490,13 +389,9 @@
       "name": "Ink Paint",
       "description": "Paint on Ink!",
       "imageUrl": "",
-      "category": [
-        "Social"
-      ],
+      "category": ["Social"],
       "network": "Testnet",
-      "tags": [
-        "fun"
-      ],
+      "tags": ["fun"],
       "links": {
         "mainnetWebsite": "https://ink-paint.vercel.app/",
         "testnetWebsite": "https://ink-paint.vercel.app/",
@@ -512,18 +407,9 @@
       "name": "InkCheck",
       "description": "Deploy contracts on Ink . Earn NFTs. Track  Tydro  points. Building tools for quality on-chain activity.",
       "imageUrl": "/featured-apps/icons/inkcheck.webp",
-      "category": [
-        "Other",
-        "Social"
-      ],
+      "category": ["Other", "Social"],
       "network": "Mainnet",
-      "tags": [
-        "fun",
-        "nfts",
-        "tokens",
-        "tools",
-        "yield"
-      ],
+      "tags": ["fun", "nfts", "tokens", "tools", "yield"],
       "links": {
         "mainnetWebsite": "https://inkcheck.xyz/",
         "testnetWebsite": "https://inkcheck.xyz/",
@@ -540,16 +426,9 @@
       "name": "InkDCA",
       "description": "InkDCA is a fully decentralized, trust minimized Dollar-Cost Averaging (DCA) platform built exclusively on Ink .",
       "imageUrl": "/featured-apps/icons/inkdca.webp",
-      "category": [
-        "DeFi",
-        "Other"
-      ],
+      "category": ["DeFi", "Other"],
       "network": "Mainnet",
-      "tags": [
-        "dex",
-        "tools",
-        "tokens"
-      ],
+      "tags": ["dex", "tools", "tokens"],
       "links": {
         "mainnetWebsite": "https://inkdca.com/",
         "testnetWebsite": "https://inkdca.com/",
@@ -566,13 +445,9 @@
       "name": "InkyPump",
       "description": "The first pump.fun-style protocol on Ink Network (Kraken's L2). Users can instantly create tokens by choosing a name, ticker, and JPG image.",
       "imageUrl": "/featured-apps/icons/inkypump.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "fun"
-      ],
+      "tags": ["fun"],
       "links": {
         "mainnetWebsite": "https://pump.inkyswap.com/",
         "testnetWebsite": "https://pump.inkyswap.com/",
@@ -589,13 +464,9 @@
       "name": "InkySwap",
       "description": "The decentralized exchange on Ink, where InkyPump's tokens get their liquidity once they reach the threshold. InkySwap handles the token trading and liquidity pools for Ink Network's DeFi ecosystem.",
       "imageUrl": "/featured-apps/icons/inkyswap.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "dex"
-      ],
+      "tags": ["dex"],
       "links": {
         "mainnetWebsite": "https://inkyswap.com",
         "testnetWebsite": "https://inkyswap.com",
@@ -612,13 +483,9 @@
       "name": "Kraken",
       "description": "Kraken is your bridge to the world of crypto. Spot, Futures, Margin, NFTs, Staking & OTC Buy, sell, trade, earn, explore and learn.",
       "imageUrl": "https://cdn.sanity.io/images/51n36hrp/facade/a925939f448a3a410f4f32334165623ad4cccba1-512x512.svg",
-      "category": [
-        "On-ramps"
-      ],
+      "category": ["On-ramps"],
       "network": "Mainnet",
-      "tags": [
-        "funding"
-      ],
+      "tags": ["funding"],
       "links": {
         "mainnetWebsite": "https://www.kraken.com/",
         "testnetWebsite": "https://www.kraken.com/",
@@ -634,13 +501,9 @@
       "name": "Kraken Wallet",
       "description": "Kraken Wallet is a powerful, self-custody wallet built to connect you to the decentralized web — safely and securely.",
       "imageUrl": "https://cdn.sanity.io/images/51n36hrp/facade/475b8798c392708faa303eab78e616eb868f7730-512x512.svg",
-      "category": [
-        "On-ramps"
-      ],
+      "category": ["On-ramps"],
       "network": "Both",
-      "tags": [
-        "wallet"
-      ],
+      "tags": ["wallet"],
       "links": {
         "mainnetWebsite": "https://www.kraken.com/wallet",
         "testnetWebsite": "https://www.kraken.com/wallet",
@@ -656,14 +519,9 @@
       "name": "LayerZero",
       "description": "LayerZero is a technology that enables applications to move data across blockchains, uniquely supporting censorship-resistant messages and permissionless development through immutable smart contracts.",
       "imageUrl": "/featured-apps/icons/layerzero.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain",
-        "interop"
-      ],
+      "tags": ["cross-chain", "interop"],
       "links": {
         "mainnetWebsite": "https://layerzero.network/",
         "testnetWebsite": "https://layerzero.network/",
@@ -679,19 +537,9 @@
       "name": "Mavrk",
       "description": "A decentralized DeFi hub for token creation, trading, and cross-chain liquidity - the fastest and most capital-efficient way to create markets, all powered by Ink.",
       "imageUrl": "/featured-apps/icons/mavrk.webp",
-      "category": [
-        "Bridge",
-        "DeFi",
-        "Other"
-      ],
+      "category": ["Bridge", "DeFi", "Other"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain",
-        "fun",
-        "tokens",
-        "wallet",
-        "tools"
-      ],
+      "tags": ["cross-chain", "fun", "tokens", "wallet", "tools"],
       "links": {
         "mainnetWebsite": "https://www.mavrk.ink",
         "testnetWebsite": "https://www.mavrk.ink",
@@ -708,13 +556,9 @@
       "name": "Meme Bridge",
       "description": "The cheapest Layer2 bridge. Earn points and bridge through Layer2s within seconds.",
       "imageUrl": "/featured-apps/icons/meme-bridge.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://www.memebridge.xyz/bridge",
         "testnetWebsite": "https://www.memebridge.xyz/bridge",
@@ -731,13 +575,9 @@
       "name": "Merkly",
       "description": "Multifunctional Interoperability Platform |   Bridge & Refuel across 50+ Chains.",
       "imageUrl": "/featured-apps/icons/merkly.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://minter.merkly.com/hyperlane/token",
         "testnetWebsite": "https://minter.merkly.com/hyperlane/token",
@@ -754,13 +594,9 @@
       "name": "Meson",
       "description": "Fast and secure cross-chain bridge for stablecoins and ETH.",
       "imageUrl": "/featured-apps/icons/meson.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://meson.fi",
         "testnetWebsite": "https://meson.fi",
@@ -776,13 +612,9 @@
       "name": "Mini Bridge",
       "description": "MiniBridge is a \"zero-fee\" cross-chain tool that offers multi-chain support for BTC/EVM/non-EVM and features such as fast transactions.",
       "imageUrl": "/featured-apps/icons/mini-bridge.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://minibridge.chaineye.tools/",
         "testnetWebsite": "https://minibridge.chaineye.tools/",
@@ -794,18 +626,14 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
       "imageUrl": "/featured-apps/icons/nado.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "dex"
-      ],
+      "tags": ["dex"],
       "links": {
         "mainnetWebsite": "https://app.nado.xyz/",
         "testnetWebsite": "https://app.nado.xyz/",
@@ -817,22 +645,16 @@
         "smartContractUrl": ""
       },
       "order": 1,
-      "pills": [
-        "AIRDROP"
-      ]
+      "pills": ["AIRDROP"]
     },
     {
       "id": "net",
       "name": "Net",
       "description": "Net is a fully onchain NFT bazaar. All orders and sales are stored entirely onchain on Ink via Net  protocol. NFT trading is powered by Net protocol + Seaport.",
       "imageUrl": "/featured-apps/icons/net.webp",
-      "category": [
-        "Other"
-      ],
+      "category": ["Other"],
       "network": "Mainnet",
-      "tags": [
-        "nfts"
-      ],
+      "tags": ["nfts"],
       "links": {
         "mainnetWebsite": "https://www.netprotocol.app/",
         "testnetWebsite": "https://www.netprotocol.app/",
@@ -849,15 +671,9 @@
       "name": "NFTs2Me",
       "description": "Create, deploy and manage your NFT collection and minting page with custom subdomain for free. No-code Art Generator, Token Gating & much much more.",
       "imageUrl": "/featured-apps/icons/nfts2me.webp",
-      "category": [
-        "Social"
-      ],
+      "category": ["Social"],
       "network": "Both",
-      "tags": [
-        "fun",
-        "nfts",
-        "tools"
-      ],
+      "tags": ["fun", "nfts", "tools"],
       "links": {
         "mainnetWebsite": "https://nfts2me.com/",
         "testnetWebsite": "https://nfts2me.com/",
@@ -873,13 +689,9 @@
       "name": "OKX Explorer",
       "description": "Your go-to onchain data hub. Offering ALL-IN-ONE Blockchain Explorer, OpenAPI, and EaaS to securely explore and build onchain.",
       "imageUrl": "/featured-apps/icons/okxexplorer.webp",
-      "category": [
-        "Explorers"
-      ],
+      "category": ["Explorers"],
       "network": "Mainnet",
-      "tags": [
-        "explorer"
-      ],
+      "tags": ["explorer"],
       "links": {
         "mainnetWebsite": "https://web3.okx.com/explorer/inkchain",
         "testnetWebsite": "https://web3.okx.com/explorer/inkchain",
@@ -895,13 +707,9 @@
       "name": "Omnia Protocol",
       "description": "Smart RPC, DePIN & AI infrastructure building a more secure, scalable and resilient Web3 ecosystem.",
       "imageUrl": "/featured-apps/icons/omniaprotocol.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Testnet",
-      "tags": [
-        "rpc"
-      ],
+      "tags": ["rpc"],
       "links": {
         "mainnetWebsite": "https://omniatech.io/",
         "testnetWebsite": "https://omniatech.io/",
@@ -917,13 +725,9 @@
       "name": "Orbiter Finance",
       "description": "Orbiter Finance is a ZK-tech based cross-chain protocol offers fast, secure, and instant transfer.",
       "imageUrl": "/featured-apps/icons/orbiter-finance.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://www.orbiter.finance/en?src_chain=1&tgt_chain=57073&src_token=ETH",
         "testnetWebsite": "https://www.orbiter.finance/en?src_chain=1&tgt_chain=57073&src_token=ETH",
@@ -940,18 +744,9 @@
       "name": "Owlto",
       "description": "Owlto Finance is an intent-centric interoperability protocol, 'Bridge the World with AI Agent'.",
       "imageUrl": "/featured-apps/icons/owlto.webp",
-      "category": [
-        "Bridge",
-        "DeFi",
-        "Infra"
-      ],
+      "category": ["Bridge", "DeFi", "Infra"],
       "network": "Both",
-      "tags": [
-        "cross-chain",
-        "dex",
-        "tokens",
-        "faucet"
-      ],
+      "tags": ["cross-chain", "dex", "tokens", "faucet"],
       "links": {
         "mainnetWebsite": "https://owlto.finance/",
         "testnetWebsite": "https://owlto.finance/",
@@ -967,13 +762,9 @@
       "name": "Polymer",
       "description": "Polymer connects all Ethereum rollups with real-time high throughput interoperability, enabling swift cost-effective scaling for applications.",
       "imageUrl": "/featured-apps/icons/polymer.webp",
-      "category": [
-        "Infrastructure"
-      ],
+      "category": ["Infrastructure"],
       "network": "Mainnet",
-      "tags": [
-        "interop"
-      ],
+      "tags": ["interop"],
       "links": {
         "mainnetWebsite": "https://www.polymerlabs.org/",
         "testnetWebsite": "https://www.polymerlabs.org/",
@@ -989,14 +780,9 @@
       "name": "Project Zero",
       "description": "Project Zero is unlocking the next-gen of AI agents and dApps with actionable blockchain intelligence, by transforming and extracting vast amounts of data into insights and real-time decisions.",
       "imageUrl": "/featured-apps/icons/project-zero.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Both",
-      "tags": [
-        "data",
-        "cross-chain"
-      ],
+      "tags": ["data", "cross-chain"],
       "links": {
         "mainnetWebsite": "https://projectzero.io/",
         "testnetWebsite": "https://projectzero.io/",
@@ -1013,13 +799,9 @@
       "name": "PWN",
       "description": "PWN is a permissionless, peer-to-peer, fixed-rate lending protocol. Unlock liquidity using any asset, customize terms, always without price-based liquidations.",
       "imageUrl": "/featured-apps/icons/pwn.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "lending"
-      ],
+      "tags": ["lending"],
       "links": {
         "mainnetWebsite": "https://app.pwn.xyz",
         "testnetWebsite": "https://app.pwn.xyz",
@@ -1036,13 +818,9 @@
       "name": "Pyth",
       "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
       "imageUrl": "/featured-apps/icons/pyth.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Both",
-      "tags": [
-        "oracle"
-      ],
+      "tags": ["oracle"],
       "links": {
         "mainnetWebsite": "https://www.pyth.network/",
         "testnetWebsite": "https://www.pyth.network/",
@@ -1058,16 +836,9 @@
       "name": "Rails",
       "description": "Rails is a perpetual trading platform that seamlessly integrates centralized order processing with onchain custody on Ink, bringing traders the best of both worlds on a single platform.",
       "imageUrl": "/featured-apps/icons/rails.webp",
-      "category": [
-        "Infra",
-        "DeFi",
-        "Explorers"
-      ],
+      "category": ["Infra", "DeFi", "Explorers"],
       "network": "Mainnet",
-      "tags": [
-        "dex",
-        "explorer"
-      ],
+      "tags": ["dex", "explorer"],
       "links": {
         "mainnetWebsite": "https://rails.xyz/",
         "testnetWebsite": "https://rails.xyz/",
@@ -1084,13 +855,9 @@
       "name": "Rainbow",
       "description": "The fun, simple, & secure way to explore Web3, NFTs, & Ethereum 🌈",
       "imageUrl": "/featured-apps/icons/rainbow.webp",
-      "category": [
-        "On-ramps"
-      ],
+      "category": ["On-ramps"],
       "network": "Both",
-      "tags": [
-        "wallet"
-      ],
+      "tags": ["wallet"],
       "links": {
         "mainnetWebsite": "https://rainbow.me/en/",
         "testnetWebsite": "https://rainbow.me/en/",
@@ -1106,13 +873,9 @@
       "name": "Redstone",
       "description": "The fastest-growing Oracle for DeFi and Institutions. Available on 50+ chains, trusted by 100+ clients.",
       "imageUrl": "/featured-apps/icons/redstone.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Both",
-      "tags": [
-        "oracle"
-      ],
+      "tags": ["oracle"],
       "links": {
         "mainnetWebsite": "https://redstone.finance/",
         "testnetWebsite": "https://redstone.finance/",
@@ -1128,13 +891,9 @@
       "name": "Rekt Ink",
       "description": "The first NFT project on Ink for the culture. 4,444 fully animated characters with chaotic glitch art energy. A decentralized, active community building tools, community, and culture.",
       "imageUrl": "/featured-apps/icons/rekt-ink.webp",
-      "category": [
-        "Social"
-      ],
+      "category": ["Social"],
       "network": "Mainnet",
-      "tags": [
-        "nfts"
-      ],
+      "tags": ["nfts"],
       "links": {
         "mainnetWebsite": "https://www.rektink.com/",
         "testnetWebsite": "https://www.rektink.com/",
@@ -1151,13 +910,9 @@
       "name": "Rubyscore",
       "description": "Social engagement and analytics platform for Web3 communities.",
       "imageUrl": "/featured-apps/icons/rubyscore.webp",
-      "category": [
-        "Social"
-      ],
+      "category": ["Social"],
       "network": "Mainnet",
-      "tags": [
-        "tools"
-      ],
+      "tags": ["tools"],
       "links": {
         "mainnetWebsite": "https://rubyscore.io",
         "testnetWebsite": "https://rubyscore.io",
@@ -1173,13 +928,9 @@
       "name": "Reservoir: Relay",
       "description": "Instant, low-cost bridging\nand swapping.",
       "imageUrl": "/featured-apps/icons/reservoir_relay.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://relay.link/bridge/ink?includeChainIds=57073",
         "testnetWebsite": "https://relay.link/bridge/ink?includeChainIds=57073",
@@ -1195,13 +946,9 @@
       "name": "Rhino.fi",
       "description": "Your lightning-fast secure bridge for seamless cross-chain transactions.",
       "imageUrl": "/featured-apps/icons/rhino.fi.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://rhino.fi/",
         "testnetWebsite": "https://rhino.fi/",
@@ -1217,13 +964,9 @@
       "name": "Routescan",
       "description": "Multichain Unified Block Explorer",
       "imageUrl": "/featured-apps/icons/routescan.webp",
-      "category": [
-        "Explorers"
-      ],
+      "category": ["Explorers"],
       "network": "Both",
-      "tags": [
-        "explorer"
-      ],
+      "tags": ["explorer"],
       "links": {
         "mainnetWebsite": "https://inkonscan.xyz/",
         "testnetWebsite": "https://sepolia.inkonscan.xyz/",
@@ -1240,13 +983,9 @@
       "name": "SAFE",
       "description": "Single unified balance. Instant cross-chain transactions.\nExecution guarantees. On any network.",
       "imageUrl": "/featured-apps/icons/safe.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Mainnet",
-      "tags": [
-        "wallet"
-      ],
+      "tags": ["wallet"],
       "links": {
         "mainnetWebsite": "https://safe.global/safenet",
         "testnetWebsite": "https://safe.global/safenet",
@@ -1262,13 +1001,9 @@
       "name": "SEDA",
       "description": "Build app-specific oracle feeds in seconds, with any data on day one.",
       "imageUrl": "/featured-apps/icons/seda.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Both",
-      "tags": [
-        "oracle"
-      ],
+      "tags": ["oracle"],
       "links": {
         "mainnetWebsite": "https://www.seda.xyz/",
         "testnetWebsite": "https://www.seda.xyz/",
@@ -1284,15 +1019,9 @@
       "name": "Shellies",
       "description": "Shellies - 2,222 NFTs on InkChain. First collection with raffles and staking. Holders get access to exclusive raffle rewards and staking benefits.",
       "imageUrl": "/featured-apps/icons/shellies.webp",
-      "category": [
-        "Other"
-      ],
+      "category": ["Other"],
       "network": "Mainnet",
-      "tags": [
-        "nfts",
-        "tools",
-        "tokens"
-      ],
+      "tags": ["nfts", "tools", "tokens"],
       "links": {
         "mainnetWebsite": "https://shellies.xyz/",
         "testnetWebsite": "https://shellies.xyz/",
@@ -1309,15 +1038,9 @@
       "name": "Squid Market",
       "description": "SquidMarket is a native NFT marketplace and launchpad built on InkChain. It’s designed to make NFT trading, collecting, and launching simple, secure, and rewarding for both creators and traders.",
       "imageUrl": "/featured-apps/icons/squid-market.webp",
-      "category": [
-        "Social",
-        "Other"
-      ],
+      "category": ["Social", "Other"],
       "network": "Mainnet",
-      "tags": [
-        "nfts",
-        "domain names"
-      ],
+      "tags": ["nfts", "domain names"],
       "links": {
         "mainnetWebsite": "https://www.squidmarket.xyz/",
         "testnetWebsite": "https://www.squidmarket.xyz/",
@@ -1334,13 +1057,9 @@
       "name": "Stargate",
       "description": "Stargate is a fully composable liquidity transport protocol that lives at the heart of omnichain DeFi.",
       "imageUrl": "/featured-apps/icons/stargate.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://stargate.finance/bridge",
         "testnetWebsite": "https://stargate.finance/bridge",
@@ -1356,13 +1075,9 @@
       "name": "Superbridge",
       "description": "Superbridge is your entrypoint into the world of blockchain rollups! With Superbridge you can bridge Ether and other tokens into and out of any supported rollup.",
       "imageUrl": "/featured-apps/icons/superbridge.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://superbridge.app/ink",
         "testnetWebsite": "https://superbridge.app/ink",
@@ -1379,13 +1094,9 @@
       "name": "Supermigrate",
       "description": "Automatically deploy canonical bridged ERC20 to the Superchain. Start bridging and migrating liquidity to earn rewards all in one place.",
       "imageUrl": "/featured-apps/icons/supermigrate.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "interop"
-      ],
+      "tags": ["interop"],
       "links": {
         "mainnetWebsite": "https://supermigrate.xyz/en/dashboard",
         "testnetWebsite": "https://supermigrate.xyz/en/dashboard",
@@ -1401,14 +1112,9 @@
       "name": "Tenderly",
       "description": "Move fast from development to on-chain deployment with a multichain node RPC, integrated development environments, and debugging tools.",
       "imageUrl": "/featured-apps/icons/tenderly.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Both",
-      "tags": [
-        "rpc",
-        "tools"
-      ],
+      "tags": ["rpc", "tools"],
       "links": {
         "mainnetWebsite": "https://tenderly.co/",
         "testnetWebsite": "https://tenderly.co/",
@@ -1424,13 +1130,9 @@
       "name": "Token Deployer",
       "description": "1-click token deployer.",
       "imageUrl": "",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Testnet",
-      "tags": [
-        "tokens"
-      ],
+      "tags": ["tokens"],
       "links": {
         "mainnetWebsite": "https://token-deployer.demo.inkonchain.com/",
         "testnetWebsite": "https://token-deployer.demo.inkonchain.com/",
@@ -1446,14 +1148,9 @@
       "name": "Token Terminal",
       "description": "Fundamentals for crypto. Available also on the Bloomberg Terminal App Portal at APPS TOKEN GO.",
       "imageUrl": "/featured-apps/icons/tokenterminal.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "tokens",
-        "tools"
-      ],
+      "tags": ["tokens", "tools"],
       "links": {
         "mainnetWebsite": "https://tokenterminal.com/",
         "testnetWebsite": "https://tokenterminal.com/",
@@ -1469,14 +1166,9 @@
       "name": "Tydro",
       "description": "A decentralized, non-custodial liquidity protocol built on Ink and powered by Aave.",
       "imageUrl": "/featured-apps/icons/tydro.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "borrowing",
-        "tools"
-      ],
+      "tags": ["borrowing", "tools"],
       "links": {
         "mainnetWebsite": "https://app.tydro.com/",
         "testnetWebsite": "https://app.tydro.com/",
@@ -1488,22 +1180,16 @@
         "smartContractUrl": ""
       },
       "order": 2,
-      "pills": [
-        "AIRDROP"
-      ]
+      "pills": ["AIRDROP"]
     },
     {
       "id": "velodrome",
       "name": "Velodrome",
       "description": "Velodrome Finance is a next-generation AMM that combines the best of Curve, Convex and Uniswap, designed to serve as the liquidity hub for the Superchain.",
       "imageUrl": "/featured-apps/icons/velodrome.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "dex"
-      ],
+      "tags": ["dex"],
       "links": {
         "mainnetWebsite": "https://velodrome.finance/",
         "testnetWebsite": "https://velodrome.finance/",
@@ -1519,17 +1205,9 @@
       "name": "Web3 Packs",
       "description": "Crypto Simplified: One-Click, Single-Transaction Portfolios.",
       "imageUrl": "/featured-apps/icons/web3-packs.webp",
-      "category": [
-        "DeFi",
-        "Other",
-        "Infra"
-      ],
+      "category": ["DeFi", "Other", "Infra"],
       "network": "Mainnet",
-      "tags": [
-        "dex",
-        "tokens",
-        "cross-chain"
-      ],
+      "tags": ["dex", "tokens", "cross-chain"],
       "links": {
         "mainnetWebsite": "https://web3packs.com/",
         "testnetWebsite": "https://web3packs.com/",
@@ -1546,13 +1224,9 @@
       "name": "Wormhole",
       "description": "Wormhole is the leading interoperability platform powering multichain applications and bridges at scale.",
       "imageUrl": "/featured-apps/icons/wormhole.webp",
-      "category": [
-        "Bridge"
-      ],
+      "category": ["Bridge"],
       "network": "Mainnet",
-      "tags": [
-        "cross-chain"
-      ],
+      "tags": ["cross-chain"],
       "links": {
         "mainnetWebsite": "https://portalbridge.com/",
         "testnetWebsite": "https://portalbridge.com/",
@@ -1568,14 +1242,9 @@
       "name": "Zerion",
       "description": "Zerion is the best self-custodial wallet for everything you own onchain, helping you track and manage tokens, NFTs and DeFi positions across 55+ EVM chains - including ink",
       "imageUrl": "/featured-apps/icons/zerion.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Mainnet",
-      "tags": [
-        "wallet",
-        "data"
-      ],
+      "tags": ["wallet", "data"],
       "links": {
         "mainnetWebsite": "https://zerion.io/download?utm_source=inkchain",
         "testnetWebsite": "https://zerion.io/download?utm_source=inkchain",
@@ -1592,13 +1261,9 @@
       "name": "ZeroDev",
       "description": "Chain-abstracted smart wallet. Build amazing Web3 experiences by removing bridging, gas, confirmations, and seed phrases.",
       "imageUrl": "/featured-apps/icons/zerodev.webp",
-      "category": [
-        "Infra"
-      ],
+      "category": ["Infra"],
       "network": "Mainnet",
-      "tags": [
-        "wallet"
-      ],
+      "tags": ["wallet"],
       "links": {
         "mainnetWebsite": "https://zerodev.app/",
         "testnetWebsite": "https://zerodev.app/",
@@ -1614,15 +1279,9 @@
       "name": "zkCodex Wallet Tracker",
       "description": "zkCodex is a comprehensive wallet analysis platform for Layer 2. Track transaction volume, Chain Score, NFTs, DApp interactions, and airdrop eligibility across 15+ blockchains with ease and efficiency.",
       "imageUrl": "/featured-apps/icons/zkcodex-wallet-tracker.webp",
-      "category": [
-        "Infra",
-        "Other"
-      ],
+      "category": ["Infra", "Other"],
       "network": "Mainnet",
-      "tags": [
-        "data",
-        "tools"
-      ],
+      "tags": ["data", "tools"],
       "links": {
         "mainnetWebsite": "https://zkcodex.com",
         "testnetWebsite": "https://zkcodex.com",
@@ -1639,13 +1298,9 @@
       "name": "ZNS Connect",
       "description": "Decentralized ID platform powered by decentralized addresses.",
       "imageUrl": "/featured-apps/icons/znsconnect.webp",
-      "category": [
-        "Social"
-      ],
+      "category": ["Social"],
       "network": "Both",
-      "tags": [
-        "domain names"
-      ],
+      "tags": ["domain names"],
       "links": {
         "mainnetWebsite": "https://zns.bio/search",
         "testnetWebsite": "https://zns.bio/search",
@@ -1661,13 +1316,9 @@
       "name": "Dinero",
       "description": "The yield baseplate of Ethereum. Formerly Redacted.",
       "imageUrl": "/featured-apps/icons/dinero.webp",
-      "category": [
-        "DeFi"
-      ],
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": [
-        "yield"
-      ],
+      "tags": ["yield"],
       "links": {
         "mainnetWebsite": "https://ink.dinero.xyz/",
         "testnetWebsite": "https://ink.dinero.xyz/",
