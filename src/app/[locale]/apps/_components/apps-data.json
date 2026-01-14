@@ -191,28 +191,6 @@
       }
     },
     {
-      "id": "comet-protocol",
-      "name": "Comet Protocol",
-      "description": "Bridge to other chains.",
-      "imageUrl": "/featured-apps/icons/cometprotocol.webp",
-      "category": [
-        "Bridge"
-      ],
-      "network": "Testnet",
-      "tags": [
-        "cross-chain"
-      ],
-      "links": {
-        "mainnetWebsite": "https://cometbridge.app/",
-        "testnetWebsite": "https://cometbridge.app/",
-        "x": "https://x.com/Comet_Protocol",
-        "discord": "https://discord.gg/ZTFQNNXcYs",
-        "telegram": "",
-        "github": "https://github.com/cometbridge",
-        "farcaster": ""
-      }
-    },
-    {
       "id": "cobridge",
       "name": "Co bridge",
       "description": "Cross-chain bridge for seamless asset transfers.",
@@ -231,6 +209,28 @@
         "discord": "https://discord.gg/FU8MNfMRv8",
         "telegram": "https://t.me/co_nft",
         "github": "",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "comet-protocol",
+      "name": "Comet Protocol",
+      "description": "Bridge to other chains.",
+      "imageUrl": "/featured-apps/icons/cometprotocol.webp",
+      "category": [
+        "Bridge"
+      ],
+      "network": "Testnet",
+      "tags": [
+        "cross-chain"
+      ],
+      "links": {
+        "mainnetWebsite": "https://cometbridge.app/",
+        "testnetWebsite": "https://cometbridge.app/",
+        "x": "https://x.com/Comet_Protocol",
+        "discord": "https://discord.gg/ZTFQNNXcYs",
+        "telegram": "",
+        "github": "https://github.com/cometbridge",
         "farcaster": ""
       }
     },
@@ -284,6 +284,29 @@
       }
     },
     {
+      "id": "dailyonchain",
+      "name": "DailyOnchain",
+      "description": "Onchain-Maxi is a multi-chain daily check-in app that helps users maintain and track on-chain activity streaks across Ink and major L1/L2 networks.",
+      "imageUrl": "/featured-apps/icons/dailyonchain.webp",
+      "category": [
+        "Social"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "fun"
+      ],
+      "links": {
+        "mainnetWebsite": "https://daily-onchain.vercel.app/",
+        "testnetWebsite": "https://daily-onchain.vercel.app/",
+        "x": "https://x.com/Thesankarg",
+        "discord": "https://discord.gg/sankarorigin",
+        "telegram": "https://t.me/sankarorigin",
+        "github": "https://github.com/TheSankar",
+        "farcaster": "https://warpcast.com/zankar.eth",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xe1ab83c32030fa0718d969702efde455647cc24d"
+      }
+    },
+    {
       "id": "deep-on-ink",
       "name": "The Deep",
       "description": "Dive into DeFi on Ink.",
@@ -302,6 +325,28 @@
         "discord": "",
         "telegram": "",
         "github": "https://github.com/DeepProtocol",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "dinero",
+      "name": "Dinero",
+      "description": "The yield baseplate of Ethereum. Formerly Redacted.",
+      "imageUrl": "/featured-apps/icons/dinero.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "yield"
+      ],
+      "links": {
+        "mainnetWebsite": "https://ink.dinero.xyz/",
+        "testnetWebsite": "https://ink.dinero.xyz/",
+        "x": "https://x.com/dinero_xyz",
+        "discord": "https://discord.gg/dineroxyz",
+        "telegram": "",
+        "github": "",
         "farcaster": ""
       }
     },
@@ -794,7 +839,7 @@
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
-        {
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
@@ -1147,28 +1192,6 @@
       }
     },
     {
-      "id": "rubyscore",
-      "name": "Rubyscore",
-      "description": "Social engagement and analytics platform for Web3 communities.",
-      "imageUrl": "/featured-apps/icons/rubyscore.webp",
-      "category": [
-        "Social"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "tools"
-      ],
-      "links": {
-        "mainnetWebsite": "https://rubyscore.io",
-        "testnetWebsite": "https://rubyscore.io",
-        "x": "https://twitter.com/rubyscore_io",
-        "discord": "https://discord.gg/rubyscore",
-        "telegram": "https://t.me/RubyScore_ann",
-        "github": "",
-        "farcaster": ""
-      }
-    },
-    {
       "id": "reservoir:-relay",
       "name": "Reservoir: Relay",
       "description": "Instant, low-cost bridging\nand swapping.",
@@ -1233,6 +1256,28 @@
         "github": "",
         "farcaster": "https://warpcast.com/routescan",
         "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "rubyscore",
+      "name": "Rubyscore",
+      "description": "Social engagement and analytics platform for Web3 communities.",
+      "imageUrl": "/featured-apps/icons/rubyscore.webp",
+      "category": [
+        "Social"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tools"
+      ],
+      "links": {
+        "mainnetWebsite": "https://rubyscore.io",
+        "testnetWebsite": "https://rubyscore.io",
+        "x": "https://twitter.com/rubyscore_io",
+        "discord": "https://discord.gg/rubyscore",
+        "telegram": "https://t.me/RubyScore_ann",
+        "github": "",
+        "farcaster": ""
       }
     },
     {
@@ -1652,28 +1697,6 @@
         "x": "https://x.com/ZNSConnect",
         "discord": "https://discord.gg/2rrkuqT8pB",
         "telegram": "https://t.me/znsconnect",
-        "github": "",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "dinero",
-      "name": "Dinero",
-      "description": "The yield baseplate of Ethereum. Formerly Redacted.",
-      "imageUrl": "/featured-apps/icons/dinero.webp",
-      "category": [
-        "DeFi"
-      ],
-      "network": "Mainnet",
-      "tags": [
-        "yield"
-      ],
-      "links": {
-        "mainnetWebsite": "https://ink.dinero.xyz/",
-        "testnetWebsite": "https://ink.dinero.xyz/",
-        "x": "https://x.com/dinero_xyz",
-        "discord": "https://discord.gg/dineroxyz",
-        "telegram": "",
         "github": "",
         "farcaster": ""
       }
