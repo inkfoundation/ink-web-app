@@ -42,7 +42,7 @@
       "name": "Across Protocol",
       "description": "Fast. Secure. Affordable. The bridge Ethereum deserves ✨",
       "imageUrl": "/featured-apps/icons/acrossprotocol.webp",
-      "category": ["Infra"],
+      "category": ["Bridge"],
       "network": "Mainnet",
       "tags": ["cross-chain"],
       "links": {
@@ -134,7 +134,7 @@
       "name": "Bungee Exchange",
       "description": "Bungee Protocol is a global liquidity marketplace that enables users to perform actions across chains. It's designed to optimize the experience for end users, powered by Socket Protocol.",
       "imageUrl": "/featured-apps/icons/bungee.webp",
-      "category": ["Bridge", "DeFi"],
+      "category": ["Bridge"],
       "network": "Mainnet",
       "tags": ["cross-chain", "interop", "chain abstraction"],
       "links": {
@@ -671,7 +671,7 @@
       "name": "Mavrk",
       "description": "A decentralized DeFi hub for token creation, trading, and cross-chain liquidity - the fastest and most capital-efficient way to create markets, all powered by Ink.",
       "imageUrl": "/featured-apps/icons/mavrk.webp",
-      "category": ["Bridge", "DeFi", "Other"],
+      "category": ["DeFi", "Other"],
       "network": "Mainnet",
       "tags": ["cross-chain", "fun", "tokens", "wallet", "tools"],
       "links": {
@@ -879,7 +879,7 @@
       "name": "Owlto",
       "description": "Owlto Finance is an intent-centric interoperability protocol, 'Bridge the World with AI Agent'.",
       "imageUrl": "/featured-apps/icons/owlto.webp",
-      "category": ["Bridge", "DeFi", "Infra"],
+      "category": ["Bridge", "DeFi"],
       "network": "Both",
       "tags": ["cross-chain", "dex", "tokens", "faucet"],
       "links": {
@@ -1327,8 +1327,8 @@
       "network": "Mainnet",
       "tags": ["dex"],
       "links": {
-        "mainnetWebsite": "https://velodrome.finance/",
-        "testnetWebsite": "https://velodrome.finance/",
+        "mainnetWebsite": "https://velo.drome.eth.limo/",
+        "testnetWebsite": "https://velo.drome.eth.limo/",
         "x": "https://x.com/VelodromeFi",
         "discord": "https://discord.gg/velodrome",
         "telegram": "",
