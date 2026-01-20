@@ -705,6 +705,25 @@
       }
     },
     {
+      "id": "merkl",
+      "name": "Merkl",
+      "description": "The incentive platform powering DeFi. Connect Web3 projects with users to boost liquidity and engagement across 60+ blockchains.",
+      "imageUrl": "/featured-apps/icons/merkl.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["tools", "data"],
+      "links": {
+        "mainnetWebsite": "https://merkl.xyz",
+        "testnetWebsite": "https://merkl.xyz",
+        "x": "https://x.com/merkl_xyz",
+        "discord": "https://discord.com/invite/Gs8MUrUVP3",
+        "telegram": "https://t.me/merkleNetwork_announcement",
+        "github": "https://github.com/AngleProtocol/merkl-contracts",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae"
+      }
+    },
+    {
       "id": "merkly",
       "name": "Merkly",
       "description": "Multifunctional Interoperability Platform |   Bridge & Refuel across 50+ Chains.",
