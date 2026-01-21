@@ -408,6 +408,29 @@
       }
     },
     {
+      "id": "gem-wallet",
+      "name": "Gem Wallet",
+      "description": "Gem Wallet is an open-source and self-custodial crypto wallet that lets you send, receive, swap, use dApps, buy, and stake cryptocurrencies.",
+      "imageUrl": "/featured-apps/icons/gem-wallet.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "wallet"
+      ],
+      "links": {
+        "mainnetWebsite": "https://gemwallet.com/",
+        "testnetWebsite": "https://gemwallet.com/",
+        "x": "https://x.com/GemWalletApp",
+        "discord": "https://discord.gg/4jpxtwT8r6",
+        "telegram": "https://t.me/gemwallet",
+        "github": "https://github.com/gemwalletcom",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "gm",
       "name": "GM",
       "description": "Tap to GM! Check in daily, say GM to friends, collect streaks, and climb the leaderboard.",
