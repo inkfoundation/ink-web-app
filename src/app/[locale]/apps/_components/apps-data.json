@@ -1281,6 +1281,29 @@
       }
     },
     {
+      "id": "test",
+      "name": "Test",
+      "description": "test",
+      "imageUrl": "/featured-apps/icons/test.webp",
+      "category": [
+        "Other"
+      ],
+      "network": "Testnet",
+      "tags": [
+        "fun"
+      ],
+      "links": {
+        "mainnetWebsite": "https://test.fun",
+        "testnetWebsite": "https://test.fun",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "token-deployer",
       "name": "Token Deployer",
       "description": "1-click token deployer.",
