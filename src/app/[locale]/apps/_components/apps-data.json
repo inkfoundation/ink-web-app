@@ -518,6 +518,30 @@
       }
     },
     {
+      "id": "inkavern",
+      "name": "Inkavern",
+      "description": "Inkavern is an all in one dashboard for tracking ink wallets, positions, NFTs, and transactions.",
+      "imageUrl": "/featured-apps/icons/inkavern.webp",
+      "category": [
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "data",
+        "tools"
+      ],
+      "links": {
+        "mainnetWebsite": "https://www.inkavern.com",
+        "testnetWebsite": "https://www.inkavern.com",
+        "x": "https://x.com/inkavern",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "inkcheck",
       "name": "InkCheck",
       "description": "Deploy contracts on Ink . Earn NFTs. Track  Tydro  points. Building tools for quality on-chain activity.",
