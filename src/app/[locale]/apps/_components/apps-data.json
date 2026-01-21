@@ -260,6 +260,32 @@
       }
     },
     {
+      "id": "cxds---canza-finance",
+      "name": "CXDS - Canza Finance",
+      "description": "CXDS (Centralized eXchange Default Swaps) enables users to create credit default swaps (CDS) for deposits held in centralized exchanges.",
+      "imageUrl": "/featured-apps/icons/cxds---canza-finance.webp",
+      "category": [
+        "DeFi"
+      ],
+      "network": "Testnet",
+      "tags": [
+        "yield",
+        "interop",
+        "data",
+        "cross-chain"
+      ],
+      "links": {
+        "mainnetWebsite": "https://cxds.netlify.app/cxds",
+        "testnetWebsite": "https://cxds.netlify.app/cxds",
+        "x": "https://x.com/Canza_Finance",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/CanzaApps/cxds_server",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "deep-on-ink",
       "name": "The Deep",
       "description": "Dive into DeFi on Ink.",
