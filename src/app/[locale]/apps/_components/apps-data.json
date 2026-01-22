@@ -1281,6 +1281,29 @@
       }
     },
     {
+      "id": "test",
+      "name": "Test",
+      "description": "TEST",
+      "imageUrl": "/featured-apps/icons/test.webp",
+      "category": [
+        "Other"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "fun"
+      ],
+      "links": {
+        "mainnetWebsite": "https://ink.fun",
+        "testnetWebsite": "https://ink.fun",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "token-deployer",
       "name": "Token Deployer",
       "description": "1-click token deployer.",
