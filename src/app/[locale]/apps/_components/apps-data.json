@@ -1023,6 +1023,30 @@
       }
     },
     {
+      "id": "rampnow",
+      "name": "Rampnow",
+      "description": "Rampnow is a global fiat on-ramp supporting 160+ countries, 50+ blockchains and 1500+ tokens, helping users buy crypto quickly and enabling dApps to onboard users easily.",
+      "imageUrl": "/featured-apps/icons/rampnow.webp",
+      "category": [
+        "Other",
+        "Infra"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "tools"
+      ],
+      "links": {
+        "mainnetWebsite": "https://rampnow.io/en",
+        "testnetWebsite": "https://rampnow.io/en",
+        "x": "https://x.com/OfficialRampnow",
+        "discord": "https://discord.gg/euKQmeCdbR",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "redstone",
       "name": "Redstone",
       "description": "The fastest-growing Oracle for DeFi and Institutions. Available on 50+ chains, trusted by 100+ clients.",
