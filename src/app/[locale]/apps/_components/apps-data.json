@@ -1338,6 +1338,29 @@
       "pills": ["AIRDROP"]
     },
     {
+      "id": "utila",
+      "name": "Utila",
+      "description": "Utila is the digital asset and stablecoin infrastructure platform for fintechs and enterprises.",
+      "imageUrl": "/featured-apps/icons/utila.webp",
+      "category": [
+        "Infra"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "wallet"
+      ],
+      "links": {
+        "mainnetWebsite": "https://utila.io/",
+        "testnetWebsite": "https://utila.io/",
+        "x": "https://twitter.com/utila_io/",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "velodrome",
       "name": "Velodrome",
       "description": "Velodrome Finance is a next-generation AMM that combines the best of Curve, Convex and Uniswap, designed to serve as the liquidity hub for the Superchain.",
