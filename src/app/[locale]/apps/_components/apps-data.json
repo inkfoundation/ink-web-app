@@ -1393,6 +1393,29 @@
       }
     },
     {
+      "id": "xxzx",
+      "name": "Xxzx",
+      "description": "X app",
+      "imageUrl": "/featured-apps/icons/xxzx.webp",
+      "category": [
+        "Bridge"
+      ],
+      "network": "Mainnet",
+      "tags": [
+        "data"
+      ],
+      "links": {
+        "mainnetWebsite": "https://example.com",
+        "testnetWebsite": "https://example.com",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "zerion",
       "name": "Zerion",
       "description": "Zerion is the best self-custodial wallet for everything you own onchain, helping you track and manage tokens, NFTs and DeFi positions across 55+ EVM chains - including ink",
