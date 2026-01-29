@@ -148,6 +148,25 @@
       }
     },
     {
+      "id": "chaos-oracles",
+      "name": "Chaos Oracles",
+      "description": "The advanced oracle protocol delivering real-time contextualized data for any on-chain application.",
+      "imageUrl": "/featured-apps/icons/chaos-oracles.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["oracle"],
+      "links": {
+        "mainnetWebsite": "https://chaoslabs.xyz/oracles",
+        "testnetWebsite": "https://chaoslabs.xyz/oracles",
+        "x": "https://www.twitter.com/chaoslabs",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "cobridge",
       "name": "coBridge",
       "description": "coBridge is a fast and secure EVM cross-chain bridge enabling seamless asset and data transfers between Ethereum-compatible blockchains.",
@@ -553,6 +572,25 @@
         "github": "https://github.com/0xgasleft/DCA",
         "farcaster": "",
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x6065c8913141b141841310CdBB156a8993B73c17"
+      }
+    },
+    {
+      "id": "inkscore",
+      "name": "Inkscore",
+      "description": "Inkscore is an on-chain reputation platform that gamifies Inkchain by scoring user activity and dApp interactions.",
+      "imageUrl": "/featured-apps/icons/inkscore.webp",
+      "category": ["Social", "Explorers"],
+      "network": "Mainnet",
+      "tags": ["data", "explorer", "tools", "wallet"],
+      "links": {
+        "mainnetWebsite": "https://www.inkscore.xyz/",
+        "testnetWebsite": "https://www.inkscore.xyz/",
+        "x": "https://x.com/Inkscore",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/inkchainscore-ship-it/inkscore",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xBE1965cE0D06A79A411FFCD9a1C334638dF77649"
       }
     },
     {
