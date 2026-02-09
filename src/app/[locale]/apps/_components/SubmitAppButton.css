@@ -3,6 +3,11 @@
   --gradient-border-width: 2px;
 }
 
+.gradient-border > * {
+  position: relative;
+  z-index: 3;
+}
+
 .gradient-border:hover::before {
   background-position: 0% 100%;
 }
@@ -30,4 +35,13 @@
 
   background-position: 100% 100%;
   background-size: 200% 100%;
+}
+
+.gradient-border::after {
+  content: "";
+  position: absolute;
+  inset: var(--gradient-border-width);
+  z-index: 2;
+  border-radius: 999px;
+  background-color: var(--ink-button-secondary);
 }

@@ -18,7 +18,7 @@ export const CommunityBrandKit = () => {
         image={
           <CardContent.Image>
             <ParallaxedHoverImage
-              src="/brand-kit.png"
+              src="/ink-with-gridlines.png"
               alt="Brand Kit"
               className="object-cover"
               width={700}

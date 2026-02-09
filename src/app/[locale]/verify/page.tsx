@@ -1,29 +1,35 @@
+import { Button } from "@inkonchain/ink-kit";
 import { useTranslations } from "next-intl";
 
-import { KrakenLogo } from "@/components/icons/KrakenLogo";
 import { OnlyWithFeatureFlag } from "@/components/OnlyWithFeatureFlag";
 import { newLayoutContainerClasses } from "@/components/styles/container";
 
 import { PageHeader } from "../_components/PageHeader";
 
-import { VerifyCta } from "./_components/VerifyCta";
+import { Verifications } from "./_components/Verifications";
+import { VerifyInfoCards } from "./_components/VerifyInfoCards";
 import { VerifyLearnMore } from "./_components/VerifyLearnMore";
-import { VerifyPerks } from "./_components/VerifyPerks";
 
 export default function VerifyPage() {
   const t = useTranslations("Verify");
   return (
     <OnlyWithFeatureFlag flag="verifyPage">
       <div className={newLayoutContainerClasses()}>
-        <div className="space-y-6">
-          <KrakenLogo />
+        <div className="max-w-xl">
           <PageHeader
             title={t("title")}
             description={t("description")}
-            cta={<VerifyCta />}
+            cta={
+              <Button asChild size="lg" variant="primary">
+                <a href="#verifications">{t("cta")}</a>
+              </Button>
+            }
           />
         </div>
-        <VerifyPerks />
+        <VerifyInfoCards />
+        <div id="verifications">
+          <Verifications />
+        </div>
         <VerifyLearnMore />
       </div>
     </OnlyWithFeatureFlag>

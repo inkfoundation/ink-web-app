@@ -14,7 +14,8 @@ export const AppsGrid: React.FC<{
   featuredApps: InkApp[];
   noAppsFound: React.ReactNode;
   network: InkAppNetwork;
-}> = ({ apps, featuredApps, noAppsFound, network }) => {
+  gridClassName?: string;
+}> = ({ apps, featuredApps, noAppsFound, network, gridClassName }) => {
   const walletColumn = useFeatureFlag("walletColumn");
   return (
     <div className="w-full">
@@ -26,9 +27,10 @@ export const AppsGrid: React.FC<{
         <div
           className={classNames(
             "grid gap-2 w-full",
-            walletColumn
-              ? "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 hd:grid-cols-4"
-              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 hd:grid-cols-4"
+            gridClassName ??
+              (walletColumn
+                ? "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 hd:grid-cols-4"
+                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 hd:grid-cols-4")
           )}
         >
           {featuredApps.map((app) => (
