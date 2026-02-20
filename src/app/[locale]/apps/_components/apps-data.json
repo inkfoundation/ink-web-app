@@ -954,7 +954,7 @@
       "name": "Polymer",
       "description": "Polymer connects all Ethereum rollups with real-time high throughput interoperability, enabling swift cost-effective scaling for applications.",
       "imageUrl": "/featured-apps/icons/polymer.webp",
-      "category": ["Infrastructure"],
+      "category": ["Infra"],
       "network": "Mainnet",
       "tags": ["interop"],
       "links": {
