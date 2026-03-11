@@ -1,5 +1,5 @@
 "use client";
-import { Button, InkIcon } from "@inkonchain/ink-kit";
+import { Button } from "@inkonchain/ink-kit";
 import { useTranslations } from "next-intl";
 
 import { ColoredText } from "@/components/ColoredText";
@@ -15,15 +15,11 @@ export const HomeApps = () => {
   const query = useRouterQuery();
   return (
     <div className={newLayoutSectionClasses()}>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between">
         <ColoredText className="ink:text-h4" variant="purple">
           {t("appsTitle")}
         </ColoredText>
-        <Button
-          asChild
-          variant="secondary"
-          iconRight={<InkIcon.Arrow className="rotate-270" />}
-        >
+        <Button asChild variant="secondary">
           <Link href={{ pathname: "/apps", query }}>{t("appsCta")}</Link>
         </Button>
       </div>
@@ -32,7 +28,6 @@ export const HomeApps = () => {
         featuredApps={[]}
         noAppsFound={null}
         network="Mainnet"
-        gridClassName="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
       />
     </div>
   );

@@ -51,16 +51,16 @@
     "github": "GitHub"
   },
   "Home": {
-    "pre": "Kraken’s L2 now live on Superchain!",
+    "pre": "Ink, the Ethereum L2 unleashed by Kraken, is live on the Superchain",
     "title": "Ink the future",
     "tagLine": "Simplified DeFi for|builders,degens,gigachads,institutions,normies,ALL",
     "cta:exploreApps": "Explore Apps",
-    "appsTitle": "More apps on Ink",
+    "appsTitle": "Featured apps on Ink",
     "appsCta": "View all apps"
   },
   "Community": {
     "title": "Join the Ink Community",
-    "description": "Dive into events and get the support you need to ink the future with us.",
+    "description": "Discover, dive into events, and get the support you need to ink the future with us",
     "letsGetSocial": {
       "title": "Let's get social",
       "description": "Join the Ink community, vibe with fellow developers and get support"
@@ -88,35 +88,25 @@
     }
   },
   "Verify": {
-    "title": "Get verified to unlock perks and dev tools",
-    "description": "Ink Verify credentials, accesses, and engagements onchain and offchain to get benefits for dApps in the Ink Ecosystem.",
-    "cta": "View verifications",
+    "title": "Verify your Kraken account onchain",
+    "description": "Securely connect your Kraken account with your wallet to start unlocking the Ink ecosystem.",
+    "cta": "Connect to verify",
     "initVerificationCta": "Confirm ownership",
     "confirmingInWallet": "Confirming in wallet...",
     "redirecting": "Redirecting to Kraken...",
     "verificationInProgress": "Verification in progress...",
-    "infoCards": {
-      "whatIsInkVerify": {
-        "title": "What is Ink Verify?",
-        "description": "Ink Verify is public infrastructure for onchain attestations of offchain and onchain data, powered by <eas-link>Ethereum Attestation Service</eas-link>"
-      },
-      "whyVerify": {
-        "title": "Why verify?",
-        "description": "Join us in building openly with Ink Verify to confirm attendance, earn tooling rewards, and share your use cases."
-      }
-    },
     "verifications": {
-      "title": "Available verifications",
-      "description": "Discover the latest verifications on Ink"
+      "title": "Verifications",
+      "description": "Verify your onchain activity across multiple networks"
     },
     "faq": {
       "title": "Frequently Asked Questions",
       "whatIsVerify": {
-        "title": "What is Ink Verify?",
-        "description": "Ink Verify allows you to verify that your wallet address is associated with your Kraken account by making an onchain attestation. By verifying, you can begin to access exclusive features across Ink."
+        "title": "What is Kraken Verify?",
+        "description": "Kraken Verify allows you to verify that your wallet address is associated with your Kraken account by making an onchain attestation. By verifying, you can begin to access exclusive features across Ink."
       },
       "whyVerify": {
-        "title": "What partners or dApps support Ink Verify?",
+        "title": "What partners or dApps support Kraken Verify?",
         "description": "We're actively onboarding partners! GM will be the first to support onchain verification based features. "
       },
       "whatGoesOnchain": {
@@ -133,7 +123,7 @@
       },
       "howDoesitWork": {
         "title": "How does it work?",
-        "description": "Ink Verify uses the <eas-link>Ethereum Attestation Service (EAS)</eas-link> on Ink to issue onchain attestations. EAS is a standard protocol for making trusted claims about onchain or offchain data — stored securely onchain."
+        "description": "Kraken Verify uses the <eas-link>Ethereum Attestation Service (EAS)</eas-link> on Ink to issue onchain attestations. EAS is a standard protocol for making trusted claims about onchain or offchain data — stored securely onchain."
       },
       "wherecaniView": {
         "title": "Where can I view my onchain verification?",
@@ -153,7 +143,7 @@
       },
       "devSupport": {
         "title": "I'm a developer and I want to integrate, how do I get started?",
-        "description": "To integrate with Ink Verify, check out our <docs-link>documentation here</docs-link>."
+        "description": "To integrate with Kraken Verify, check out our <docs-link>documentation here</docs-link>."
       }
     },
     "flow": {
@@ -193,7 +183,7 @@
       }
     },
     "badge": {
-      "verified": "Your wallet is verified",
+      "verified": "Your Kraken account is verified",
       "getVerified": "Get verified today"
     },
     "status": {
@@ -203,8 +193,8 @@
       "revoke": "Revoke"
     },
     "perks": {
-      "title": "Ink Verify Partners",
-      "description": "Explore our ecosystem partners who use Ink Verify."
+      "title": "Kraken Verify Partners",
+      "description": "Explore our ecosystem partners who use Kraken Verify."
     },
     "learnMore": {
       "title": "Have questions?",
@@ -216,116 +206,19 @@
     "description": "Ink is an Ethereum layer 2 blockchain, built on the OP Stack, designed to be the house of DeFi for the Superchain. Ink will empower onchain builders to deploy new and innovative DeFi protocols for the next billion users onchain."
   },
   "Builders": {
-    "title": "The future isn't written.",
-    "subtitle": "It's waiting to be inked.",
-    "cta": "Explore Now",
-    "readyToInk": {
-      "title": "Ready To INK the Future?",
-      "description": "The Ink ecosystem empowers founders, hackers, researchers, and creators to craft the next era of onchain experiences. From launching startups and scaling dApps to deploying robust infrastructure, we cover relevant programs to fulfill your vision and build alongside a global network of innovators."
+    "title": "Start building on Ink",
+    "description": "Our commitment to builders: Ink will provide you with a world class development environment, complete with the tools, support, and users you need to bring your ideas to life.",
+    "grants": {
+      "title": "Grants",
+      "description": "Recognizing Ink builders"
     },
-    "ourFocus": {
-      "title": "Our Focus",
-      "description": "Ink backs builders shaping the future of onchain capital markets — across trading, infra, consumer experiences, and real-world finance.",
-      "defi": {
-        "title": "DeFi & Derivatives",
-        "description": "Lending, AMMs, options, and leveraged products."
-      },
-      "trading": {
-        "title": "Trading & Infrastructure",
-        "description": "Orderbooks, trade execution tools, analytics, indexers, oracles."
-      },
-      "prediction": {
-        "title": "Prediction & Onchain Games",
-        "description": "Prediction markets, sports betting, multiplayer, futarchies."
-      },
-      "rwa": {
-        "title": "RWA & Institutional Tools",
-        "description": "Tokenized credit, ETFs, real-world assets, treasury & yield optimization."
-      },
-      "creator": {
-        "title": "Creator, Social & Loyalty",
-        "description": "Creator monetization, social/identity, points & IP royalties."
-      },
-      "ai": {
-        "title": "AI, Privacy & Payments",
-        "description": "AI agents, private compute, stablecoin rails, billsplitting."
-      }
+    "applyForGrant": {
+      "title": "Apply for Grant",
+      "description": "Do you have an amazing project you want to deploy on Ink? Apply to receive a grant!"
     },
-    "programs": {
-      "title": "Builder Programs",
-      "description": "Ink supports builders at every stage with curated tracks and meaningful rewards.",
-      "spark": {
-        "tag": "Microgrants for Indie Builders",
-        "title": "SPARK",
-        "description": "Quick, no-pitch-deck microgrants ($1K–$10K) to get ideas off the ground.",
-        "learnMore": "Learn more",
-        "apply": "Apply now"
-      },
-      "forge": {
-        "tag": "Major Grants for Scaling Teams",
-        "title": "FORGE",
-        "description": "For serious teams with live MVPs ready to scale. Up to $200K in milestone grants + token investment.",
-        "learnMore": "Learn more",
-        "apply": "Apply now"
-      },
-      "echo": {
-        "tag": "Rewards for Early Builders",
-        "title": "ECHO",
-        "description": "We truly appreciate pioneers who built on INK from the beginning. This program has now closed — thank you to all who applied.",
-        "learnMore": "Learn more",
-        "apply": "Closed"
-      }
-    },
-    "howItWorks": {
-      "title": "How It Works",
-      "step1": {
-        "title": "Submit",
-        "description": "Choose the builder track that fits you best. Fill out the application form with your idea and goals."
-      },
-      "step2": {
-        "title": "Review",
-        "description": "The Ink team reviews submissions every 1–2 weeks. We assess clarity, fit, and ambitions. You may be contacted for async follow-up or a call."
-      },
-      "step3": {
-        "title": "Decision & Support",
-        "description": "If you're approved, receive a grant offer or retro reward, get matched with a point of contact, and join the Ink builder channel to get started."
-      }
-    },
-    "benefits": {
-      "title": "Builder Benefits & Support",
-      "description": "Ink backs builders shaping the future of onchain capital markets — across trading, infra, consumer experiences, and real-world finance.",
-      "grants": "Grants Support",
-      "marketing": "Marketing exposure",
-      "gtm": "GTM advisory",
-      "tech": "Tech Support"
-    },
-    "startInking": {
-      "title": "Start INKing Today",
-      "docs": "Docs",
-      "inkKit": "Ink Kit",
-      "status": "Status",
-      "explorer": "Explorer",
-      "testnetFaucet": "Testnet Faucet",
-      "github": "GitHub"
-    },
-    "faqs": {
-      "title": "FAQs",
-      "q1": "Who can apply to INK's builder programs?",
-      "a1": "Anyone building on Ink or planning to — from solo devs and small teams to established projects. Whether you're pre-launch or already live, we welcome applications across DeFi, infrastructure, consumer apps, and more.",
-      "q2": "How do I know which track to apply for?",
-      "a2": "Spark is for early-stage builders who need initial support to get started. Forge is for teams with a working product ready to scale. Echo is for established projects looking for strategic growth partnerships. If you're unsure, apply to the one that feels closest — we'll help route you.",
-      "q3": "What does the review process look like?",
-      "a3": "After you submit your application, our team reviews it for alignment with Ink's ecosystem priorities. Strong applications are invited to a follow-up conversation. The process typically takes 2–4 weeks from submission to decision.",
-      "q4": "Do I need a company or team to apply?",
-      "a4": "No. Solo developers and individual contributors are welcome to apply, especially to the Spark track. All we need is a clear idea of what you're building and how it benefits the Ink ecosystem.",
-      "q5": "What can the grant be used for?",
-      "a5": "Grants can be used for development costs, audits, infrastructure, hiring, go-to-market activities, and other expenses directly tied to building and growing your project on Ink.",
-      "q6": "How long does it take to hear back?",
-      "a6": "We aim to respond to all applications within 2–4 weeks. If your application moves forward, you'll be contacted for a follow-up discussion.",
-      "q7": "I applied but didn't get selected. Can I apply again?",
-      "a7": "Absolutely. Many builders iterate on their ideas and reapply successfully. We encourage you to take any feedback into account and submit a new application when you're ready.",
-      "q8": "How do I stay in the loop?",
-      "a8": "Follow us on X (@inkonchain), join our Discord, and check the Ink docs for the latest updates on builder programs, ecosystem news, and opportunities."
+    "applyForRetroGrant": {
+      "title": "Apply for Retro Grant",
+      "description": "Saw something amazing deployed on Ink? Submit a project, team, or builder for a retroactive grant."
     }
   },
   "events": {

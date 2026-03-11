@@ -17,7 +17,7 @@ export function SubmitAppButton() {
       iconLeft={<InkIcon.Plus className="ink:size-3" />}
       onClick={openModal}
     >
-      <span>Submit app</span>
+      Submit app
     </Button>
   );
 }

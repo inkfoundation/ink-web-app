@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnalyticsProvider } from "@/contexts/AnalyticsProvider";
 import { CaptchaProvider } from "@/contexts/CaptchaProvider";
 import { RelayProvider } from "@/contexts/RelayProvider";
-import { SidebarProvider } from "@/contexts/SidebarContext";
 import { ThemeProvider } from "@/contexts/ThemeProvider";
 import { WalletProvider } from "@/contexts/WalletProvider";
 import { clientEnv } from "@/env-client";
@@ -19,19 +18,17 @@ export const Providers: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <ThemeProvider>
-      <SidebarProvider>
-        <ModalProvider>
-          <AnalyticsProvider writeKey={clientEnv.NEXT_PUBLIC_SEGMENT_WRITE_KEY}>
-            <QueryClientProvider client={queryClient}>
-              <WalletProvider>
-                <RelayProvider>
-                  <CaptchaProvider>{children}</CaptchaProvider>
-                </RelayProvider>
-              </WalletProvider>
-            </QueryClientProvider>
-          </AnalyticsProvider>
-        </ModalProvider>
-      </SidebarProvider>
+      <ModalProvider>
+        <AnalyticsProvider writeKey={clientEnv.NEXT_PUBLIC_SEGMENT_WRITE_KEY}>
+          <QueryClientProvider client={queryClient}>
+            <WalletProvider>
+              <RelayProvider>
+                <CaptchaProvider>{children}</CaptchaProvider>
+              </RelayProvider>
+            </WalletProvider>
+          </QueryClientProvider>
+        </AnalyticsProvider>
+      </ModalProvider>
     </ThemeProvider>
   );
 };
