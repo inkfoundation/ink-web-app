@@ -24,6 +24,9 @@ export const env = createEnv({
     INK_APP_SUBMISSION_SLACK_NOTIFICATION_CHANNEL: z.string().min(1),
     HCAPTCHA_SECRET: z.string().min(1),
     MULTIPLIER_JWT_SECRET: z.string().min(1),
+    UNSUBSCRIBE_JWT_SECRET: z.string().min(1),
+    BRAZE_CONNECTED_CONTENT_API_KEY: z.string().min(1),
+    DUNE_API_KEY: z.string().min(1),
   },
   experimental__runtimeEnv: process.env,
 });

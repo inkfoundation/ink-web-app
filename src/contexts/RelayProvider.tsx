@@ -5,7 +5,6 @@ import { useRelayChains } from "@reservoir0x/relay-kit-hooks";
 import { RelayKitProvider } from "@reservoir0x/relay-kit-ui";
 import { MAINNET_RELAY_API } from "@reservoir0x/relay-sdk";
 
-import { clientEnv } from "@/env-client";
 import { useCurrentInkAppName } from "@/hooks/useCurrentInkAppName";
 import { theme } from "@/util/relay-kit-theme";
 
@@ -26,8 +25,11 @@ export const RelayProvider: React.FC<RelayProviderProps> = ({ children }) => {
         appName: appName,
         appFees: [],
         chains: chains,
-        duneApiKey: clientEnv.NEXT_PUBLIC_DUNE_API_KEY,
         baseApiUrl: MAINNET_RELAY_API,
+        duneConfig: {
+          apiBaseUrl: `${window.location.origin}/api/dune`,
+          apiKey: "",
+        },
       }}
     >
       {children}

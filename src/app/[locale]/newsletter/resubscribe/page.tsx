@@ -1,47 +1,33 @@
-"use client";
+import { notFound } from "next/navigation";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-
-import {
-  retrieveUserByEmail,
-  retrieveUserEmailById,
-} from "@/integrations/braze";
+import { validateUnsubscribeToken } from "@/lib/unsubscribe-token";
 
 import { ResubscribeForm } from "./_components/ResubscribeForm";
 
-export default function NewsletterResubscribePage() {
-  const searchParams = useSearchParams();
-  const [id, setId] = useState<string>();
-  const [email, setEmail] = useState<string>();
+interface NewsletterResubscribePageProps {
+  searchParams: Promise<{ token?: string }>;
+}
 
-  useEffect(() => {
-    async function fetchUserData() {
-      const searchParamsId = searchParams.get("id");
-      const searchParamsEmail = searchParams.get("email");
+export default async function NewsletterResubscribePage({
+  searchParams,
+}: NewsletterResubscribePageProps) {
+  const params = await searchParams;
+  const token = params.token;
 
-      if (searchParamsId) {
-        const fetchedEmail = await retrieveUserEmailById(searchParamsId);
-        setEmail(fetchedEmail);
-        setId(searchParamsId);
-      }
-      if (searchParamsEmail) {
-        setEmail(searchParamsEmail);
-        const user = await retrieveUserByEmail(searchParamsEmail);
-        setId(user?.external_id);
-      }
-    }
+  // Validate token
+  if (!token) {
+    notFound();
+  }
 
-    fetchUserData();
-  }, [searchParams]);
+  const payload = await validateUnsubscribeToken(token);
 
-  if (!id || !email) {
-    return <div>User not found</div>;
+  if (!payload) {
+    notFound();
   }
 
   return (
     <div className="w-full h-screen px-4 flex flex-col items-center justify-center">
-      <ResubscribeForm userBrazeId={id} email={email} />
+      <ResubscribeForm userBrazeId={payload.brazeId} email={payload.email} />
     </div>
   );
 }

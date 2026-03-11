@@ -74,7 +74,20 @@ function AppCard({
             className="object-cover w-full h-full"
           />
         </div>
-        {featured && <Tag variant="featured">{t("featured")}</Tag>}
+        <div className="flex gap-2">
+          {app.pills?.map((pill) => (
+            <Tag
+              key={pill}
+              variant="featured"
+              style={{
+                color: "var(--status-alert, #E7954A)",
+              }}
+            >
+              {pill}
+            </Tag>
+          ))}
+          {featured && <Tag variant="featured">{t("featured")}</Tag>}
+        </div>
       </div>
       <div className="flex flex-col gap-4 flex-1 w-full">
         <div className="ink:text-h5 -my-1">{app.name}</div>

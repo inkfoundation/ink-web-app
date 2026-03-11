@@ -14,10 +14,11 @@ interface FormState {
 }
 
 export async function unsubscribeFromBraze(
-  prevState: FormState,
+  _prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
   const brazeId = formData.get("brazeId");
+  const email = formData.get("email");
   const generalWailist = formData.get("generalWailist");
   const developerWailist = formData.get("developerWailist");
 
@@ -45,7 +46,6 @@ export async function unsubscribeFromBraze(
     } catch {
       return {
         success: false,
-
         error: "Issue submitting form",
       };
     }
@@ -61,13 +61,12 @@ export async function unsubscribeFromBraze(
     } catch {
       return {
         success: false,
-
         error: "Issue submitting form",
       };
     }
   }
 
-  const { users } = await listUserSubscriptionGroups(brazeId);
+  const { users } = await listUserSubscriptionGroups(brazeId, email as string);
 
   if (!users || users.length === 0) {
     return {
@@ -87,7 +86,6 @@ export async function unsubscribeFromBraze(
     } catch {
       return {
         success: false,
-
         error: "Issue submitting form",
       };
     }
@@ -95,7 +93,6 @@ export async function unsubscribeFromBraze(
 
   return {
     success: true,
-
     error: undefined,
   };
 }

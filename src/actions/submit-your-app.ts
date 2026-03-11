@@ -7,6 +7,7 @@ import sharp from "sharp";
 
 import { InkApp } from "@/app/[locale]/apps/_components/InkApp";
 import { env } from "@/env";
+import { captureError } from "@/integrations/sentry";
 import { validateCaptcha } from "@/lib/hcaptcha";
 import {
   AppSubmissionFormData,
@@ -100,6 +101,7 @@ async function validateAndConvertImage(
     };
   } catch (error) {
     console.error("Error processing image:", error);
+    captureError(error);
     return {
       isValid: false,
       error: "Failed to process image",
@@ -461,6 +463,7 @@ export async function submitYourApp(
       await sendSlackNotification(newApp, prUrl);
     } catch (slackError) {
       console.error("Failed to send Slack notification:", slackError);
+      captureError(slackError);
     }
 
     // 5. Return success with PR URL
@@ -471,6 +474,7 @@ export async function submitYourApp(
     };
   } catch (error) {
     console.error(error);
+    captureError(error);
     return { success: false, message: "Failed to submit app" };
   }
 }

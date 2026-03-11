@@ -1,4 +1,5 @@
 import { env } from "@/env";
+import { clientEnv } from "@/env-client";
 
 interface HCaptchaVerifyResponse {
   success: boolean;
@@ -9,6 +10,10 @@ interface HCaptchaVerifyResponse {
 }
 
 export async function validateCaptcha(token: string): Promise<boolean> {
+  if (clientEnv.NEXT_PUBLIC_DISABLE_CAPTCHA) {
+    return true;
+  }
+
   try {
     const formData = new URLSearchParams();
     formData.append("secret", env.HCAPTCHA_SECRET);

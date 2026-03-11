@@ -231,6 +231,11 @@
       "cta": "RSVP Now!"
     }
   },
+  "tydro": {
+    "title": "Let capital flow\nwith Tydro",
+    "description": "Tydro is a decentralized, non-custodial liquidity protocol built on Ink and powered by Aave. It enables users to supply and borrow assets with flexible collateral, efficient risk management, and seamless integration across the Ink ecosystem and beyond.",
+    "badge": "AIRDROP"
+  },
   "dashboard": {
     "featured": "FEATURED"
   }

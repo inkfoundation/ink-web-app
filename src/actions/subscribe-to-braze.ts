@@ -1,5 +1,6 @@
 "use server";
 
+import { clientEnv } from "@/env-client";
 import {
   subscribeUserToGroup,
   SubscriptionGroup,
@@ -57,23 +58,25 @@ async function subscribeToBrazeGroups(
   const email = formData.get("email");
   const captchaToken = formData.get("captchaToken");
 
-  if (!captchaToken || typeof captchaToken !== "string") {
-    return {
-      error: {
-        form: "Captcha verification required",
-      },
-      success: false,
-    };
-  }
+  if (!clientEnv.NEXT_PUBLIC_DISABLE_CAPTCHA) {
+    if (!captchaToken || typeof captchaToken !== "string") {
+      return {
+        error: {
+          form: "Captcha verification required",
+        },
+        success: false,
+      };
+    }
 
-  const isCaptchaValid = await validateCaptcha(captchaToken);
-  if (!isCaptchaValid) {
-    return {
-      error: {
-        form: "Captcha verification failed",
-      },
-      success: false,
-    };
+    const isCaptchaValid = await validateCaptcha(captchaToken);
+    if (!isCaptchaValid) {
+      return {
+        error: {
+          form: "Captcha verification failed",
+        },
+        success: false,
+      };
+    }
   }
 
   if (!email || typeof email !== "string" || !isValidEmail(email)) {
