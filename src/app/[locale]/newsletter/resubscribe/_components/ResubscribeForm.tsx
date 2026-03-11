@@ -57,6 +57,14 @@ export const ResubscribeForm: React.FC<ResubscribeFormProps> = ({
           aria-hidden
           readOnly
         />
+        <input
+          id="email"
+          name="email"
+          value={email}
+          className="hidden"
+          aria-hidden
+          readOnly
+        />
 
         <div className="h-6 flex items-center">
           <input

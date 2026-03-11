@@ -16,9 +16,6 @@ inputs:
   digest:
     description: "The updated image digest"
     required: true
-  namespace:
-    description: "The Kubernetes namespace"
-    required: true
   app:
     description: "The application name"
     required: true
@@ -64,7 +61,6 @@ runs:
               "repo": "${{ inputs.repo }}",
               "digest": "${{ inputs.digest }}",
               "tag": "${{ steps.tag.outputs.version }}",
-              "namespace": "${{ inputs.namespace }}",
               "app": "${{ inputs.app }}",
               "environment": "${{ inputs.environment }}"
             }

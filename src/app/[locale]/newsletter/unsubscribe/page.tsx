@@ -1,48 +1,37 @@
-"use client";
+import { notFound } from "next/navigation";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-
-import {
-  fetchUserByEmail,
-  fetchUserEmailById,
-} from "@/actions/fetch-user-data";
+import { validateUnsubscribeToken } from "@/lib/unsubscribe-token";
 
 import { UnsubscribeForm } from "./_components/UnsubscribeForm";
 
-export default function NewsletterUnsubscribePage() {
-  const searchParams = useSearchParams();
-  const [id, setId] = useState<string>();
-  const [email, setEmail] = useState<string>();
+interface NewsletterUnsubscribePageProps {
+  searchParams: Promise<{ token?: string }>;
+}
 
-  useEffect(() => {
-    async function fetchUserData() {
-      const searchParamsId = searchParams.get("id");
-      const searchParamsEmail = searchParams.get("email");
+export default async function NewsletterUnsubscribePage({
+  searchParams,
+}: NewsletterUnsubscribePageProps) {
+  const params = await searchParams;
+  const token = params.token;
 
-      if (searchParamsId) {
-        const fetchedEmail = await fetchUserEmailById(searchParamsId);
-        setEmail(fetchedEmail);
-        setId(searchParamsId);
-      }
-      if (searchParamsEmail) {
-        const decodedEmail = decodeURIComponent(searchParamsEmail);
-        setEmail(decodedEmail);
-        const user = await fetchUserByEmail(decodedEmail);
-        setId(user?.external_id);
-      }
-    }
+  // Validate token
+  if (!token) {
+    notFound();
+  }
 
-    fetchUserData();
-  }, [searchParams]);
+  const payload = await validateUnsubscribeToken(token);
 
-  if (!id || !email) {
-    return <div>User not found</div>;
+  if (!payload) {
+    notFound();
   }
 
   return (
     <div className="w-full h-screen px-4 flex flex-col items-center justify-center">
-      <UnsubscribeForm userBrazeId={id} email={email} />
+      <UnsubscribeForm
+        userBrazeId={payload.brazeId}
+        email={payload.email}
+        token={token}
+      />
     </div>
   );
 }

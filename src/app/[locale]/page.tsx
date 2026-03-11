@@ -8,6 +8,7 @@ import { HomeApps } from "./_components/Home/HomeApps";
 import { HomeSmallTag } from "./_components/Home/HomeSmallTag";
 import { HomeTagLine } from "./_components/Home/HomeTagLine";
 import { HomeTitle } from "./_components/Home/HomeTitle";
+import { HomeTydro } from "./_components/Home/HomeTydro";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://inkonchain.com"),
@@ -51,9 +52,9 @@ export default async function HomePage() {
       />
       <PageView />
       <div className={newLayoutContainerClasses()}>
-        <HomeTitle />
         <HomeSmallTag />
-        {/* <HomeEvent /> */}
+        <HomeTitle />
+        <HomeTydro />
         <HomeApps />
         <HomeTagLine />
       </div>

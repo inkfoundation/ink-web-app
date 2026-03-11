@@ -25,9 +25,9 @@
     "@react-three/drei": "9.107.2",
     "@react-three/fiber": "9.0.0-rc.0",
     "@react-three/postprocessing": "2.16.2",
-    "@reservoir0x/relay-kit-hooks": "1.4.16",
-    "@reservoir0x/relay-kit-ui": "2.4.0",
-    "@reservoir0x/relay-sdk": "1.5.0",
+    "@reservoir0x/relay-kit-hooks": "1.12.0",
+    "@reservoir0x/relay-kit-ui": "2.17.2",
+    "@reservoir0x/relay-sdk": "2.4.0",
     "@segment/analytics-next": "1.70.0",
     "@sentry/nextjs": "8.54.0",
     "@slack/web-api": "7.8.0",
@@ -46,21 +46,21 @@
     "leva": "0.9.35",
     "lottie-react": "2.4.0",
     "maath": "0.10.7",
-    "next": "15.3.0",
+    "next": "15.4.11",
     "next-intl": "3.25.1",
     "next-themes": "0.3.0",
     "postprocessing": "6.35.5",
-    "react": "19.0.0",
+    "react": "19.0.4",
     "react-confetti": "6.1.0",
-    "react-dom": "19.0.0",
+    "react-dom": "19.0.4",
     "react-focus-lock": "2.13.2",
     "react-hook-form": "7.54.1",
     "react-toastify": "10.0.5",
     "sass": "1.77.6",
     "sharp": "0.33.4",
     "three": "0.165.0",
-    "viem": "2.22.11",
-    "wagmi": "2.14.9",
+    "viem": "2.37.5",
+    "wagmi": "2.17.5",
     "zod": "3.24.1"
   },
   "devDependencies": {
@@ -91,8 +91,8 @@
     "overrides": {
       "@types/react": "19.0.7",
       "@types/react-dom": "19.0.3",
-      "react": "19.0.0",
-      "react-dom": "19.0.0"
+      "react": "19.0.4",
+      "react-dom": "19.0.4"
     }
   }
 }

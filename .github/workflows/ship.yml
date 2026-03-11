@@ -10,13 +10,15 @@ on:
       - ops/preview-2
     paths:
       - "**"
+permissions:
+  contents: read
+  packages: write
 jobs:
   image-build-push:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: actions/checkout@v4
-
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: Generate .env.production file
         run: |
           cat << EOF > .env.production
@@ -35,12 +37,15 @@ jobs:
           BRAZE_API_KEY=${{ secrets.BRAZE_API_KEY }}
           BRAZE_GENERAL_WAITLIST_GROUP_ID=${{ secrets.BRAZE_GENERAL_WAITLIST_GROUP_ID }}
           BRAZE_DEVELOPERS_WAITLIST_GROUP_ID=${{ secrets.BRAZE_DEVELOPERS_WAITLIST_GROUP_ID }}
+          UNSUBSCRIBE_JWT_SECRET=${{ secrets.UNSUBSCRIBE_JWT_SECRET }}
+          BRAZE_CONNECTED_CONTENT_API_KEY=${{ secrets.BRAZE_CONNECTED_CONTENT_API_KEY }}
 
           # OneTrust
           NEXT_PUBLIC_ONE_TRUST_ID=${{ secrets.NEXT_PUBLIC_ONE_TRUST_ID }}
 
           # Dune
-          NEXT_PUBLIC_DUNE_API_KEY=${{ secrets.NEXT_PUBLIC_DUNE_API_KEY }}
+          NEXT_PUBLIC_DUNE_API_BASE_URL=${{ secrets.NEXT_PUBLIC_DUNE_API_BASE_URL }}
+          DUNE_API_KEY=${{ secrets.DUNE_API_KEY }}
 
           # WalletConnect
           NEXT_PUBLIC_WC_PROJECT_ID=${{ secrets.NEXT_PUBLIC_WC_PROJECT_ID }}

@@ -116,7 +116,17 @@ interface ListUserSubscriptionGroupsReturn {
   }>;
 }
 
-export async function listUserSubscriptionGroups(brazeUserId: string) {
+export async function listUserSubscriptionGroups(
+  brazeUserId: string,
+  email?: string
+) {
+  // If email is provided, use it (more reliable than braze_id)
+  if (email) {
+    return getFromBraze<ListUserSubscriptionGroupsReturn>(
+      `/subscription/user/status?email=${encodeURIComponent(email)}`
+    );
+  }
+  // Fallback to external_id approach
   return getFromBraze<ListUserSubscriptionGroupsReturn>(
     `/subscription/user/status?external_id=${brazeUserId}`
   );

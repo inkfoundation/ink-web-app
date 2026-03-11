@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 
-const isProduction = process.env.NEXT_PUBLIC_ENVIRONMENT === "production";
+import { clientEnv } from "@/env-client";
+
+const isProduction = clientEnv.NEXT_PUBLIC_ENVIRONMENT === "production";
 
 const ALLOWED_DOMAINS = [
   "inkonchain.com",
@@ -20,8 +22,6 @@ export async function GET(request: Request) {
     }
 
     const host = request.headers.get("host");
-
-    console.log(`AUTH CALLBACK [host]: ${host}`);
 
     const isAllowedHost = ALLOWED_DOMAINS.some(
       (domain) => host === domain || host?.endsWith(`.${domain}`)

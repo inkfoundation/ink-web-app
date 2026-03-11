@@ -11,11 +11,13 @@ import { Link } from "@/routing";
 interface UnsubscribeFormProps {
   userBrazeId: string;
   email: string;
+  token: string;
 }
 
 export const UnsubscribeForm: React.FC<UnsubscribeFormProps> = ({
   userBrazeId,
   email,
+  token,
 }) => {
   const [state, formAction] = useActionState(unsubscribeFromBraze, {
     success: false,
@@ -34,10 +36,10 @@ export const UnsubscribeForm: React.FC<UnsubscribeFormProps> = ({
           <Link
             href={{
               pathname: "/newsletter/resubscribe",
-              query: { id: userBrazeId },
+              query: { token },
             }}
           >
-            Resuscribe
+            Resubscribe
           </Link>
         </Button>
       </div>
@@ -53,6 +55,14 @@ export const UnsubscribeForm: React.FC<UnsubscribeFormProps> = ({
           id="brazeId"
           name="brazeId"
           value={userBrazeId}
+          className="hidden"
+          aria-hidden
+          readOnly
+        />
+        <input
+          id="email"
+          name="email"
+          value={email}
           className="hidden"
           aria-hidden
           readOnly

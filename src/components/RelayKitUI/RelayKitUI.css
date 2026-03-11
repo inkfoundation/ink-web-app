@@ -84,6 +84,12 @@ div[type="button"] > button {
   width: 32px !important;
 }
 
+button.relay-bg_primary-button-background.relay-rounded_99999 {
+  background-color: var(--relay-colors-widget-selector-background) !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
 /** 
 Fixes transparency `Search for a chain` input in the modals.
 */

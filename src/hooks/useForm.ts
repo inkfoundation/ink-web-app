@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ZodSchema } from "zod";
 
 import { useCaptcha } from "@/contexts/CaptchaProvider";
+import { captureError } from "@/integrations/sentry";
 
 export interface UseFormHook<FormState, FormValues extends FieldValues> {
   state: FormState;
@@ -63,6 +64,7 @@ export function useForm<FormState, FormValues extends FieldValues>(
           );
         } catch (error) {
           console.error("hCaptcha execution error:", error);
+          captureError(error);
           return;
         }
       } else {

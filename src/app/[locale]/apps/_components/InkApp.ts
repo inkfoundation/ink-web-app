@@ -20,6 +20,8 @@ export interface InkApp {
     farcaster: string;
     smartContractUrl?: string;
   };
+  order?: number;
+  pills?: string[];
 }
 
 export type InkAppNetwork = "Mainnet" | "Testnet" | "Both";
@@ -46,25 +48,71 @@ const apps = appsData.apps
           ? DOMPurify.sanitize(app.links.smartContractUrl)
           : undefined,
       },
+      order: app.order,
+      pills: app.pills?.map((p) => DOMPurify.sanitize(p)),
     } satisfies InkApp;
   })
   .sort((a, b) => a.name.localeCompare(b.name));
 
 export const inkApps: InkApp[] = apps;
-export const inkFeaturedApps = inkApps.filter((a) =>
-  ["kraken-wallet", "reservoir:-relay", "velodrome"].includes(a.id)
-);
-export const inkHomeApps = inkApps.filter((a) =>
-  [
-    "kraken-wallet",
-    "deep-on-ink",
-    "velodrome",
-    "dinero",
-    "gm",
-    "inkypump",
-    "superswap",
-  ].includes(a.id)
-);
+export const inkFeaturedApps = inkApps
+  .filter((a) =>
+    [
+      "nado",
+      "tydro",
+      "kraken-wallet",
+      "reservoir:-relay",
+      "velodrome",
+    ].includes(a.id)
+  )
+  .sort((a, b) => {
+    // For featured apps, sort by order if both have it
+    if (a.order !== undefined && b.order !== undefined) {
+      if (a.order !== b.order) {
+        return a.order - b.order;
+      }
+      return a.name.localeCompare(b.name);
+    }
+    // If only one has order, prioritize it
+    if (a.order !== undefined) {
+      return -1;
+    }
+    if (b.order !== undefined) {
+      return 1;
+    }
+    // Neither has order, sort alphabetically
+    return a.name.localeCompare(b.name);
+  });
+export const inkHomeApps = inkApps
+  .filter((a) =>
+    [
+      "nado",
+      "tydro",
+      "kraken-wallet",
+      "deep-on-ink",
+      "velodrome",
+      "gm",
+      "inkypump",
+    ].includes(a.id)
+  )
+  .sort((a, b) => {
+    // For featured home apps, sort by order if both have it
+    if (a.order !== undefined && b.order !== undefined) {
+      if (a.order !== b.order) {
+        return a.order - b.order;
+      }
+      return a.name.localeCompare(b.name);
+    }
+    // If only one has order, prioritize it
+    if (a.order !== undefined) {
+      return -1;
+    }
+    if (b.order !== undefined) {
+      return 1;
+    }
+    // Neither has order, sort alphabetically
+    return a.name.localeCompare(b.name);
+  });
 export const inkTransparentIcons: string[] = [];
 export const inkTags: string[] = apps.reduce((acc, app) => {
   app.tags.forEach((tag) => {

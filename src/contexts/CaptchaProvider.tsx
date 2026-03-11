@@ -63,9 +63,19 @@ export const useCaptcha = (): CaptchaContextType => {
 export const CaptchaProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  const [widgetId, setWidgetId] = useState<string | null>(null);
+
+  // If captcha is disabled in local environment, mark as ready immediately
+  const isCaptchaDisabled = clientEnv.NEXT_PUBLIC_DISABLE_CAPTCHA;
+  const [widgetId, setWidgetId] = useState<string | null>(
+    isCaptchaDisabled ? "disabled" : null
+  );
 
   function init() {
+    if (isCaptchaDisabled) {
+      setWidgetId("disabled");
+      return;
+    }
+
     const id = window.hcaptcha.render("hcaptcha-container", {
       sitekey: clientEnv.NEXT_PUBLIC_HCAPTCHA_SITEKEY,
       size: "invisible",
@@ -74,7 +84,11 @@ export const CaptchaProvider: React.FC<PropsWithChildren> = ({ children }) => {
   }
 
   const handleExecuteHCaptcha = useCallback(async () => {
-    if (!widgetId) {
+    if (isCaptchaDisabled) {
+      return { response: "disabled-in-local" };
+    }
+
+    if (!widgetId || widgetId === "disabled") {
       setError(new Error("hCaptcha not initialized"));
       throw new Error("hCaptcha not initialized");
     }
@@ -92,37 +106,41 @@ export const CaptchaProvider: React.FC<PropsWithChildren> = ({ children }) => {
     } finally {
       setIsLoading(false);
     }
-  }, [widgetId]);
+  }, [widgetId, isCaptchaDisabled]);
 
   return (
     <CaptchaContext.Provider
       value={{
         executeHCaptcha: handleExecuteHCaptcha,
-        isReady: !!widgetId,
+        isReady: isCaptchaDisabled || !!widgetId,
         isLoading,
         error,
       }}
     >
       {children}
-      <Script
-        src="https://js.hcaptcha.com/1/api.js?render=explicit"
-        async
-        defer
-        onLoad={init}
-      />
-      <div
-        id="hcaptcha-container"
-        style={{
-          display: "none",
-          position: "fixed",
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          zIndex: 9999,
-          overflow: "hidden",
-        }}
-      />
+      {!isCaptchaDisabled && (
+        <>
+          <Script
+            src="https://js.hcaptcha.com/1/api.js?render=explicit"
+            async
+            defer
+            onLoad={init}
+          />
+          <div
+            id="hcaptcha-container"
+            style={{
+              display: "none",
+              position: "fixed",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              zIndex: 9999,
+              overflow: "hidden",
+            }}
+          />
+        </>
+      )}
     </CaptchaContext.Provider>
   );
 };

@@ -4,7 +4,7 @@ import { env } from "@/env";
 import { routing } from "@/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const basicPaths = ["bridge", "faucet", "privacy", "terms"];
+  const basicPaths = ["bridge", "faucet", "terms"];
 
   return [
     {

@@ -125,7 +125,6 @@
   );
 
   --breakpoint-menu: 1035px;
-  --breakpoint-sm-landscape-only: \(max-height: 700px\)and \(min-width: 640px\);
   --breakpoint-hd: 1920px;
   --breakpoint-2xl: 1600px;
 
@@ -171,7 +170,7 @@
   &::-webkit-scrollbar {
     width: 12px; /* width of the entire scrollbar */
   }
-  f &::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     background: transparent; /* color of the tracking area */
   }
 
