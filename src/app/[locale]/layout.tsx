@@ -10,7 +10,6 @@ import { Footer } from "@/components/Footer";
 import { GlobalSvgStuff } from "@/components/icons/GlobalSvgStuff";
 import { ContactUsModal, NewsletterModal } from "@/components/Modals";
 import { Providers } from "@/components/Providers";
-import { ScrollToTop } from "@/components/ScrollToTop";
 import { ToggleThemeShortcut } from "@/components/ToggleThemeShortcut";
 import { clientEnv } from "@/env-client";
 import { COOKIE_CONSENT } from "@/integrations/consent";
@@ -72,22 +71,18 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
-            <ScrollToTop />
             <ToggleThemeShortcut />
 
-            <div className="relative min-h-screen flex flex-col overflow-x-clip">
-              <MainPageBackground />
-              <div className="relative z-[1] flex flex-col flex-1">
-                <RoutedLayout>
-                  <div className="relative pt-0 overflow-hidden flex flex-col gap-8 w-full items-center flex-1">
-                    <div className="flex flex-col w-full items-center flex-1">
-                      <LayoutColumns>{children}</LayoutColumns>
-                    </div>
-                    <Footer />
-                  </div>
-                </RoutedLayout>
+            <RoutedLayout>
+              <div className="relative pt-0 overflow-hidden flex flex-col gap-8 w-full items-center">
+                <div className="flex flex-col w-full items-center min-h-[80vh]">
+                  <LayoutColumns>{children}</LayoutColumns>
+                </div>
+                <Footer />
               </div>
-            </div>
+
+              <MainPageBackground />
+            </RoutedLayout>
 
             <CookieConsent />
             <ConsentLogger />

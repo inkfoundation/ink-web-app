@@ -8,7 +8,6 @@ import {
 } from "@inkonchain/ink-kit";
 
 import { CONTACT_US_MODAL_KEY } from "@/components/Modals";
-import { useSidebarContext } from "@/contexts/SidebarContext";
 import { useRouterQuery } from "@/hooks/useRouterQuery";
 import {
   hrefObjectFromHrefPropWithQuery,
@@ -16,12 +15,11 @@ import {
   pathFromHrefProp,
   usePathname,
 } from "@/routing";
-import { classNames } from "@/util/classes";
 
 import { useLinks } from "./links";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const SideNav = () => {
-  const { isCollapsed } = useSidebarContext();
   const links = useLinks();
 
   const query = useRouterQuery();
@@ -34,8 +32,13 @@ export const SideNav = () => {
     setSelected(path);
   }, [path]);
 
-  const nav = (
+  return (
     <InkLayoutSideNav
+      bottom={
+        <div>
+          <ThemeToggle />
+        </div>
+      }
       links={[
         ...links.map(({ href, icon, label, exactHref }) => {
           const hrefPath = pathFromHrefProp(href);
@@ -72,17 +75,5 @@ export const SideNav = () => {
         },
       ]}
     />
-  );
-
-  return (
-    <div
-      className={classNames(
-        "h-full overflow-hidden",
-        "transition-[width] duration-200 ease-out",
-        isCollapsed ? "w-[36px] hover:w-full" : "w-full"
-      )}
-    >
-      <div className="min-w-[180px]">{nav}</div>
-    </div>
   );
 };
