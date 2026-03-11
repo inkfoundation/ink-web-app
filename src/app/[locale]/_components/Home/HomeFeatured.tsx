@@ -7,18 +7,21 @@ import { newLayoutSectionClasses } from "@/components/styles/container";
 import { useRouterQuery } from "@/hooks/useRouterQuery";
 import { Link } from "@/routing";
 
-import { AppsGrid } from "../../apps/_components/AppsGrid";
-import { inkHomeApps } from "../../apps/_components/InkApp";
+import { HomeNado } from "./HomeNado";
+import { HomeTydro } from "./HomeTydro";
 
-export const HomeApps = () => {
+export const HomeFeatured = () => {
   const t = useTranslations("Home");
   const query = useRouterQuery();
   return (
     <div className={newLayoutSectionClasses()}>
       <div className="flex justify-between items-center">
-        <ColoredText className="ink:text-h4" variant="purple">
-          {t("appsTitle")}
-        </ColoredText>
+        <h2 className="ink:text-h4">
+          Featuring{" "}
+          <ColoredText variant="purple" noAnimation>
+            INK airdrop
+          </ColoredText>
+        </h2>
         <Button
           asChild
           variant="secondary"
@@ -27,13 +30,10 @@ export const HomeApps = () => {
           <Link href={{ pathname: "/apps", query }}>{t("appsCta")}</Link>
         </Button>
       </div>
-      <AppsGrid
-        apps={inkHomeApps}
-        featuredApps={[]}
-        noAppsFound={null}
-        network="Mainnet"
-        gridClassName="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-      />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <HomeTydro />
+        <HomeNado />
+      </div>
     </div>
   );
 };

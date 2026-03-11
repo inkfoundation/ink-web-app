@@ -86,13 +86,14 @@ export const inkFeaturedApps = inkApps
 export const inkHomeApps = inkApps
   .filter((a) =>
     [
-      "nado",
-      "tydro",
-      "kraken-wallet",
-      "deep-on-ink",
-      "velodrome",
-      "gm",
       "inkypump",
+      "gelato",
+      "owlto",
+      "velodrome",
+      "blockscout",
+      "okx-explorer",
+      "kraken-wallet",
+      "dyorswap",
     ].includes(a.id)
   )
   .sort((a, b) => {

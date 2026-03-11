@@ -14,6 +14,8 @@ interface ConnectWalletButtonProps {
   noIcon?: boolean;
   size?: "md" | "lg";
   variant?: ButtonProps["variant"];
+  /** Renders the connected state as a hardcoded dark pill (not theme-affected). */
+  walletPill?: boolean;
 }
 
 export const ConnectWalletButton: React.FC<ConnectWalletButtonProps> = ({
@@ -23,6 +25,7 @@ export const ConnectWalletButton: React.FC<ConnectWalletButtonProps> = ({
   size = "md",
   noIcon = false,
   variant = "transparent",
+  walletPill = false,
 }) => {
   return (
     <ConnectButton.Custom>
@@ -65,6 +68,48 @@ export const ConnectWalletButton: React.FC<ConnectWalletButtonProps> = ({
                   {connectLabel}
                 </div>
               </Button>
+            ) : walletPill ? (
+              <>
+                {/* Mobile: avatar-only pill */}
+                <button
+                  onClick={
+                    chain.unsupported ? openChainModal : openAccountModal
+                  }
+                  className={classNames(
+                    "flex items-center justify-center rounded-full h-10 w-10 bg-[#191919] cursor-pointer",
+                    shrinkOnMobile ? "sm:hidden" : "hidden"
+                  )}
+                >
+                  <Image
+                    src={account.ensAvatar || "/icons/profile-avatar.png"}
+                    alt="Profile"
+                    className="size-8 rounded-full"
+                    height={32}
+                    width={32}
+                  />
+                </button>
+                {/* Desktop: avatar + name pill */}
+                <button
+                  onClick={
+                    chain.unsupported ? openChainModal : openAccountModal
+                  }
+                  className={classNames(
+                    "flex items-center gap-2 rounded-full h-10 py-2 pr-4 pl-1 bg-[#191919] text-white cursor-pointer whitespace-nowrap text-sm font-medium",
+                    shrinkOnMobile ? "hidden sm:flex" : ""
+                  )}
+                >
+                  <Image
+                    src={account.ensAvatar || "/icons/profile-avatar.png"}
+                    alt="Profile"
+                    className="size-8 rounded-full"
+                    height={32}
+                    width={32}
+                  />
+                  {account.ensName
+                    ? truncateEnsName(account.ensName)
+                    : account.displayName}
+                </button>
+              </>
             ) : (
               <>
                 <Button
@@ -81,7 +126,13 @@ export const ConnectWalletButton: React.FC<ConnectWalletButtonProps> = ({
                   variant={variant}
                   rounded="full"
                 >
-                  <InkIcon.Profile className="size-6" enforce="inherit" />
+                  <Image
+                    src={account.ensAvatar || "/icons/profile-avatar.png"}
+                    alt="Profile"
+                    className="size-6 rounded-full"
+                    height={39}
+                    width={39}
+                  />
                 </Button>
                 <Button
                   onClick={
@@ -97,20 +148,18 @@ export const ConnectWalletButton: React.FC<ConnectWalletButtonProps> = ({
                   variant={variant}
                 >
                   <div className="ink:-my-1 whitespace-nowrap">
-                    {account.ensAvatar && account.ensName ? (
-                      <div className="flex items-center gap-2">
-                        <Image
-                          src={account.ensAvatar}
-                          alt={account.ensName}
-                          className="w-6 h-6 rounded-full"
-                          height={39}
-                          width={39}
-                        />
-                        {truncateEnsName(account.ensName)}
-                      </div>
-                    ) : (
-                      account.displayName
-                    )}
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src={account.ensAvatar || "/icons/profile-avatar.png"}
+                        alt="Profile"
+                        className="w-6 h-6 rounded-full"
+                        height={39}
+                        width={39}
+                      />
+                      {account.ensName
+                        ? truncateEnsName(account.ensName)
+                        : account.displayName}
+                    </div>
                   </div>
                 </Button>
               </>

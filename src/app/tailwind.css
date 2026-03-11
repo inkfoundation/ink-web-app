@@ -213,11 +213,18 @@
 
   :root {
     --ink-button-primary: rgb(113, 50, 245);
+    --ink-background-container: rgb(232, 228, 253);
+    --ink-button-secondary: rgb(232, 228, 253);
     --ink-scrollbar: color-mix(
       in srgb,
       var(--ink-button-primary) 20%,
       transparent
     );
+  }
+
+  .dark {
+    --ink-background-container: rgb(29, 23, 41);
+    --ink-button-secondary: rgb(29, 23, 41);
   }
 }
 
