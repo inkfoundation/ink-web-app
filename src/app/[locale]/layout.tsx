@@ -50,6 +50,7 @@ export default async function LocaleLayout({
       lang={locale}
       suppressHydrationWarning
       className={`${inter.variable} ${plus_jakarta_sans.variable} ${themeClasses}`}
+      data-version={process.env.GITHUB_SHA}
     >
       {userHasAcceptedCookiePolicy && (
         <>
