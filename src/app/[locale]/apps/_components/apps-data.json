@@ -723,6 +723,25 @@
       }
     },
     {
+      "id": "magna",
+      "name": "Magna",
+      "description": "Manage your token cap table, automate on-or-off chain vesting, account for tax deductions, execute airdrops and onboard in under a day.",
+      "imageUrl": "/featured-apps/icons/magna.webp",
+      "category": ["Infra", "DeFi", "Other"],
+      "network": "Mainnet",
+      "tags": ["tokens", "yield", "cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://www.magna.so/",
+        "testnetWebsite": "https://www.magna.so/",
+        "x": "https://x.com/magna_digital",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "mavrk",
       "name": "Mavrk",
       "description": "A decentralized DeFi hub for token creation, trading, and cross-chain liquidity - the fastest and most capital-efficient way to create markets, all powered by Ink.",
