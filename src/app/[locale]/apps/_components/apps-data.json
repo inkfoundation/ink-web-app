@@ -167,6 +167,25 @@
       }
     },
     {
+      "id": "clique",
+      "name": "Clique",
+      "description": "Token Operations",
+      "imageUrl": "/featured-apps/icons/clique.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["tokens", "tools"],
+      "links": {
+        "mainnetWebsite": "https://www.clique.tech/",
+        "testnetWebsite": "https://www.clique.tech/",
+        "x": "https://x.com/Clique2046",
+        "discord": "",
+        "telegram": "https://t.me/jpeg_yakuza",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "cobridge",
       "name": "coBridge",
       "description": "coBridge is a fast and secure EVM cross-chain bridge enabling seamless asset and data transfers between Ethereum-compatible blockchains.",
@@ -201,25 +220,6 @@
         "telegram": "",
         "github": "https://github.com/cometbridge",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "clique",
-      "name": "Clique",
-      "description": "Token Operations",
-      "imageUrl": "/featured-apps/icons/clique.webp",
-      "category": ["Infra"],
-      "network": "Mainnet",
-      "tags": ["tokens", "tools"],
-      "links": {
-        "mainnetWebsite": "https://www.clique.tech/",
-        "testnetWebsite": "https://www.clique.tech/",
-        "x": "https://x.com/Clique2046",
-        "discord": "",
-        "telegram": "https://t.me/jpeg_yakuza",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
       }
     },
     {
@@ -297,18 +297,18 @@
       }
     },
     {
-      "id": "dune",
-      "name": "Dune",
-      "description": "Query, visualize, share and export data across 75+ blockchains — build together with Web3's biggest data community.",
-      "imageUrl": "/featured-apps/icons/dune.webp",
-      "category": ["Infra"],
+      "id": "dinero",
+      "name": "Dinero",
+      "description": "The yield baseplate of Ethereum. Formerly Redacted.",
+      "imageUrl": "/featured-apps/icons/dinero.webp",
+      "category": ["DeFi"],
       "network": "Mainnet",
-      "tags": ["data", "tools"],
+      "tags": ["yield"],
       "links": {
-        "mainnetWebsite": "https://dune.com/home",
-        "testnetWebsite": "https://dune.com/home",
-        "x": "https://x.com/Dune",
-        "discord": "",
+        "mainnetWebsite": "https://ink.dinero.xyz/",
+        "testnetWebsite": "https://ink.dinero.xyz/",
+        "x": "https://x.com/dinero_xyz",
+        "discord": "https://discord.gg/dineroxyz",
         "telegram": "",
         "github": "",
         "farcaster": ""
@@ -331,6 +331,24 @@
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "dune",
+      "name": "Dune",
+      "description": "Query, visualize, share and export data across 75+ blockchains — build together with Web3's biggest data community.",
+      "imageUrl": "/featured-apps/icons/dune.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["data", "tools"],
+      "links": {
+        "mainnetWebsite": "https://dune.com/home",
+        "testnetWebsite": "https://dune.com/home",
+        "x": "https://x.com/Dune",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": ""
       }
     },
     {
@@ -463,24 +481,6 @@
       }
     },
     {
-      "id": "hypernative",
-      "name": "Hypernative",
-      "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
-      "imageUrl": "/featured-apps/icons/hypernative.webp",
-      "category": ["Infra"],
-      "network": "Both",
-      "tags": ["security"],
-      "links": {
-        "mainnetWebsite": "https://www.hypernative.io/",
-        "testnetWebsite": "https://www.hypernative.io/",
-        "x": "https://x.com/HypernativeLabs",
-        "discord": "",
-        "telegram": "",
-        "github": "",
-        "farcaster": ""
-      }
-    },
-    {
       "id": "hyperfluid",
       "name": "HyperFluid",
       "description": "HyperFluid is a swapping aggregator and DEX, support 60+ blockchains, enabling seamless same-chain swaps and cross-chain bridging, including routing funds from over 60 chains directly into Inkonchain.",
@@ -497,6 +497,24 @@
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "hypernative",
+      "name": "Hypernative",
+      "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
+      "imageUrl": "/featured-apps/icons/hypernative.webp",
+      "category": ["Infra"],
+      "network": "Both",
+      "tags": ["security"],
+      "links": {
+        "mainnetWebsite": "https://www.hypernative.io/",
+        "testnetWebsite": "https://www.hypernative.io/",
+        "x": "https://x.com/HypernativeLabs",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": ""
       }
     },
     {
@@ -534,6 +552,25 @@
         "telegram": "",
         "github": "",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "inkavern",
+      "name": "Inkavern",
+      "description": "Inkavern is an all in one dashboard for tracking ink wallets, positions, NFTs, and transactions.",
+      "imageUrl": "/featured-apps/icons/inkavern.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["data", "tools"],
+      "links": {
+        "mainnetWebsite": "https://www.inkavern.com",
+        "testnetWebsite": "https://www.inkavern.com",
+        "x": "https://x.com/inkavern",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
@@ -626,25 +663,6 @@
         "x": "https://x.com/inkyswap",
         "discord": "",
         "telegram": "https://t.me/inkyswap",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "inkavern",
-      "name": "Inkavern",
-      "description": "Inkavern is an all in one dashboard for tracking ink wallets, positions, NFTs, and transactions.",
-      "imageUrl": "/featured-apps/icons/inkavern.webp",
-      "category": ["Other"],
-      "network": "Mainnet",
-      "tags": ["data", "tools"],
-      "links": {
-        "mainnetWebsite": "https://www.inkavern.com",
-        "testnetWebsite": "https://www.inkavern.com",
-        "x": "https://x.com/inkavern",
-        "discord": "",
-        "telegram": "",
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
@@ -1098,25 +1116,6 @@
       }
     },
     {
-      "id": "rubyscore",
-      "name": "RubyScore",
-      "description": "Analytics platform for blockchains and wallets, which combines on-chain data with a massive and constantly growing database containing millions of wallet labels",
-      "imageUrl": "/featured-apps/icons/rubyscore.webp",
-      "category": ["Infra", "Explorers", "Other"],
-      "network": "Mainnet",
-      "tags": ["data", "explorer", "nfts", "tools", "cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://rubyscore.io/dashboard?net=ink",
-        "testnetWebsite": "https://rubyscore.io/dashboard?net=ink",
-        "x": "https://x.com/rubyscore_io",
-        "discord": "https://discord.com/invite/rubyscore",
-        "telegram": "https://t.me/RubyScore_ann",
-        "github": "https://github.com/rubyscoreio",
-        "farcaster": "https://warpcast.com/rubyscore",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x009DBFEe9E155766AF434ED1652CA3769B05E76f"
-      }
-    },
-    {
       "id": "reservoir:-relay",
       "name": "Reservoir: Relay",
       "description": "Instant, low-cost bridging\nand swapping.",
@@ -1169,6 +1168,25 @@
         "github": "",
         "farcaster": "https://warpcast.com/routescan",
         "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "rubyscore",
+      "name": "RubyScore",
+      "description": "Analytics platform for blockchains and wallets, which combines on-chain data with a massive and constantly growing database containing millions of wallet labels",
+      "imageUrl": "/featured-apps/icons/rubyscore.webp",
+      "category": ["Infra", "Explorers", "Other"],
+      "network": "Mainnet",
+      "tags": ["data", "explorer", "nfts", "tools", "cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://rubyscore.io/dashboard?net=ink",
+        "testnetWebsite": "https://rubyscore.io/dashboard?net=ink",
+        "x": "https://x.com/rubyscore_io",
+        "discord": "https://discord.com/invite/rubyscore",
+        "telegram": "https://t.me/RubyScore_ann",
+        "github": "https://github.com/rubyscoreio",
+        "farcaster": "https://warpcast.com/rubyscore",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x009DBFEe9E155766AF434ED1652CA3769B05E76f"
       }
     },
     {
@@ -1519,24 +1537,6 @@
         "x": "https://x.com/ZNSConnect",
         "discord": "https://discord.gg/2rrkuqT8pB",
         "telegram": "https://t.me/znsconnect",
-        "github": "",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "dinero",
-      "name": "Dinero",
-      "description": "The yield baseplate of Ethereum. Formerly Redacted.",
-      "imageUrl": "/featured-apps/icons/dinero.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield"],
-      "links": {
-        "mainnetWebsite": "https://ink.dinero.xyz/",
-        "testnetWebsite": "https://ink.dinero.xyz/",
-        "x": "https://x.com/dinero_xyz",
-        "discord": "https://discord.gg/dineroxyz",
-        "telegram": "",
         "github": "",
         "farcaster": ""
       }
