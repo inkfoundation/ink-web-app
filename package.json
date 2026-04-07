@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "format": "prettier --write \"**/*.{ts,tsx,md,mdx,css,scss}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,md,mdx,css,scss}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,mdx,css,scss,json}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,mdx,css,scss,json}\"",
     "test": "playwright test",
     "fix:all": "pnpm run lint:fix && pnpm run format",
     "generate:featured-apps": "node scripts/featured-apps.js"

@@ -1,34 +1,32 @@
 {
-    "name": "Ink Web",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": "..",
-        "args": {
-            "PLATFORM": "linux/amd64"
-        }
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "dbaeumer.vscode-eslint",
-                // "ms-vscode.typescript-tslint-plugin",
-            ]
-        }
-    },
-    // "forwardPorts": [
-    //     3000
-    // ],
-    "runArgs": [
-        "--network=host",
-    ],
-    "remoteUser": "root",
-    "mounts": [
-        "source=${localEnv:INK_DIRECTORY}/.gitconfig,target=/workspaces/landingpage/.gitconfig,type=bind",
-        // "source=${env:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached"
-        // Mount the GPG directory to provide access to your keys
-        "source=${env:HOME}/.gnupg,target=/root/.gnupg,type=bind,consistency=cached",
-        // Forward the GPG socket so that GPG agent can be accessed
-        "source=${env:INK_GPG_HOME},target=/root/.gnupg/S.gpg-agent,type=bind"
-    ],
-    "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+  "name": "Ink Web",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "PLATFORM": "linux/amd64"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint"
+        // "ms-vscode.typescript-tslint-plugin",
+      ]
+    }
+  },
+  // "forwardPorts": [
+  //     3000
+  // ],
+  "runArgs": ["--network=host"],
+  "remoteUser": "root",
+  "mounts": [
+    "source=${localEnv:INK_DIRECTORY}/.gitconfig,target=/workspaces/landingpage/.gitconfig,type=bind",
+    // "source=${env:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached"
+    // Mount the GPG directory to provide access to your keys
+    "source=${env:HOME}/.gnupg,target=/root/.gnupg,type=bind,consistency=cached",
+    // Forward the GPG socket so that GPG agent can be accessed
+    "source=${env:INK_GPG_HOME},target=/root/.gnupg/S.gpg-agent,type=bind"
+  ],
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
 }

@@ -1,0 +1,3 @@
+# Minified Lottie / animation JSON — Prettier would expand to huge multi-line diffs
+src/components/Modals/AppSubmissionModal/animation.json
+src/app/\[locale\]/testnet-bridge/_components/BridgeTransactionModal/BroadcastSent-checkMark.json
