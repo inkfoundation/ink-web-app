@@ -16,9 +16,12 @@ export const AppsGrid: React.FC<{
   network: InkAppNetwork;
 }> = ({ apps, featuredApps, noAppsFound, network }) => {
   const walletColumn = useFeatureFlag("walletColumn");
+  const featuredIds = new Set(featuredApps.map((app) => app.id));
+  const nonFeaturedApps = apps.filter((app) => !featuredIds.has(app.id));
+  const hasApps = featuredApps.length > 0 || nonFeaturedApps.length > 0;
   return (
     <div className="w-full">
-      {apps.length === 0 ? (
+      {!hasApps ? (
         <div className="min-h-[300px] flex flex-col gap-4 justify-center items-center">
           {noAppsFound}
         </div>
@@ -34,7 +37,7 @@ export const AppsGrid: React.FC<{
           {featuredApps.map((app) => (
             <AppCard key={app.id} app={app} network={network} featured />
           ))}
-          {apps.map((app) => (
+          {nonFeaturedApps.map((app) => (
             <AppCard key={app.id} app={app} network={network} />
           ))}
         </div>
