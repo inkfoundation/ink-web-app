@@ -1469,6 +1469,25 @@
       }
     },
     {
+      "id": "wizart",
+      "name": "Wizart",
+      "description": "A dapp built for Ink Chain users to easily create NFTs and mint NFTs. Fairlaunch platform on the way",
+      "imageUrl": "/featured-apps/icons/wizart.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["fun", "nfts", "tools", "tokens"],
+      "links": {
+        "mainnetWebsite": "https://wizart.ink/",
+        "testnetWebsite": "https://wizart.ink/",
+        "x": "https://x.com/Wizart_INK",
+        "discord": "",
+        "telegram": "https://t.me/WizartCommunity",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "wormhole",
       "name": "Wormhole",
       "description": "Wormhole is the leading interoperability platform powering multichain applications and bridges at scale.",
