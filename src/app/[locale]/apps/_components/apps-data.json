@@ -56,6 +56,25 @@
       }
     },
     {
+      "id": "aleph-cloud",
+      "name": "Aleph Cloud",
+      "description": "Decentralized supercloud",
+      "imageUrl": "/featured-apps/icons/aleph-cloud.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["tools", "explorer"],
+      "links": {
+        "mainnetWebsite": "https://aleph.cloud/",
+        "testnetWebsite": "https://aleph.cloud/",
+        "x": "https://x.com/aleph_im",
+        "discord": "",
+        "telegram": "https://t.me/alephcloud",
+        "github": "https://github.com/aleph-im",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "astra-swap",
       "name": "Astra Swap",
       "description": "Trade, earn, and own crypto on the all-in-one multichain DEX.",
