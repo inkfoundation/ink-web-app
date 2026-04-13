@@ -1,6 +1,25 @@
 {
   "apps": [
     {
+      "id": "0x",
+      "name": "0x",
+      "description": "Embed swaps in your onchain app. Access 10+ million tokens with liquidity from 140+ exchanges, with the best prices and the smoothest trading experience.",
+      "imageUrl": "/featured-apps/icons/0x.webp",
+      "category": ["Infra", "DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex", "tools"],
+      "links": {
+        "mainnetWebsite": "https://0x.org",
+        "testnetWebsite": "https://0x.org",
+        "x": "https://x.com/0xProject",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/0xProject",
+        "farcaster": "https://warpcast.com/0xproject",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "across-protocol",
       "name": "Across Protocol",
       "description": "Fast. Secure. Affordable. The bridge Ethereum deserves ✨",
@@ -16,6 +35,80 @@
         "telegram": "",
         "github": "https://github.com/across-protocol",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "blockscout",
+      "name": "Blockscout",
+      "description": "Open-source, universally accessible, and fully customizable, the new Blockscout Explorer Portal is your definitive gateway to the blockchain world.",
+      "imageUrl": "/featured-apps/icons/blockscout.webp",
+      "category": ["Explorers"],
+      "network": "Both",
+      "tags": ["explorer"],
+      "links": {
+        "mainnetWebsite": "https://explorer.inkonchain.com/",
+        "testnetWebsite": "https://explorer-sepolia.inkonchain.com/",
+        "x": "https://x.com/blockscoutcom",
+        "discord": "https://discord.gg/ApbA39BKyJ",
+        "telegram": "https://t.me/blockscoutcommunity",
+        "github": "",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "boi",
+      "name": "BOI",
+      "description": "First swipable NFT marketplace on Earth, built by the Bois for the Bois. Forget floors, swipe what you vibe with. Floor prices? Hidden deep for nerds. Real alpha: like the JPEG, not ROI math.",
+      "imageUrl": "/featured-apps/icons/boi.webp",
+      "category": ["Other", "Social"],
+      "network": "Mainnet",
+      "tags": ["fun", "nfts", "tools"],
+      "links": {
+        "mainnetWebsite": "https://boi.andrukollor.ink/",
+        "testnetWebsite": "https://boi.andrukollor.ink/",
+        "x": "https://x.com/AndruKollor",
+        "discord": "",
+        "telegram": "https://t.me/AndruKollor",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x63FEbFa0a5474803F4261a1628763b1B2cC3AB83"
+      }
+    },
+    {
+      "id": "bungee-exchange",
+      "name": "Bungee Exchange",
+      "description": "Bungee Protocol is a global liquidity marketplace that enables users to perform actions across chains. It's designed to optimize the experience for end users, powered by Socket Protocol.",
+      "imageUrl": "/featured-apps/icons/bungee.webp",
+      "category": ["Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "interop", "chain abstraction"],
+      "links": {
+        "mainnetWebsite": "https://bungee.exchange/",
+        "testnetWebsite": "https://bungee.exchange/",
+        "x": "https://twitter.com/BungeeExchange",
+        "discord": "https://discord.gg/DrvfYq6fvc",
+        "telegram": "",
+        "github": "",
+        "farcaster": "https://warpcast.com/bungee-exchange"
+      }
+    },
+    {
+      "id": "chaos-oracles",
+      "name": "Chaos Oracles",
+      "description": "The advanced oracle protocol delivering real-time contextualized data for any on-chain application.",
+      "imageUrl": "/featured-apps/icons/chaos-oracles.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["oracle"],
+      "links": {
+        "mainnetWebsite": "https://chaoslabs.xyz/oracles",
+        "testnetWebsite": "https://chaoslabs.xyz/oracles",
+        "x": "https://www.twitter.com/chaoslabs",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
@@ -38,6 +131,60 @@
       }
     },
     {
+      "id": "curve",
+      "name": "Curve",
+      "description": "Creating deep on-chain liquidity using advanced bonding curves.",
+      "imageUrl": "/featured-apps/icons/curve.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://curve.finance/",
+        "testnetWebsite": "https://curve.finance/",
+        "x": "https://x.com/CurveFinance",
+        "discord": "https://discord.gg/9uEHakc",
+        "telegram": "https://t.me/curvefi",
+        "github": "https://github.com/curvefi",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "deep-on-ink",
+      "name": "The Deep",
+      "description": "Dive into DeFi on Ink.",
+      "imageUrl": "/featured-apps/icons/thedeep.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["yield"],
+      "links": {
+        "mainnetWebsite": "https://thedeep.ink/",
+        "testnetWebsite": "https://thedeep.ink/",
+        "x": "https://x.com/deep_on_ink",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/DeepProtocol",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "dune",
+      "name": "Dune",
+      "description": "Query, visualize, share and export data across 75+ blockchains — build together with Web3's biggest data community.",
+      "imageUrl": "/featured-apps/icons/dune.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["data", "tools"],
+      "links": {
+        "mainnetWebsite": "https://dune.com/home",
+        "testnetWebsite": "https://dune.com/home",
+        "x": "https://x.com/Dune",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": ""
+      }
+    },
+    {
       "id": "flowbot",
       "name": "FlowBot",
       "description": "FlowBot is a professional automated trading platform for Perp DEX traders. With $4B+ volume and 1M+ trades across 7 DEXs, maximize rebates and liquidity provision with proven strategies.",
@@ -54,6 +201,24 @@
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "gelato",
+      "name": "Gelato",
+      "description": "Build scalable, custom enterprise-grade Rollups with Gelato's Web3 Services natively integrated.",
+      "imageUrl": "/featured-apps/icons/gelato.webp",
+      "category": ["Bridge"],
+      "network": "Both",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://bridge.gelato.network/bridge/ink",
+        "testnetWebsite": "https://testnet-bridge.gelato.network/bridge/ink-sepolia",
+        "x": "https://x.com/gelatonetwork",
+        "discord": "https://discord.gg/ApbA39BKyJ",
+        "telegram": "https://t.me/gelatonetwork",
+        "github": "",
+        "farcaster": ""
       }
     },
     {
@@ -75,6 +240,42 @@
       }
     },
     {
+      "id": "goldsky",
+      "name": "Goldsky",
+      "description": "Goldsky powers hundreds of crypto businesses building rich, instant, data-driven experiences.",
+      "imageUrl": "/featured-apps/icons/goldsky.webp",
+      "category": ["Infra"],
+      "network": "Both",
+      "tags": ["data", "tools"],
+      "links": {
+        "mainnetWebsite": "https://docs.goldsky.com/chains/ink",
+        "testnetWebsite": "https://docs.goldsky.com/chains/ink",
+        "x": "https://x.com/goldskyio",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/goldsky-io",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "hypernative",
+      "name": "Hypernative",
+      "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
+      "imageUrl": "/featured-apps/icons/hypernative.webp",
+      "category": ["Infra"],
+      "network": "Both",
+      "tags": ["security"],
+      "links": {
+        "mainnetWebsite": "https://www.hypernative.io/",
+        "testnetWebsite": "https://www.hypernative.io/",
+        "x": "https://x.com/HypernativeLabs",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": ""
+      }
+    },
+    {
       "id": "inkdca",
       "name": "InkDCA",
       "description": "InkDCA is a fully decentralized, trust minimized Dollar-Cost Averaging (DCA) platform built exclusively on Ink .",
@@ -91,25 +292,6 @@
         "github": "https://github.com/0xgasleft/DCA",
         "farcaster": "",
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x6065c8913141b141841310CdBB156a8993B73c17"
-      }
-    },
-    {
-      "id": "inkscore",
-      "name": "Inkscore",
-      "description": "Inkscore is an on-chain reputation platform that gamifies Inkchain by scoring user activity and dApp interactions.",
-      "imageUrl": "/featured-apps/icons/inkscore.webp",
-      "category": ["Social", "Explorers"],
-      "network": "Mainnet",
-      "tags": ["data", "explorer", "tools", "wallet"],
-      "links": {
-        "mainnetWebsite": "https://www.inkscore.xyz/",
-        "testnetWebsite": "https://www.inkscore.xyz/",
-        "x": "https://x.com/Inkscore",
-        "discord": "",
-        "telegram": "",
-        "github": "https://github.com/inkchainscore-ship-it/inkscore",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0xBE1965cE0D06A79A411FFCD9a1C334638dF77649"
       }
     },
     {
@@ -187,6 +369,24 @@
       }
     },
     {
+      "id": "layerzero",
+      "name": "LayerZero",
+      "description": "LayerZero is a technology that enables applications to move data across blockchains, uniquely supporting censorship-resistant messages and permissionless development through immutable smart contracts.",
+      "imageUrl": "/featured-apps/icons/layerzero.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "interop"],
+      "links": {
+        "mainnetWebsite": "https://layerzero.network/",
+        "testnetWebsite": "https://layerzero.network/",
+        "x": "https://x.com/LayerZero_Core",
+        "discord": "https://discord.gg/ktbvm8Nkcr",
+        "telegram": "https://t.me/joinchat/VcqxYkStIDsyN2Rh",
+        "github": "https://github.com/LayerZero-Labs/LayerZero-v2",
+        "farcaster": ""
+      }
+    },
+    {
       "id": "magna",
       "name": "Magna",
       "description": "Manage your token cap table, automate on-or-off chain vesting, account for tax deductions, execute airdrops and onboard in under a day.",
@@ -225,6 +425,25 @@
       }
     },
     {
+      "id": "merkl",
+      "name": "Merkl",
+      "description": "The incentive platform powering DeFi. Connect Web3 projects with users to boost liquidity and engagement across 60+ blockchains.",
+      "imageUrl": "/featured-apps/icons/merkl.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["tools", "data"],
+      "links": {
+        "mainnetWebsite": "https://merkl.xyz",
+        "testnetWebsite": "https://merkl.xyz",
+        "x": "https://x.com/merkl_xyz",
+        "discord": "https://discord.com/invite/Gs8MUrUVP3",
+        "telegram": "https://t.me/merkleNetwork_announcement",
+        "github": "https://github.com/AngleProtocol/merkl-contracts",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae"
+      }
+    },
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
@@ -244,6 +463,261 @@
       },
       "order": 1,
       "pills": ["AIRDROP"]
+    },
+    {
+      "id": "okx-explorer",
+      "name": "OKX Explorer",
+      "description": "Your go-to onchain data hub. Offering ALL-IN-ONE Blockchain Explorer, OpenAPI, and EaaS to securely explore and build onchain.",
+      "imageUrl": "/featured-apps/icons/okxexplorer.webp",
+      "category": ["Explorers"],
+      "network": "Mainnet",
+      "tags": ["explorer"],
+      "links": {
+        "mainnetWebsite": "https://web3.okx.com/explorer/inkchain",
+        "testnetWebsite": "https://web3.okx.com/explorer/inkchain",
+        "x": "https://twitter.com/okxexplorer",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "pyth",
+      "name": "Pyth",
+      "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
+      "imageUrl": "/featured-apps/icons/pyth.webp",
+      "category": ["Infra"],
+      "network": "Both",
+      "tags": ["oracle"],
+      "links": {
+        "mainnetWebsite": "https://www.pyth.network/",
+        "testnetWebsite": "https://www.pyth.network/",
+        "x": "https://x.com/PythNetwork",
+        "discord": "https://discord.com/invite/pythnetwork",
+        "telegram": "https://t.me/Pyth_Network",
+        "github": "",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "rainbow",
+      "name": "Rainbow",
+      "description": "The fun, simple, & secure way to explore Web3, NFTs, & Ethereum 🌈",
+      "imageUrl": "/featured-apps/icons/rainbow.webp",
+      "category": ["On-ramps"],
+      "network": "Both",
+      "tags": ["wallet"],
+      "links": {
+        "mainnetWebsite": "https://rainbow.me/en/",
+        "testnetWebsite": "https://rainbow.me/en/",
+        "x": "https://twitter.com/rainbowdotme",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/rainbow-me/rainbow",
+        "farcaster": "https://warpcast.com/rainbow"
+      }
+    },
+    {
+      "id": "redstone",
+      "name": "Redstone",
+      "description": "The fastest-growing Oracle for DeFi and Institutions. Available on 50+ chains, trusted by 100+ clients.",
+      "imageUrl": "/featured-apps/icons/redstone.webp",
+      "category": ["Infra"],
+      "network": "Both",
+      "tags": ["oracle"],
+      "links": {
+        "mainnetWebsite": "https://redstone.finance/",
+        "testnetWebsite": "https://redstone.finance/",
+        "x": "https://x.com/redstone_defi",
+        "discord": "https://discord.com/invite/PVxBZKFr46",
+        "telegram": "https://t.me/redstonefinance/",
+        "github": "https://github.com/redstone-finance",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "reservoir:-relay",
+      "name": "Reservoir: Relay",
+      "description": "Instant, low-cost bridging\nand swapping.",
+      "imageUrl": "/featured-apps/icons/reservoir_relay.webp",
+      "category": ["Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://relay.link/bridge/ink?includeChainIds=57073",
+        "testnetWebsite": "https://relay.link/bridge/ink?includeChainIds=57073",
+        "x": "https://x.com/reservoir0x",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/reservoirprotocol",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "rhino.fi",
+      "name": "Rhino.fi",
+      "description": "Your lightning-fast secure bridge for seamless cross-chain transactions.",
+      "imageUrl": "/featured-apps/icons/rhino.fi.webp",
+      "category": ["Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://rhino.fi/",
+        "testnetWebsite": "https://rhino.fi/",
+        "x": "https://x.com/rhinofi",
+        "discord": "https://discord.gg/26sXx2KAhy",
+        "telegram": "https://t.me/rhinofiannouncements",
+        "github": "",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "routescan",
+      "name": "Routescan",
+      "description": "Multichain Unified Block Explorer",
+      "imageUrl": "/featured-apps/icons/routescan.webp",
+      "category": ["Explorers"],
+      "network": "Both",
+      "tags": ["explorer"],
+      "links": {
+        "mainnetWebsite": "https://inkonscan.xyz/",
+        "testnetWebsite": "https://sepolia.inkonscan.xyz/",
+        "x": "https://x.com/routescan_io",
+        "discord": "",
+        "telegram": "https://t.me/routescan_io",
+        "github": "",
+        "farcaster": "https://warpcast.com/routescan",
+        "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "safe",
+      "name": "SAFE",
+      "description": "Single unified balance. Instant cross-chain transactions.\nExecution guarantees. On any network.",
+      "imageUrl": "/featured-apps/icons/safe.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["wallet"],
+      "links": {
+        "mainnetWebsite": "https://safe.global/safenet",
+        "testnetWebsite": "https://safe.global/safenet",
+        "x": "https://x.com/safe",
+        "discord": "https://chat.safe.global/",
+        "telegram": "https://t.me/+jHGVUd8y1FQxMzJi",
+        "github": "https://github.com/safe-global",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "seda",
+      "name": "SEDA",
+      "description": "Build app-specific oracle feeds in seconds, with any data on day one.",
+      "imageUrl": "/featured-apps/icons/seda.webp",
+      "category": ["Infra"],
+      "network": "Both",
+      "tags": ["oracle"],
+      "links": {
+        "mainnetWebsite": "https://www.seda.xyz/",
+        "testnetWebsite": "https://www.seda.xyz/",
+        "x": "https://x.com/sedaprotocol",
+        "discord": "https://discord.com/invite/seda",
+        "telegram": "https://t.me/sedaprotocol",
+        "github": "https://github.com/sedaprotocol",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "stargate",
+      "name": "Stargate",
+      "description": "Stargate is a fully composable liquidity transport protocol that lives at the heart of omnichain DeFi.",
+      "imageUrl": "/featured-apps/icons/stargate.webp",
+      "category": ["Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://stargate.finance/bridge",
+        "testnetWebsite": "https://stargate.finance/bridge",
+        "x": "https://x.com/StargateFinance",
+        "discord": "https://stargate.finance/discord",
+        "telegram": "https://t.me/joinchat/LEM0ELklmO1kODdh",
+        "github": "https://github.com/stargate-protocol",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "superbridge",
+      "name": "Superbridge",
+      "description": "Superbridge is your entrypoint into the world of blockchain rollups! With Superbridge you can bridge Ether and other tokens into and out of any supported rollup.",
+      "imageUrl": "/featured-apps/icons/superbridge.webp",
+      "category": ["Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://superbridge.app/ink",
+        "testnetWebsite": "https://superbridge.app/ink",
+        "x": "https://twitter.com/superbridgeapp",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/superbridgeapp",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "superswap",
+      "name": "SuperSwap",
+      "description": "The Gateway To Tokenized Markets",
+      "imageUrl": "/featured-apps/icons/superswap.webp",
+      "category": ["DeFi", "Infra", "Other"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex", "tokens"],
+      "links": {
+        "mainnetWebsite": "https://superswap.ink",
+        "testnetWebsite": "https://superswap.ink",
+        "x": "https://x.com/superswapink",
+        "discord": "",
+        "telegram": "https://t.me/SuperSwapink",
+        "github": "https://github.com/SuperSwapink",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "tenderly",
+      "name": "Tenderly",
+      "description": "Move fast from development to on-chain deployment with a multichain node RPC, integrated development environments, and debugging tools.",
+      "imageUrl": "/featured-apps/icons/tenderly.webp",
+      "category": ["Infra"],
+      "network": "Both",
+      "tags": ["rpc", "tools"],
+      "links": {
+        "mainnetWebsite": "https://tenderly.co/",
+        "testnetWebsite": "https://tenderly.co/",
+        "x": "https://x.com/TenderlyApp",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/Tenderly",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "token-terminal",
+      "name": "Token Terminal",
+      "description": "Fundamentals for crypto. Available also on the Bloomberg Terminal App Portal at APPS TOKEN GO.",
+      "imageUrl": "/featured-apps/icons/tokenterminal.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["tokens", "tools"],
+      "links": {
+        "mainnetWebsite": "https://tokenterminal.com/",
+        "testnetWebsite": "https://tokenterminal.com/",
+        "x": "https://x.com/tokenterminal",
+        "discord": "https://discord.com/invite/tokenterminal",
+        "telegram": "",
+        "github": "",
+        "farcaster": ""
+      }
     },
     {
       "id": "tydro",
@@ -282,6 +756,79 @@
         "telegram": "",
         "github": "https://github.com/velodrome-finance",
         "farcaster": "https://warpcast.com/velodrome"
+      }
+    },
+    {
+      "id": "wormhole",
+      "name": "Wormhole",
+      "description": "Wormhole is the leading interoperability platform powering multichain applications and bridges at scale.",
+      "imageUrl": "/featured-apps/icons/wormhole.webp",
+      "category": ["Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://portalbridge.com/",
+        "testnetWebsite": "https://portalbridge.com/",
+        "x": "https://x.com/wormhole",
+        "discord": "https://discord.com/invite/wormholecrypto",
+        "telegram": "https://t.me/wormholecrypto",
+        "github": "",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "zerion",
+      "name": "Zerion",
+      "description": "Zerion is the best self-custodial wallet for everything you own onchain, helping you track and manage tokens, NFTs and DeFi positions across 55+ EVM chains - including ink",
+      "imageUrl": "/featured-apps/icons/zerion.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["wallet", "data"],
+      "links": {
+        "mainnetWebsite": "https://zerion.io/download?utm_source=inkchain",
+        "testnetWebsite": "https://zerion.io/download?utm_source=inkchain",
+        "x": "https://x.com/zerion",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "https://warpcast.com/zerion.eth",
+        "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "zerodev",
+      "name": "ZeroDev",
+      "description": "Chain-abstracted smart wallet. Build amazing Web3 experiences by removing bridging, gas, confirmations, and seed phrases.",
+      "imageUrl": "/featured-apps/icons/zerodev.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["wallet"],
+      "links": {
+        "mainnetWebsite": "https://zerodev.app/",
+        "testnetWebsite": "https://zerodev.app/",
+        "x": "https://x.com/zerodev_app",
+        "discord": "https://discord.gg/KS9MRaTSjx",
+        "telegram": "https://t.me/derek_chiang",
+        "github": "https://github.com/zerodevapp",
+        "farcaster": ""
+      }
+    },
+    {
+      "id": "zns-connect",
+      "name": "ZNS Connect",
+      "description": "Decentralized ID platform powered by decentralized addresses.",
+      "imageUrl": "/featured-apps/icons/znsconnect.webp",
+      "category": ["Social"],
+      "network": "Both",
+      "tags": ["domain names"],
+      "links": {
+        "mainnetWebsite": "https://zns.bio/search",
+        "testnetWebsite": "https://zns.bio/search",
+        "x": "https://x.com/ZNSConnect",
+        "discord": "https://discord.gg/2rrkuqT8pB",
+        "telegram": "https://t.me/znsconnect",
+        "github": "",
+        "farcaster": ""
       }
     }
   ]
