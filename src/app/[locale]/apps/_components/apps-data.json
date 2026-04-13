@@ -297,6 +297,25 @@
       }
     },
     {
+      "id": "dfns",
+      "name": "Dfns",
+      "description": "Dfns is the leading Wallet-as-a-Service platform, offering API-first digital asset custody with bank-grade security for fintechs, banks, exchanges, and Web3.",
+      "imageUrl": "/featured-apps/icons/dfns.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["wallet", "security"],
+      "links": {
+        "mainnetWebsite": "https://www.dfns.co",
+        "testnetWebsite": "https://www.dfns.co",
+        "x": "https://x.com/dfnsHQ",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/dfns",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "dinero",
       "name": "Dinero",
       "description": "The yield baseplate of Ethereum. Formerly Redacted.",
