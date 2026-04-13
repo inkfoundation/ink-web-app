@@ -1024,6 +1024,25 @@
       }
     },
     {
+      "id": "pulse",
+      "name": "Pulse",
+      "description": "The first real-time crypto prediction game on Ink. Bet whether BTC goes up or down in 10-second rounds, earn $PULSE points, and shape the product through community governance.",
+      "imageUrl": "/featured-apps/icons/pulse.webp",
+      "category": ["Social", "DeFi"],
+      "network": "Testnet",
+      "tags": ["fun"],
+      "links": {
+        "mainnetWebsite": "http://pulsebet.fun",
+        "testnetWebsite": "http://pulsebet.fun",
+        "x": "http://x.com/pulseonink",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer-sepolia.inkonchain.com/address/0x4bB20069F4E6C5eC5a197Cd03682e9109d2D2beb"
+      }
+    },
+    {
       "id": "pwn",
       "name": "PWN",
       "description": "PWN is a permissionless, peer-to-peer, fixed-rate lending protocol. Unlock liquidity using any asset, customize terms, always without price-based liquidations.",
