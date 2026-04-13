@@ -705,6 +705,25 @@
       }
     },
     {
+      "id": "krako",
+      "name": "Krako",
+      "description": "Krako is a revolutionizes decentralized trading with graduated liquidity pools, mathematical precision, and enterprise-grade secured launching and trading protocol - built natively for INK Mainnet.",
+      "imageUrl": "/featured-apps/icons/krako.webp",
+      "category": ["DeFi", "Social", "Infra"],
+      "network": "Mainnet",
+      "tags": ["dex", "fun"],
+      "links": {
+        "mainnetWebsite": "https://krako.fun",
+        "testnetWebsite": "https://krako.fun",
+        "x": "https://x.com/krakodotfun",
+        "discord": "",
+        "telegram": "https://t.me/krakodotfun",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "layerzero",
       "name": "LayerZero",
       "description": "LayerZero is a technology that enables applications to move data across blockchains, uniquely supporting censorship-resistant messages and permissionless development through immutable smart contracts.",
