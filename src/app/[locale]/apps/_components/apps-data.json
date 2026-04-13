@@ -969,6 +969,34 @@
       }
     },
     {
+      "id": "otomate",
+      "name": "Otomate",
+      "description": "Don’t Trade. Automate.  The AI-native automation layer for on-chain finance.  Copy strategies, deploy bots, execute seamlessly — from dashboard or Telegram.",
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi", "Explorers", "Social", "Infra"],
+      "network": "Mainnet",
+      "tags": [
+        "fun",
+        "tokens",
+        "tools",
+        "yield",
+        "wallet",
+        "data",
+        "dex",
+        "explorer"
+      ],
+      "links": {
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
+        "discord": "https://discord.gg/mGaZa9agQC",
+        "telegram": "https://t.me/otomate_trade",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "owlto",
       "name": "Owlto",
       "description": "Owlto Finance is an intent-centric interoperability protocol, 'Bridge the World with AI Agent'.",
