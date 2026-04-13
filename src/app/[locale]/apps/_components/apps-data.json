@@ -223,6 +223,25 @@
       }
     },
     {
+      "id": "copass",
+      "name": "coPass",
+      "description": "Proof of Human , sybil-resistant identity verification protocol.",
+      "imageUrl": "/featured-apps/icons/copass.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["tools", "data"],
+      "links": {
+        "mainnetWebsite": "https://copass.app",
+        "testnetWebsite": "https://copass.app",
+        "x": "https://x.com/copassapp",
+        "discord": "https://discord.com/invite/FU8MNfMRv8",
+        "telegram": "https://t.me/co_nft",
+        "github": "https://github.com/Conft-dev",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x58b33e8742C4Bf7155E937daec155B5e903A8544"
+      }
+    },
+    {
       "id": "copink",
       "name": "Copink",
       "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
