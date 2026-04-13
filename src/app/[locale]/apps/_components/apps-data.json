@@ -1264,6 +1264,25 @@
       }
     },
     {
+      "id": "skittle3s-rpg",
+      "name": "skittle3s rpg",
+      "description": "a simple3 strate3gie3 game3 w3ith le3ade3rboard",
+      "imageUrl": "/featured-apps/icons/skittle3s-rpg.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["fun"],
+      "links": {
+        "mainnetWebsite": "https://farcaster.xyz/miniapps/sZ_mWgQ-nHQj/skittles-rps",
+        "testnetWebsite": "https://farcaster.xyz/miniapps/sZ_mWgQ-nHQj/skittles-rps",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "squid-market",
       "name": "Squid Market",
       "description": "SquidMarket is a native NFT marketplace and launchpad built on InkChain. It’s designed to make NFT trading, collecting, and launching simple, secure, and rewarding for both creators and traders.",
