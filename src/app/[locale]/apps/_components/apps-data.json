@@ -1469,6 +1469,25 @@
       }
     },
     {
+      "id": "wheelx.fi",
+      "name": "WheelX.fi",
+      "description": "The leading AI-powered Bridge and Swap aggregator",
+      "imageUrl": "/featured-apps/icons/wheelx.fi.webp",
+      "category": ["Bridge", "DeFi", "Infra"],
+      "network": "Mainnet",
+      "tags": ["dex", "cross-chain", "interop", "tools"],
+      "links": {
+        "mainnetWebsite": "https://wheelx.fi/",
+        "testnetWebsite": "https://wheelx.fi/",
+        "x": "https://x.com/WheelX_fi",
+        "discord": "https://discord.gg/GaqW8QEVTF",
+        "telegram": "https://t.me/WheelX_official",
+        "github": "https://github.com/wheelx-fi",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x7eC9672678509a574F6305F112a7E3703845a98b"
+      }
+    },
+    {
       "id": "wormhole",
       "name": "Wormhole",
       "description": "Wormhole is the leading interoperability platform powering multichain applications and bridges at scale.",
