@@ -389,6 +389,25 @@
       }
     },
     {
+      "id": "elementfusion",
+      "name": "ElementFusion",
+      "description": "🌐 Combine, create, collect in a Web3 world! 🔗 Discover new elements and unlock blockchain magic with every fusion. ✨ Merge to make your mark!",
+      "imageUrl": "/featured-apps/icons/elementfusion.webp",
+      "category": ["Social", "Other"],
+      "network": "Mainnet",
+      "tags": ["fun", "nfts"],
+      "links": {
+        "mainnetWebsite": "https://www.elementfusion.tech/",
+        "testnetWebsite": "https://www.elementfusion.tech/",
+        "x": "https://x.com/element_fusion_",
+        "discord": "",
+        "telegram": "https://t.me/ElementFusion",
+        "github": "https://github.com/L-KH/ElementFusion",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x00002193Ab3f4f00Bb65A5A64A9a6ee768beE60D"
+      }
+    },
+    {
       "id": "firefly-labs",
       "name": "Firefly Labs",
       "description": "A universal asset interoperability network that offers services for any token fiat asset type with swaps and bridge  on any chain",
