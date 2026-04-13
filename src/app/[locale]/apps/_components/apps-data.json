@@ -1283,6 +1283,25 @@
       }
     },
     {
+      "id": "stableflow",
+      "name": "StableFlow",
+      "description": "Move stablecoins anywhere. We provide a fast, reliable, and secure crosschain transfer solution that enables effortless movement between chains with the best available rates and 1:1 execution.",
+      "imageUrl": "/featured-apps/icons/stableflow.webp",
+      "category": ["Bridge", "DeFi", "Infra"],
+      "network": "Mainnet",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://app.stableflow.ai",
+        "testnetWebsite": "https://app.stableflow.ai",
+        "x": "https://x.com/0xstableflow",
+        "discord": "",
+        "telegram": "https://t.me/stableflowai",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "stargate",
       "name": "Stargate",
       "description": "Stargate is a fully composable liquidity transport protocol that lives at the heart of omnichain DeFi.",
