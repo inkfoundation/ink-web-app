@@ -389,6 +389,25 @@
       }
     },
     {
+      "id": "eco-portal",
+      "name": "Eco Portal",
+      "description": "The Eco Portal allows easy stablecoin transfers to Ink with one low fee powered by Eco Routes. See how Eco Routes can help your app quickly accept stablecoins on any connected chain.",
+      "imageUrl": "/featured-apps/icons/eco-portal.webp",
+      "category": ["Bridge"],
+      "network": "Both",
+      "tags": ["cross-chain", "interop"],
+      "links": {
+        "mainnetWebsite": "https://portal.eco.com/?dc=INK",
+        "testnetWebsite": "https://portal.eco.com/?dc=INK",
+        "x": "https://x.com/eco",
+        "discord": "https://discord.gg/ecommunity",
+        "telegram": "",
+        "github": "",
+        "farcaster": "https://warpcast.com/eco",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "firefly-labs",
       "name": "Firefly Labs",
       "description": "A universal asset interoperability network that offers services for any token fiat asset type with swaps and bridge  on any chain",
