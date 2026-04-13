@@ -1469,6 +1469,25 @@
       }
     },
     {
+      "id": "wenser",
+      "name": "WENSER",
+      "description": "WENSER is a multi-chain crypto wallet tracker and airdrop checker that analyzes on-chain activity, transactions, and interactions across supported blockchains.",
+      "imageUrl": "/featured-apps/icons/wenser.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["data", "tools"],
+      "links": {
+        "mainnetWebsite": "https://wenser.xyz",
+        "testnetWebsite": "https://wenser.xyz",
+        "x": "https://x.com/wenserapp",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xd31399C4482643eD143F888248F0e740bc91Dd40"
+      }
+    },
+    {
       "id": "wormhole",
       "name": "Wormhole",
       "description": "Wormhole is the leading interoperability platform powering multichain applications and bridges at scale.",
