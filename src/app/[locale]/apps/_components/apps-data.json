@@ -427,6 +427,25 @@
       }
     },
     {
+      "id": "fnam",
+      "name": "Fnam",
+      "description": "aaaaa",
+      "imageUrl": "/featured-apps/icons/fnam.webp",
+      "category": ["Explorers"],
+      "network": "Testnet",
+      "tags": ["domain names"],
+      "links": {
+        "mainnetWebsite": "https://securyhub.com",
+        "testnetWebsite": "https://securyhub.com",
+        "x": "https://x.com/securyhub",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "gelato",
       "name": "Gelato",
       "description": "Build scalable, custom enterprise-grade Rollups with Gelato's Web3 Services natively integrated.",
