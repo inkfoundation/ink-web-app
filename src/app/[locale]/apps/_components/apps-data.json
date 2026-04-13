@@ -987,6 +987,25 @@
       }
     },
     {
+      "id": "phonk-arena",
+      "name": "Phonk Arena",
+      "description": "Live Ink-native music battle where four autonomous agents discover tokens from the Ink ecosystem, turn those tokens into phonk, and fight for the crown through live market performance.",
+      "imageUrl": "/featured-apps/icons/phonk-arena.webp",
+      "category": ["Social", "Other"],
+      "network": "Mainnet",
+      "tags": ["fun", "tokens", "data"],
+      "links": {
+        "mainnetWebsite": "https://phonkarena.xyz/",
+        "testnetWebsite": "https://phonkarena.xyz/",
+        "x": "https://x.com/varlamc88",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "polymer",
       "name": "Polymer",
       "description": "Polymer connects all Ethereum rollups with real-time high throughput interoperability, enabling swift cost-effective scaling for applications.",
