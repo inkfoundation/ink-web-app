@@ -1135,6 +1135,25 @@
       }
     },
     {
+      "id": "reprise",
+      "name": "Reprise",
+      "description": "Deposit, borrow, and let your yield pay your debt over time",
+      "imageUrl": "/featured-apps/icons/reprise.webp",
+      "category": ["DeFi"],
+      "network": "Testnet",
+      "tags": ["lending"],
+      "links": {
+        "mainnetWebsite": "https://reprise.fi/",
+        "testnetWebsite": "https://reprise.fi/",
+        "x": "https://x.com/reprisefi",
+        "discord": "",
+        "telegram": "https://t.me/reprisefi",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "reservoir:-relay",
       "name": "Reservoir: Relay",
       "description": "Instant, low-cost bridging\nand swapping.",
