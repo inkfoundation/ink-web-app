@@ -950,6 +950,25 @@
       }
     },
     {
+      "id": "onchaingm",
+      "name": "OnChainGm",
+      "description": "ONCHAINGM is the premier platform for sending your daily GM greetings across multiple blockchains",
+      "imageUrl": "/featured-apps/icons/onchaingm.webp",
+      "category": ["Social"],
+      "network": "Mainnet",
+      "tags": ["fun"],
+      "links": {
+        "mainnetWebsite": "https://onchaingm.com/",
+        "testnetWebsite": "https://onchaingm.com/",
+        "x": "https://x.com/OnChainGm",
+        "discord": "https://discord.gg/9U2aQP3RMp",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x52486f4462923EBE6Aa507d776b8a808CA990cf2"
+      }
+    },
+    {
       "id": "orbiter-finance",
       "name": "Orbiter Finance",
       "description": "Orbiter Finance is a ZK-tech based cross-chain protocol offers fast, secure, and instant transfer.",
