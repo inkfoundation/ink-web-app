@@ -223,6 +223,25 @@
       }
     },
     {
+      "id": "conft",
+      "name": "conft",
+      "description": "conft - a Multi-Chain Web3 Utility Hub offering comprehensive services such as Web3 Name Service, NFT Aggregator, and Launchpad.",
+      "imageUrl": "/featured-apps/icons/conft.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["fun", "nfts", "domain names"],
+      "links": {
+        "mainnetWebsite": "https://conft.app",
+        "testnetWebsite": "https://conft.app",
+        "x": "https://x.com/ConftApp",
+        "discord": "https://discord.com/invite/FU8MNfMRv8",
+        "telegram": "https://t.me/co_nft",
+        "github": "https://github.com/Conft-dev",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x24F11b15Bdb8BA19c52538D68E150C347b1E7047"
+      }
+    },
+    {
       "id": "copink",
       "name": "Copink",
       "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
