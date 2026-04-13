@@ -223,6 +223,25 @@
       }
     },
     {
+      "id": "concero",
+      "name": "Concero",
+      "description": "Concero is a cross-chain communication and interoperability protocol.",
+      "imageUrl": "/featured-apps/icons/concero.webp",
+      "category": ["Infra"],
+      "network": "Both",
+      "tags": ["cross-chain", "interop"],
+      "links": {
+        "mainnetWebsite": "https://concero.io/",
+        "testnetWebsite": "https://testnet.concero.io/",
+        "x": "https://x.com/concero_io",
+        "discord": "https://discord.gg/lanca",
+        "telegram": "https://t.me/concero_news",
+        "github": "https://github.com/concero",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "copink",
       "name": "Copink",
       "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
