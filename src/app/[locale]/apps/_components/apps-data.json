@@ -297,6 +297,25 @@
       }
     },
     {
+      "id": "dexgo",
+      "name": "dexGO",
+      "description": "ts in which users earn money by completing real routes and competing in AR mini-games at stops.",
+      "imageUrl": "/featured-apps/icons/dexgo.webp",
+      "category": ["DeFi", "Social"],
+      "network": "Both",
+      "tags": ["cross-chain", "dex", "nfts", "tokens", "tools", "wallet"],
+      "links": {
+        "mainnetWebsite": "https://www.dexgo.club/en",
+        "testnetWebsite": "https://www.dexgo.club/en",
+        "x": "https://x.com/dexgo_official",
+        "discord": "https://discord.com/channels/917719985399418920/1013039389506535434",
+        "telegram": "https://t.me/dexgo_ua/1",
+        "github": "http://github.com/oleksiivinogradov/",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "dinero",
       "name": "Dinero",
       "description": "The yield baseplate of Ethereum. Formerly Redacted.",
