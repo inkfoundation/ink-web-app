@@ -389,6 +389,25 @@
       }
     },
     {
+      "id": "eswap",
+      "name": "Eswap",
+      "description": "Eswap: The World’s First 0% interest Spot Margin DEX with Ethical Leverage.",
+      "imageUrl": "/featured-apps/icons/eswap.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex", "cross-chain", "tokens", "lending"],
+      "links": {
+        "mainnetWebsite": "https://ewap-margin.vercel.app/trade",
+        "testnetWebsite": "https://ewap-margin.vercel.app/trade",
+        "x": "https://x.com/ESWAP_DEX",
+        "discord": "https://discord.gg/ZfhqVwrW",
+        "telegram": "https://t.me/Eswap_margin",
+        "github": "https://github.com/EAbdelilah/Unilev",
+        "farcaster": "https://warpcast.com/eswap",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "firefly-labs",
       "name": "Firefly Labs",
       "description": "A universal asset interoperability network that offers services for any token fiat asset type with swaps and bridge  on any chain",
