@@ -950,6 +950,25 @@
       }
     },
     {
+      "id": "omnihub",
+      "name": "OmniHub",
+      "description": "The launchpad for creating blockchain collectibles. Create, buy and sell as your most creative ideas come to life on OmniHub.",
+      "imageUrl": "/featured-apps/icons/omnihub.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["nfts"],
+      "links": {
+        "mainnetWebsite": "https://omnihub.xyz/",
+        "testnetWebsite": "https://omnihub.xyz/",
+        "x": "https://x.com/Omni_Hub",
+        "discord": "https://discord.com/invite/w5ShHyTvhy",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xe70Bfcae2620593A02d736B97EA4DeA451B33301"
+      }
+    },
+    {
       "id": "orbiter-finance",
       "name": "Orbiter Finance",
       "description": "Orbiter Finance is a ZK-tech based cross-chain protocol offers fast, secure, and instant transfer.",
