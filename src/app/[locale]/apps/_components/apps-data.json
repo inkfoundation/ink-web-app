@@ -856,6 +856,25 @@
       }
     },
     {
+      "id": "multisender.app",
+      "name": "Multisender.app",
+      "description": "Multisender facilitates airdrops and other mass transactions on 20+ networks, including Ink. It takes a list of recipients and their respective token amounts and automates everything else.",
+      "imageUrl": "/featured-apps/icons/multisender.app.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["tools"],
+      "links": {
+        "mainnetWebsite": "https://classic.multisender.app/",
+        "testnetWebsite": "https://classic.multisender.app/",
+        "x": "https://twitter.com/multi_sender",
+        "discord": "",
+        "telegram": "https://t.me/Protoquantum",
+        "github": "https://github.com/Multisender-app",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xA686afDd83Be95E6CFde9e8Cf21af3E297cDF184"
+      }
+    },
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
