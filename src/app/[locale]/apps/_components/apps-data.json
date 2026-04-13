@@ -555,6 +555,25 @@
       }
     },
     {
+      "id": "ink-skulls",
+      "name": "Ink Skulls",
+      "description": "10.000 Unique skull on ink chain. New generation nft project. 100.000$ Airdrop First one year.",
+      "imageUrl": "/featured-apps/icons/ink-skulls.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["nfts"],
+      "links": {
+        "mainnetWebsite": "https://x.com/inksculls",
+        "testnetWebsite": "https://x.com/inksculls",
+        "x": "https://x.com/inksculls",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "inkavern",
       "name": "Inkavern",
       "description": "Inkavern is an all in one dashboard for tracking ink wallets, positions, NFTs, and transactions.",
