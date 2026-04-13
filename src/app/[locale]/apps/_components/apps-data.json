@@ -389,6 +389,25 @@
       }
     },
     {
+      "id": "firefly-bridge",
+      "name": "Firefly Bridge",
+      "description": "Cross chain bridge supporting 70 networks and Circle CCTP v2. Enabling seamless stablecoin and token transfers across EVM and heterogeneous chains.",
+      "imageUrl": "/featured-apps/icons/firefly-bridge.webp",
+      "category": ["Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "interop", "data"],
+      "links": {
+        "mainnetWebsite": "https://fireflylabs.app/",
+        "testnetWebsite": "https://fireflylabs.app/",
+        "x": "https://x.com/FireflyLabs_App",
+        "discord": "https://discord.com/invite/rrFzuqe2RZ",
+        "telegram": "https://t.me/FireFly_Echo",
+        "github": "https://github.com/firefly-dao",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xA858803c5a7a0d0D68dd4440f40dB363Faff1001"
+      }
+    },
+    {
       "id": "firefly-labs",
       "name": "Firefly Labs",
       "description": "A universal asset interoperability network that offers services for any token fiat asset type with swaps and bridge  on any chain",
