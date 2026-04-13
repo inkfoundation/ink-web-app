@@ -92,6 +92,25 @@
       }
     },
     {
+      "id": "blocksense",
+      "name": "Blocksense",
+      "description": "Blocksense is a programmable oracle platform that brings real-world data on-chain using zero-knowledge proofs and game-theoretic consensus.",
+      "imageUrl": "/featured-apps/icons/blocksense.webp",
+      "category": ["Infra"],
+      "network": "Testnet",
+      "tags": ["oracle"],
+      "links": {
+        "mainnetWebsite": "https://blocksense.network",
+        "testnetWebsite": "https://blocksense.network",
+        "x": "https://x.com/blocksense_",
+        "discord": "https://discord.gg/blocksense",
+        "telegram": "https://t.me/BlocksenseNetwork",
+        "github": "https://github.com/blocksense-network/blocksense",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer-sepolia.inkonchain.com/address/0xADF5aacfA254FbC566d3b81e04b95db4bCF7b40F"
+      }
+    },
+    {
       "id": "boi",
       "name": "BOI",
       "description": "First swipable NFT marketplace on Earth, built by the Bois for the Bois. Forget floors, swipe what you vibe with. Floor prices? Hidden deep for nerds. Real alpha: like the JPEG, not ROI math.",
