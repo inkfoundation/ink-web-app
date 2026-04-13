@@ -389,6 +389,25 @@
       }
     },
     {
+      "id": "eco",
+      "name": "Eco",
+      "description": "Eco enables any onchain action to be a simple, one-click send. With Eco, apps can easily accept stablecoins, regardless of the network.",
+      "imageUrl": "/featured-apps/icons/eco.webp",
+      "category": ["Infra"],
+      "network": "Testnet",
+      "tags": ["cross-chain", "interop", "yield"],
+      "links": {
+        "mainnetWebsite": "https://eco.com/",
+        "testnetWebsite": "https://eco.com/",
+        "x": "https://x.com/eco",
+        "discord": "https://discord.gg/ecommunity",
+        "telegram": "",
+        "github": "https://github.com/eco",
+        "farcaster": "https://warpcast.com/eco",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "firefly-labs",
       "name": "Firefly Labs",
       "description": "A universal asset interoperability network that offers services for any token fiat asset type with swaps and bridge  on any chain",
