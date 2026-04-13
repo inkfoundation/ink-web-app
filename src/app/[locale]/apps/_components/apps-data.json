@@ -1264,6 +1264,25 @@
       }
     },
     {
+      "id": "speedbridge",
+      "name": "SpeedBridge",
+      "description": "Cross-chain bridge for ETH, USDC, HYPE, XPL,across Ink and major EVM networks. Non-custodial routing via Relay contracts.",
+      "imageUrl": "/featured-apps/icons/speedbridge.webp",
+      "category": ["Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex"],
+      "links": {
+        "mainnetWebsite": "https://speedbridge.com.br/docs/index.html",
+        "testnetWebsite": "https://speedbridge.com.br/docs/index.html",
+        "x": "https://x.com/speedbridg",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/Alex00925/Speed-Bridge-Final-1",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x4Cb3C31Dbe19A721F235b944e5B15E22171b9376"
+      }
+    },
+    {
       "id": "squid-market",
       "name": "Squid Market",
       "description": "SquidMarket is a native NFT marketplace and launchpad built on InkChain. It’s designed to make NFT trading, collecting, and launching simple, secure, and rewarding for both creators and traders.",
