@@ -56,6 +56,25 @@
       }
     },
     {
+      "id": "arkada",
+      "name": "Arkada",
+      "description": "#1 WEB3 community engagement infrastructure. Level up your reputation, complete quests, and unlock exclusive rewards with blockchain protocols.",
+      "imageUrl": "/featured-apps/icons/arkada.webp",
+      "category": ["Social"],
+      "network": "Both",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://app.arkada.gg/en",
+        "testnetWebsite": "https://app.arkada.gg/en",
+        "x": "https://x.com/Arkada_gg",
+        "discord": "https://discord.com/invite/arkadagg",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "astra-swap",
       "name": "Astra Swap",
       "description": "Trade, earn, and own crypto on the all-in-one multichain DEX.",
