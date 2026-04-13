@@ -1061,6 +1061,25 @@
       }
     },
     {
+      "id": "quick-intel",
+      "name": "Quick Intel",
+      "description": "Whether you’re navigating the markets or building the next big thing, Quick Intel delivers real-time data, AI-powered insights, and security you can trust.",
+      "imageUrl": "/featured-apps/icons/quick-intel.webp",
+      "category": ["Infra", "Other"],
+      "network": "Mainnet",
+      "tags": ["security", "tools"],
+      "links": {
+        "mainnetWebsite": "https://quickintel.io",
+        "testnetWebsite": "https://quickintel.io",
+        "x": "https://x.com/quickintel_ai",
+        "discord": "https://discord.gg/quicki",
+        "telegram": "https://t.me/Quicki_TG",
+        "github": "https://github.com/Quick-Intel",
+        "farcaster": "https://warpcast.com/quickintel",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "rails",
       "name": "Rails",
       "description": "Rails is a perpetual trading platform that seamlessly integrates centralized order processing with onchain custody on Ink, bringing traders the best of both worlds on a single platform.",
