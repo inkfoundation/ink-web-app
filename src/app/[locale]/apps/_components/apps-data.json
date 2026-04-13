@@ -877,6 +877,25 @@
       "pills": ["AIRDROP"]
     },
     {
+      "id": "nado-dashboard-by-ritmex",
+      "name": "NADO Dashboard by RitMEX",
+      "description": "NADO exchange and onchain realtime data dashboard.",
+      "imageUrl": "/featured-apps/icons/nado-dashboard-by-ritmex.webp",
+      "category": ["Explorers"],
+      "network": "Mainnet",
+      "tags": ["data", "tools"],
+      "links": {
+        "mainnetWebsite": "https://nado.ritmex.one",
+        "testnetWebsite": "https://nado.ritmex.one",
+        "x": "https://x.com/ritmex_crypto",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "net",
       "name": "Net",
       "description": "Net is a fully onchain NFT bazaar. All orders and sales are stored entirely onchain on Ink via Net  protocol. NFT trading is powered by Net protocol + Seaport.",
