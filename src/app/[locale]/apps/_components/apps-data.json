@@ -1450,6 +1450,25 @@
       }
     },
     {
+      "id": "watchdogs",
+      "name": "WatchDogs",
+      "description": "WatchDogs is the first NFT marketplace built natively on the INK blockchain. Bringing the power of the hottest NFT to INK",
+      "imageUrl": "/featured-apps/icons/watchdogs.webp",
+      "category": ["Social"],
+      "network": "Mainnet",
+      "tags": ["nfts"],
+      "links": {
+        "mainnetWebsite": "https://watchdogs.ink/",
+        "testnetWebsite": "https://watchdogs.ink/",
+        "x": "https://x.com/WatchDogsOnInk",
+        "discord": "",
+        "telegram": "https://t.me/WatchDogsOnInk",
+        "github": "https://github.com/watchdogsonink",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x846d9804Fa21E467119C1e3DE1294f8b060A4881"
+      }
+    },
+    {
       "id": "web3-packs",
       "name": "Web3 Packs",
       "description": "Crypto Simplified: One-Click, Single-Transaction Portfolios.",
