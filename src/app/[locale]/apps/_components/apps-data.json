@@ -389,6 +389,25 @@
       }
     },
     {
+      "id": "envio",
+      "name": "Envio",
+      "description": "Envio is a modern, multi-chain EVM blockchain indexer for querying real-time and historical data.",
+      "imageUrl": "/featured-apps/icons/envio.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["data", "rpc", "tools"],
+      "links": {
+        "mainnetWebsite": "https://envio.dev",
+        "testnetWebsite": "https://envio.dev",
+        "x": "https://x.com/envio_indexer",
+        "discord": "https://discord.com/invite/envio",
+        "telegram": "https://t.me/+kAIGElzPjApiMjI0",
+        "github": "https://github.com/enviodev",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "firefly-labs",
       "name": "Firefly Labs",
       "description": "A universal asset interoperability network that offers services for any token fiat asset type with swaps and bridge  on any chain",
