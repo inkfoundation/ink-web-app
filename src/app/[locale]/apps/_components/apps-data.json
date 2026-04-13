@@ -56,6 +56,25 @@
       }
     },
     {
+      "id": "anycampus",
+      "name": "AnyCampus",
+      "description": "AnyCampus is a Web3 “learn-to-earn” platform that enables you to earn tokens while you learn.",
+      "imageUrl": "/featured-apps/icons/anycampus.webp",
+      "category": ["Social"],
+      "network": "Mainnet",
+      "tags": ["fun", "nfts", "tokens"],
+      "links": {
+        "mainnetWebsite": "https://anycampus.io/",
+        "testnetWebsite": "https://anycampus.io/",
+        "x": "https://x.com/anycampus_io",
+        "discord": "https://discord.gg/YUjGmrrDyR",
+        "telegram": "https://t.me/anycampus",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x37f3855eF805739189cC2dd9F1435a6CD8AF87CE"
+      }
+    },
+    {
       "id": "astra-swap",
       "name": "Astra Swap",
       "description": "Trade, earn, and own crypto on the all-in-one multichain DEX.",
