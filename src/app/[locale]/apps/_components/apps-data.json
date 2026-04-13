@@ -279,6 +279,25 @@
       }
     },
     {
+      "id": "dailyonchain",
+      "name": "DailyOnchain",
+      "description": "Onchain-Maxi is a multi-chain daily check-in app that helps users maintain and track on-chain activity streaks across Ink and major L1/L2 networks.",
+      "imageUrl": "/featured-apps/icons/dailyonchain.webp",
+      "category": ["Social"],
+      "network": "Mainnet",
+      "tags": ["fun"],
+      "links": {
+        "mainnetWebsite": "https://daily-onchain.vercel.app/",
+        "testnetWebsite": "https://daily-onchain.vercel.app/",
+        "x": "https://x.com/Thesankarg",
+        "discord": "https://discord.gg/sankarorigin",
+        "telegram": "https://t.me/sankarorigin",
+        "github": "https://github.com/TheSankar",
+        "farcaster": "https://warpcast.com/zankar.eth",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xe1ab83c32030fa0718d969702efde455647cc24d"
+      }
+    },
+    {
       "id": "deep-on-ink",
       "name": "The Deep",
       "description": "Dive into DeFi on Ink.",
