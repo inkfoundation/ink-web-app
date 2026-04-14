@@ -116,7 +116,7 @@
       "name": "Otomate",
       "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
       "imageUrl": "/featured-apps/icons/copink.webp",
-      "category": ["DeFi", "Explorers"],
+      "category": ["DeFi"],
       "network": "Mainnet",
       "tags": ["yield", "data", "tokens", "fun"],
       "links": {
@@ -669,7 +669,7 @@
       "name": "SuperSwap",
       "description": "The Gateway To Tokenized Markets",
       "imageUrl": "/featured-apps/icons/superswap.webp",
-      "category": ["DeFi", "Infra", "Other"],
+      "category": ["DeFi"],
       "network": "Mainnet",
       "tags": ["cross-chain", "dex", "tokens"],
       "links": {
