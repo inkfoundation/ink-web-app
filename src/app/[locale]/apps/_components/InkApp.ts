@@ -79,30 +79,7 @@ export const inkFeaturedApps = inkApps
     // Neither has order, sort alphabetically
     return a.name.localeCompare(b.name);
   });
-export const inkHomeApps = inkApps
-  .filter((a) =>
-    ["nado", "tydro", "magna", "kraken-wallet", "velodrome", "kraken"].includes(
-      a.id
-    )
-  )
-  .sort((a, b) => {
-    // For featured home apps, sort by order if both have it
-    if (a.order !== undefined && b.order !== undefined) {
-      if (a.order !== b.order) {
-        return a.order - b.order;
-      }
-      return a.name.localeCompare(b.name);
-    }
-    // If only one has order, prioritize it
-    if (a.order !== undefined) {
-      return -1;
-    }
-    if (b.order !== undefined) {
-      return 1;
-    }
-    // Neither has order, sort alphabetically
-    return a.name.localeCompare(b.name);
-  });
+
 export const inkTransparentIcons: string[] = [];
 export const inkTags: string[] = apps.reduce((acc, app) => {
   app.tags.forEach((tag) => {
