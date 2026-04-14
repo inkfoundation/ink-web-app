@@ -20,24 +20,6 @@
       }
     },
     {
-      "id": "3dns",
-      "name": "3DNS",
-      "description": "The first onchain web domain registrar, supporting .com, .xyz, .box, and over 420 more TLDs. Bring your domain onchain!",
-      "imageUrl": "/featured-apps/icons/3dns.webp",
-      "category": ["Social"],
-      "network": "Mainnet",
-      "tags": ["domain names"],
-      "links": {
-        "mainnetWebsite": "https://3dns.box/",
-        "testnetWebsite": "https://3dns.box/",
-        "x": "https://x.com/3dns_inc",
-        "discord": "https://discord.gg/KK3HBTqFKn",
-        "telegram": "",
-        "github": "",
-        "farcaster": "https://warpcast.com/3dns"
-      }
-    },
-    {
       "id": "across-protocol",
       "name": "Across Protocol",
       "description": "Fast. Secure. Affordable. The bridge Ethereum deserves ✨",
@@ -52,24 +34,6 @@
         "discord": "https://discord.across.to/",
         "telegram": "",
         "github": "https://github.com/across-protocol",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "astra-swap",
-      "name": "Astra Swap",
-      "description": "Trade, earn, and own crypto on the all-in-one multichain DEX.",
-      "imageUrl": "/featured-apps/icons/astraswap.webp",
-      "category": ["DeFi"],
-      "network": "Testnet",
-      "tags": ["dex"],
-      "links": {
-        "mainnetWebsite": "https://astraswap.io/swap?chain=inkchain",
-        "testnetWebsite": "https://astraswap.io/swap?chain=inkchain",
-        "x": "https://x.com/AstraSwap0",
-        "discord": "",
-        "telegram": "https://t.me/astraswap",
-        "github": "https://github.com/astraswap",
         "farcaster": ""
       }
     },
@@ -111,25 +75,6 @@
       }
     },
     {
-      "id": "boink",
-      "name": "BOINK",
-      "description": "Boink NFTs is a utility-driven ecosystem on Ink Chain featuring CoinFlip, NFT staking and an upcoming prediction market, while Boink 3D toys expand the brand beyond the blockchain.",
-      "imageUrl": "/featured-apps/icons/boink.webp",
-      "category": ["Other"],
-      "network": "Testnet",
-      "tags": ["nfts", "tokens", "fun", "tools"],
-      "links": {
-        "mainnetWebsite": "https://www.boinknfts.club",
-        "testnetWebsite": "https://www.boinknfts.club",
-        "x": "https://x.com/boinknfts",
-        "discord": "",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "bungee-exchange",
       "name": "Bungee Exchange",
       "description": "Bungee Protocol is a global liquidity marketplace that enables users to perform actions across chains. It's designed to optimize the experience for end users, powered by Socket Protocol.",
@@ -167,97 +112,22 @@
       }
     },
     {
-      "id": "clique",
-      "name": "Clique",
-      "description": "Token Operations",
-      "imageUrl": "/featured-apps/icons/clique.webp",
-      "category": ["Infra"],
-      "network": "Mainnet",
-      "tags": ["tokens", "tools"],
-      "links": {
-        "mainnetWebsite": "https://www.clique.tech/",
-        "testnetWebsite": "https://www.clique.tech/",
-        "x": "https://x.com/Clique2046",
-        "discord": "",
-        "telegram": "https://t.me/jpeg_yakuza",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "cobridge",
-      "name": "coBridge",
-      "description": "coBridge is a fast and secure EVM cross-chain bridge enabling seamless asset and data transfers between Ethereum-compatible blockchains.",
-      "imageUrl": "/featured-apps/icons/cobridge.webp",
-      "category": ["Bridge"],
-      "network": "Mainnet",
-      "tags": ["cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://cobridge.xyz",
-        "testnetWebsite": "https://cobridge.xyz",
-        "x": "https://x.com/ConftApp",
-        "discord": "https://discord.com/invite/FU8MNfMRv8",
-        "telegram": "https://t.me/co_nft",
-        "github": "https://github.com/Conft-dev",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x38feA0959656FF4009a8d807aDaa5247dbFEB590"
-      }
-    },
-    {
-      "id": "comet-protocol",
-      "name": "Comet Protocol",
-      "description": "Bridge to other chains.",
-      "imageUrl": "/featured-apps/icons/cometprotocol.webp",
-      "category": ["Bridge"],
-      "network": "Testnet",
-      "tags": ["cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://cometbridge.app/",
-        "testnetWebsite": "https://cometbridge.app/",
-        "x": "https://x.com/Comet_Protocol",
-        "discord": "https://discord.gg/ZTFQNNXcYs",
-        "telegram": "",
-        "github": "https://github.com/cometbridge",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "copink",
-      "name": "Copink",
+      "id": "otomate",
+      "name": "Otomate",
       "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
-      "imageUrl": "/featured-apps/icons/copink.webp",
-      "category": ["DeFi", "Explorers"],
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi"],
       "network": "Mainnet",
       "tags": ["yield", "data", "tokens", "fun"],
       "links": {
-        "mainnetWebsite": "https://www.copink.xyz/",
-        "testnetWebsite": "https://www.copink.xyz/",
-        "x": "https://x.com/copink_xyz",
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
         "discord": "https://discord.com/invite/kYJJHjqy",
         "telegram": "https://t.me/cop_ink",
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "crypto-clash",
-      "name": "Crypto Clash",
-      "description": "Strategic card battles powered by crypto currency markets on Ink.   Battle mighty crypto houses in a game of Proof of Power ⚔️",
-      "imageUrl": "/featured-apps/icons/crypto-clash.webp",
-      "category": ["DeFi", "Social", "Other"],
-      "network": "Mainnet",
-      "tags": ["dex", "fun", "nfts"],
-      "links": {
-        "mainnetWebsite": "https://www.cryptoclash.ink",
-        "testnetWebsite": "https://www.cryptoclash.ink",
-        "x": "https://x.com/CryptoClash_ink",
-        "discord": "https://discord.com/invite/E3VZG5GFXX",
-        "telegram": "https://t.me/+USCi5EsDAYxmMTQ0",
-        "github": "https://github.com/Crypto-Clash-Ink",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x1D1562EE59AafC1a3915D9eA374C1DC35959F60e"
       }
     },
     {
@@ -297,43 +167,6 @@
       }
     },
     {
-      "id": "dinero",
-      "name": "Dinero",
-      "description": "The yield baseplate of Ethereum. Formerly Redacted.",
-      "imageUrl": "/featured-apps/icons/dinero.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield"],
-      "links": {
-        "mainnetWebsite": "https://ink.dinero.xyz/",
-        "testnetWebsite": "https://ink.dinero.xyz/",
-        "x": "https://x.com/dinero_xyz",
-        "discord": "https://discord.gg/dineroxyz",
-        "telegram": "",
-        "github": "",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "dinox",
-      "name": "DinoX",
-      "description": "The first AI-powered GameFi on INK",
-      "imageUrl": "/featured-apps/icons/dinox.webp",
-      "category": ["Other"],
-      "network": "Mainnet",
-      "tags": ["nfts"],
-      "links": {
-        "mainnetWebsite": "https://dinox.ink/",
-        "testnetWebsite": "https://dinox.ink/",
-        "x": "https://x.com/DinoX_Game",
-        "discord": "",
-        "telegram": "https://t.me/DinoX_Game",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "dune",
       "name": "Dune",
       "description": "Query, visualize, share and export data across 75+ blockchains — build together with Web3's biggest data community.",
@@ -349,62 +182,6 @@
         "telegram": "",
         "github": "",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "dyorswap",
-      "name": "DYORSWAP",
-      "description": "DYORSWAP is a multi-chain decentralized exchange (DEX) operating on multichain.",
-      "imageUrl": "/featured-apps/icons/dyorswap.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["dex"],
-      "links": {
-        "mainnetWebsite": "https://dyorswap.finance/?chainId=57073",
-        "testnetWebsite": "https://dyorswap.finance/?chainId=57073",
-        "x": "https://x.com/DYORSWAPDEX",
-        "discord": "",
-        "telegram": "https://t.me/Dyorswapfinance",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "eas",
-      "name": "EAS",
-      "description": "Infrastructure public good that enables builders to structure and attest to any data onchain or offchain.",
-      "imageUrl": "/featured-apps/icons/eas.webp",
-      "category": ["Infra"],
-      "network": "Both",
-      "tags": ["tools"],
-      "links": {
-        "mainnetWebsite": "https://attest.org/",
-        "testnetWebsite": "https://attest.org/",
-        "x": "https://x.com/eas_eth",
-        "discord": "",
-        "telegram": "",
-        "github": "https://github.com/ethereum-attestation-service",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "firefly-labs",
-      "name": "Firefly Labs",
-      "description": "A universal asset interoperability network that offers services for any token fiat asset type with swaps and bridge  on any chain",
-      "imageUrl": "/featured-apps/icons/firefly-labs.webp",
-      "category": ["Bridge", "DeFi", "Infra"],
-      "network": "Mainnet",
-      "tags": ["cross-chain", "dex", "faucet"],
-      "links": {
-        "mainnetWebsite": "https://fireflylabs.app",
-        "testnetWebsite": "https://fireflylabs.app",
-        "x": "https://x.com/FireflyLabs",
-        "discord": "https://discord.com/invite/rrFzuqe2RZ",
-        "telegram": "",
-        "github": "https://github.com/firefly-dao",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0xcbCD511CcF92Da77245C4aE936e574B630FF0001"
       }
     },
     {
@@ -481,25 +258,6 @@
       }
     },
     {
-      "id": "hyperfluid",
-      "name": "HyperFluid",
-      "description": "HyperFluid is a swapping aggregator and DEX, support 60+ blockchains, enabling seamless same-chain swaps and cross-chain bridging, including routing funds from over 60 chains directly into Inkonchain.",
-      "imageUrl": "/featured-apps/icons/hyperfluid.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["dex"],
-      "links": {
-        "mainnetWebsite": "https://HyperFluid.pro",
-        "testnetWebsite": "https://HyperFluid.pro",
-        "x": "https://x.com/HyperFluidx",
-        "discord": "https://discord.gg/4UjACCYfha",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "hypernative",
       "name": "Hypernative",
       "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
@@ -515,81 +273,6 @@
         "telegram": "",
         "github": "",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "ink-bunnies-nft",
-      "name": "Ink Bunnies NFT",
-      "description": "Collection of 2,222 unique Ink Bunnies each one digitally born, inked, and one of a kind. 🐰",
-      "imageUrl": "/featured-apps/icons/ink-bunnies-nft.webp",
-      "category": ["Other"],
-      "network": "Mainnet",
-      "tags": ["nfts"],
-      "links": {
-        "mainnetWebsite": "https://www.inkbunnies.xyz",
-        "testnetWebsite": "https://www.inkbunnies.xyz",
-        "x": "https://x.com/InkBunniesNFT",
-        "discord": "https://discord.gg/JKBFHQ3yMU",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x4443970B315d3c08C2f962fe00770c52396AFDb7"
-      }
-    },
-    {
-      "id": "ink-paint",
-      "name": "Ink Paint",
-      "description": "Paint on Ink!",
-      "imageUrl": "",
-      "category": ["Social"],
-      "network": "Testnet",
-      "tags": ["fun"],
-      "links": {
-        "mainnetWebsite": "https://ink-paint.vercel.app/",
-        "testnetWebsite": "https://ink-paint.vercel.app/",
-        "x": "",
-        "discord": "",
-        "telegram": "",
-        "github": "",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "inkavern",
-      "name": "Inkavern",
-      "description": "Inkavern is an all in one dashboard for tracking ink wallets, positions, NFTs, and transactions.",
-      "imageUrl": "/featured-apps/icons/inkavern.webp",
-      "category": ["Other"],
-      "network": "Mainnet",
-      "tags": ["data", "tools"],
-      "links": {
-        "mainnetWebsite": "https://www.inkavern.com",
-        "testnetWebsite": "https://www.inkavern.com",
-        "x": "https://x.com/inkavern",
-        "discord": "",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "inkcheck",
-      "name": "InkCheck",
-      "description": "Deploy contracts on Ink . Earn NFTs. Track  Tydro  points. Building tools for quality on-chain activity.",
-      "imageUrl": "/featured-apps/icons/inkcheck.webp",
-      "category": ["Other", "Social"],
-      "network": "Mainnet",
-      "tags": ["fun", "nfts", "tokens", "tools", "yield"],
-      "links": {
-        "mainnetWebsite": "https://inkcheck.xyz/",
-        "testnetWebsite": "https://inkcheck.xyz/",
-        "x": "https://x.com/InkCheckXYZ",
-        "discord": "",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
       }
     },
     {
@@ -609,25 +292,6 @@
         "github": "https://github.com/0xgasleft/DCA",
         "farcaster": "",
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x6065c8913141b141841310CdBB156a8993B73c17"
-      }
-    },
-    {
-      "id": "inkscore",
-      "name": "Inkscore",
-      "description": "Inkscore is an on-chain reputation platform that gamifies Inkchain by scoring user activity and dApp interactions.",
-      "imageUrl": "/featured-apps/icons/inkscore.webp",
-      "category": ["Social", "Explorers"],
-      "network": "Mainnet",
-      "tags": ["data", "explorer", "tools", "wallet"],
-      "links": {
-        "mainnetWebsite": "https://www.inkscore.xyz/",
-        "testnetWebsite": "https://www.inkscore.xyz/",
-        "x": "https://x.com/Inkscore",
-        "discord": "",
-        "telegram": "",
-        "github": "https://github.com/inkchainscore-ship-it/inkscore",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0xBE1965cE0D06A79A411FFCD9a1C334638dF77649"
       }
     },
     {
@@ -761,25 +425,6 @@
       }
     },
     {
-      "id": "meme-bridge",
-      "name": "Meme Bridge",
-      "description": "The cheapest Layer2 bridge. Earn points and bridge through Layer2s within seconds.",
-      "imageUrl": "/featured-apps/icons/meme-bridge.webp",
-      "category": ["Bridge"],
-      "network": "Mainnet",
-      "tags": ["cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://www.memebridge.xyz/bridge",
-        "testnetWebsite": "https://www.memebridge.xyz/bridge",
-        "x": "https://x.com/MemebridgeB",
-        "discord": "https://discord.com/invite/UFFmGzryMX ",
-        "telegram": "",
-        "github": "https://github.com/MeMeBridge",
-        "farcaster": "https://warpcast.com/memebridge",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x623777Cc098C6058a46cF7530f45150ff6a8459D"
-      }
-    },
-    {
       "id": "merkl",
       "name": "Merkl",
       "description": "The incentive platform powering DeFi. Connect Web3 projects with users to boost liquidity and engagement across 60+ blockchains.",
@@ -796,63 +441,6 @@
         "github": "https://github.com/AngleProtocol/merkl-contracts",
         "farcaster": "",
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae"
-      }
-    },
-    {
-      "id": "merkly",
-      "name": "Merkly",
-      "description": "Multifunctional Interoperability Platform |   Bridge & Refuel across 50+ Chains.",
-      "imageUrl": "/featured-apps/icons/merkly.webp",
-      "category": ["Bridge"],
-      "network": "Mainnet",
-      "tags": ["cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://minter.merkly.com/hyperlane/token",
-        "testnetWebsite": "https://minter.merkly.com/hyperlane/token",
-        "x": "https://x.com/merkly_com",
-        "discord": "https://discord.com/invite/8qtEgsEKdd",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "meson",
-      "name": "Meson",
-      "description": "Meson Finance is a leading unified cross-chain bridging protocol enabling staple digital assets like BTC, ETH, BNB, and stablecoins cross-chain between any of our supported 60+ blockchains.",
-      "imageUrl": "/featured-apps/icons/meson.webp",
-      "category": ["Bridge"],
-      "network": "Mainnet",
-      "tags": ["cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://meson.fi",
-        "testnetWebsite": "https://meson.fi",
-        "x": "https://x.com/mesonfi",
-        "discord": "https://discord.gg/mesonfi",
-        "telegram": "https://t.me/mesonfi",
-        "github": "https://github.com/MesonFi",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x25aB3Efd52e6470681CE037cD546Dc60726948D3"
-      }
-    },
-    {
-      "id": "mini-bridge",
-      "name": "Mini Bridge",
-      "description": "MiniBridge is a \"zero-fee\" cross-chain tool that offers multi-chain support for BTC/EVM/non-EVM and features such as fast transactions.",
-      "imageUrl": "/featured-apps/icons/mini-bridge.webp",
-      "category": ["Bridge"],
-      "network": "Mainnet",
-      "tags": ["cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://minibridge.chaineye.tools/",
-        "testnetWebsite": "https://minibridge.chaineye.tools/",
-        "x": "https://x.com/Chaineye_tools",
-        "discord": "",
-        "telegram": "https://t.me/chaineye",
-        "github": "https://github.com/DeFiEye/Mini-Bridge",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000000007736e2F9aA5630B8c812E1F3fc9"
       }
     },
     {
@@ -877,43 +465,6 @@
       "pills": ["AIRDROP"]
     },
     {
-      "id": "net",
-      "name": "Net",
-      "description": "Net is a fully onchain NFT bazaar. All orders and sales are stored entirely onchain on Ink via Net  protocol. NFT trading is powered by Net protocol + Seaport.",
-      "imageUrl": "/featured-apps/icons/net.webp",
-      "category": ["Other"],
-      "network": "Mainnet",
-      "tags": ["nfts"],
-      "links": {
-        "mainnetWebsite": "https://www.netprotocol.app/",
-        "testnetWebsite": "https://www.netprotocol.app/",
-        "x": "https://x.com/netprotocolapp",
-        "discord": "",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x00000000E3dA5fC031282A39759bDDA78ae7fAE5"
-      }
-    },
-    {
-      "id": "nfts2me",
-      "name": "NFTs2Me",
-      "description": "Create, deploy and manage your NFT collection and minting page with custom subdomain for free. No-code Art Generator, Token Gating & much much more.",
-      "imageUrl": "/featured-apps/icons/nfts2me.webp",
-      "category": ["Social"],
-      "network": "Both",
-      "tags": ["fun", "nfts", "tools"],
-      "links": {
-        "mainnetWebsite": "https://nfts2me.com/",
-        "testnetWebsite": "https://nfts2me.com/",
-        "x": "https://twitter.com/nfts2me",
-        "discord": "https://nfts2me.com/discord/",
-        "telegram": "https://t.me/nfts2me",
-        "github": "",
-        "farcaster": "https://warpcast.com/nfts2me"
-      }
-    },
-    {
       "id": "okx-explorer",
       "name": "OKX Explorer",
       "description": "Your go-to onchain data hub. Offering ALL-IN-ONE Blockchain Explorer, OpenAPI, and EaaS to securely explore and build onchain.",
@@ -932,117 +483,6 @@
       }
     },
     {
-      "id": "omnia-protocol",
-      "name": "Omnia Protocol",
-      "description": "Smart RPC, DePIN & AI infrastructure building a more secure, scalable and resilient Web3 ecosystem.",
-      "imageUrl": "/featured-apps/icons/omniaprotocol.webp",
-      "category": ["Infra"],
-      "network": "Testnet",
-      "tags": ["rpc"],
-      "links": {
-        "mainnetWebsite": "https://omniatech.io/",
-        "testnetWebsite": "https://omniatech.io/",
-        "x": "https://x.com/omnia_protocol",
-        "discord": "https://discord.com/invite/omniaprotocol",
-        "telegram": "https://t.me/Omnia_protocol",
-        "github": "https://github.com/omniaprotocol",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "orbiter-finance",
-      "name": "Orbiter Finance",
-      "description": "Orbiter Finance is a ZK-tech based cross-chain protocol offers fast, secure, and instant transfer.",
-      "imageUrl": "/featured-apps/icons/orbiter-finance.webp",
-      "category": ["Bridge"],
-      "network": "Mainnet",
-      "tags": ["cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://www.orbiter.finance/en?src_chain=1&tgt_chain=57073&src_token=ETH",
-        "testnetWebsite": "https://www.orbiter.finance/en?src_chain=1&tgt_chain=57073&src_token=ETH",
-        "x": "https://x.com/Orbiter_Finance",
-        "discord": "https://discord.gg/FbztTBvnBT",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "owlto",
-      "name": "Owlto",
-      "description": "Owlto Finance is an intent-centric interoperability protocol, 'Bridge the World with AI Agent'.",
-      "imageUrl": "/featured-apps/icons/owlto.webp",
-      "category": ["Bridge", "DeFi"],
-      "network": "Both",
-      "tags": ["cross-chain", "dex", "tokens", "faucet"],
-      "links": {
-        "mainnetWebsite": "https://owlto.finance/",
-        "testnetWebsite": "https://owlto.finance/",
-        "x": "https://x.com/Owlto_Finance",
-        "discord": "https://discord.com/invite/owlto",
-        "telegram": "https://t.me/owltofinance",
-        "github": "https://github.com/owlto-finance/",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "polymer",
-      "name": "Polymer",
-      "description": "Polymer connects all Ethereum rollups with real-time high throughput interoperability, enabling swift cost-effective scaling for applications.",
-      "imageUrl": "/featured-apps/icons/polymer.webp",
-      "category": ["Infra"],
-      "network": "Mainnet",
-      "tags": ["interop"],
-      "links": {
-        "mainnetWebsite": "https://www.polymerlabs.org/",
-        "testnetWebsite": "https://www.polymerlabs.org/",
-        "x": "https://x.com/Polymer_Labs",
-        "discord": "https://discord.gg/hvMQp4qcM6",
-        "telegram": "",
-        "github": "https://github.com/polymerdao",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "project-zero",
-      "name": "Project Zero",
-      "description": "Project Zero is unlocking the next-gen of AI agents and dApps with actionable blockchain intelligence, by transforming and extracting vast amounts of data into insights and real-time decisions.",
-      "imageUrl": "/featured-apps/icons/project-zero.webp",
-      "category": ["Infra"],
-      "network": "Both",
-      "tags": ["data", "cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://projectzero.io/",
-        "testnetWebsite": "https://projectzero.io/",
-        "x": "https://x.com/ProjectZeroIO",
-        "discord": "https://discord.gg/JQyHYWmAtA",
-        "telegram": "https://t.me/projectzeroio",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "pwn",
-      "name": "PWN",
-      "description": "PWN is a permissionless, peer-to-peer, fixed-rate lending protocol. Unlock liquidity using any asset, customize terms, always without price-based liquidations.",
-      "imageUrl": "/featured-apps/icons/pwn.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["lending"],
-      "links": {
-        "mainnetWebsite": "https://app.pwn.xyz",
-        "testnetWebsite": "https://app.pwn.xyz",
-        "x": "https://x.com/pwndao",
-        "discord": "https://discord.gg/n3hpbjf7",
-        "telegram": "https://t.me/pwndao",
-        "github": "https://github.com/pwndao",
-        "farcaster": "https://warpcast.com/pwndao",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x719A69d0dc67bd3Aa7648D4694081B3c87952797"
-      }
-    },
-    {
       "id": "pyth",
       "name": "Pyth",
       "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
@@ -1058,25 +498,6 @@
         "telegram": "https://t.me/Pyth_Network",
         "github": "",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "rails",
-      "name": "Rails",
-      "description": "Rails is a perpetual trading platform that seamlessly integrates centralized order processing with onchain custody on Ink, bringing traders the best of both worlds on a single platform.",
-      "imageUrl": "/featured-apps/icons/rails.webp",
-      "category": ["Infra", "DeFi", "Explorers"],
-      "network": "Mainnet",
-      "tags": ["dex", "explorer"],
-      "links": {
-        "mainnetWebsite": "https://rails.xyz/",
-        "testnetWebsite": "https://rails.xyz/",
-        "x": "https://x.com/rails_xyz",
-        "discord": "https://discord.com/invite/TT5fsrpgZu",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
       }
     },
     {
@@ -1113,25 +534,6 @@
         "telegram": "https://t.me/redstonefinance/",
         "github": "https://github.com/redstone-finance",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "rekt-ink",
-      "name": "Rekt Ink",
-      "description": "The first NFT project on Ink for the culture. 4,444 fully animated characters with chaotic glitch art energy. A decentralized, active community building tools, community, and culture.",
-      "imageUrl": "/featured-apps/icons/rekt-ink.webp",
-      "category": ["Social"],
-      "network": "Mainnet",
-      "tags": ["nfts"],
-      "links": {
-        "mainnetWebsite": "https://www.rektink.com/",
-        "testnetWebsite": "https://www.rektink.com/",
-        "x": "https://x.com/rektInk/",
-        "discord": "",
-        "telegram": "https://t.me/rektink",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x25Aa78Ab6785A4b0aeFF5c170998992Fd958d43d"
       }
     },
     {
@@ -1190,25 +592,6 @@
       }
     },
     {
-      "id": "rubyscore",
-      "name": "RubyScore",
-      "description": "Analytics platform for blockchains and wallets, which combines on-chain data with a massive and constantly growing database containing millions of wallet labels",
-      "imageUrl": "/featured-apps/icons/rubyscore.webp",
-      "category": ["Infra", "Explorers", "Other"],
-      "network": "Mainnet",
-      "tags": ["data", "explorer", "nfts", "tools", "cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://rubyscore.io/dashboard?net=ink",
-        "testnetWebsite": "https://rubyscore.io/dashboard?net=ink",
-        "x": "https://x.com/rubyscore_io",
-        "discord": "https://discord.com/invite/rubyscore",
-        "telegram": "https://t.me/RubyScore_ann",
-        "github": "https://github.com/rubyscoreio",
-        "farcaster": "https://warpcast.com/rubyscore",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x009DBFEe9E155766AF434ED1652CA3769B05E76f"
-      }
-    },
-    {
       "id": "safe",
       "name": "SAFE",
       "description": "Single unified balance. Instant cross-chain transactions.\nExecution guarantees. On any network.",
@@ -1242,44 +625,6 @@
         "telegram": "https://t.me/sedaprotocol",
         "github": "https://github.com/sedaprotocol",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "shellies",
-      "name": "Shellies",
-      "description": "Shellies - 2,222 NFTs on InkChain. First collection with raffles and staking. Holders get access to exclusive raffle rewards and staking benefits.",
-      "imageUrl": "/featured-apps/icons/shellies.webp",
-      "category": ["Other"],
-      "network": "Mainnet",
-      "tags": ["nfts", "tools", "tokens"],
-      "links": {
-        "mainnetWebsite": "https://shellies.xyz/",
-        "testnetWebsite": "https://shellies.xyz/",
-        "x": "https://x.com/Shellies_NFTs",
-        "discord": "",
-        "telegram": "",
-        "github": "https://github.com/shelliesnfts-prog/shellies",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0xE757e8Aa82b7AD9f1ef8D4fE657d90341885c0De"
-      }
-    },
-    {
-      "id": "squid-market",
-      "name": "Squid Market",
-      "description": "SquidMarket is a native NFT marketplace and launchpad built on InkChain. It’s designed to make NFT trading, collecting, and launching simple, secure, and rewarding for both creators and traders.",
-      "imageUrl": "/featured-apps/icons/squid-market.webp",
-      "category": ["Social", "Other"],
-      "network": "Mainnet",
-      "tags": ["nfts", "domain names"],
-      "links": {
-        "mainnetWebsite": "https://www.squidmarket.xyz/",
-        "testnetWebsite": "https://www.squidmarket.xyz/",
-        "x": "https://x.com/SquidsOnInk",
-        "discord": "https://discord.gg/XH8UZtvBgm",
-        "telegram": "",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x9eBf93fdBA9F32aCCAb3D6716322dcCd617a78F3"
       }
     },
     {
@@ -1320,29 +665,11 @@
       }
     },
     {
-      "id": "supermigrate",
-      "name": "Supermigrate",
-      "description": "Automatically deploy canonical bridged ERC20 to the Superchain. Start bridging and migrating liquidity to earn rewards all in one place.",
-      "imageUrl": "/featured-apps/icons/supermigrate.webp",
-      "category": ["Bridge"],
-      "network": "Mainnet",
-      "tags": ["interop"],
-      "links": {
-        "mainnetWebsite": "https://supermigrate.xyz/en/dashboard",
-        "testnetWebsite": "https://supermigrate.xyz/en/dashboard",
-        "x": "https://x.com/supermigrate",
-        "discord": "",
-        "telegram": "https://t.me/+8vDPDkrN_-gwZTA8",
-        "github": "https://github.com/metastable-labs",
-        "farcaster": ""
-      }
-    },
-    {
       "id": "superswap",
       "name": "SuperSwap",
       "description": "The Gateway To Tokenized Markets",
       "imageUrl": "/featured-apps/icons/superswap.webp",
-      "category": ["DeFi", "Infra", "Other"],
+      "category": ["DeFi"],
       "network": "Mainnet",
       "tags": ["cross-chain", "dex", "tokens"],
       "links": {
@@ -1371,24 +698,6 @@
         "discord": "",
         "telegram": "",
         "github": "https://github.com/Tenderly",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "token-deployer",
-      "name": "Token Deployer",
-      "description": "1-click token deployer.",
-      "imageUrl": "",
-      "category": ["DeFi"],
-      "network": "Testnet",
-      "tags": ["tokens"],
-      "links": {
-        "mainnetWebsite": "https://token-deployer.demo.inkonchain.com/",
-        "testnetWebsite": "https://token-deployer.demo.inkonchain.com/",
-        "x": "",
-        "discord": "",
-        "telegram": "",
-        "github": "",
         "farcaster": ""
       }
     },
@@ -1450,25 +759,6 @@
       }
     },
     {
-      "id": "web3-packs",
-      "name": "Web3 Packs",
-      "description": "Crypto Simplified: One-Click, Single-Transaction Portfolios.",
-      "imageUrl": "/featured-apps/icons/web3-packs.webp",
-      "category": ["DeFi", "Other", "Infra"],
-      "network": "Mainnet",
-      "tags": ["dex", "tokens", "cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://web3packs.com/",
-        "testnetWebsite": "https://web3packs.com/",
-        "x": "https://x.com/web3packs",
-        "discord": "https://discord.gg/V4xNhjPCve",
-        "telegram": "https://t.me/web3packs0",
-        "github": "https://github.com/Charged-Particles/web3-packs-v2",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0xe2a9b15E283456894246499Fb912CCe717f83319"
-      }
-    },
-    {
       "id": "wormhole",
       "name": "Wormhole",
       "description": "Wormhole is the leading interoperability platform powering multichain applications and bridges at scale.",
@@ -1521,25 +811,6 @@
         "telegram": "https://t.me/derek_chiang",
         "github": "https://github.com/zerodevapp",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "zkcodex-wallet-tracker",
-      "name": "zkCodex Wallet Tracker",
-      "description": "zkCodex is a comprehensive wallet analysis platform for Layer 2. Track transaction volume, Chain Score, NFTs, DApp interactions, and airdrop eligibility across 15+ blockchains with ease and efficiency.",
-      "imageUrl": "/featured-apps/icons/zkcodex-wallet-tracker.webp",
-      "category": ["Infra", "Other"],
-      "network": "Mainnet",
-      "tags": ["data", "tools"],
-      "links": {
-        "mainnetWebsite": "https://zkcodex.com",
-        "testnetWebsite": "https://zkcodex.com",
-        "x": "https://x.com/zkcodex",
-        "discord": "",
-        "telegram": "",
-        "github": "https://github.com/zkcodex/",
-        "farcaster": "https://warpcast.com/zkcodex",
-        "smartContractUrl": ""
       }
     },
     {

@@ -8,7 +8,7 @@ import { useRouterQuery } from "@/hooks/useRouterQuery";
 import { Link } from "@/routing";
 
 import { AppsGrid } from "../../apps/_components/AppsGrid";
-import { inkHomeApps } from "../../apps/_components/InkApp";
+import { inkFeaturedApps } from "../../apps/_components/InkApp";
 
 export const HomeApps = () => {
   const t = useTranslations("Home");
@@ -24,7 +24,7 @@ export const HomeApps = () => {
         </Button>
       </div>
       <AppsGrid
-        apps={inkHomeApps}
+        apps={inkFeaturedApps}
         featuredApps={[]}
         noAppsFound={null}
         network="Mainnet"
