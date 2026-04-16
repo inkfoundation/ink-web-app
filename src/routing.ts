@@ -8,7 +8,7 @@ export const defaultLocale = "en-US" as const;
  * Somehow, the trick to use a static name in `pathnames` doesn't work with the new `createNavigation` (as opposed to `createLocalizedPathnamesNavigation`)
  * So the trick here is to include all the *expanded* links in `pathnames`,
  *  then we can use `EXTERNAL_LINKS` to retrieve the name and we _almost_ get the same behavior as before.
- * The main drawback is that we need all links to be static, so we can't use functions (like `encodeURI`)
+ * The main drawback is that we need all links to be static, so we can't use functions (like `encodeURI`).
  */
 export const EXTERNAL_LINKS = {
   documentation: "https://docs.inkonchain.com/",
