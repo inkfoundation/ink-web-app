@@ -17,7 +17,6 @@ import {
 } from "@/routing";
 
 import { useLinks } from "./links";
-import { ThemeToggle } from "./ThemeToggle";
 
 export const SideNav = () => {
   const links = useLinks();
@@ -34,11 +33,6 @@ export const SideNav = () => {
 
   return (
     <InkLayoutSideNav
-      bottom={
-        <div>
-          <ThemeToggle />
-        </div>
-      }
       links={[
         ...links.map(({ href, icon, label, exactHref }) => {
           const hrefPath = pathFromHrefProp(href);
