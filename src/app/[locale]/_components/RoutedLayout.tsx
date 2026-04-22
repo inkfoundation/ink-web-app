@@ -9,6 +9,7 @@ import { VerifiedBadge } from "../verify/_components/VerifiedBadge";
 import { InkLogo, InkLogoImage } from "./InkLogo";
 import { MobileNav } from "./MobileNav";
 import { SideNav } from "./SideNav";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function RoutedLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,6 +21,7 @@ export function RoutedLayout({ children }: { children: React.ReactNode }) {
       }
       headerContent={
         <div className="flex gap-2 items-center">
+          <ThemeToggle />
           <OnlyWithFeatureFlag flag="verifyPage">
             <VerifiedBadge />
           </OnlyWithFeatureFlag>
