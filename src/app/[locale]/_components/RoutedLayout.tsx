@@ -21,7 +21,9 @@ export function RoutedLayout({ children }: { children: React.ReactNode }) {
       }
       headerContent={
         <div className="flex gap-2 items-center">
-          <ThemeToggle />
+          <div className="hidden lg:block">
+            <ThemeToggle />
+          </div>
           <OnlyWithFeatureFlag flag="verifyPage">
             <VerifiedBadge />
           </OnlyWithFeatureFlag>
