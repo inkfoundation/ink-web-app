@@ -1,40 +1,23 @@
 "use client";
 
-import { Button, InkIcon } from "@inkonchain/ink-kit";
 import { useTheme } from "next-themes";
 
-import { classNames } from "@/util/classes";
+import { MoonIcon } from "@/components/icons/MoonIcon";
+import { SunIcon } from "@/components/icons/SunIcon";
 
 export const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   return (
-    <Button
-      variant="secondary"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    <button
+      onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Toggle theme"
-      rounded="full"
-      className="ink:text-text-muted duration-0 bg-transparent"
-      iconLeft={
-        <div className="relative">
-          <InkIcon.Sun
-            className={classNames(
-              "absolute inset-0 opacity-0",
-              theme === "dark" && "opacity-100"
-            )}
-            size="icon-lg"
-            enforce="inherit"
-          />
-          <InkIcon.Moon
-            className={classNames(
-              "absolute inset-0 opacity-100",
-              theme === "dark" && "opacity-0"
-            )}
-            size="icon-lg"
-            enforce="inherit"
-          />
-        </div>
-      }
-    />
+      className="group flex items-center justify-center rounded-full p-1 transition-all duration-200 hover:bg-default/8 cursor-pointer"
+    >
+      <div className="size-8 flex items-center justify-center">
+        {isDark ? <SunIcon /> : <MoonIcon />}
+      </div>
+    </button>
   );
 };
