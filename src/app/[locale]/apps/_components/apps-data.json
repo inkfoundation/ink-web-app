@@ -628,6 +628,25 @@
       }
     },
     {
+      "id": "spreads-finance",
+      "name": "Spreads Finance",
+      "description": "Connecting TradFi assets to DeFi rails",
+      "imageUrl": "/featured-apps/icons/spreads-finance.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["lending", "tokens", "yield", "fun"],
+      "links": {
+        "mainnetWebsite": "https://spreads.fi/",
+        "testnetWebsite": "https://spreads.fi/",
+        "x": "https://x.com/spreads_fi",
+        "discord": "",
+        "telegram": "https://t.me/spreads_fi",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "stargate",
       "name": "Stargate",
       "description": "Stargate is a fully composable liquidity transport protocol that lives at the heart of omnichain DeFi.",
