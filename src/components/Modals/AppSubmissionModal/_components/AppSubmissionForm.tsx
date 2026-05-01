@@ -81,6 +81,7 @@ export const AppSubmissionForm: React.FC<AppSubmissionFormProps> = ({
             { label: "DeFi", value: "DeFi" },
             { label: "Explorers", value: "Explorers" },
             { label: "Infra", value: "Infra" },
+            { label: "On-ramps", value: "On-ramps" },
             { label: "Social", value: "Social" },
             { label: "Other", value: "Other" },
           ]}
