@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
   env: {
     GITHUB_SHA: process.env.GITHUB_SHA,
   },
+  // Keep `prettier` out of the server bundle: it relies on dynamic requires that
+  // webpack can't statically analyze, and we use it at runtime in the
+  // `submit-your-app` server action to format `apps-data.json` before opening a PR.
+  serverExternalPackages: ["prettier"],
   experimental: {
     serverActions: {
       allowedOrigins: ["*"],
