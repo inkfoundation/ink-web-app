@@ -112,25 +112,6 @@
       }
     },
     {
-      "id": "otomate",
-      "name": "Otomate",
-      "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
-      "imageUrl": "/featured-apps/icons/otomate.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield", "data", "tokens", "fun"],
-      "links": {
-        "mainnetWebsite": "https://www.otomate.trade/",
-        "testnetWebsite": "https://www.otomate.trade/",
-        "x": "https://x.com/otomate_trade",
-        "discord": "https://discord.com/invite/kYJJHjqy",
-        "telegram": "https://t.me/cop_ink",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "curve",
       "name": "Curve",
       "description": "Creating deep on-chain liquidity using advanced bonding curves.",
@@ -480,6 +461,44 @@
         "telegram": "",
         "github": "",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "onchainoors",
+      "name": "Onchainoors",
+      "description": "One-click interaction across 20+ blockchains. Monitor your protocol standing and use Base, Ink, Soneium, and more from a single interface - fast, simple, and multichain.",
+      "imageUrl": "/featured-apps/icons/onchainoors.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "explorer", "fun", "tools"],
+      "links": {
+        "mainnetWebsite": "https://onchainoors.com/",
+        "testnetWebsite": "https://onchainoors.com/",
+        "x": "https://x.com/onchainoors",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xf519ADF1D43E5f64D40747a39DD4159D3ebA5268"
+      }
+    },
+    {
+      "id": "otomate",
+      "name": "Otomate",
+      "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["yield", "data", "tokens", "fun"],
+      "links": {
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
+        "discord": "https://discord.com/invite/kYJJHjqy",
+        "telegram": "https://t.me/cop_ink",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
