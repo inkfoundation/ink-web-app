@@ -42,3 +42,5 @@ runs:
         push: true
         tags: ${{ steps.metadata.outputs.tags }}
         labels: ${{ steps.metadata.outputs.labels }}
+        build-args: |
+          GITHUB_SHA=${{ github.sha }}

@@ -11,6 +11,11 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
+# Bake the git commit SHA into the build so it can be surfaced in the rendered
+# HTML (see `data-version` in `src/app/[locale]/layout.tsx`). Passed in from CI.
+ARG GITHUB_SHA
+ENV GITHUB_SHA=$GITHUB_SHA
+
 RUN pnpm build
 
 # Run

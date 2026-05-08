@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Inline the build commit SHA so it can be referenced via
+  // `process.env.GITHUB_SHA` in server/client code without depending on the
+  // runtime container env. Sourced from the docker build arg in CI.
+  env: {
+    GITHUB_SHA: process.env.GITHUB_SHA,
+  },
   experimental: {
     serverActions: {
       allowedOrigins: ["*"],
