@@ -119,6 +119,9 @@ importers:
       postprocessing:
         specifier: 6.35.5
         version: 6.35.5(three@0.165.0)
+      prettier:
+        specifier: 3.3.3
+        version: 3.3.3
       react:
         specifier: 19.0.4
         version: 19.0.4
@@ -204,9 +207,6 @@ importers:
       postcss:
         specifier: '8'
         version: 8.5.1
-      prettier:
-        specifier: 3.3.3
-        version: 3.3.3
       schema-dts:
         specifier: 1.1.2
         version: 1.1.2(typescript@5.7.3)

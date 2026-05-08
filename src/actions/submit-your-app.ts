@@ -3,6 +3,7 @@
 import { createAppAuth } from "@octokit/auth-app";
 import { Octokit } from "@octokit/rest";
 import { WebClient } from "@slack/web-api";
+import * as prettier from "prettier";
 import sharp from "sharp";
 
 import { InkApp } from "@/app/[locale]/apps/_components/InkApp";
@@ -308,6 +309,18 @@ async function createPullRequest(
     ),
   };
 
+  // Format with Prettier (matching repo `.prettierrc`) so the PR diff only shows
+  // the new app entry — `JSON.stringify(..., null, 2)` would expand every short
+  // array onto multiple lines and add hundreds of lines of formatting noise to
+  // every submission, which would also fail `pnpm format:check` in CI.
+  const formattedContent = await prettier.format(
+    JSON.stringify(updatedContent),
+    {
+      parser: "json",
+      tabWidth: 2,
+    }
+  );
+
   // 4. Create a tree with both files
   const tree = await octokit.git.createTree({
     owner: GITHUB_CONFIG.OWNER,
@@ -324,7 +337,7 @@ async function createPullRequest(
         path: GITHUB_CONFIG.FILE_PATH,
         mode: "100644",
         type: "blob",
-        content: JSON.stringify(updatedContent, null, 2),
+        content: formattedContent,
       },
     ],
   });
