@@ -46,14 +46,14 @@
     "leva": "0.9.35",
     "lottie-react": "2.4.0",
     "maath": "0.10.7",
-    "next": "15.4.11",
+    "next": "15.5.15",
     "next-intl": "3.25.1",
     "next-themes": "0.3.0",
     "postprocessing": "6.35.5",
     "prettier": "3.3.3",
-    "react": "19.0.4",
+    "react": "19.0.5",
     "react-confetti": "6.1.0",
-    "react-dom": "19.0.4",
+    "react-dom": "19.0.5",
     "react-focus-lock": "2.13.2",
     "react-hook-form": "7.54.1",
     "react-toastify": "10.0.5",
@@ -91,8 +91,8 @@
     "overrides": {
       "@types/react": "19.0.7",
       "@types/react-dom": "19.0.3",
-      "react": "19.0.4",
-      "react-dom": "19.0.4"
+      "react": "19.0.5",
+      "react-dom": "19.0.5"
     }
   }
 }
