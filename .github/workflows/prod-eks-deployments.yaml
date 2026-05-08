@@ -7,6 +7,10 @@ on:
 env:
   TARGET_URL: ${{ secrets.INFRA_REPO_DISPATCH_URL }}
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   image-build-push:
     runs-on: ubuntu-latest
