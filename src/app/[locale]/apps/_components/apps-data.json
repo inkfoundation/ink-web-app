@@ -112,25 +112,6 @@
       }
     },
     {
-      "id": "otomate",
-      "name": "Otomate",
-      "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
-      "imageUrl": "/featured-apps/icons/otomate.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield", "data", "tokens", "fun"],
-      "links": {
-        "mainnetWebsite": "https://www.otomate.trade/",
-        "testnetWebsite": "https://www.otomate.trade/",
-        "x": "https://x.com/otomate_trade",
-        "discord": "https://discord.com/invite/kYJJHjqy",
-        "telegram": "https://t.me/cop_ink",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "curve",
       "name": "Curve",
       "description": "Creating deep on-chain liquidity using advanced bonding curves.",
@@ -483,6 +464,25 @@
       }
     },
     {
+      "id": "otomate",
+      "name": "Otomate",
+      "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["yield", "data", "tokens", "fun"],
+      "links": {
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
+        "discord": "https://discord.com/invite/kYJJHjqy",
+        "telegram": "https://t.me/cop_ink",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "pyth",
       "name": "Pyth",
       "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
@@ -736,6 +736,25 @@
         "telegram": "",
         "github": "",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "tsunami",
+      "name": "Tsunami",
+      "description": "Tsunami is a concentrated-liquidity decentralized exchange on Ink.",
+      "imageUrl": "/featured-apps/icons/tsunami.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://www.nami.ink",
+        "testnetWebsite": "https://www.nami.ink",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/mavrkofficial/tsunami-public",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xD8B0826150B7686D1F56d6F10E31E58e1BCF1193"
       }
     },
     {
