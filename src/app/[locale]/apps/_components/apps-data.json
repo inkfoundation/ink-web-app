@@ -112,25 +112,6 @@
       }
     },
     {
-      "id": "otomate",
-      "name": "Otomate",
-      "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
-      "imageUrl": "/featured-apps/icons/otomate.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield", "data", "tokens", "fun"],
-      "links": {
-        "mainnetWebsite": "https://www.otomate.trade/",
-        "testnetWebsite": "https://www.otomate.trade/",
-        "x": "https://x.com/otomate_trade",
-        "discord": "https://discord.com/invite/kYJJHjqy",
-        "telegram": "https://t.me/cop_ink",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "curve",
       "name": "Curve",
       "description": "Creating deep on-chain liquidity using advanced bonding curves.",
@@ -483,6 +464,25 @@
       }
     },
     {
+      "id": "otomate",
+      "name": "Otomate",
+      "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["yield", "data", "tokens", "fun"],
+      "links": {
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
+        "discord": "https://discord.com/invite/kYJJHjqy",
+        "telegram": "https://t.me/cop_ink",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "pyth",
       "name": "Pyth",
       "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
@@ -625,6 +625,25 @@
         "telegram": "https://t.me/sedaprotocol",
         "github": "https://github.com/sedaprotocol",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry",
+      "description": "Sentry is a no-code solution token launchpad on Ink.",
+      "imageUrl": "/featured-apps/icons/sentry.webp",
+      "category": ["DeFi", "Infra"],
+      "network": "Mainnet",
+      "tags": ["tokens", "tools"],
+      "links": {
+        "mainnetWebsite": "https://sentry.trading",
+        "testnetWebsite": "https://sentry.trading",
+        "x": "https://x.com/sentrylauncher",
+        "discord": "",
+        "telegram": "https://t.me/sentrylauncher",
+        "github": "https://github.com/mavrkofficial/tsunami-public/tree/main/contracts/sentry",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xDc37e11B68052d1539fa23386eE58Ac444bf5BE1"
       }
     },
     {
