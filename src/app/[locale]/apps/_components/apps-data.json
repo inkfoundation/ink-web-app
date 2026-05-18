@@ -114,7 +114,7 @@
     {
       "id": "otomate",
       "name": "Otomate",
-      "description": "Copy the best traders on  @inkonchain , powered by  @nadoHQ",
+      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
       "imageUrl": "/featured-apps/icons/otomate.webp",
       "category": ["DeFi"],
       "network": "Mainnet",
@@ -123,8 +123,8 @@
         "mainnetWebsite": "https://www.otomate.trade/",
         "testnetWebsite": "https://www.otomate.trade/",
         "x": "https://x.com/otomate_trade",
-        "discord": "https://discord.com/invite/kYJJHjqy",
-        "telegram": "https://t.me/cop_ink",
+        "discord": "https://discord.com/invite/otomate",
+        "telegram": "https://t.me/otomate_trade",
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
