@@ -43,10 +43,6 @@ jobs:
           # OneTrust
           NEXT_PUBLIC_ONE_TRUST_ID=${{ secrets.NEXT_PUBLIC_ONE_TRUST_ID }}
 
-          # Dune
-          NEXT_PUBLIC_DUNE_API_BASE_URL=${{ secrets.NEXT_PUBLIC_DUNE_API_BASE_URL }}
-          DUNE_API_KEY=${{ secrets.DUNE_API_KEY }}
-
           # WalletConnect
           NEXT_PUBLIC_WC_PROJECT_ID=${{ secrets.NEXT_PUBLIC_WC_PROJECT_ID }}
 

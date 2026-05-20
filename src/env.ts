@@ -26,7 +26,6 @@ export const env = createEnv({
     MULTIPLIER_JWT_SECRET: z.string().min(1),
     UNSUBSCRIBE_JWT_SECRET: z.string().min(1),
     BRAZE_CONNECTED_CONTENT_API_KEY: z.string().min(1),
-    DUNE_API_KEY: z.string().min(1),
   },
   experimental__runtimeEnv: process.env,
 });
