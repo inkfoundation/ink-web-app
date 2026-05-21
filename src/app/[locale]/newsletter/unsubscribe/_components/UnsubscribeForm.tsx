@@ -9,13 +9,11 @@ import { FormStatus } from "@/components/FormStatus";
 import { Link } from "@/routing";
 
 interface UnsubscribeFormProps {
-  userBrazeId: string;
   email: string;
   token: string;
 }
 
 export const UnsubscribeForm: React.FC<UnsubscribeFormProps> = ({
-  userBrazeId,
   email,
   token,
 }) => {
@@ -52,17 +50,9 @@ export const UnsubscribeForm: React.FC<UnsubscribeFormProps> = ({
       <h2 className="text-3xl">What groups do you want to unsubscribe from?</h2>
       <div className="flex gap-4 pl-5">
         <input
-          id="brazeId"
-          name="brazeId"
-          value={userBrazeId}
-          className="hidden"
-          aria-hidden
-          readOnly
-        />
-        <input
-          id="email"
-          name="email"
-          value={email}
+          id="token"
+          name="token"
+          value={token}
           className="hidden"
           aria-hidden
           readOnly

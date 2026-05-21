@@ -30,17 +30,12 @@ async function getCachedPrice(): Promise<CacheData | null> {
 }
 
 async function setCachedPrice(price: string) {
-  try {
-    const data: CacheData = {
-      price,
-      timestamp: Date.now(),
-    };
-    await ensureCacheDirectory();
-    await fs.writeFile(CACHE_FILE, JSON.stringify(data), { mode: 0o666 });
-  } catch (error) {
-    console.error("Failed to write cache:", error);
-    throw error;
-  }
+  const data: CacheData = {
+    price,
+    timestamp: Date.now(),
+  };
+  await ensureCacheDirectory();
+  await fs.writeFile(CACHE_FILE, JSON.stringify(data), { mode: 0o644 });
 }
 
 async function fetchKrakenPrice(): Promise<string> {

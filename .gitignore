@@ -30,6 +30,7 @@ yarn-error.log*
 
 # System files
 .DS_Store
+**/.DS_Store
 *.pem
 
 # Editor/IDE

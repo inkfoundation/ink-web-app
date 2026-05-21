@@ -7,6 +7,7 @@ import {
   SubscriptionStatus,
   updateEmailStatusById,
 } from "@/integrations/braze";
+import { validateUnsubscribeToken } from "@/lib/unsubscribe-token";
 
 interface FormState {
   success: boolean;
@@ -17,17 +18,29 @@ export async function resubscribeToBraze(
   _prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
-  const brazeId = formData.get("brazeId");
-  const email = formData.get("email");
+  // The `brazeId`/`email` identifying which user to mutate must come from a
+  // signed token, not from raw form fields — otherwise anyone who learns a
+  // Braze ID (exposed by Braze pixels/SDK) can resubscribe arbitrary users.
+  const token = formData.get("token");
   const generalWailist = formData.get("generalWailist");
   const developerWailist = formData.get("developerWailist");
 
-  if (!brazeId || typeof brazeId !== "string") {
+  if (!token || typeof token !== "string") {
     return {
       error: "Issue submitting form",
       success: false,
     };
   }
+
+  const payload = await validateUnsubscribeToken(token);
+  if (!payload) {
+    return {
+      error: "Issue submitting form",
+      success: false,
+    };
+  }
+
+  const { brazeId, email } = payload;
 
   if (generalWailist !== "on" && developerWailist !== "on") {
     return {
@@ -39,10 +52,7 @@ export async function resubscribeToBraze(
   // Check if user was fully unsubscribed before making changes
   let wasUserFullyUnsubscribed = false;
   try {
-    const { users } = await listUserSubscriptionGroups(
-      brazeId,
-      email as string
-    );
+    const { users } = await listUserSubscriptionGroups(brazeId, email);
 
     if (users && users.length > 0) {
       wasUserFullyUnsubscribed = users[0].subscription_groups.every(

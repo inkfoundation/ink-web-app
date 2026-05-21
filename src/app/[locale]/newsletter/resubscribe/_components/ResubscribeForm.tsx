@@ -9,13 +9,13 @@ import { FormStatus } from "@/components/FormStatus";
 import { Link } from "@/routing";
 
 interface ResubscribeFormProps {
-  userBrazeId: string;
   email: string;
+  token: string;
 }
 
 export const ResubscribeForm: React.FC<ResubscribeFormProps> = ({
-  userBrazeId,
   email,
+  token,
 }) => {
   const [state, formAction] = useActionState(resubscribeToBraze, {
     success: false,
@@ -34,7 +34,7 @@ export const ResubscribeForm: React.FC<ResubscribeFormProps> = ({
           <Link
             href={{
               pathname: "/newsletter/unsubscribe",
-              query: { id: userBrazeId },
+              query: { token },
             }}
           >
             Unsuscribe
@@ -50,17 +50,9 @@ export const ResubscribeForm: React.FC<ResubscribeFormProps> = ({
       <h2 className="text-3xl">What groups do you want to resubscribe to?</h2>
       <div className="flex gap-4 pl-5">
         <input
-          id="brazeId"
-          name="brazeId"
-          value={userBrazeId}
-          className="hidden"
-          aria-hidden
-          readOnly
-        />
-        <input
-          id="email"
-          name="email"
-          value={email}
+          id="token"
+          name="token"
+          value={token}
           className="hidden"
           aria-hidden
           readOnly

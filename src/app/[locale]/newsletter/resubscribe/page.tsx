@@ -27,7 +27,7 @@ export default async function NewsletterResubscribePage({
 
   return (
     <div className="w-full h-screen px-4 flex flex-col items-center justify-center">
-      <ResubscribeForm userBrazeId={payload.brazeId} email={payload.email} />
+      <ResubscribeForm email={payload.email} token={token} />
     </div>
   );
 }
