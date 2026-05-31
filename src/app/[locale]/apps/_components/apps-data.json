@@ -112,25 +112,6 @@
       }
     },
     {
-      "id": "otomate",
-      "name": "Otomate",
-      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
-      "imageUrl": "/featured-apps/icons/otomate.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield", "data", "tokens", "fun"],
-      "links": {
-        "mainnetWebsite": "https://www.otomate.trade/",
-        "testnetWebsite": "https://www.otomate.trade/",
-        "x": "https://x.com/otomate_trade",
-        "discord": "https://discord.com/invite/otomate",
-        "telegram": "https://t.me/otomate_trade",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "curve",
       "name": "Curve",
       "description": "Creating deep on-chain liquidity using advanced bonding curves.",
@@ -483,6 +464,25 @@
       }
     },
     {
+      "id": "otomate",
+      "name": "Otomate",
+      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["yield", "data", "tokens", "fun"],
+      "links": {
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
+        "discord": "https://discord.com/invite/otomate",
+        "telegram": "https://t.me/otomate_trade",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "pyth",
       "name": "Pyth",
       "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
@@ -607,6 +607,25 @@
         "telegram": "https://t.me/+jHGVUd8y1FQxMzJi",
         "github": "https://github.com/safe-global",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "sasasa",
+      "name": "sasasa",
+      "description": "asasas",
+      "imageUrl": "/featured-apps/icons/sasasa.webp",
+      "category": ["Explorers"],
+      "network": "Testnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://sasasas.com",
+        "testnetWebsite": "https://sasasas.com",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
