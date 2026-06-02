@@ -9,6 +9,7 @@ import { CookieConsent } from "@/components/CookieConsent/CookieConsent";
 import { Footer } from "@/components/Footer";
 import { GlobalSvgStuff } from "@/components/icons/GlobalSvgStuff";
 import { ContactUsModal, NewsletterModal } from "@/components/Modals";
+import { NetworkStatusBanner } from "@/components/NetworkStatusBanner";
 import { Providers } from "@/components/Providers";
 import { ToggleThemeShortcut } from "@/components/ToggleThemeShortcut";
 import { clientEnv } from "@/env-client";
@@ -73,6 +74,8 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <ToggleThemeShortcut />
+
+            <NetworkStatusBanner />
 
             <RoutedLayout>
               <div className="relative pt-0 overflow-hidden flex flex-col gap-8 w-full items-center">
