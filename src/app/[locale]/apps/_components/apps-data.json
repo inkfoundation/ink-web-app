@@ -112,25 +112,6 @@
       }
     },
     {
-      "id": "otomate",
-      "name": "Otomate",
-      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
-      "imageUrl": "/featured-apps/icons/otomate.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield", "data", "tokens", "fun"],
-      "links": {
-        "mainnetWebsite": "https://www.otomate.trade/",
-        "testnetWebsite": "https://www.otomate.trade/",
-        "x": "https://x.com/otomate_trade",
-        "discord": "https://discord.com/invite/otomate",
-        "telegram": "https://t.me/otomate_trade",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "curve",
       "name": "Curve",
       "description": "Creating deep on-chain liquidity using advanced bonding curves.",
@@ -483,6 +464,25 @@
       }
     },
     {
+      "id": "otomate",
+      "name": "Otomate",
+      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["yield", "data", "tokens", "fun"],
+      "links": {
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
+        "discord": "https://discord.com/invite/otomate",
+        "telegram": "https://t.me/otomate_trade",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "pyth",
       "name": "Pyth",
       "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
@@ -698,6 +698,25 @@
         "discord": "",
         "telegram": "https://t.me/SuperSwapink",
         "github": "https://github.com/SuperSwapink",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "swapper-finance",
+      "name": "Swapper Finance",
+      "description": "Payments and onboarding infrastructure built with Mastercard and Chainlink, enabling direct DeFi deposits from cards, Web3 wallets, or crypto transfers.",
+      "imageUrl": "/featured-apps/icons/swapper-finance.webp",
+      "category": ["Infra", "Other"],
+      "network": "Mainnet",
+      "tags": ["tools"],
+      "links": {
+        "mainnetWebsite": "https://swapper.finance/",
+        "testnetWebsite": "https://swapper.finance/",
+        "x": "https://x.com/swapperfinance",
+        "discord": "",
+        "telegram": "",
+        "github": "",
         "farcaster": "",
         "smartContractUrl": ""
       }
