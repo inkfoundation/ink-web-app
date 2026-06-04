@@ -9,8 +9,8 @@ import { CookieConsent } from "@/components/CookieConsent/CookieConsent";
 import { Footer } from "@/components/Footer";
 import { GlobalSvgStuff } from "@/components/icons/GlobalSvgStuff";
 import { ContactUsModal, NewsletterModal } from "@/components/Modals";
-import { NetworkStatusBanner } from "@/components/NetworkStatusBanner";
 import { Providers } from "@/components/Providers";
+import { SiteBanner } from "@/components/SiteBanner";
 import { ToggleThemeShortcut } from "@/components/ToggleThemeShortcut";
 import { clientEnv } from "@/env-client";
 import { COOKIE_CONSENT } from "@/integrations/consent";
@@ -75,7 +75,7 @@ export default async function LocaleLayout({
           <Providers>
             <ToggleThemeShortcut />
 
-            <NetworkStatusBanner />
+            <SiteBanner />
 
             <RoutedLayout>
               <div className="relative pt-0 overflow-hidden flex flex-col gap-8 w-full items-center">
