@@ -112,25 +112,6 @@
       }
     },
     {
-      "id": "otomate",
-      "name": "Otomate",
-      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
-      "imageUrl": "/featured-apps/icons/otomate.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield", "data", "tokens", "fun"],
-      "links": {
-        "mainnetWebsite": "https://www.otomate.trade/",
-        "testnetWebsite": "https://www.otomate.trade/",
-        "x": "https://x.com/otomate_trade",
-        "discord": "https://discord.com/invite/otomate",
-        "telegram": "https://t.me/otomate_trade",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "curve",
       "name": "Curve",
       "description": "Creating deep on-chain liquidity using advanced bonding curves.",
@@ -465,6 +446,25 @@
       "pills": ["AIRDROP"]
     },
     {
+      "id": "nadobro",
+      "name": "NadoBro",
+      "description": "Nadobro is a sophisticated, Telegram-native trading platform built for trading on Nado.  NadoBro lets you trade directly from your chat.",
+      "imageUrl": "/featured-apps/icons/nadobro.webp",
+      "category": ["DeFi", "Social", "Other"],
+      "network": "Both",
+      "tags": ["dex", "tools", "yield", "data"],
+      "links": {
+        "mainnetWebsite": "https://nadobro.gitbook.io/docs",
+        "testnetWebsite": "https://nadobro.gitbook.io/docs",
+        "x": "https://x.com/NBdotbot",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "okx-explorer",
       "name": "OKX Explorer",
       "description": "Your go-to onchain data hub. Offering ALL-IN-ONE Blockchain Explorer, OpenAPI, and EaaS to securely explore and build onchain.",
@@ -480,6 +480,25 @@
         "telegram": "",
         "github": "",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "otomate",
+      "name": "Otomate",
+      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["yield", "data", "tokens", "fun"],
+      "links": {
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
+        "discord": "https://discord.com/invite/otomate",
+        "telegram": "https://t.me/otomate_trade",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
