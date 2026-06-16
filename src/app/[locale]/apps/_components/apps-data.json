@@ -482,6 +482,25 @@
       }
     },
     {
+      "id": "ophis",
+      "name": "Ophis",
+      "description": "Intent-based DEX aggregator built on CoW Protocol. Describe a swap in natural language and a competitive solver network settles it in batches with MEV protection, price-improvement surplus, and gasless order signing.",
+      "imageUrl": "/featured-apps/icons/ophis.webp",
+      "category": ["DeFi", "Infra"],
+      "network": "Mainnet",
+      "tags": ["dex", "tools"],
+      "links": {
+        "mainnetWebsite": "https://swap.ophis.fi",
+        "testnetWebsite": "",
+        "x": "https://x.com/ophisfi",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/ophis-fi/ophis",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "pyth",
       "name": "Pyth",
       "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
