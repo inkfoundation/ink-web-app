@@ -111,25 +111,6 @@
       }
     },
     {
-      "id": "otomate",
-      "name": "Otomate",
-      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
-      "imageUrl": "/featured-apps/icons/otomate.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield", "data", "tokens", "fun"],
-      "links": {
-        "mainnetWebsite": "https://www.otomate.trade/",
-        "testnetWebsite": "https://www.otomate.trade/",
-        "x": "https://x.com/otomate_trade",
-        "discord": "https://discord.com/invite/otomate",
-        "telegram": "https://t.me/otomate_trade",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "curve",
       "name": "Curve",
       "description": "Creating deep on-chain liquidity using advanced bonding curves.",
@@ -482,6 +463,25 @@
       }
     },
     {
+      "id": "otomate",
+      "name": "Otomate",
+      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["yield", "data", "tokens", "fun"],
+      "links": {
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
+        "discord": "https://discord.com/invite/otomate",
+        "telegram": "https://t.me/otomate_trade",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "pyth",
       "name": "Pyth",
       "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
@@ -640,6 +640,25 @@
         "x": "https://x.com/spreads_fi",
         "discord": "",
         "telegram": "https://t.me/spreads_fi",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "stableflow",
+      "name": "StableFlow",
+      "description": "StableFlow is an intent-based routing layer for large stablecoin transfers across 25+ chains, offering zero slippage and best rates while aiming for true 1:1 execution.",
+      "imageUrl": "/featured-apps/icons/stableflow.webp",
+      "category": ["Bridge", "DeFi", "Infra"],
+      "network": "Mainnet",
+      "tags": ["cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://stableflow.ai/",
+        "testnetWebsite": "https://stableflow.ai/",
+        "x": "https://x.com/0xstableflow",
+        "discord": "",
+        "telegram": "https://t.me/stableflowai",
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
