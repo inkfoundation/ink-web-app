@@ -111,25 +111,6 @@
       }
     },
     {
-      "id": "otomate",
-      "name": "Otomate",
-      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
-      "imageUrl": "/featured-apps/icons/otomate.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield", "data", "tokens", "fun"],
-      "links": {
-        "mainnetWebsite": "https://www.otomate.trade/",
-        "testnetWebsite": "https://www.otomate.trade/",
-        "x": "https://x.com/otomate_trade",
-        "discord": "https://discord.com/invite/otomate",
-        "telegram": "https://t.me/otomate_trade",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "curve",
       "name": "Curve",
       "description": "Creating deep on-chain liquidity using advanced bonding curves.",
@@ -479,6 +460,44 @@
         "telegram": "",
         "github": "",
         "farcaster": ""
+      }
+    },
+    {
+      "id": "ophis",
+      "name": "Ophis",
+      "description": "Ophis is an intent-based, MEV-protected DEX aggregator built for the agent era.",
+      "imageUrl": "/featured-apps/icons/ophis.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://ophis.fi/",
+        "testnetWebsite": "https://ophis.fi/",
+        "x": "https://x.com/ophisfi",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
+      "id": "otomate",
+      "name": "Otomate",
+      "description": "The adaptive app for onchain finance. Crypto, stocks, yield, AI automation.",
+      "imageUrl": "/featured-apps/icons/otomate.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["yield", "data", "tokens", "fun"],
+      "links": {
+        "mainnetWebsite": "https://www.otomate.trade/",
+        "testnetWebsite": "https://www.otomate.trade/",
+        "x": "https://x.com/otomate_trade",
+        "discord": "https://discord.com/invite/otomate",
+        "telegram": "https://t.me/otomate_trade",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
       }
     },
     {
