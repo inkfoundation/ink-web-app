@@ -27,11 +27,7 @@ export default async function NewsletterUnsubscribePage({
 
   return (
     <div className="w-full h-screen px-4 flex flex-col items-center justify-center">
-      <UnsubscribeForm
-        userBrazeId={payload.brazeId}
-        email={payload.email}
-        token={token}
-      />
+      <UnsubscribeForm email={payload.email} token={token} />
     </div>
   );
 }

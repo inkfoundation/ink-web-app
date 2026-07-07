@@ -17,17 +17,6 @@ function getTimestampFromTweetId(tweetId: string): number {
     const timestamp = Number(
       (BigInt(tweetId) >> BigInt(22)) + BigInt(1288834974657)
     );
-    const tweetDate = new Date(timestamp);
-    const tweetAge = Date.now() - timestamp;
-    const minutesAgo = Math.floor(tweetAge / (60 * 1000));
-
-    console.debug({
-      tweetId,
-      timestamp,
-      tweetDate: tweetDate.toISOString(),
-      minutesAgo,
-    });
-
     return timestamp;
   } catch (error) {
     console.error("Error converting tweet ID to timestamp:", error);
@@ -163,14 +152,10 @@ export async function POST(request: Request) {
       new Set<string>(data.html.match(tcoUrlRegex) || [])
     );
 
-    console.debug("Unique short URLs found:", shortUrls);
-
     // Expand all unique t.co URLs in parallel
     const expandedUrls = await Promise.all(
       shortUrls.map((url) => expandShortUrl(url))
     );
-
-    console.debug("Expanded URLs:", expandedUrls);
 
     // Convert to lowercase for case-insensitive matching
     const expandedUrlsLower = expandedUrls.map((url) => url.toLowerCase());

@@ -23,7 +23,8 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["prettier"],
   experimental: {
     serverActions: {
-      allowedOrigins: ["*"],
+      // Keep CSRF protection on by relying on Next's default same-origin check.
+      // Add additional production hosts here if we ever embed actions cross-origin.
       bodySizeLimit: "6mb", // 5mb max image size + 1mb buffer for other form data
     },
   },
