@@ -238,6 +238,25 @@
       }
     },
     {
+      "id": "hookswap",
+      "name": "HookSwap",
+      "description": "HookSwap is a next-generation decentralized exchange powered by Uniswap v4 Hooks, enabling programmable liquidity, efficient swaps, and customizable trading experiences for the future of DeFi",
+      "imageUrl": "/featured-apps/icons/hookswap.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex", "fun", "tokens"],
+      "links": {
+        "mainnetWebsite": "https://hookswap.org",
+        "testnetWebsite": "https://hookswap.org",
+        "x": "https://x.com/hookosfun",
+        "discord": "https://discord.com/invite/hHrGU6FFwJ",
+        "telegram": "https://t.me/HookOSPortal",
+        "github": "https://github.com/HooksOS",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xD1Cf664944173140AFc302c169eFD55c24966B45"
+      }
+    },
+    {
       "id": "hypernative",
       "name": "Hypernative",
       "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
