@@ -256,6 +256,25 @@
       }
     },
     {
+      "id": "ink-groupwallet",
+      "name": "INK GroupWallet",
+      "description": "Build teams on INK, get stablecoin payment as a group, vote on how to use common funding. Multi-Party-Vault (MPV) on USDC, permission-less, no installation required, ready to raise funding.",
+      "imageUrl": "/featured-apps/icons/ink-groupwallet.webp",
+      "category": ["Social", "Other", "DeFi"],
+      "network": "Mainnet",
+      "tags": ["domain names", "funding", "wallet"],
+      "links": {
+        "mainnetWebsite": "https://www.ungravel.lat/?bd?264?first",
+        "testnetWebsite": "https://www.ungravel.lat/?bd?264?first",
+        "x": "https://x.com/peterhaas795141",
+        "discord": "",
+        "telegram": "https://t.me/pepihasenfuss",
+        "github": "https://github.com/pepihasenfuss/ungravel-smartcontracts/blob/master/README.md",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xa77C4ba3cf1ef9f654676445Aa1798370d0a0b61"
+      }
+    },
+    {
       "id": "inkdca",
       "name": "InkDCA",
       "description": "InkDCA is a fully decentralized, trust minimized Dollar-Cost Averaging (DCA) platform built exclusively on Ink .",
