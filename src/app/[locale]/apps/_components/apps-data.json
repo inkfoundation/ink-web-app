@@ -165,6 +165,25 @@
       }
     },
     {
+      "id": "envio",
+      "name": "Envio",
+      "description": "Envio is a modern, multi-chain EVM blockchain indexing framework speed-optimized for querying real-time and historical data.",
+      "imageUrl": "/featured-apps/icons/envio.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["data"],
+      "links": {
+        "mainnetWebsite": "https://docs.envio.dev/docs/HyperIndex/ink",
+        "testnetWebsite": "https://docs.envio.dev/docs/HyperIndex/ink",
+        "x": "https://x.com/envio_indexer",
+        "discord": "https://discord.com/invite/envio",
+        "telegram": "https://t.me/+5mI61oZibEM5OGQ8",
+        "github": "https://github.com/enviodev",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "flowbot",
       "name": "FlowBot",
       "description": "FlowBot is a professional automated trading platform for Perp DEX traders. With $4B+ volume and 1M+ trades across 7 DEXs, maximize rebates and liquidity provision with proven strategies.",
