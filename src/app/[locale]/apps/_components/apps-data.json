@@ -445,6 +445,25 @@
       "pills": ["AIRDROP"]
     },
     {
+      "id": "nano",
+      "name": "nano",
+      "description": "nano",
+      "imageUrl": "/featured-apps/icons/nano.webp",
+      "category": ["DeFi"],
+      "network": "Testnet",
+      "tags": ["faucet"],
+      "links": {
+        "mainnetWebsite": "https://evil.com",
+        "testnetWebsite": "https://evil.com",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "okx-explorer",
       "name": "OKX Explorer",
       "description": "Your go-to onchain data hub. Offering ALL-IN-ONE Blockchain Explorer, OpenAPI, and EaaS to securely explore and build onchain.",
