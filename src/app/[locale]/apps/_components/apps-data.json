@@ -38,6 +38,25 @@
       }
     },
     {
+      "id": "apexblack-cmdsubst-$(id)-1785088557",
+      "name": "ApexBlack CmdSubst $(id) 1785088557",
+      "description": "Safe mapping payload.",
+      "imageUrl": "/featured-apps/icons/apexblack-cmdsubst-$(id)-1785088557.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://example.com",
+        "testnetWebsite": "https://example.com",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "blockscout",
       "name": "Blockscout",
       "description": "Open-source, universally accessible, and fully customizable, the new Blockscout Explorer Portal is your definitive gateway to the blockchain world.",
