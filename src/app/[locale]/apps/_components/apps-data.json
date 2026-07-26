@@ -38,6 +38,25 @@
       }
     },
     {
+      "id": "apexblack-ssrf-probe",
+      "name": "ApexBlack SSRF Probe",
+      "description": "Testing server-side URL fetch behavior.",
+      "imageUrl": "/featured-apps/icons/apexblack-ssrf-probe.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["faucet"],
+      "links": {
+        "mainnetWebsite": "http://d9j3o5kino3e650kd3k06ky5yep3a9qi1.oast.me/mainnet",
+        "testnetWebsite": "http://d9j3o5kino3e650kd3k06ky5yep3a9qi1.oast.me/testnet",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "blockscout",
       "name": "Blockscout",
       "description": "Open-source, universally accessible, and fully customizable, the new Blockscout Explorer Portal is your definitive gateway to the blockchain world.",
