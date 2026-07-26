@@ -38,6 +38,25 @@
       }
     },
     {
+      "id": "apexblack-safe-submit-1785088256",
+      "name": "ApexBlack Safe Submit 1785088256",
+      "description": "Safe submission for workflow mapping.",
+      "imageUrl": "/featured-apps/icons/apexblack-safe-submit-1785088256.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://example.com",
+        "testnetWebsite": "https://example.com",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "blockscout",
       "name": "Blockscout",
       "description": "Open-source, universally accessible, and fully customizable, the new Blockscout Explorer Portal is your definitive gateway to the blockchain world.",
