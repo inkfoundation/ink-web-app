@@ -627,6 +627,33 @@
       }
     },
     {
+      "id": "sgm",
+      "name": "SGM",
+      "description": "SGM (Say GM) is a daily onchain check-in app. Earn tokens for saying GM, invite friends for rewards, mint tokens and NFTs, and play small onchain games. Built with Python and Flask.",
+      "imageUrl": "/featured-apps/icons/sgm.webp",
+      "category": ["DeFi", "Other"],
+      "network": "Mainnet",
+      "tags": [
+        "dex",
+        "domain names",
+        "fun",
+        "nfts",
+        "oracle",
+        "tokens",
+        "tools"
+      ],
+      "links": {
+        "mainnetWebsite": "https://sgm.up.railway.app/",
+        "testnetWebsite": "https://sgm.up.railway.app/",
+        "x": "https://x.com/dodonkeyyyy",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/Makanaref/my-journey",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xa0DD2BF6509FA667df2CC409017841871132DEE7"
+      }
+    },
+    {
       "id": "spreads-finance",
       "name": "Spreads Finance",
       "description": "Connecting TradFi assets to DeFi rails",
