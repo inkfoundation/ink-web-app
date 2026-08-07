@@ -446,6 +446,25 @@
       "pills": ["AIRDROP"]
     },
     {
+      "id": "nadobro",
+      "name": "NadoBro",
+      "description": "Nadobro is a sophisticated, Telegram-native trading platform built for trading on Nado.  NadoBro lets you trade directly from your chat.",
+      "imageUrl": "/featured-apps/icons/nadobro.webp",
+      "category": ["DeFi", "Social", "Other"],
+      "network": "Both",
+      "tags": ["dex", "tools", "yield", "data"],
+      "links": {
+        "mainnetWebsite": "https://nadobro.gitbook.io/docs",
+        "testnetWebsite": "https://nadobro.gitbook.io/docs",
+        "x": "https://x.com/NBdotbot",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "okx-explorer",
       "name": "OKX Explorer",
       "description": "Your go-to onchain data hub. Offering ALL-IN-ONE Blockchain Explorer, OpenAPI, and EaaS to securely explore and build onchain.",
