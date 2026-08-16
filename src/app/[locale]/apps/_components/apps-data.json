@@ -446,6 +446,25 @@
       "pills": ["AIRDROP"]
     },
     {
+      "id": "nado-explorer",
+      "name": "Nado Explorer",
+      "description": "Real-time analytics explorer for Nado on Ink. Track markets, traders, points, builders, vault flows, funding, liquidations, NFTs and protocol stats through dashboards and a public API.",
+      "imageUrl": "/featured-apps/icons/nado-explorer.webp",
+      "category": ["Explorers", "Infra"],
+      "network": "Mainnet",
+      "tags": ["data", "explorer", "tools"],
+      "links": {
+        "mainnetWebsite": "https://nadoexplorer.com",
+        "testnetWebsite": "https://nadoexplorer.com",
+        "x": "https://x.com/NadoExplorer",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "okx-explorer",
       "name": "OKX Explorer",
       "description": "Your go-to onchain data hub. Offering ALL-IN-ONE Blockchain Explorer, OpenAPI, and EaaS to securely explore and build onchain.",
