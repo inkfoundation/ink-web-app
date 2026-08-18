@@ -5,6 +5,12 @@ import { isSquareAspectRatio } from "@/util/validation";
 const noXSSCharacters = (val: string) => !/[<>&'"]/g.test(val);
 const xssErrorMessage = "Input contains invalid characters";
 
+const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
+// Vercel rejects server action payloads over 4.5MB at the platform layer,
+// before Next.js runs, and the failure is silent (the form just hangs). Keep
+// the total payload guard comfortably below that so users get a clear error.
+const MAX_PAYLOAD_BYTES = 4.25 * 1024 * 1024;
+
 export const appSubmissionSchema = z
   .object({
     name: z
@@ -81,10 +87,10 @@ export const appSubmissionSchema = z
         if (!(file instanceof File)) return false;
         if (file.size === 0) return false;
         if (!file.type.startsWith("image/")) return false;
-        if (file.size > 5 * 1024 * 1024) return false;
+        if (file.size > MAX_IMAGE_BYTES) return false;
 
         return true;
-      }, "Please provide an image file less than 5MB")
+      }, "Please provide an image file less than 4MB")
       .refine((file) => {
         // Skip validation on the server side
         if (typeof window === "undefined") return true;
@@ -189,7 +195,27 @@ export const appSubmissionSchema = z
       message: "Please enter a valid contract URL for the selected network",
       path: ["smartContractUrl"],
     }
-  );
+  )
+  .superRefine((data, ctx) => {
+    // Browser-only guard against the platform payload limit (see
+    // MAX_PAYLOAD_BYTES above); the image dominates, text fields are tiny.
+    if (typeof window === "undefined") return;
+
+    const fileBytes = data.iconFile instanceof File ? data.iconFile.size : 0;
+    const textBytes = Object.values(data).reduce<number>(
+      (sum, value) => (typeof value === "string" ? sum + value.length : sum),
+      0
+    );
+
+    if (fileBytes + textBytes > MAX_PAYLOAD_BYTES) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["iconFile"],
+        message:
+          "Submission is too large to upload — please use a smaller image",
+      });
+    }
+  });
 
 export type AppSubmissionFormData = z.infer<typeof appSubmissionSchema>;
 export type CategoryValue = z.infer<
