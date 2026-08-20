@@ -446,6 +446,25 @@
       "pills": ["AIRDROP"]
     },
     {
+      "id": "nadobro",
+      "name": "Nadobro",
+      "description": "With Nadobro, you can text to trade, copy trade, run MM and DN strategies, monitor, and react faster from anywhere, at anytime.",
+      "imageUrl": "/featured-apps/icons/nadobro.webp",
+      "category": ["DeFi", "Social", "Infra", "Other"],
+      "network": "Both",
+      "tags": ["dex", "funding", "yield"],
+      "links": {
+        "mainnetWebsite": "https://nadobro.org/",
+        "testnetWebsite": "https://nadobro.org/",
+        "x": "https://x.com/nadobro_",
+        "discord": "",
+        "telegram": "https://t.me/Nadbro_bot",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "okx-explorer",
       "name": "OKX Explorer",
       "description": "Your go-to onchain data hub. Offering ALL-IN-ONE Blockchain Explorer, OpenAPI, and EaaS to securely explore and build onchain.",
