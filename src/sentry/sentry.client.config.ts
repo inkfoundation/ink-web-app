@@ -26,7 +26,9 @@ const integrations = [
 Consent.on(ConsentType.CONSENT, () => {
   Sentry.init({
     dsn: clientEnv.NEXT_PUBLIC_SENTRY_DSN,
-    enabled: clientEnv.NEXT_PUBLIC_ENVIRONMENT !== "ci",
+    enabled:
+      Boolean(clientEnv.NEXT_PUBLIC_SENTRY_DSN) &&
+      clientEnv.NEXT_PUBLIC_ENVIRONMENT !== "ci",
 
     // Adjust this value in production, or use tracesSampler for greater control
     tracesSampleRate: 0.05,
