@@ -1,7 +1,11 @@
 import Image from "next/image";
 
 import { ColoredText } from "@/components/ColoredText";
-import { newLayoutContainerClasses } from "@/components/styles/container";
+import { RelayKitUI } from "@/components/RelayKitUI";
+import {
+  newLayoutContainerClasses,
+  newLayoutSectionClasses,
+} from "@/components/styles/container";
 
 interface Bridge {
   name: string;
@@ -56,74 +60,82 @@ export default function BridgePage() {
         Bridge
       </ColoredText>
 
-      {/* Mobile: List layout */}
-      <div className="flex flex-col gap-2 w-full md:hidden">
-        {bridges.map((bridge) => (
-          <a
-            key={bridge.name}
-            href={bridge.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 rounded-xl ink:bg-background-container hover:opacity-80 transition-opacity"
-          >
-            <Image
-              src={bridge.icon}
-              alt={bridge.name}
-              width={40}
-              height={40}
-              className="rounded-lg"
-            />
-            <span className="font-medium flex-1">{bridge.name}</span>
-            <div className="flex items-center gap-1">
-              {bridge.assetIcons.map((icon) => (
-                <Image
-                  key={icon}
-                  src={`/icons/tokens/${icon}.svg`}
-                  alt={icon}
-                  width={20}
-                  height={20}
-                  className="rounded-full"
-                />
-              ))}
-            </div>
-          </a>
-        ))}
-      </div>
+      <RelayKitUI />
 
-      {/* Desktop: Tile layout */}
-      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-4xl mx-auto">
-        {bridges.map((bridge) => (
-          <a
-            key={bridge.name}
-            href={bridge.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center gap-4 p-6 rounded-2xl ink:bg-background-container hover:opacity-80 transition-opacity"
-          >
-            <div className="w-16 h-16 flex items-center justify-center">
+      <div className={newLayoutSectionClasses()}>
+        <ColoredText className="ink:text-h3 text-center" variant="purple">
+          More bridges
+        </ColoredText>
+
+        {/* Mobile: List layout */}
+        <div className="flex flex-col gap-2 w-full md:hidden">
+          {bridges.map((bridge) => (
+            <a
+              key={bridge.name}
+              href={bridge.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-4 rounded-xl ink:bg-background-container hover:opacity-80 transition-opacity"
+            >
               <Image
                 src={bridge.icon}
                 alt={bridge.name}
-                width={64}
-                height={64}
-                className="rounded-xl object-contain max-h-16"
+                width={40}
+                height={40}
+                className="rounded-lg"
               />
-            </div>
-            <span className="font-semibold text-lg">{bridge.name}</span>
-            <div className="flex items-center gap-1">
-              {bridge.assetIcons.map((icon) => (
+              <span className="font-medium flex-1">{bridge.name}</span>
+              <div className="flex items-center gap-1">
+                {bridge.assetIcons.map((icon) => (
+                  <Image
+                    key={icon}
+                    src={`/icons/tokens/${icon}.svg`}
+                    alt={icon}
+                    width={20}
+                    height={20}
+                    className="rounded-full"
+                  />
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Desktop: Tile layout */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-4xl mx-auto">
+          {bridges.map((bridge) => (
+            <a
+              key={bridge.name}
+              href={bridge.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-4 p-6 rounded-2xl ink:bg-background-container hover:opacity-80 transition-opacity"
+            >
+              <div className="w-16 h-16 flex items-center justify-center">
                 <Image
-                  key={icon}
-                  src={`/icons/tokens/${icon}.svg`}
-                  alt={icon}
-                  width={24}
-                  height={24}
-                  className="rounded-full"
+                  src={bridge.icon}
+                  alt={bridge.name}
+                  width={64}
+                  height={64}
+                  className="rounded-xl object-contain max-h-16"
                 />
-              ))}
-            </div>
-          </a>
-        ))}
+              </div>
+              <span className="font-semibold text-lg">{bridge.name}</span>
+              <div className="flex items-center gap-1">
+                {bridge.assetIcons.map((icon) => (
+                  <Image
+                    key={icon}
+                    src={`/icons/tokens/${icon}.svg`}
+                    alt={icon}
+                    width={24}
+                    height={24}
+                    className="rounded-full"
+                  />
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
