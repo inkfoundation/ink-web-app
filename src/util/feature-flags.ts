@@ -9,7 +9,6 @@ export const hardcodedFeatureFlags = {
   prefillAppSubmission: false,
   publicRepo: false,
   fakeEvents: 0,
-  verifyPage: true,
   grantsSection: false,
   walletColumn: false,
 };

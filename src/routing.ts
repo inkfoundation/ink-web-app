@@ -40,8 +40,6 @@ export const EXTERNAL_LINKS = {
   guild: "https://guild.xyz/",
   legal: "mailto:legal@inkonchain.com",
   gm: "https://gm.inkonchain.com",
-  // TODO: update this.
-  inkVerify: "https://verify.inkonchain.com/",
   relayTxHistory: "https://relay.link/transactions?address=[address]",
   l1Explorer: "https://sepolia.etherscan.io/tx/[hash]",
   optimism: "https://www.optimism.io/",
@@ -49,9 +47,6 @@ export const EXTERNAL_LINKS = {
   grant: "https://docs.inkonchain.com/ink-grants",
   // TODO: update this.
   retroGrant: "https://docs.inkonchain.com/ink-grants/retro-grants",
-  eas: "https://docs.attest.org/docs/welcome",
-  verifySupport: "https://support.kraken.com/hc/en-us/articles/kraken-verify",
-  verifyDocs: "https://docs.inkonchain.com/build/verify",
   tydro: "https://app.tydro.com/",
   nado: "https://app.nado.xyz/",
 } as const;
@@ -81,8 +76,6 @@ export const routing = defineRouting({
     "/apps": "/apps",
     "/apps/[category]": "/apps/[category]",
     "/bridge": "/bridge",
-    "/verify": "/verify",
-    "/verify/faq": "/verify/faq",
     "/community": "/community",
     "/about": "/about",
     "/builders": "/builders",

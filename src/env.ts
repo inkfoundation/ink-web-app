@@ -6,10 +6,6 @@ export const env = createEnv({
     CI: z.string().optional(),
     SENTRY_AUTH_TOKEN: z.string().optional(),
     ORIGIN: z.string().min(1).default("inkonchain.com"),
-    KRAKEN_VERIFY_API_BASE_URL: z
-      .string()
-      .url()
-      .default("http://localhost:8002"),
     BRAZE_INSTANCE_URL: z.string().url(),
     BRAZE_API_KEY: z.string().min(1),
     BRAZE_GENERAL_WAITLIST_GROUP_ID: z.string().min(1),
