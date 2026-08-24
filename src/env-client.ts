@@ -6,7 +6,7 @@ export const clientEnv = createEnv({
     NEXT_PUBLIC_ENVIRONMENT: z
       .enum(["local", "development", "ci", "production"])
       .default("local"),
-    NEXT_PUBLIC_SENTRY_DSN: z.string().min(1),
+    NEXT_PUBLIC_SENTRY_DSN: z.string().optional(),
     NEXT_PUBLIC_GTM_ID: z.string().min(1),
     NEXT_PUBLIC_SEGMENT_WRITE_KEY: z.string().min(1),
     NEXT_PUBLIC_ONE_TRUST_ID: z.string().min(1),
