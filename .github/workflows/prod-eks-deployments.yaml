@@ -54,8 +54,6 @@ jobs:
           NEXT_PUBLIC_SEGMENT_WRITE_KEY=${{ secrets.NEXT_PUBLIC_SEGMENT_WRITE_KEY }}
 
           # Kraken Connect
-          NEXT_PUBLIC_KRAKEN_CLIENT_ID=${{ secrets.NEXT_PUBLIC_KRAKEN_CLIENT_ID }}
-          KRAKEN_CLIENT_SECRET=${{ secrets.KRAKEN_CLIENT_SECRET }}
           KRAKEN_VERIFY_API_BASE_URL=${{ secrets.KRAKEN_VERIFY_API_BASE_URL }}
 
           # App Submission Bot

@@ -13,9 +13,10 @@ const nextConfig: NextConfig = {
   },
   // Inline the build commit SHA so it can be referenced via
   // `process.env.GITHUB_SHA` in server/client code without depending on the
-  // runtime container env. Sourced from the docker build arg in CI.
+  // runtime container env. Sourced from the docker build arg in CI, or from
+  // Vercel's built-in commit SHA when building there.
   env: {
-    GITHUB_SHA: process.env.GITHUB_SHA,
+    GITHUB_SHA: process.env.GITHUB_SHA ?? process.env.VERCEL_GIT_COMMIT_SHA,
   },
   // Keep `prettier` out of the server bundle: it relies on dynamic requires that
   // webpack can't statically analyze, and we use it at runtime in the
@@ -23,8 +24,13 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["prettier"],
   experimental: {
     serverActions: {
-      allowedOrigins: ["*"],
-      bodySizeLimit: "6mb", // 5mb max image size + 1mb buffer for other form data
+      // Restricted from "*": on Vercel every preview deploy gets its own URL,
+      // so a wildcard would let any origin drive our server actions.
+      allowedOrigins: ["inkonchain.com", "*.inkonchain.com"],
+      // Vercel enforces a hard 4.5MB request payload limit at the platform
+      // layer (before Next.js runs), so anything above that is unreachable
+      // there and fails silently. 4mb max image size + buffer for form data.
+      bodySizeLimit: "4.5mb",
     },
   },
 };
