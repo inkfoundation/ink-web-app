@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { env } from "@/env";
 import { clientEnv } from "@/env-client";
 
 // Health check timeout in milliseconds
@@ -17,7 +16,6 @@ interface HealthResponse {
   timestamp: string;
   services: {
     app: ServiceStatus;
-    krakenVerifyApi?: ServiceStatus;
     faucetApi?: ServiceStatus;
   };
 }
@@ -78,25 +76,9 @@ export async function GET(request: NextRequest) {
   };
 
   if (deep) {
-    const healthChecks = await Promise.allSettled([
-      checkServiceHealth(`${env.KRAKEN_VERIFY_API_BASE_URL}/health`),
+    const [faucetResult] = await Promise.allSettled([
       checkServiceHealth(clientEnv.NEXT_PUBLIC_FAUCET_API_URL || ""),
     ]);
-
-    const [krakenResult, faucetResult] = healthChecks;
-
-    if (krakenResult.status === "fulfilled") {
-      healthResponse.services.krakenVerifyApi = krakenResult.value;
-    } else {
-      console.error(
-        "Kraken Verify API health check failed:",
-        krakenResult.reason
-      );
-      healthResponse.services.krakenVerifyApi = {
-        status: "unhealthy",
-        error: "Health check failed",
-      };
-    }
 
     if (faucetResult.status === "fulfilled") {
       healthResponse.services.faucetApi = faucetResult.value;
@@ -108,14 +90,10 @@ export async function GET(request: NextRequest) {
       };
     }
 
-    const criticalServicesUnhealthy =
-      healthResponse.services.krakenVerifyApi?.status === "unhealthy";
     const nonCriticalServicesUnhealthy =
       healthResponse.services.faucetApi?.status === "unhealthy";
 
-    if (criticalServicesUnhealthy) {
-      healthResponse.status = "unhealthy";
-    } else if (nonCriticalServicesUnhealthy) {
+    if (nonCriticalServicesUnhealthy) {
       healthResponse.status = "degraded";
     }
   }

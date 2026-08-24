@@ -53,9 +53,6 @@ jobs:
           # Segment
           NEXT_PUBLIC_SEGMENT_WRITE_KEY=${{ secrets.NEXT_PUBLIC_SEGMENT_WRITE_KEY }}
 
-          # Kraken Connect
-          KRAKEN_VERIFY_API_BASE_URL=${{ secrets.KRAKEN_VERIFY_API_BASE_URL }}
-
           # App Submission Bot
           INK_APP_SUBMISSION_BOT_GITHUB_APP_ID=${{ secrets.INK_APP_SUBMISSION_BOT_GITHUB_APP_ID }}
           INK_APP_SUBMISSION_BOT_GITHUB_PRIVATE_KEY=${{ secrets.INK_APP_SUBMISSION_BOT_GITHUB_PRIVATE_KEY }}
