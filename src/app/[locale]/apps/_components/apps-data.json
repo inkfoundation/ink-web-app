@@ -520,6 +520,25 @@
       }
     },
     {
+      "id": "quiz-on-chain",
+      "name": "Quiz On Chain",
+      "description": "Quiz On Chain is a Web3 quiz app for Ink blockchain. Answer 5 doc-based questions, then submit your score on-chain to compete the leaderboard.",
+      "imageUrl": "/featured-apps/icons/quiz-on-chain.webp",
+      "category": ["Explorers", "Social", "Other"],
+      "network": "Mainnet",
+      "tags": ["fun", "tools", "nfts", "explorer"],
+      "links": {
+        "mainnetWebsite": "https://quizonchain.app/",
+        "testnetWebsite": "https://quizonchain.app/",
+        "x": "https://x.com/quizonchain",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x9dAB945F67b53ffCb78f02B1Dd31B731f69e1167"
+      }
+    },
+    {
       "id": "rainbow",
       "name": "Rainbow",
       "description": "The fun, simple, & secure way to explore Web3, NFTs, & Ethereum 🌈",
