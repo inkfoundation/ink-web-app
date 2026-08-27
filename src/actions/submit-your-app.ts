@@ -61,6 +61,12 @@ interface ImageValidationError {
 
 type ImageValidationResult = ImageValidationSuccess | ImageValidationError;
 
+// Only accept formats an icon would realistically be uploaded in. This keeps
+// attacker-controlled files away from the HEIF/AVIF decode path entirely —
+// libheif has a history of decoder CVEs (e.g. GHSA-g89c-p67h-r497, an RCE via
+// crafted AVIF that Next.js patched by disabling AVIF optimization).
+const ALLOWED_ICON_FORMATS = new Set(["jpeg", "png", "webp", "gif", "svg"]);
+
 async function validateAndConvertImage(
   file: File
 ): Promise<ImageValidationResult> {
@@ -68,6 +74,13 @@ async function validateAndConvertImage(
     const buffer = Buffer.from(await file.arrayBuffer());
     const image = sharp(buffer);
     const metadata = await image.metadata();
+
+    if (!metadata.format || !ALLOWED_ICON_FORMATS.has(metadata.format)) {
+      return {
+        isValid: false,
+        error: "Unsupported image format. Please use PNG, JPEG, WebP or SVG",
+      };
+    }
 
     if (!metadata.width || !metadata.height) {
       return {
