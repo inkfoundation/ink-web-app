@@ -335,7 +335,7 @@
       "id": "kraken-wallet",
       "name": "Kraken Wallet",
       "description": "Kraken Wallet is a powerful, self-custody wallet built to connect you to the decentralized web — safely and securely.",
-      "imageUrl": "https://cdn.sanity.io/images/51n36hrp/facade/475b8798c392708faa303eab78e616eb868f7730-512x512.svg",
+      "imageUrl": "/featured-apps/icons/krakenwallet.webp",
       "category": ["On-ramps"],
       "network": "Both",
       "tags": ["wallet"],
