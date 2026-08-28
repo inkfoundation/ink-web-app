@@ -368,6 +368,25 @@
       }
     },
     {
+      "id": "lunar-finance",
+      "name": "Lunar finance",
+      "description": "Lunar Finance is a multichain meta aggregator that ensure users get the best route for their transactions",
+      "imageUrl": "/featured-apps/icons/lunar-finance.webp",
+      "category": ["DeFi", "Bridge"],
+      "network": "Mainnet",
+      "tags": ["dex", "cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://lunarfinance.io",
+        "testnetWebsite": "https://lunarfinance.io",
+        "x": "https://x.com/lunar_finance",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "magna",
       "name": "Magna",
       "description": "Manage your token cap table, automate on-or-off chain vesting, account for tax deductions, execute airdrops and onboard in under a day.",
