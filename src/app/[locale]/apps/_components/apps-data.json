@@ -465,6 +465,25 @@
       }
     },
     {
+      "id": "octav.fi",
+      "name": "Octav.fi",
+      "description": "Octav supports and tracks Ink providing users with accurate portfolio and transaction data.",
+      "imageUrl": "/featured-apps/icons/octav.fi.webp",
+      "category": ["DeFi", "Other"],
+      "network": "Mainnet",
+      "tags": ["data", "tools"],
+      "links": {
+        "mainnetWebsite": "https://octav.fi/",
+        "testnetWebsite": "https://octav.fi/",
+        "x": "https://x.com/OctavFi",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "okx-explorer",
       "name": "OKX Explorer",
       "description": "Your go-to onchain data hub. Offering ALL-IN-ONE Blockchain Explorer, OpenAPI, and EaaS to securely explore and build onchain.",
