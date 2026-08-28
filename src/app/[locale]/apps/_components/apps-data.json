@@ -520,6 +520,25 @@
       }
     },
     {
+      "id": "rabbithole.gg",
+      "name": "Rabbithole.gg",
+      "description": "Rabbithole is a Web3 growth and engagement platform that helps projects acquire, activate, and retain users through onchain campaigns, quests, and rewards.",
+      "imageUrl": "/featured-apps/icons/rabbithole.gg.webp",
+      "category": ["Social", "Other"],
+      "network": "Both",
+      "tags": ["data", "fun", "tokens", "tools"],
+      "links": {
+        "mainnetWebsite": "https://www.rabbithole.gg/",
+        "testnetWebsite": "https://www.rabbithole.gg/",
+        "x": "https://x.com/rabbithole_gg",
+        "discord": "https://discord.gg/JTCqaekdm",
+        "telegram": "https://t.me/pedram977",
+        "github": "https://github.com/Dehyad",
+        "farcaster": "https://warpcast.com/dehyad",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "rainbow",
       "name": "Rainbow",
       "description": "The fun, simple, & secure way to explore Web3, NFTs, & Ethereum 🌈",
