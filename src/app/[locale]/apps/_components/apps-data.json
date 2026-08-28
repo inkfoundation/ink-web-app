@@ -777,6 +777,25 @@
       }
     },
     {
+      "id": "tristero",
+      "name": "Tristero",
+      "description": "Tristero is the world’s first omnichain darkpool DEX. One click provides you private orders, best-in-class pricing, and instant settlement to any chain.",
+      "imageUrl": "/featured-apps/icons/tristero.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex"],
+      "links": {
+        "mainnetWebsite": "https://app.tristero.com/",
+        "testnetWebsite": "https://app.tristero.com/",
+        "x": "https://x.com/0xtristero",
+        "discord": "https://discord.gg/mach",
+        "telegram": "https://t.me/mach_exchange",
+        "github": "https://github.com/tristeroresearch",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x90000069af5a354cf1dC438dEFbF8e0469d87F02"
+      }
+    },
+    {
       "id": "tydro",
       "name": "Tydro",
       "description": "A decentralized, non-custodial liquidity protocol built on Ink and powered by Aave.",
