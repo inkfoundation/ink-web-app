@@ -74,7 +74,7 @@ export class MorpheusMeshMaterial extends THREE.MeshPhysicalMaterial {
     }
   }
 
-  // Carefull this happens everyframe
+  // Careful this happens everyframe
   incrementTime(deltaTime: number) {
     if (this.userData.shader) {
       this.userData.shader.uniforms.uTime.value += deltaTime;
