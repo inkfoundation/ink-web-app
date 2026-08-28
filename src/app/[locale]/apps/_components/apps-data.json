@@ -741,6 +741,25 @@
       }
     },
     {
+      "id": "swapper-finance",
+      "name": "Swapper Finance",
+      "description": "Payments and onboarding infrastructure built with Mastercard and Chainlink, enabling direct DeFi deposits from cards, Web3 wallets, or crypto transfers.",
+      "imageUrl": "/featured-apps/icons/swapper-finance.webp",
+      "category": ["Infra", "Other"],
+      "network": "Mainnet",
+      "tags": ["tools"],
+      "links": {
+        "mainnetWebsite": "https://swapper.finance/",
+        "testnetWebsite": "https://swapper.finance/",
+        "x": "https://x.com/swapperfinance",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "tenderly",
       "name": "Tenderly",
       "description": "Move fast from development to on-chain deployment with a multichain node RPC, integrated development environments, and debugging tools.",
