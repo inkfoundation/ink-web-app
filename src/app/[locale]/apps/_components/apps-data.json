@@ -741,6 +741,25 @@
       }
     },
     {
+      "id": "templars-trade",
+      "name": "Templars Trade",
+      "description": "Templars Trade is a professional trading terminal built for NADO. It brings trading, copy-trading bots, grid bots, wallet analytics and leaderboard into one interface for active traders",
+      "imageUrl": "/featured-apps/icons/templars-trade.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex", "data"],
+      "links": {
+        "mainnetWebsite": "https://templars.trade/",
+        "testnetWebsite": "https://templars.trade/",
+        "x": "https://x.com/TemplarsTrade",
+        "discord": "",
+        "telegram": "https://t.me/TemplarsTrade",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "tenderly",
       "name": "Tenderly",
       "description": "Move fast from development to on-chain deployment with a multichain node RPC, integrated development environments, and debugging tools.",
