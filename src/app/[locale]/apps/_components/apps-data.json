@@ -257,6 +257,25 @@
       }
     },
     {
+      "id": "ink-brokers",
+      "name": "Ink Brokers",
+      "description": "4,444 ERC-6551 broker NFTs on Ink. Activate a broker by burning INKBROKER token and collect a share of trading fees directly into the wallet of the NFT.",
+      "imageUrl": "/featured-apps/icons/ink-brokers.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["nfts", "tokens", "yield"],
+      "links": {
+        "mainnetWebsite": "https://inkbrokers.com/#home",
+        "testnetWebsite": "https://inkbrokers.com/#home",
+        "x": "https://x.com/Brokers_on_Ink",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "inkdca",
       "name": "InkDCA",
       "description": "InkDCA is a fully decentralized, trust minimized Dollar-Cost Averaging (DCA) platform built exclusively on Ink .",
