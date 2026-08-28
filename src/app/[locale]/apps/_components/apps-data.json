@@ -185,6 +185,25 @@
       }
     },
     {
+      "id": "garden",
+      "name": "Garden",
+      "description": "Garden is the fastest Bitcoin bridge, enabling cross-chain swaps in as little as 30 secs. It is built using an intents-based architecture with trustless settlements, ensuring zero custody risk.",
+      "imageUrl": "/featured-apps/icons/garden.webp",
+      "category": ["Bridge", "Infra"],
+      "network": "Mainnet",
+      "tags": ["dex", "interop"],
+      "links": {
+        "mainnetWebsite": "https://garden.finance/",
+        "testnetWebsite": "https://garden.finance/",
+        "x": "https://x.com/gardenfi",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x3D5070E3Bc81861171ff28BdA7BbD480da0a79AF"
+      }
+    },
+    {
       "id": "gelato",
       "name": "Gelato",
       "description": "Build scalable, custom enterprise-grade Rollups with Gelato's Web3 Services natively integrated.",
