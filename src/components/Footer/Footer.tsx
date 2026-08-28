@@ -11,6 +11,8 @@ import { SocialLinksRow } from "../SocialLinksRow";
 import { TextUnderline } from "../TextUnderline";
 
 export const Footer = () => {
+  const currentYear = Math.max(2026, new Date().getFullYear());
+
   return (
     <footer className="w-full">
       <div className="flex justify-between w-full items-start gap-4 flex-col sm:flex-row">
@@ -75,7 +77,9 @@ export const Footer = () => {
 
             <CookieSettingsButton />
           </div>
-          <div className="flex flex-col gap-4">© 2024-2025 Payward, Inc.</div>
+          <div className="flex flex-col gap-4" suppressHydrationWarning>
+            © 2024-{currentYear} Payward, Inc.
+          </div>
         </div>
       </div>
     </footer>
