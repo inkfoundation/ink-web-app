@@ -629,6 +629,25 @@
       }
     },
     {
+      "id": "sasasa",
+      "name": "sasasa",
+      "description": "asasas",
+      "imageUrl": "/featured-apps/icons/sasasa.webp",
+      "category": ["Explorers"],
+      "network": "Testnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://sasasas.com",
+        "testnetWebsite": "https://sasasas.com",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "seda",
       "name": "SEDA",
       "description": "Build app-specific oracle feeds in seconds, with any data on day one.",
