@@ -314,6 +314,25 @@
       }
     },
     {
+      "id": "jokerace",
+      "name": "JokeRace",
+      "description": "contests for communities to run, grow, and monetize",
+      "imageUrl": "/featured-apps/icons/jokerace.webp",
+      "category": ["Social"],
+      "network": "Mainnet",
+      "tags": ["fun"],
+      "links": {
+        "mainnetWebsite": "https://jokerace.io",
+        "testnetWebsite": "https://jokerace.io",
+        "x": "https://x.com/jokerace_io",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "kraken",
       "name": "Kraken",
       "description": "Kraken is your bridge to the world of crypto. Spot, Futures, Margin, NFTs, Staking & OTC Buy, sell, trade, earn, explore and learn.",
