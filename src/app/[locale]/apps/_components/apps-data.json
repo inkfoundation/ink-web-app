@@ -239,6 +239,25 @@
       }
     },
     {
+      "id": "hookos",
+      "name": "HookOS",
+      "description": "Launch tokens with custom AMM hooks — MEV shields, burns, PvP wagers, AI-tuned fees — and turn every token into a composable, behavioral market",
+      "imageUrl": "/featured-apps/icons/hookos.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex", "cross-chain", "tokens"],
+      "links": {
+        "mainnetWebsite": "https://hookos.fun/atlas",
+        "testnetWebsite": "https://hookos.fun/atlas",
+        "x": "https://x.com/hookosfun",
+        "discord": "",
+        "telegram": "https://t.me/HookOSPortal",
+        "github": "https://github.com/HooksOS",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "hypernative",
       "name": "Hypernative",
       "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
