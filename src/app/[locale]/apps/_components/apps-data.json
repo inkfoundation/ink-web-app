@@ -446,6 +446,25 @@
       "pills": ["AIRDROP"]
     },
     {
+      "id": "nado-explorer",
+      "name": "Nado Explorer",
+      "description": "Real-time analytics platform for the Nado ecosystem on Ink. Explore markets, trader leaderboards, points, funding rates, liquidations, vault activity, protocol statistics and public data APIs.",
+      "imageUrl": "/featured-apps/icons/nado-explorer.webp",
+      "category": ["Explorers", "Other"],
+      "network": "Mainnet",
+      "tags": ["tools", "funding", "explorer", "data"],
+      "links": {
+        "mainnetWebsite": "https://nadoexplorer.com",
+        "testnetWebsite": "https://nadoexplorer.com",
+        "x": "https://x.com/NadoExplorer",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "nadobro",
       "name": "Nadobro",
       "description": "With Nadobro, you can text to trade, copy trade, run MM and DN strategies, monitor, and react faster from anywhere, at anytime.",
