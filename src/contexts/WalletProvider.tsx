@@ -28,6 +28,8 @@ import { Chain } from "viem";
 import {
   cookieStorage,
   createStorage,
+  fallback,
+  http,
   useAccount,
   useSwitchChain,
   WagmiProvider,
@@ -66,6 +68,28 @@ interface WalletContextType {
 }
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
+
+/**
+ * Explicit RPC endpoints for Ethereum mainnet. Without these, wagmi falls back
+ * to viem's built-in default (currently https://eth.merkle.io), which has been
+ * unreliable / CORS-blocked in production. `fallback` tries each in order.
+ */
+const mainnetTransport = fallback([
+  http("https://ethereum-rpc.publicnode.com"),
+  http("https://eth.drpc.org"),
+  http("https://cloudflare-eth.com"),
+  // Last resort: viem's built-in default RPC for the chain.
+  http(),
+]);
+
+function buildTransports(chains: readonly Chain[]) {
+  return Object.fromEntries(
+    chains.map((chain) => [
+      chain.id,
+      chain.id === mainnet.id ? mainnetTransport : http(),
+    ])
+  );
+}
 
 export const useWallet = () => {
   const context = useContext(WalletContext);
@@ -108,15 +132,17 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
   useEffect(() => {
     if (!wagmiConfig && chains && viemChains) {
+      const resolvedChains = (
+        viemChains.length === 0 ? [mainnet] : viemChains
+      ) as [Chain, ...Chain[]];
       setWagmiConfig(
         getDefaultConfig({
           appName: "inkonchain.com",
           appIcon: "https://inkonchain.com/icon.svg",
           appUrl: "https://inkonchain.com",
           projectId: clientEnv.NEXT_PUBLIC_WC_PROJECT_ID,
-          chains: (viemChains && viemChains.length === 0
-            ? [mainnet]
-            : viemChains) as [Chain, ...Chain[]],
+          chains: resolvedChains,
+          transports: buildTransports(resolvedChains),
           wallets: [
             {
               groupName: "Recommended",
