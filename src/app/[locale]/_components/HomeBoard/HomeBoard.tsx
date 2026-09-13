@@ -238,6 +238,7 @@ export function HomeBoard() {
         html.setAttribute("data-bridge-open", "");
       }
     } else {
+      html.removeAttribute("data-overlay");
       if (!animate) {
         html.removeAttribute("data-bridge-open");
         html.removeAttribute("data-bridge-instant");
