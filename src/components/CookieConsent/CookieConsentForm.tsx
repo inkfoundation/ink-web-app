@@ -3,10 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import { useCallbackOnKey } from "@/hooks/useGlobalKey";
 import Consent, { ConsentType } from "@/integrations/consent";
-
-import { KeyboardShortcut } from "../KeyboardShortcut";
 
 import { ConsentAcceptAll } from "./ConsentAcceptAll";
 
@@ -37,23 +34,6 @@ export const CookieConsentForm: React.FC<CookieConsentProps> = (props) => {
   const currentConsent =
     initialConsent !== undefined ? initialConsent : decisionMade;
 
-  useCallbackOnKey({
-    isDisabled: currentConsent !== undefined,
-    key: "n",
-    handler: () => {
-      decision(false);
-      return true;
-    },
-  });
-  useCallbackOnKey({
-    isDisabled: currentConsent !== undefined,
-    key: "y",
-    handler: () => {
-      decision(true);
-      return true;
-    },
-  });
-
   // A decision was taken.
   if (currentConsent !== undefined) {
     // The decision was to accept.
@@ -65,11 +45,11 @@ export const CookieConsentForm: React.FC<CookieConsentProps> = (props) => {
   }
 
   const buttonClasses =
-    "flex-1 uppercase flex items-center justify-center py-3 hover:text-blackMagic/60 dark:hover:text-whiteMagic/80";
+    "flex min-h-10 flex-1 items-center justify-center py-2 text-sm hover:text-blackMagic/60 dark:hover:text-whiteMagic/80";
 
   return (
     <motion.div
-      className="fixed right-0 bottom-0 m-4 max-w-[350px] lg:bottom-1 bg-white dark:bg-blackMagic text-blackMagic dark:text-whiteMagic z-50 flex flex-col rounded-xl overflow-hidden"
+      className="fixed right-0 bottom-0 z-50 m-4 flex max-w-[350px] flex-col overflow-hidden rounded-xl border border-blackMagic/25 bg-white text-blackMagic dark:border-whiteMagic/25 dark:bg-blackMagic dark:text-whiteMagic lg:bottom-1"
       initial={{ y: 20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, delay: 1 }}
@@ -81,9 +61,6 @@ export const CookieConsentForm: React.FC<CookieConsentProps> = (props) => {
           onClick={() => decision(false)} // As this is a server action, we have to make sure to not pass the event object
         >
           <span className="font-semibold">Decline</span>
-          <span className="pl-1">
-            <KeyboardShortcut letter="N" />
-          </span>
         </button>
 
         <button
@@ -92,9 +69,6 @@ export const CookieConsentForm: React.FC<CookieConsentProps> = (props) => {
           onClick={() => decision(true)}
         >
           <span className="font-semibold">Accept</span>
-          <span className="pl-1">
-            <KeyboardShortcut letter="Y" />
-          </span>
         </button>
       </div>
 
