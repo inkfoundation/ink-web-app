@@ -1,0 +1,41 @@
+---
+description: Apply the homepage board restyle when the Relay swap widget is remounted
+alwaysApply: true
+---
+
+# Relay board restyle (pending remount)
+
+The Relay swap widget was removed in `#362` pending a foundation API key. Packages stay in `package.json`. Do **not** remount it unless that key is in and someone asked to bring the widget back.
+
+When it comes back, apply the existing board kit. Do not restyle from scratch or restore the old ink-kit CSS.
+
+## Kit
+
+- `src/app/[locale]/_components/HomeBoard/relay-board.ts` — remount steps
+- `relay-board-theme.ts` — pass `relayBoardTheme` to `RelayKitProvider`
+- `relay-board.css` — already imported from `HomeBoard.tsx`
+- `src/util/relay-kit-theme.ts` — old `theme` import still works
+
+## Required wiring
+
+1. Restore `RelayProvider` inside `WalletProvider`. Theme = `relayBoardTheme`.
+2. Restore `RelayKitUI` / `useAdaptedWallet` from `7418aca^`. Keep `bridge__history`.
+3. Do **not** restore `RelayKitUI.css` (ink-kit tokens fight the board). Keep `@reservoir0x/relay-kit-ui/styles.css`.
+4. Mount in the `/bridge` overlay **before** the bridges list:
+
+```tsx
+<section className="col col--relay" data-name="relay">
+  <div className="bridge__inner">
+    <div className="col__top">
+      <span className="pill pill--glass">{t("bridgeCta")}</span>
+    </div>
+    <div className="bridge__widget relay-board">
+      <RelayKitUI />
+    </div>
+  </div>
+</section>
+```
+
+5. Drop `col--catalog` from the bridges column so it is the narrow side list again. The kit restores the 943 / 242 split when `.col--relay` is present.
+
+Further restyle only in `relay-board.css` and `relay-board-theme.ts`.

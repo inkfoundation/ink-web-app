@@ -39,6 +39,7 @@ import { initNavGlass } from "./init-nav-glass";
 import { moreBridges } from "./more-bridges";
 
 import "./home-board.css";
+import "./relay-board.css";
 
 type OverlayMode = "apps" | "bridge" | "builders";
 
@@ -473,6 +474,7 @@ export function HomeBoard() {
             inert={!isOverlay}
           >
             <div className="bridge-layer__inner">
+              {/* Relay remount: add .col--relay + RelayKitUI here. See ./relay-board.ts */}
               <section
                 className="col col--apps-overlay col--catalog"
                 data-name="apps-overlay"
