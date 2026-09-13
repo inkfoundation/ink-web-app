@@ -6,6 +6,8 @@ import { ConnectWalletButton } from "@/components/ConnectWalletButton";
 import { Footer } from "@/components/Footer";
 import { usePathname } from "@/routing";
 
+import { isAppsPath } from "../apps/_components/filter-apps";
+
 import { HomeBoard } from "./HomeBoard";
 import { InkLogo, InkLogoImage } from "./InkLogo";
 import { LayoutColumns } from "./LayoutColumns";
@@ -16,7 +18,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const isBoardPath = (pathname: string) =>
   pathname === "/" ||
-  pathname === "/apps" ||
+  isAppsPath(pathname) ||
   pathname === "/bridge" ||
   pathname === "/builders";
 

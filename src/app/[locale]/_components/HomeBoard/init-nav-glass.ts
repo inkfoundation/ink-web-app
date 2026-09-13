@@ -165,6 +165,7 @@ export function initNavGlass(scope: ParentNode): () => void {
     const uTexture = gl.getUniformLocation(program, "iChannel0");
     const uGlassTint = gl.getUniformLocation(program, "iGlassTint");
     const uGlassAccent = gl.getUniformLocation(program, "iGlassAccent");
+    const uPurpleFringe = gl.getUniformLocation(program, "iPurpleFringe");
 
     const texture = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -231,6 +232,11 @@ export function initNavGlass(scope: ParentNode): () => void {
         themeColors.accent[1],
         themeColors.accent[2]
       );
+      const usePurpleFringe =
+        root.dataset.overlay === "builders" &&
+        (host.matches(".nav, .slider, .theme-control") ||
+          host.closest(".col--devs-hero") !== null);
+      gl.uniform1f(uPurpleFringe, usePurpleFringe ? 1 : 0);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     };
 
@@ -303,13 +309,9 @@ export function initNavGlass(scope: ParentNode): () => void {
 
   const bindHero = (next: Element | null) => {
     if (hero === next) return;
-    if (hero?.tagName === "INTERACTIVE-INK") {
-      hero.removeEventListener("inkframe", onInkFrame);
-    }
+    hero?.removeEventListener("inkframe", onInkFrame);
     hero = next;
-    if (hero?.tagName === "INTERACTIVE-INK") {
-      hero.addEventListener("inkframe", onInkFrame);
-    }
+    hero?.addEventListener("inkframe", onInkFrame);
   };
 
   const syncPageInk = () => {
@@ -364,7 +366,11 @@ export function initNavGlass(scope: ParentNode): () => void {
   themeObserver.observe(root, { attributeFilter: ["data-theme", "class"] });
   const overlayObserver = new MutationObserver(syncPageInk);
   overlayObserver.observe(root, {
-    attributeFilter: ["data-overlay", "data-bridge-open", "data-bridge-closing"],
+    attributeFilter: [
+      "data-overlay",
+      "data-bridge-open",
+      "data-bridge-closing",
+    ],
   });
 
   syncPageInk();
@@ -373,7 +379,9 @@ export function initNavGlass(scope: ParentNode): () => void {
   const slider = scope.querySelector(".slider");
   const track = slider?.querySelector(".slider__track");
   const thumb = slider?.querySelector(".slider__thumb");
-  const inks = [...scope.querySelectorAll("interactive-ink")];
+  const inks = [
+    ...scope.querySelectorAll("interactive-ink, interactive-ascii"),
+  ];
   const cleanSlider = initSlider({
     root,
     slider: slider ?? null,

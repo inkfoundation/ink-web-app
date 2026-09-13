@@ -5,6 +5,7 @@ uniform vec3 iResolution;
 uniform sampler2D iChannel0;
 uniform vec3 iGlassTint;
 uniform vec3 iGlassAccent;
+uniform float iPurpleFringe;
 
 float frostNoise(vec2 coordinate) {
   return fract(sin(dot(coordinate, vec2(12.9898, 78.233))) * 43758.5453);
@@ -51,6 +52,9 @@ void main() {
   color.r = texture2D(iChannel0, clamp(lens + chroma, 0.001, 0.999)).r;
   color.b = texture2D(iChannel0, clamp(lens - chroma, 0.001, 0.999)).b;
 
+  float channelSpread = max(max(color.r, color.g), color.b) - min(min(color.r, color.g), color.b);
+  float fringeStrength = smoothstep(0.015, 0.65, channelSpread);
+
   float topLeftGlow = 1.0 - smoothstep(
     0.0,
     0.9,
@@ -69,6 +73,9 @@ void main() {
   color.rgb = mix(color.rgb, iGlassTint, milk);
   color.rgb += iGlassAccent * bottomRightGlow * 0.025;
   color.rgb += vec3(fineFrost * 0.018 + cloudyFrost * 0.012);
+  float monochrome = dot(color.rgb, vec3(0.2126, 0.7152, 0.0722));
+  vec3 developerFringe = mix(vec3(monochrome), iGlassAccent, fringeStrength * 0.9);
+  color.rgb = mix(color.rgb, developerFringe, iPurpleFringe);
   color.a = 1.0;
   gl_FragColor = color;
 }

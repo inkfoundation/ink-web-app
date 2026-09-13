@@ -16,14 +16,18 @@ import { useRouterQuery } from "@/hooks/useRouterQuery";
 import { EXTERNAL_LINKS, Link, usePathname, useRouter } from "@/routing";
 
 import "./interactive-ink";
+import "./interactive-ascii";
 
+import { isAppsPath } from "../../apps/_components/filter-apps";
 import {
   type InkApp,
+  type InkAppNetwork,
   inkApps,
   inkFeaturedApps,
   mainUrl,
 } from "../../apps/_components/InkApp";
 
+import { AppsEmptyState, AppsOverlayFilters } from "./AppsOverlayFilters";
 import {
   builderExpectations,
   builderFocusKeys,
@@ -37,6 +41,7 @@ import { initBoard } from "./init-board";
 import { initGoo } from "./init-goo";
 import { initNavGlass } from "./init-nav-glass";
 import { moreBridges } from "./more-bridges";
+import { useAppsOverlayFilters } from "./use-apps-overlay-filters";
 
 import "./home-board.css";
 import "./relay-board.css";
@@ -44,7 +49,7 @@ import "./relay-board.css";
 type OverlayMode = "apps" | "bridge" | "builders";
 
 function overlayModeFromPath(pathname: string): OverlayMode {
-  if (pathname === "/apps") return "apps";
+  if (isAppsPath(pathname)) return "apps";
   if (pathname === "/builders") return "builders";
   return "bridge";
 }
@@ -55,8 +60,14 @@ function formatTag(tag: string) {
     .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
-function BoardAppCard({ app }: { app: InkApp }) {
-  const href = mainUrl(app, "Mainnet") || "/apps";
+function BoardAppCard({
+  app,
+  network = "Mainnet",
+}: {
+  app: InkApp;
+  network?: InkAppNetwork;
+}) {
+  const href = mainUrl(app, network) || "/apps";
   const tags = app.tags.slice(0, 2);
   return (
     <a className="app" href={href} target="_blank" rel="noreferrer">
@@ -150,7 +161,15 @@ export function HomeBoard() {
   const pendingInstantBridge = useRef(false);
   const overlayReady = useRef(false);
   const overlayModeRef = useRef<OverlayMode>(overlayModeFromPath(pathname));
-  const isApps = pathname === "/apps";
+  const isApps = isAppsPath(pathname);
+  const {
+    filters,
+    overlayApps,
+    hasFilters,
+    updateFilters,
+    resetFilters,
+    resetSearch,
+  } = useAppsOverlayFilters();
   const isBridge = pathname === "/bridge";
   const isBuilders = pathname === "/builders";
   const isOverlay = isApps || isBridge || isBuilders;
@@ -488,11 +507,29 @@ export function HomeBoard() {
                     <p className="headline headline--sm headline--narrow">
                       {t("appsHeadline")}
                     </p>
+                    <AppsOverlayFilters
+                      enabled={isApps}
+                      filters={filters}
+                      onChange={updateFilters}
+                    />
                   </div>
                   <div className="app-list">
-                    {apps.map((app) => (
-                      <BoardAppCard app={app} key={app.id} />
-                    ))}
+                    {overlayApps.length === 0 ? (
+                      <AppsEmptyState
+                        hasFilters={hasFilters}
+                        hasSearch={!!filters.search}
+                        onResetFilters={resetFilters}
+                        onResetSearch={resetSearch}
+                      />
+                    ) : (
+                      overlayApps.map((app) => (
+                        <BoardAppCard
+                          app={app}
+                          key={app.id}
+                          network={filters.network || "Mainnet"}
+                        />
+                      ))
+                    )}
                   </div>
                 </div>
               </section>
@@ -773,14 +810,12 @@ export function HomeBoard() {
                 className="col col--devs-hero"
                 data-name="developers-ink"
               >
-                <interactive-ink
+                <interactive-ascii
                   className="hero-media"
                   value="3"
-                  speed="1"
-                  interaction="0.7"
-                  edge="0"
-                  blur="0"
-                  phase="48"
+                  speed="0.9"
+                  interaction="0.9"
+                  phase="12"
                 />
                 <Link
                   className="pill pill--glass pill--refractive glass-bar"
