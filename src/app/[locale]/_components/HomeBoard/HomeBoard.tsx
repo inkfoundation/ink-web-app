@@ -18,6 +18,7 @@ import { EXTERNAL_LINKS, Link, usePathname, useRouter } from "@/routing";
 import "./interactive-ink";
 
 import {
+  type InkApp,
   inkApps,
   inkFeaturedApps,
   mainUrl,
@@ -39,10 +40,52 @@ import { moreBridges } from "./more-bridges";
 
 import "./home-board.css";
 
+type OverlayMode = "apps" | "bridge" | "builders";
+
+function overlayModeFromPath(pathname: string): OverlayMode {
+  if (pathname === "/apps") return "apps";
+  if (pathname === "/builders") return "builders";
+  return "bridge";
+}
+
 function formatTag(tag: string) {
   return tag
     .replace(/[-_]/g, " ")
     .replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+function BoardAppCard({ app }: { app: InkApp }) {
+  const href = mainUrl(app, "Mainnet") || "/apps";
+  const tags = app.tags.slice(0, 2);
+  return (
+    <a className="app" href={href} target="_blank" rel="noreferrer">
+      <div className="app__icon">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={app.imageUrl} alt="" />
+      </div>
+      <div className="app__meta">
+        <div className="app__copy">
+          <p className="app__name">{app.name}</p>
+          <div className="app__desc">
+            <div className="app__desc-clip">
+              <p className="app__desc-text">{app.description}</p>
+            </div>
+          </div>
+        </div>
+        <div className="app__tags">
+          <div className="app__tags-clip">
+            <div className="tags">
+              {tags.map((tag) => (
+                <span className="tag" key={tag}>
+                  {formatTag(tag)}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  );
 }
 
 function DevLinkGoIcon() {
@@ -103,17 +146,14 @@ export function HomeBoard() {
   const { resolvedTheme, setTheme } = useTheme();
   const isMainnet = useFeatureFlag("mainnet") === true;
   const rootRef = useRef<HTMLDivElement>(null);
-  const pendingOpenApps = useRef(false);
   const pendingInstantBridge = useRef(false);
   const overlayReady = useRef(false);
-  const overlayModeRef = useRef<"bridge" | "builders">(
-    pathname === "/builders" ? "builders" : "bridge"
-  );
+  const overlayModeRef = useRef<OverlayMode>(overlayModeFromPath(pathname));
+  const isApps = pathname === "/apps";
   const isBridge = pathname === "/bridge";
   const isBuilders = pathname === "/builders";
-  const isOverlay = isBridge || isBuilders;
-  if (isBuilders) overlayModeRef.current = "builders";
-  if (isBridge) overlayModeRef.current = "bridge";
+  const isOverlay = isApps || isBridge || isBuilders;
+  if (isOverlay) overlayModeRef.current = overlayModeFromPath(pathname);
   const overlayMode = overlayModeRef.current;
   const resources = useMemo(() => builderResources(isMainnet), [isMainnet]);
 
@@ -126,6 +166,10 @@ export function HomeBoard() {
     router.push({ pathname: "/", query: queryParams });
   }, [queryParams, router]);
 
+  const goApps = useCallback(() => {
+    router.push({ pathname: "/apps", query: queryParams });
+  }, [queryParams, router]);
+
   const goBridge = useCallback(() => {
     router.push({ pathname: "/bridge", query: queryParams });
   }, [queryParams, router]);
@@ -133,6 +177,14 @@ export function HomeBoard() {
   const goBuilders = useCallback(() => {
     router.push({ pathname: "/builders", query: queryParams });
   }, [queryParams, router]);
+
+  const toggleApps = useCallback(() => {
+    if (isApps) {
+      goHome();
+      return;
+    }
+    goApps();
+  }, [goApps, goHome, isApps]);
 
   const toggleBridge = useCallback(() => {
     if (isBridge) {
@@ -200,28 +252,20 @@ export function HomeBoard() {
       if (animate === false) pendingInstantBridge.current = true;
       goHome();
     };
-    const onAppsFromBridge = () => {
-      pendingOpenApps.current = true;
-      goHome();
-    };
     window.addEventListener("ink:close-bridge", onCloseBridge);
-    window.addEventListener("ink:open-apps-from-bridge", onAppsFromBridge);
     return () => {
       window.removeEventListener("ink:close-bridge", onCloseBridge);
-      window.removeEventListener("ink:open-apps-from-bridge", onAppsFromBridge);
     };
   }, [goHome]);
 
   useLayoutEffect(() => {
     const html = document.documentElement;
     const animate = overlayReady.current;
-    const openAppsAfter = pendingOpenApps.current;
     const instantClose = pendingInstantBridge.current;
     pendingInstantBridge.current = false;
 
     if (isOverlay) {
       html.setAttribute("data-overlay", overlayMode);
-      window.dispatchEvent(new Event("ink:close-apps-instant"));
       if (!animate) {
         html.setAttribute("data-bridge-instant", "");
         html.setAttribute("data-bridge-open", "");
@@ -248,16 +292,10 @@ export function HomeBoard() {
         new CustomEvent("ink:set-bridge", {
           detail: {
             open: false,
-            animate: animate && !openAppsAfter && !instantClose,
+            animate: animate && !instantClose,
           },
         })
       );
-      if (openAppsAfter) {
-        pendingOpenApps.current = false;
-        requestAnimationFrame(() => {
-          window.dispatchEvent(new Event("ink:open-apps"));
-        });
-      }
     }
 
     overlayReady.current = true;
@@ -403,87 +441,27 @@ export function HomeBoard() {
                   <button
                     className="pill pill--glass apps__tag"
                     type="button"
-                    aria-expanded="false"
-                    aria-controls="apps"
+                    aria-expanded={isApps}
+                    aria-current={isApps ? "page" : undefined}
+                    onClick={goApps}
                   >
                     {t("appsLabel")}
                   </button>
-                  <div className="apps__close-slot">
-                    <div className="apps__close-clip">
-                      <button
-                        className="slider__btn apps__close"
-                        type="button"
-                        aria-label={t("closeApps")}
-                        aria-hidden="true"
-                        tabIndex={-1}
-                      >
-                        <span className="apps__close-icon" aria-hidden="true">
-                          <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                          >
-                            <path
-                              d="M5 5l10 10M15 5 5 15"
-                              stroke="currentColor"
-                              strokeWidth="1.6"
-                              strokeLinecap="round"
-                            />
-                          </svg>
-                        </span>
-                      </button>
-                    </div>
-                  </div>
                 </div>
                 <p className="headline headline--sm headline--narrow">
                   {t("appsHeadline")}
                 </p>
               </div>
               <div className="app-list">
-                {apps.map((app) => {
-                  const href = mainUrl(app, "Mainnet") || "/apps";
-                  const tags = app.tags.slice(0, 2);
-                  return (
-                    <a
-                      className="app"
-                      href={href}
-                      key={app.id}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <div className="app__icon">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={app.imageUrl} alt="" />
-                      </div>
-                      <div className="app__meta">
-                        <div className="app__copy">
-                          <p className="app__name">{app.name}</p>
-                          <div className="app__desc">
-                            <div className="app__desc-clip">
-                              <p className="app__desc-text">
-                                {app.description}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="app__tags">
-                          <div className="app__tags-clip">
-                            <div className="tags">
-                              {tags.map((tag) => (
-                                <span className="tag" key={tag}>
-                                  {formatTag(tag)}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  );
-                })}
+                {apps.map((app) => (
+                  <BoardAppCard app={app} key={app.id} />
+                ))}
               </div>
-              <button className="pill pill--gray apps__view-all" type="button">
+              <button
+                className="pill pill--gray apps__view-all"
+                type="button"
+                onClick={goApps}
+              >
                 {t("appsCta")}
               </button>
             </div>
@@ -495,8 +473,33 @@ export function HomeBoard() {
             inert={!isOverlay}
           >
             <div className="bridge-layer__inner">
-              <section className="col col--bridges" data-name="bridges">
-                <div className="bridges__inner">
+              <section
+                className="col col--apps-overlay col--catalog"
+                data-name="apps-overlay"
+              >
+                <div className="catalog__inner">
+                  <div className="col__top">
+                    <div className="apps__heading">
+                      <span className="pill pill--glass">{t("appsLabel")}</span>
+                      <OverlayClose label={t("closeApps")} onClick={goHome} />
+                    </div>
+                    <p className="headline headline--sm headline--narrow">
+                      {t("appsHeadline")}
+                    </p>
+                  </div>
+                  <div className="app-list">
+                    {apps.map((app) => (
+                      <BoardAppCard app={app} key={app.id} />
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              <section
+                className="col col--bridges col--catalog"
+                data-name="bridges"
+              >
+                <div className="catalog__inner">
                   <div className="col__top">
                     <div className="apps__heading">
                       <span className="pill pill--glass">
@@ -845,7 +848,6 @@ export function HomeBoard() {
               </section>
             </div>
           </div>
-          <div className="apps-spacer" aria-hidden="true" />
         </div>
 
         <div className="bottom-controls">
@@ -971,8 +973,9 @@ export function HomeBoard() {
                   className="pill"
                   data-w="apps"
                   type="button"
-                  aria-expanded="false"
-                  aria-controls="apps"
+                  aria-expanded={isApps}
+                  aria-current={isApps ? "page" : undefined}
+                  onClick={toggleApps}
                 >
                   {t("appsLabel")}
                 </button>

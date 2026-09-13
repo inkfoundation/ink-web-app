@@ -1173,8 +1173,6 @@ html[data-home-board] .col {
     transform 240ms var(--ease-out);
 }
 
-html[data-home-board][data-apps-open]
-  :is(.col--about, .col--hero, .col--started),
 html[data-home-board]:is(
     [data-bridge-open],
     :has(.home-board[data-bridge-open])
@@ -1185,7 +1183,6 @@ html[data-home-board]:is(
   transform: scale(0.98);
 }
 
-html[data-home-board][data-apps-instant] :is(.col, .apps__close),
 html[data-home-board]:is(
     [data-bridge-instant],
     :has(.home-board[data-bridge-instant])
@@ -1195,40 +1192,13 @@ html[data-home-board]:is(
   transition-delay: 0s;
 }
 
-html[data-home-board][data-apps-open] .col--apps {
-  position: absolute;
-  top: 15px;
-  right: 13px;
-  bottom: 15px;
-  left: 13px;
-  z-index: 2;
-  flex: none;
-  overflow: hidden;
-  transform-origin: top left;
-}
-
 html[data-home-board] .apps__inner {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: none;
   gap: 20px;
-  min-height: 0;
-  height: 100%;
-  transform-origin: top left;
-}
-
-html[data-home-board] .apps-spacer {
-  display: none;
-  flex: 242 1 0;
-  min-width: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
-
-@media (min-width: 961px) {
-  html[data-home-board][data-apps-open] .apps-spacer {
-    display: block;
-  }
+  min-height: auto;
+  height: auto;
 }
 
 html[data-home-board] .col--about {
@@ -1316,8 +1286,7 @@ html[data-home-board] .bridge-layer__inner {
   min-height: 0;
 }
 
-html[data-home-board] .col--bridge,
-html[data-home-board] .col--bridges,
+html[data-home-board] .col--catalog,
 html[data-home-board] .col--devs,
 html[data-home-board] .col--devs-hero,
 html[data-home-board] .col--devs-started {
@@ -1325,24 +1294,19 @@ html[data-home-board] .col--devs-started {
   flex-direction: column;
 }
 
-html[data-home-board] .col--bridge {
-  flex: 943 1 0;
-  padding: 86px 20px calc(20px + var(--round) * 66px);
-}
-
 html[data-home-board] .col--devs {
   flex: 521 1 0;
   padding: 86px 20px calc(20px + var(--round) * 66px);
 }
 
-html[data-home-board] .col--bridges {
-  flex: 242 1 0;
+html[data-home-board] .col--catalog {
+  flex: 1 1 0;
   gap: 20px;
   padding: 86px 20px calc(20px + var(--round) * 66px);
 }
 
-html[data-home-board] .bridge-layer[data-mode="builders"] .col--bridge,
-html[data-home-board] .bridge-layer[data-mode="builders"] .col--bridges {
+html[data-home-board] .bridge-layer:not([data-mode="bridge"]) .col--bridges,
+html[data-home-board] .bridge-layer:not([data-mode="apps"]) .col--apps-overlay {
   display: none;
 }
 
@@ -1354,8 +1318,7 @@ html[data-home-board]
   display: none;
 }
 
-html[data-home-board] .bridge__inner,
-html[data-home-board] .bridges__inner,
+html[data-home-board] .catalog__inner,
 html[data-home-board] .devs__inner {
   display: flex;
   flex-direction: column;
@@ -2324,13 +2287,12 @@ html[data-home-board] .apps__close-slot {
   display: none;
 }
 
-html[data-home-board][data-apps-open] .apps__close-slot,
 html[data-home-board]:is(
     [data-bridge-open],
     [data-bridge-closing],
     :has(.home-board[data-bridge-open])
   )
-  :is(.col--bridge, .col--bridges, .col--devs)
+  :is(.col--catalog, .col--devs)
   .apps__close-slot {
   display: block;
 }
@@ -2350,13 +2312,12 @@ html[data-home-board] .apps__close {
     transform 160ms var(--ease-out);
 }
 
-html[data-home-board][data-apps-open] .apps__close,
 html[data-home-board]:is(
     [data-bridge-open],
     [data-bridge-closing],
     :has(.home-board[data-bridge-open])
   )
-  :is(.col--bridge, .col--bridges, .col--devs)
+  :is(.col--catalog, .col--devs)
   .apps__close {
   opacity: 1;
   pointer-events: auto;
@@ -2375,50 +2336,8 @@ html[data-home-board] .apps__view-all {
   margin-bottom: 40px;
 }
 
-html[data-home-board]:not([data-apps-open]) .apps__inner {
-  flex: none;
-  height: auto;
-  min-height: auto;
-}
-
-html[data-home-board][data-apps-open] .apps__view-all {
-  display: none;
-}
-
 html[data-home-board] .col--apps .app:nth-child(n + 9) {
   display: none;
-}
-
-html[data-home-board][data-apps-open] .col--apps .app-list {
-  display: grid;
-  flex: 1 1 0;
-  align-content: start;
-  align-items: start;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: auto;
-  gap: 16px;
-  min-height: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  container-type: inline-size;
-}
-
-html[data-home-board][data-apps-open] .col--apps .app-list::after {
-  grid-column: 1 / -1;
-  height: 80px;
-  content: "";
-}
-
-html[data-home-board][data-apps-open] .col--apps .app:nth-child(n + 9) {
-  display: flex;
-}
-
-html[data-home-board][data-apps-open] .col--apps .app {
-  align-self: start;
-  width: 100%;
-  height: auto;
-  min-height: calc((100cqi - 48px) / 4);
 }
 
 html[data-home-board]:is(
@@ -2426,7 +2345,7 @@ html[data-home-board]:is(
     [data-bridge-closing],
     :has(.home-board[data-bridge-open])
   )
-  .col--bridges
+  .col--catalog
   .app-list {
   display: grid;
   flex: 1 1 0;
@@ -2447,7 +2366,7 @@ html[data-home-board]:is(
     [data-bridge-closing],
     :has(.home-board[data-bridge-open])
   )
-  .col--bridges
+  .col--catalog
   .app-list::after {
   grid-column: 1 / -1;
   height: 80px;
@@ -2459,7 +2378,7 @@ html[data-home-board]:is(
     [data-bridge-closing],
     :has(.home-board[data-bridge-open])
   )
-  .col--bridges
+  .col--catalog
   .app {
   align-self: start;
   width: 100%;
@@ -2470,7 +2389,7 @@ html[data-home-board]:is(
 @media (min-width: 961px) {
   html[data-home-board] .col--started,
   html[data-home-board] .col--apps,
-  html[data-home-board] .col--bridges,
+  html[data-home-board] .col--catalog,
   html[data-home-board] .col--devs-started {
     overflow-x: hidden;
     overflow-y: auto;
@@ -2479,7 +2398,7 @@ html[data-home-board]:is(
 
   html[data-home-board] .col--started::-webkit-scrollbar,
   html[data-home-board] .col--apps::-webkit-scrollbar,
-  html[data-home-board] .col--bridges::-webkit-scrollbar,
+  html[data-home-board] .col--catalog::-webkit-scrollbar,
   html[data-home-board] .col--devs-started::-webkit-scrollbar {
     display: none;
   }
@@ -2490,19 +2409,18 @@ html[data-home-board]:is(
   }
 
   html[data-home-board] .col--apps .app-list,
-  html[data-home-board] .col--bridges .app-list {
+  html[data-home-board] .col--catalog .app-list {
     flex: none;
     min-height: auto;
     overflow: visible;
   }
 
-  html[data-home-board][data-apps-open] .col--apps .app-list,
   html[data-home-board]:is(
       [data-bridge-open],
       [data-bridge-closing],
       :has(.home-board[data-bridge-open])
     )
-    .col--bridges
+    .col--catalog
     .app-list {
     flex: 1 1 0;
     min-height: 0;
@@ -2753,8 +2671,7 @@ html[data-home-board] .tag--thick {
   html[data-home-board] .col--hero,
   html[data-home-board] .col--started,
   html[data-home-board] .col--apps,
-  html[data-home-board] .col--bridge,
-  html[data-home-board] .col--bridges,
+  html[data-home-board] .col--catalog,
   html[data-home-board] .col--devs,
   html[data-home-board] .col--devs-hero,
   html[data-home-board] .col--devs-started {
@@ -2764,8 +2681,7 @@ html[data-home-board] .tag--thick {
   html[data-home-board] .col--about,
   html[data-home-board] .col--started,
   html[data-home-board] .col--apps,
-  html[data-home-board] .col--bridge,
-  html[data-home-board] .col--bridges,
+  html[data-home-board] .col--catalog,
   html[data-home-board] .col--devs,
   html[data-home-board] .col--devs-started {
     padding-top: calc(20px + var(--round) * 66px);
@@ -2773,8 +2689,7 @@ html[data-home-board] .tag--thick {
 
   html[data-home-board] .col--started,
   html[data-home-board] .col--apps,
-  html[data-home-board] .col--bridge,
-  html[data-home-board] .col--bridges,
+  html[data-home-board] .col--catalog,
   html[data-home-board] .col--devs,
   html[data-home-board] .col--devs-started {
     padding-bottom: calc(20px + var(--round) * 66px);
@@ -2805,25 +2720,25 @@ html[data-home-board] .tag--thick {
   html[data-home-board] .col--devs-started .step,
   html[data-home-board] .col--apps .app,
   html[data-home-board] .col--apps .app-list,
-  html[data-home-board] .col--bridges .app,
-  html[data-home-board] .col--bridges .app-list {
+  html[data-home-board] .col--catalog .app,
+  html[data-home-board] .col--catalog .app-list {
     flex: none;
   }
 
   html[data-home-board] .col--started .step,
   html[data-home-board] .col--devs-started .step,
   html[data-home-board] .col--apps .app,
-  html[data-home-board] .col--bridges .app {
+  html[data-home-board] .col--catalog .app {
     gap: 48px;
   }
 
   html[data-home-board] .col--apps .app-list,
-  html[data-home-board] .col--bridges .app-list {
+  html[data-home-board] .col--catalog .app-list {
     gap: 20px;
   }
 
   html[data-home-board] .col--apps .app,
-  html[data-home-board] .col--bridges .app {
+  html[data-home-board] .col--catalog .app {
     aspect-ratio: auto;
   }
 
@@ -2841,27 +2756,12 @@ html[data-home-board] .tag--thick {
     bottom: max(15px, env(safe-area-inset-bottom));
   }
 
-  html[data-home-board][data-apps-open] .col--apps {
-    position: fixed;
-    top: 92px;
-    right: 13px;
-    bottom: max(15px, env(safe-area-inset-bottom));
-    left: 13px;
-    z-index: 18;
-    flex: none;
-    opacity: 1;
-    overflow: auto;
-    padding: calc(20px + var(--round) * 66px) 20px
-      calc(20px + var(--round) * 66px);
-  }
-
-  html[data-home-board][data-apps-open] .col--apps .app-list,
   html[data-home-board]:is(
       [data-bridge-open],
       [data-bridge-closing],
       :has(.home-board[data-bridge-open])
     )
-    .col--bridges
+    .col--catalog
     .app-list {
     flex: none;
     min-height: auto;
@@ -2870,19 +2770,17 @@ html[data-home-board] .tag--thick {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  html[data-home-board][data-apps-open] .col--apps .app,
   html[data-home-board]:is(
       [data-bridge-open],
       [data-bridge-closing],
       :has(.home-board[data-bridge-open])
     )
-    .col--bridges
+    .col--catalog
     .app {
     aspect-ratio: 1;
     min-height: calc((100cqi - 16px) / 2);
   }
 
-  html[data-home-board][data-apps-open] .bottom-controls,
   html[data-home-board]:is(
       [data-bridge-open],
       [data-bridge-closing],
@@ -2931,14 +2829,12 @@ html[data-home-board] .tag--thick {
 
   html[data-home-board] .col--devs,
   html[data-home-board] .col--devs-started,
-  html[data-home-board] .col--bridge,
-  html[data-home-board] .col--bridges {
+  html[data-home-board] .col--catalog {
     overflow: visible;
   }
 
   html[data-home-board] .devs__inner,
-  html[data-home-board] .bridge__inner,
-  html[data-home-board] .bridges__inner {
+  html[data-home-board] .catalog__inner {
     height: auto;
     overflow: visible;
     overscroll-behavior: auto;
@@ -2946,24 +2842,22 @@ html[data-home-board] .tag--thick {
 }
 
 @media (max-width: 1100px) and (min-width: 961px) {
-  html[data-home-board][data-apps-open] .col--apps .app-list,
   html[data-home-board]:is(
       [data-bridge-open],
       [data-bridge-closing],
       :has(.home-board[data-bridge-open])
     )
-    .col--bridges
+    .col--catalog
     .app-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  html[data-home-board][data-apps-open] .col--apps .app,
   html[data-home-board]:is(
       [data-bridge-open],
       [data-bridge-closing],
       :has(.home-board[data-bridge-open])
     )
-    .col--bridges
+    .col--catalog
     .app {
     min-height: calc((100cqi - 32px) / 3);
   }
@@ -2977,8 +2871,6 @@ html[data-home-board] .tag--thick {
     filter: none;
   }
 
-  html[data-home-board][data-apps-open]
-    :is(.col--about, .col--hero, .col--started, .apps__close),
   html[data-home-board]:is(
       [data-bridge-open],
       :has(.home-board[data-bridge-open])

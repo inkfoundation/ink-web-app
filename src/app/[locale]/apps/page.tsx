@@ -1,11 +1,7 @@
 import { Metadata } from "next";
 
 import { JsonLd } from "@/components/JsonLd";
-import { AppSubmissionModal } from "@/components/Modals/AppSubmissionModal/AppSubmissionModal";
 import { PageView } from "@/components/PageView";
-import { newLayoutContainerClasses } from "@/components/styles/container";
-
-import { AppsContent } from "./_components/AppsContent";
 
 export const metadata: Metadata = {
   title: "Ink Apps - Discover DeFi Applications on the Superchain",
@@ -25,10 +21,6 @@ export default function AppsPage() {
         }}
       />
       <PageView />
-      <div className={newLayoutContainerClasses()}>
-        <AppsContent />
-      </div>
-      <AppSubmissionModal />
     </>
   );
 }

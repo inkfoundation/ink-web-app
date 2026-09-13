@@ -139,7 +139,6 @@ ink = "https://rpc-gel.inkonchain.com"`,
 ];
 
 const isBoardOverlayOpen = () =>
-  document.documentElement.hasAttribute("data-apps-open") ||
   document.documentElement.hasAttribute("data-bridge-open") ||
   document.documentElement.hasAttribute("data-bridge-closing");
 
@@ -193,13 +192,7 @@ function initOneCodeStory(root: HTMLElement): () => void {
 
   const inOverlay = Boolean(root.closest(".col--devs"));
   const canAutoplay = () => {
-    if (
-      !visible ||
-      paused ||
-      document.hidden ||
-      reduceMotion.matches ||
-      document.documentElement.hasAttribute("data-apps-open")
-    ) {
+    if (!visible || paused || document.hidden || reduceMotion.matches) {
       return false;
     }
     return inOverlay ? isBoardOverlayOpen() : !isBoardOverlayOpen();
@@ -409,11 +402,7 @@ function initOneCodeStory(root: HTMLElement): () => void {
   const appsObserver = new MutationObserver(onOverlay);
   appsObserver.observe(document.documentElement, {
     attributes: true,
-    attributeFilter: [
-      "data-apps-open",
-      "data-bridge-open",
-      "data-bridge-closing",
-    ],
+    attributeFilter: ["data-bridge-open", "data-bridge-closing"],
   });
 
   const io = new IntersectionObserver(
