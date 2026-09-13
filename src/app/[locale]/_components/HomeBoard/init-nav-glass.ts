@@ -16,10 +16,23 @@ const overlaps = (a: RectBox, b: RectBox) =>
   a.top < b.top + b.height &&
   a.top + a.height > b.top;
 
+const hasLayout = (el: Element) => {
+  const rect = el.getBoundingClientRect();
+  if (rect.width < 1 || rect.height < 1) return false;
+  let node: Element | null = el;
+  while (node && node !== document.documentElement) {
+    const style = getComputedStyle(node);
+    if (style.display === "none" || style.visibility === "hidden") return false;
+    node = node.parentElement;
+  }
+  return true;
+};
+
 export function initNavGlass(scope: ParentNode): () => void {
   const root = document.documentElement;
   const bars = scope.querySelectorAll(".glass-bar");
-  const hero = scope.querySelector(".hero-media");
+  const heroes = [...scope.querySelectorAll(".hero-media")];
+  let hero: Element | null = null;
   if (!bars.length) return () => undefined;
 
   const themeColors = {
@@ -276,8 +289,42 @@ export function initNavGlass(scope: ParentNode): () => void {
     });
   };
 
+  const resolveHero = () => {
+    const overlay = root.getAttribute("data-overlay");
+    // Chrome only samples page ink when that ink is actually on screen.
+    // Apps/bridge have no hero, so nav + footer stay static glass.
+    if (overlay && overlay !== "builders") return null;
+    const pageHeroes =
+      overlay === "builders"
+        ? heroes.filter((el) => el.closest(".col--devs-hero"))
+        : heroes.filter((el) => !el.closest(".bridge-layer"));
+    return pageHeroes.find(hasLayout) ?? null;
+  };
+
+  const bindHero = (next: Element | null) => {
+    if (hero === next) return;
+    if (hero?.tagName === "INTERACTIVE-INK") {
+      hero.removeEventListener("inkframe", onInkFrame);
+    }
+    hero = next;
+    if (hero?.tagName === "INTERACTIVE-INK") {
+      hero.addEventListener("inkframe", onInkFrame);
+    }
+  };
+
+  const syncPageInk = () => {
+    const next = resolveHero();
+    const changed = hero !== next;
+    bindHero(next);
+    if (changed) {
+      layoutDirty = true;
+      requestPaint();
+    }
+  };
+
   const onLayoutChange = () => {
     layoutDirty = true;
+    syncPageInk();
     requestPaint();
   };
 
@@ -290,10 +337,11 @@ export function initNavGlass(scope: ParentNode): () => void {
 
   const resizeObserver = new ResizeObserver(() => {
     layoutDirty = true;
+    syncPageInk();
     requestPaint();
   });
   painters.forEach(({ host }) => resizeObserver.observe(host));
-  if (hero) resizeObserver.observe(hero);
+  heroes.forEach((el) => resizeObserver.observe(el));
 
   const visibility = new IntersectionObserver((entries) => {
     for (const entry of entries) {
@@ -314,11 +362,12 @@ export function initNavGlass(scope: ParentNode): () => void {
   // on inkthemechange bakes the previous theme into the glass canvases.
   const themeObserver = new MutationObserver(onTheme);
   themeObserver.observe(root, { attributeFilter: ["data-theme", "class"] });
+  const overlayObserver = new MutationObserver(syncPageInk);
+  overlayObserver.observe(root, {
+    attributeFilter: ["data-overlay", "data-bridge-open", "data-bridge-closing"],
+  });
 
-  if (hero?.tagName === "INTERACTIVE-INK") {
-    hero.addEventListener("inkframe", onInkFrame);
-  }
-
+  syncPageInk();
   requestPaint();
 
   const slider = scope.querySelector(".slider");
@@ -348,6 +397,7 @@ export function initNavGlass(scope: ParentNode): () => void {
     window.removeEventListener("scroll", onScroll);
     window.removeEventListener("inkthemechange", onTheme);
     themeObserver.disconnect();
+    overlayObserver.disconnect();
     hero?.removeEventListener("inkframe", onInkFrame);
     resizeObserver.disconnect();
     visibility.disconnect();
