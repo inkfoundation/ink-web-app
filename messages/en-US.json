@@ -221,8 +221,8 @@
       "stepDocs": "Read the Ink docs",
       "stepFaucet": "Fund a testnet wallet",
       "faucetCta": "Faucet",
-      "stepDeploy": "Ship with Foundry and Ink Kit",
-      "deployCta": "Ink Kit"
+      "stepDeploy": "Deploy your first contract",
+      "deployCta": "View guide"
     },
     "grants": {
       "title": "Grants",

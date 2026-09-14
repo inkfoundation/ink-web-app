@@ -1084,9 +1084,15 @@ export function HomeBoard() {
                 data-name="developers-started"
               >
                 <div className="col__top">
-                  <span className="pill pill--glass">
-                    {tBuilders("started.label")}
-                  </span>
+                  <div className="apps__heading">
+                    <span className="pill pill--glass">
+                      {tBuilders("started.label")}
+                    </span>
+                    <OverlayClose
+                      label={t("closeDevelopers")}
+                      onClick={goHome}
+                    />
+                  </div>
                   <p className="headline headline--sm headline--narrow">
                     {tBuilders("started.headline")}
                   </p>
@@ -1126,7 +1132,7 @@ export function HomeBoard() {
                     </p>
                     <Link
                       className="pill pill--gray"
-                      href={EXTERNAL_LINKS.inkKit}
+                      href={EXTERNAL_LINKS.documentationDeployContract}
                       target="_blank"
                       rel="noreferrer"
                     >

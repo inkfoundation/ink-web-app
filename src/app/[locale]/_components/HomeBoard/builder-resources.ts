@@ -79,7 +79,7 @@ export const builderStartSteps = [
   },
   {
     key: "deploy",
-    href: EXTERNAL_LINKS.documentationGettingStarted,
+    href: EXTERNAL_LINKS.documentationDeployContract,
     external: true,
   },
 ] as const;
