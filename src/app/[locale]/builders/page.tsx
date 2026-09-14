@@ -1,22 +1,16 @@
-import { useTranslations } from "next-intl";
+import { Metadata } from "next";
 
-import { OnlyWithFeatureFlag } from "@/components/OnlyWithFeatureFlag";
-import { newLayoutContainerClasses } from "@/components/styles/container";
+import { PageView } from "@/components/PageView";
 
-import { PageHeader } from "../_components/PageHeader";
-
-import { Grants } from "./_components/Grants";
-import { WriteYourCodeWithInk } from "./_components/WriteYourCodeWithInk";
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://inkonchain.com/builders",
+  },
+  title: "Start building on Ink",
+  description:
+    "Our commitment to builders: Ink will provide you with a world class development environment, complete with the tools, support, and users you need to bring your ideas to life.",
+};
 
 export default function BuildersPage() {
-  const t = useTranslations("Builders");
-  return (
-    <div className={newLayoutContainerClasses()}>
-      <PageHeader title={t("title")} description={t("description")} />
-      <WriteYourCodeWithInk />
-      <OnlyWithFeatureFlag flag="grantsSection">
-        <Grants />
-      </OnlyWithFeatureFlag>
-    </div>
-  );
+  return <PageView />;
 }

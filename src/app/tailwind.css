@@ -32,7 +32,7 @@
   --color-whiteMagic: #f6f4ff;
   --color-inkPurple: #7132f5;
   --color-inkSuccess: #3da667;
-  --color-background: #f0efff;
+  --color-background: #ffffff;
 
   --color-dapps-icon-gradient: linear-gradient(
       144.22deg,
@@ -154,7 +154,7 @@
   /** To optimise **/
 
   & body {
-    --color-background: #160f1f;
+    --color-background: #0f0e12;
   }
 }
 

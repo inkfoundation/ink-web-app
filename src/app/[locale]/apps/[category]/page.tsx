@@ -1,16 +1,23 @@
 import { Metadata } from "next";
 
 import { JsonLd } from "@/components/JsonLd";
-import { AppSubmissionModal } from "@/components/Modals/AppSubmissionModal/AppSubmissionModal";
 import { PageView } from "@/components/PageView";
 
-import { AppsContent } from "../_components/AppsContent";
-
-export const metadata: Metadata = {
-  title: "Ink Apps - Discover DeFi Applications on the Superchain",
-  description:
-    "Explore a curated collection of DeFi applications built on Ink, Kraken's Layer 2 blockchain. Find innovative financial tools, protocols, and services powered by the Superchain.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}): Promise<Metadata> {
+  const { category } = await params;
+  return {
+    title: "Ink Apps - Discover DeFi Applications on the Superchain",
+    description:
+      "Explore a curated collection of DeFi applications built on Ink, Kraken's Layer 2 blockchain. Find innovative financial tools, protocols, and services powered by the Superchain.",
+    alternates: {
+      canonical: `https://inkonchain.com/apps/${encodeURIComponent(category)}`,
+    },
+  };
+}
 
 export default async function AppsPage({
   params,
@@ -25,12 +32,10 @@ export default async function AppsPage({
           "@type": "CollectionPage",
           name: "Ink Apps Directory",
           description: "Directory of DeFi applications built on Ink",
-          url: "https://inkonchain.com/apps",
+          url: `https://inkonchain.com/apps/${encodeURIComponent(category)}`,
         }}
       />
       <PageView />
-      <AppsContent currentCategory={category} />
-      <AppSubmissionModal />
     </>
   );
 }

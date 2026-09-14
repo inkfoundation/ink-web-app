@@ -1,0 +1,511 @@
+/* Board restyle for Relay. Safe to keep imported while the widget is out.
+   Tokens live on html[data-home-board] so portaled dialogs inherit them.
+   See relay-board.ts for the remount steps. */
+
+html[data-home-board] {
+  --relay-kit-font-family: var(--board-font, "Satoshi"), sans-serif;
+  --relay-kit-primary: var(--accent);
+  --relay-kit-primary-hover: var(--accent-hover);
+  --relay-kit-primary-disabled: var(--surface-muted);
+  --relay-kit-subtle-bg: var(--surface-muted);
+  --relay-kit-subtle-border: var(--border-subtle);
+  --relay-kit-text: var(--text-primary);
+  --relay-kit-text-subtle: var(--text-secondary);
+  --relay-kit-text-error: #c4314b;
+  --relay-kit-text-success: #1f8a4c;
+  --relay-kit-button-secondary-bg: var(--surface-page);
+  --relay-kit-button-secondary-hover: var(--surface-muted);
+  --relay-kit-input-bg: var(--surface-page);
+  --relay-kit-input-radius: var(--relay-board-radius-control);
+  --relay-kit-skeleton-bg: var(--surface-muted);
+  --relay-kit-dropdown-bg: var(--surface-page);
+  --relay-kit-dropdown-radius: var(--relay-board-radius-control);
+  --relay-kit-widget-bg: transparent;
+  --relay-kit-widget-radius: var(--relay-board-radius-card);
+  --relay-kit-widget-shadow: none;
+  --relay-kit-widget-card-bg: var(--surface-page);
+  --relay-kit-widget-card-radius: var(--relay-board-radius-card);
+  --relay-kit-widget-selector-bg: var(--surface-page);
+  --relay-kit-widget-selector-hover: var(--surface-muted);
+  --relay-kit-widget-swap-border: var(--border-subtle);
+  --relay-kit-widget-swap-radius: var(--relay-board-radius-control);
+  --relay-kit-modal-bg: var(--surface-page);
+  --relay-kit-modal-radius: var(--relay-board-radius-card);
+  --relay-board-radius-card: min(
+    var(--radius),
+    calc(
+      var(--radius-rest) + var(--round) *
+        (var(--radius-card) - var(--radius-rest))
+    )
+  );
+  --relay-board-radius-control: min(
+    var(--radius),
+    calc(var(--radius-rest) + var(--round) * (19px - var(--radius-rest)))
+  );
+}
+
+html[data-home-board]:is([data-theme="dark"], .dark, .ink\:dark-theme) {
+  --relay-kit-text-error: #ff6467;
+  --relay-kit-text-success: #3dd68c;
+}
+
+html[data-home-board] .col--relay,
+html[data-home-board] .col--bridge {
+  display: flex;
+  flex-direction: column;
+  flex: 943 1 0;
+  padding: 86px 20px calc(20px + var(--round) * 66px);
+}
+
+html[data-home-board]
+  .bridge-layer:not([data-mode="bridge"])
+  :is(.col--relay, .col--bridge) {
+  display: none;
+}
+
+html[data-home-board]
+  .bridge-layer:has(:is(.col--relay, .col--bridge))
+  .col--bridges {
+  flex: 242 1 0;
+}
+
+html[data-home-board] .bridge__inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 20px;
+  min-height: 0;
+  height: 100%;
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget) {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 0;
+  overflow: auto;
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget) > .flex {
+  width: 100%;
+  max-width: 408px;
+  gap: 20px;
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget) .p-6 {
+  width: 100%;
+  padding: 0;
+  gap: 20px;
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget) .bridge__history {
+  min-height: 32px;
+  height: 32px;
+  overflow: visible;
+}
+
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  .bridge__history:empty {
+  display: none;
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget) .bridge__history a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--text-secondary);
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget) .bridge__history svg {
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget),
+html[data-home-board] :is(.relay-board, .bridge__widget) .relay-kit-reset {
+  --relay-kit-font-family: var(--board-font);
+  font-family: var(--board-font);
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget) :where(*),
+html[data-home-board] .relay-kit-reset :where(*) {
+  font-family: var(--board-font, "Satoshi"), sans-serif !important;
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget) img,
+html[data-home-board] .relay-kit-reset img {
+  object-fit: contain !important;
+  object-position: center;
+}
+
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  .relay-rounded_widget-card-border-radius,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Connect wallet"],
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap"] {
+  --r-max: var(--radius-card);
+}
+
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button.relay-bg_widget-selector-background,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button.relay-bg_secondary-button-background,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap Tokens Direction"],
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder^="Search"],
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder="Address or ENS"] {
+  --r-max: 19px;
+}
+
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  .relay-rounded_widget-card-border-radius,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Connect wallet"],
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap"],
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button.relay-bg_widget-selector-background,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button.relay-bg_secondary-button-background,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap Tokens Direction"],
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder^="Search"],
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder="Address or ENS"],
+html[data-home-board]
+  [role="dialog"]:has(input[placeholder="Address or ENS"])
+  button.relay-bg_primary-button-background {
+  border-radius: min(
+    var(--radius),
+    calc(
+      var(--radius-rest) + var(--round) *
+        (var(--r-max, var(--radius-card)) - var(--radius-rest))
+    )
+  ) !important;
+}
+
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder^="Search"],
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder="Address or ENS"] {
+  border: 1px solid var(--border-subtle) !important;
+  background: var(--surface-page) !important;
+  box-shadow: none !important;
+  color: var(--text-primary) !important;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder^="Search"]::placeholder,
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder="Address or ENS"]::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder^="Search"]:focus,
+html[data-home-board]
+  [role="dialog"]:is(
+    .relay-kit-reset,
+    :has(.relay-kit-reset),
+    :has(input[placeholder="Address or ENS"])
+  )
+  input[placeholder="Address or ENS"]:focus {
+  border-color: var(--border-hover) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+html[data-home-board] [role="dialog"]:has(input[placeholder="Address or ENS"]) {
+  background: var(--surface-page) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+}
+
+html[data-home-board]
+  [role="dialog"]:has(input[placeholder="Address or ENS"])
+  button.relay-bg_primary-button-background {
+  --r-max: 19px;
+  width: 100%;
+  border: 1px solid transparent !important;
+  background: var(--accent) !important;
+  color: var(--on-accent) !important;
+  font-family: var(--board-font, "Satoshi"), sans-serif !important;
+}
+
+html[data-home-board]
+  [role="dialog"]:has(input[placeholder="Address or ENS"])
+  button.relay-bg_primary-button-background:disabled {
+  border: 1px solid var(--border-subtle) !important;
+  background: var(--surface-muted) !important;
+  color: var(--text-secondary) !important;
+}
+
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  .relay-rounded_widget-card-border-radius {
+  background: var(--surface-page) !important;
+  border: 1px solid var(--border-subtle) !important;
+  padding: 20px !important;
+}
+
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button.relay-bg_widget-selector-background,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button.relay-bg_secondary-button-background,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap Tokens Direction"] {
+  border: 1px solid var(--border-subtle) !important;
+  background: var(--surface-page) !important;
+  color: var(--text-primary) !important;
+  filter: none !important;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 140ms var(--ease-out);
+}
+
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button.relay-bg_secondary-button-background
+  * {
+  color: var(--text-primary) !important;
+}
+
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Connect wallet"],
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap"] {
+  width: 100%;
+  border: 1px solid transparent !important;
+  background: var(--accent) !important;
+  padding: 20px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 20px !important;
+  color: var(--on-accent) !important;
+  transition:
+    background-color 160ms ease,
+    transform 140ms var(--ease-out);
+}
+
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Connect wallet"]:active,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap"]:active,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button.relay-bg_widget-selector-background:active,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button.relay-bg_secondary-button-background:active,
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap Tokens Direction"]:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Connect wallet"]:hover,
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Swap"]:hover,
+  html[data-home-board]
+    [role="dialog"]:has(input[placeholder="Address or ENS"])
+    button.relay-bg_primary-button-background:not(:disabled):hover {
+    background: var(--accent-hover) !important;
+  }
+
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button.relay-bg_widget-selector-background:hover,
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button.relay-bg_secondary-button-background:hover,
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Swap Tokens Direction"]:hover,
+  html[data-home-board]
+    [role="dialog"]:is(
+      .relay-kit-reset,
+      :has(.relay-kit-reset),
+      :has(input[placeholder="Address or ENS"])
+    )
+    input[placeholder^="Search"]:hover,
+  html[data-home-board]
+    [role="dialog"]:is(
+      .relay-kit-reset,
+      :has(.relay-kit-reset),
+      :has(input[placeholder="Address or ENS"])
+    )
+    input[placeholder="Address or ENS"]:hover {
+    border-color: var(--border-hover) !important;
+    background: var(--surface-muted) !important;
+    filter: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Connect wallet"],
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Swap"],
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button.relay-bg_widget-selector-background,
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button.relay-bg_secondary-button-background,
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Swap Tokens Direction"] {
+    transition:
+      background-color 120ms ease,
+      border-color 120ms ease,
+      color 120ms ease;
+  }
+
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Connect wallet"]:active,
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Swap"]:active,
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button.relay-bg_widget-selector-background:active,
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button.relay-bg_secondary-button-background:active,
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Swap Tokens Direction"]:active {
+    transform: none;
+  }
+}
+
+html[data-home-board] :is(.relay-board, .bridge__widget) .text-blackMagic\/50,
+html[data-home-board] :is(.relay-board, .bridge__widget) .dark\:text-white\/50 {
+  color: var(--text-secondary);
+}
+
+html[data-home-board]:is(
+    [data-bridge-open],
+    [data-bridge-closing],
+    :has(.home-board[data-bridge-open])
+  )
+  .bridge-layer:has(:is(.col--relay, .col--bridge))
+  .col--bridges
+  .app-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  grid-template-columns: none;
+}
+
+html[data-home-board]:is(
+    [data-bridge-open],
+    [data-bridge-closing],
+    :has(.home-board[data-bridge-open])
+  )
+  .bridge-layer:has(:is(.col--relay, .col--bridge))
+  .col--bridges
+  .app {
+  min-height: 0;
+}
+
+@media (max-width: 960px) {
+  html[data-home-board] .col--relay,
+  html[data-home-board] .col--bridge {
+    flex: none;
+    padding-top: calc(20px + var(--round) * 66px);
+    padding-bottom: calc(20px + var(--round) * 66px);
+  }
+
+  html[data-home-board]
+    .bridge-layer:has(:is(.col--relay, .col--bridge))
+    .col--bridges {
+    flex: none;
+  }
+}

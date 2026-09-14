@@ -1,4 +1,7 @@
 declare interface Window {
+  OneTrust?: {
+    ToggleInfoDisplay: () => void;
+  };
   ethereum?: {
     isMetaMask?: boolean;
     request: (args: {

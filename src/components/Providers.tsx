@@ -21,6 +21,8 @@ export const Providers: React.FC<PropsWithChildren> = ({ children }) => {
         <AnalyticsProvider writeKey={clientEnv.NEXT_PUBLIC_SEGMENT_WRITE_KEY}>
           <QueryClientProvider client={queryClient}>
             <WalletProvider>
+              {/* Relay remount: wrap with RelayProvider + relayBoardTheme.
+                  See src/app/[locale]/_components/HomeBoard/relay-board.ts */}
               <CaptchaProvider>{children}</CaptchaProvider>
             </WalletProvider>
           </QueryClientProvider>

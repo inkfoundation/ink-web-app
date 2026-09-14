@@ -2,16 +2,12 @@ import { Metadata } from "next";
 
 import { JsonLd } from "@/components/JsonLd";
 import { PageView } from "@/components/PageView";
-import { newLayoutContainerClasses } from "@/components/styles/container";
-
-import { HomeApps } from "./_components/Home/HomeApps";
-import { HomeSmallTag } from "./_components/Home/HomeSmallTag";
-import { HomeTagLine } from "./_components/Home/HomeTagLine";
-import { HomeTitle } from "./_components/Home/HomeTitle";
-import { HomeTydro } from "./_components/Home/HomeTydro";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://inkonchain.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Ink - DeFi unleashed by Kraken, built on the Superchain",
   description:
     "Ink is a cutting-edge Layer 2 (L2) blockchain built on Optimism's Superchain and released by Kraken. As a natural evolution of our mission, Ink will serve as a seamless bridge to DeFi, empowering users to move onchain with confidence and ease. Join the community today.",
@@ -51,13 +47,6 @@ export default async function HomePage() {
         }}
       />
       <PageView />
-      <div className={newLayoutContainerClasses()}>
-        <HomeSmallTag />
-        <HomeTitle />
-        <HomeTydro />
-        <HomeApps />
-        <HomeTagLine />
-      </div>
     </>
   );
 }

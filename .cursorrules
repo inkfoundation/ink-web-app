@@ -1,2 +1,6 @@
 Never suggest `next/link`, instead use `Link` from `@/routing`.
 
+When remounting the Relay swap widget, apply the homepage board kit in
+`src/app/[locale]/_components/HomeBoard/relay-board.ts`. Do not restore
+`RelayKitUI.css` or restyle from scratch. See `.cursor/rules/relay-board.mdc`.
+
