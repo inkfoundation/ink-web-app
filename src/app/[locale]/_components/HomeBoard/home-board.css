@@ -2696,6 +2696,15 @@ html[data-home-board]:is(
 }
 
 @media (min-width: 961px) {
+  html[data-home-board] .col--devs {
+    padding-bottom: 0;
+  }
+
+  html[data-home-board] .col--devs .devs__inner {
+    padding-bottom: calc(20px + var(--round) * 66px);
+    scroll-padding-bottom: calc(20px + var(--round) * 66px);
+  }
+
   html[data-home-board] .col--started,
   html[data-home-board] .col--apps,
   html[data-home-board] .col--catalog,
