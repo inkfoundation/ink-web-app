@@ -48,7 +48,9 @@ void main() {
   }
   color /= total;
 
-  vec2 chroma = edgeDirection * rim * 0.03;
+  // Keep the colour split to a consistent two device pixels. A UV-sized
+  // offset grows into a wide, jagged fringe on lower-density displays.
+  vec2 chroma = edgeDirection * rim * (2.0 / iResolution.xy);
   color.r = texture2D(iChannel0, clamp(lens + chroma, 0.001, 0.999)).r;
   color.b = texture2D(iChannel0, clamp(lens - chroma, 0.001, 0.999)).b;
 

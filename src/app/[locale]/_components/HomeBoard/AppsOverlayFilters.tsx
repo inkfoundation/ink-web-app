@@ -57,7 +57,12 @@ function FilterMenu({
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  const [displayCount, setDisplayCount] = useState(count ?? 0);
   const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (count) setDisplayCount(count);
+  }, [count]);
 
   useEffect(() => {
     if (!open) return;
@@ -84,11 +89,16 @@ function FilterMenu({
         onClick={() => setOpen((value) => !value)}
       >
         <span>{label}</span>
-        {count ? (
-          <span className="apps-filter__count">{count}</span>
-        ) : (
-          <span className="apps-filter__chevron" aria-hidden="true" />
-        )}
+        <span
+          className={`apps-filter__suffix${count ? " has-count" : ""}`}
+        >
+          <span className="apps-filter__count-clip">
+            <span className="apps-filter__count">{displayCount}</span>
+          </span>
+          <span className="apps-filter__chevron-clip" aria-hidden="true">
+            <span className="apps-filter__chevron" />
+          </span>
+        </span>
       </button>
       {open ? (
         <div
@@ -147,11 +157,14 @@ export function AppsOverlayFilters({
     [filters.tags, onChange]
   );
 
+  const allTagsSelected = selectedTags.length === tagOptions.length;
+  const someTagsSelected = selectedTags.length > 0 && !allTagsSelected;
+
   const toggleAllTags = useCallback(() => {
     onChange({
-      tags: selectedTags.length > 0 ? [] : tagOptions.map((tag) => tag.value),
+      tags: allTagsSelected ? [] : tagOptions.map((tag) => tag.value),
     });
-  }, [onChange, selectedTags.length]);
+  }, [allTagsSelected, onChange]);
 
   return (
     <div className="apps-filter" data-category={filters.categories[0] || "all"}>
@@ -193,17 +206,15 @@ export function AppsOverlayFilters({
           >
             <button
               className={`apps-filter__option${
-                selectedTags.length === tagOptions.length ? " is-selected" : ""
+                allTagsSelected ? " is-selected" : ""
               }`}
               type="button"
+              aria-pressed={allTagsSelected}
               onClick={toggleAllTags}
             >
               <span
                 className={`apps-filter__check${
-                  selectedTags.length > 0 &&
-                  selectedTags.length < tagOptions.length
-                    ? " is-partial"
-                    : ""
+                  someTagsSelected ? " is-partial" : ""
                 }`}
                 aria-hidden="true"
               />

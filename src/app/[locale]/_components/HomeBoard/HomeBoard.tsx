@@ -1,6 +1,5 @@
 "use client";
 import {
-  type CSSProperties,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -73,7 +72,7 @@ function BoardAppCard({
     <a className="app" href={href} target="_blank" rel="noreferrer">
       <div className="app__icon">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={app.imageUrl} alt="" />
+        <img src={app.imageUrl} alt="" width={56} height={56} />
       </div>
       <div className="app__meta">
         <div className="app__copy">
@@ -113,6 +112,67 @@ function DevLinkGoIcon() {
         />
       </svg>
     </span>
+  );
+}
+
+function BuilderFeatureIcon({ icon }: { icon: string }) {
+  let symbol;
+
+  if (icon.includes("1s-block-times")) {
+    symbol = <path d="m13 5-5 8h4l-1 6 5-8h-4l1-6Z" />;
+  } else if (icon.includes("Smol-Gas")) {
+    symbol = (
+      <>
+        <path d="M8 18V7.5c0-.8.7-1.5 1.5-1.5h5c.8 0 1.5.7 1.5 1.5V18M7 18h10M10 9h4" />
+        <path d="M16 9.5h1l1 1.2V15c0 .6-.4 1-1 1h-1" />
+      </>
+    );
+  } else if (icon.includes("Security")) {
+    symbol = (
+      <>
+        <rect x="7.5" y="10.5" width="9" height="7.5" rx="1.5" />
+        <path d="M9.5 10.5V9a2.5 2.5 0 0 1 5 0v1.5M12 13.5v1.8" />
+      </>
+    );
+  } else if (icon.includes("Interoperability")) {
+    symbol = (
+      <>
+        <circle cx="12" cy="7" r="1.5" />
+        <circle cx="8" cy="15" r="1.5" />
+        <circle cx="16" cy="15" r="1.5" />
+        <path d="m10.4 8.2-1.6 4.1M13.6 8.2l1.6 4.1M10 15h4" />
+      </>
+    );
+  } else if (icon.includes("Kraken")) {
+    symbol = (
+      <path d="M7.5 17v-5a4.5 4.5 0 0 1 9 0v5M10.5 17v-5a1.5 1.5 0 0 1 3 0v5M7.5 15H6v2M16.5 15H18v2" />
+    );
+  } else {
+    symbol = (
+      <>
+        <path d="m12 5-4.5 7 4.5 2.5 4.5-2.5L12 5Z" />
+        <path d="m7.5 13 4.5 6 4.5-6-4.5 2.5L7.5 13Z" />
+      </>
+    );
+  }
+
+  return (
+    <svg
+      className="dev-focus__icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="10.5" />
+      <g
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {symbol}
+      </g>
+    </svg>
   );
 }
 
@@ -625,15 +685,7 @@ export function HomeBoard() {
                           className="dev-focus dev-focus--info"
                           key={item.title}
                         >
-                          <span
-                            className="dev-focus__icon"
-                            style={
-                              {
-                                "--dev-icon": `url("${item.icon}")`,
-                              } as CSSProperties
-                            }
-                            aria-hidden="true"
-                          />
+                          <BuilderFeatureIcon icon={item.icon} />
                           <p className="dev-focus__name">{item.title}</p>
                           <p className="dev-focus__desc">{item.description}</p>
                         </article>
@@ -987,9 +1039,15 @@ export function HomeBoard() {
               href={{ pathname: "/", query }}
               aria-label="Ink"
             >
-              <span className="nav__logo-mark">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/home-board/logo-ink.svg" alt="" />
+              <span className="nav__logo-mark" aria-hidden="true">
+                <svg viewBox="0 0 30 30" fill="none" shapeRendering="auto">
+                  <path
+                    fill="currentColor"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M30 15C30 6.71573 23.2843 -3.62117e-7 15 0 6.71573 3.62117e-7 -3.62117e-7 6.71573 0 15c3.62117e-7 8.2843 6.71573 15 15 15s15-6.7157 15-15ZM17.1409 26.2262c0 1.0176-.8352 1.8448-2.0207 1.8685l-.0986.0005h-.0432C7.756 28.0836 1.90476 22.2251 1.90476 15 1.90476 7.76772 7.7677 1.90479 15 1.90479l.1169.00051c1.3378.02382 2.024.85093 2.024 1.86847 0 1.03561-.9154 1.79766-1.8853 1.79766s-1.0175 0-1.9459.0744c-.9284.07439-1.8884.83645-1.8884 1.869 0 1.03867.8438 1.87512 1.8884 1.87512h8.2336c1.0415 0 1.8853.83645 1.8853 1.86895 0 1.0326-.8438 1.869-1.8853 1.869H8.86143c-1.04464 0-1.88839.8396-1.88839 1.8752 0 1.0325.84375 1.869 1.88839 1.869h6.39417c1.0416 0 1.8853.8364 1.8853 1.872 0 1.0326-.8437 1.869-1.8853 1.869h-1.9459c-1.0446 0-1.8884.8365-1.8884 1.869 0 1.0356.8648 1.7916 1.8884 1.869l.2225.0169c.3602.0275.5571.0425.7542.0507.2373.0099.4751.0099.9993.0099 1.0416 0 1.8552.7651 1.8552 1.7976Z"
+                  />
+                </svg>
               </span>
             </Link>
             <button
