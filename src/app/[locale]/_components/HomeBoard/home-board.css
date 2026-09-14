@@ -259,13 +259,15 @@ html[data-home-board] .home-board button {
   cursor: pointer;
 }
 
-html[data-home-board] .home-board button:not(.slider__btn):not(.pill) {
+html[data-home-board]
+  .home-board
+  button:not(.slider__btn):not(.pill):not(.board-footer__icon) {
   background: none;
 }
 
 html[data-home-board]
   .home-board
-  button:not(.pill):not(.code__step):not(.code__copy) {
+  button:not(.pill):not(.code__step):not(.code__copy):not(.board-footer__icon) {
   font: inherit;
   color: inherit;
 }
@@ -1851,8 +1853,155 @@ html[data-home-board] .cta-row {
 html[data-home-board] .col__bottom {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+html[data-home-board] .about-ship {
+  display: flex;
+  flex-direction: column;
   gap: 32px;
   width: 100%;
+}
+
+html[data-home-board] .board-footer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+html[data-home-board] .col--catalog .app-list > .board-footer {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding-top: 8px;
+}
+
+html[data-home-board] .col--bridges .catalog__inner {
+  overflow: hidden;
+}
+
+html[data-home-board] .col--bridges .catalog__inner > .board-footer {
+  flex: none;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+html[data-home-board]:is(
+    [data-bridge-open],
+    [data-bridge-closing],
+    :has(.home-board[data-bridge-open])
+  )
+  .col--bridges
+  .app-list::after {
+  content: none;
+  height: 0;
+}
+
+html[data-home-board] .devs__block > .board-footer {
+  margin-top: 4px;
+}
+
+html[data-home-board] .page > .board-footer {
+  display: none;
+}
+
+html[data-home-board] .board-footer__socials {
+  display: flex;
+  flex-shrink: 0;
+  gap: 14px;
+  align-items: center;
+}
+
+html[data-home-board] .home-board .board-footer__icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  transition:
+    color 160ms ease,
+    opacity 160ms ease,
+    transform 140ms var(--ease-out);
+}
+
+html[data-home-board] .board-footer__icon svg,
+html[data-home-board] .board-footer__icon > * {
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: inherit;
+  fill: currentColor;
+}
+
+html[data-home-board] .home-board .board-footer__icon:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+html[data-home-board] .home-board .board-footer__icon:active {
+  transform: scale(0.96);
+}
+
+html[data-home-board] .board-footer__legal {
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 0 1 auto;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+  color: var(--text-secondary);
+  font-family: var(--board-font);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+html[data-home-board] .home-board .board-footer__link {
+  position: relative;
+  color: var(--text-secondary);
+  text-align: left;
+  transition: color 160ms ease;
+}
+
+html[data-home-board] .board-footer__copy {
+  color: var(--text-secondary);
+}
+
+html[data-home-board] .home-board .board-footer__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-home-board] .home-board .board-footer__icon:hover {
+    color: var(--text-primary);
+  }
+
+  html[data-home-board] .home-board .board-footer__link:hover {
+    color: var(--text-primary);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-home-board] .home-board .board-footer__icon,
+  html[data-home-board] .home-board .board-footer__link {
+    transition: none;
+  }
+
+  html[data-home-board] .home-board .board-footer__icon:active {
+    transform: none;
+  }
 }
 
 html[data-home-board] .code {
@@ -3269,8 +3418,43 @@ html[data-home-board] .app--hero .app__media::after {
     gap: 48px;
   }
 
-  html[data-home-board] .col--about .col__bottom {
+  html[data-home-board] .col--about .about-ship {
     display: none;
+  }
+
+  html[data-home-board] .col--about .board-footer,
+  html[data-home-board] .col--catalog .board-footer,
+  html[data-home-board] .devs__block > .board-footer {
+    display: none;
+  }
+
+  html[data-home-board] .page > .board-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    align-items: center;
+    padding: 8px 20px 24px;
+  }
+
+  html[data-home-board]:not(
+      [data-bridge-open],
+      [data-bridge-closing],
+      :has(.home-board[data-bridge-open])
+    )
+    .page
+    > .board-footer {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+
+  html[data-home-board] .board-footer__legal {
+    flex: 1 1 16rem;
+    flex-wrap: wrap;
+    min-width: min(100%, 16rem);
+    white-space: normal;
+  }
+
+  html[data-home-board] .board-footer__copy {
+    flex: 0 1 auto;
   }
 
   html[data-home-board] .col--hero,
@@ -3595,7 +3779,7 @@ html[data-home-board] .home-board a {
   text-decoration: none;
 }
 
-html[data-home-board] .home-board a:not(.pill--purple) {
+html[data-home-board] .home-board a:not(.pill--purple):not(.board-footer__icon) {
   color: inherit;
 }
 

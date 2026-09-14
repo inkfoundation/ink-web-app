@@ -8,7 +8,7 @@ export function CodeStory({ snippetId }: { snippetId: string }) {
   const t = useTranslations("Home");
 
   return (
-    <div className="col__bottom">
+    <div className="about-ship">
       <p className="headline headline--sm">{t("shipHeadline")}</p>
       <div className="code" data-code-story data-scene="build">
         <div className="code__bar">

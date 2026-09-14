@@ -30,6 +30,7 @@ import {
 import tydroArt from "../Home/assets/tydro-banner-trans.png";
 
 import { AppsEmptyState, AppsOverlayFilters } from "./AppsOverlayFilters";
+import { BoardFooter } from "./BoardFooter";
 import {
   builderExpectations,
   builderHeroCtas,
@@ -622,7 +623,10 @@ export function HomeBoard() {
                 </div>
               </div>
             </div>
-            <CodeStory snippetId="deploy-snippet" />
+            <div className="col__bottom">
+              <CodeStory snippetId="deploy-snippet" />
+              <BoardFooter />
+            </div>
           </section>
 
           <section className="col col--hero" data-name="hero">
@@ -771,6 +775,7 @@ export function HomeBoard() {
                         />
                       ))
                     )}
+                    <BoardFooter />
                   </div>
                 </div>
               </section>
@@ -834,6 +839,8 @@ export function HomeBoard() {
                       </a>
                     ))}
                   </div>
+                  {/* Pin to the column bottom until Relay remounts. See ./relay-board.ts */}
+                  <BoardFooter />
                 </div>
               </section>
 
@@ -1028,6 +1035,7 @@ export function HomeBoard() {
                         );
                       })}
                     </div>
+                    <BoardFooter />
                   </div>
                   <OnlyWithFeatureFlag flag="grantsSection">
                     <div className="devs__grants">
@@ -1182,6 +1190,8 @@ export function HomeBoard() {
             </div>
           </div>
         </div>
+
+        <BoardFooter />
 
         <div className="bottom-controls">
           <div className="slider glass-bar">
