@@ -788,12 +788,12 @@ export function HomeBoard() {
                 className="col col--apps-overlay col--catalog"
                 data-name="apps-overlay"
               >
+                <div className="apps__heading">
+                  <span className="pill pill--glass">{t("appsLabel")}</span>
+                  <OverlayClose label={t("closeApps")} onClick={goHome} />
+                </div>
                 <div className="catalog__inner">
                   <div className="col__top">
-                    <div className="apps__heading">
-                      <span className="pill pill--glass">{t("appsLabel")}</span>
-                      <OverlayClose label={t("closeApps")} onClick={goHome} />
-                    </div>
                     <h2 className="headline headline--sm headline--narrow">
                       {t("appsHeadline")}
                     </h2>

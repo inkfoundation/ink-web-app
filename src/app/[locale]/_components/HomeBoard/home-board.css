@@ -2381,8 +2381,7 @@ html[data-home-board] .apps__heading {
 }
 
 html[data-home-board] .col--apps-overlay .col__top {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 3;
   width: 100%;
   overflow: visible;
@@ -2880,6 +2879,17 @@ html[data-home-board]:is(
   }
 
   html[data-home-board] .col--apps-overlay {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  html[data-home-board] .col--apps-overlay > .apps__heading {
+    flex: none;
+  }
+
+  html[data-home-board] .col--apps-overlay > .catalog__inner {
+    flex: none;
+    height: auto;
     overflow: visible;
   }
 
@@ -2913,6 +2923,17 @@ html[data-home-board]:is(
     min-height: 0;
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  html[data-home-board]:is(
+      [data-bridge-open],
+      [data-bridge-closing],
+      :has(.home-board[data-bridge-open])
+    )
+    .col--apps-overlay
+    .app-list {
+    flex: none;
+    overflow: visible;
   }
 }
 
