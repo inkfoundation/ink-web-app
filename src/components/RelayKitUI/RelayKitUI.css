@@ -1,0 +1,98 @@
+:root {
+  --relay-kit-font-family: "Plus Jakarta Sans";
+  --relay-kit-primary: var(--ink-button-primary);
+  --relay-kit-primary-hover: var(--ink-button-primary-hover);
+  --relay-kit-primary-disabled: var(--ink-button-secondary);
+  --relay-kit-subtle-bg: var(--ink-background-dark);
+  --relay-kit-subtle-border: var(--ink-background-dark);
+  --relay-kit-text: var(--ink-text-default);
+  --relay-kit-text-subtle: var(--ink-text-secondary);
+  --relay-kit-text-error: var(--ink-status-error);
+  --relay-kit-text-success: var(--ink-status-success);
+
+  --relay-kit-button-secondary-bg: var(--ink-button-secondary);
+  --relay-kit-button-secondary-hover: var(--ink-button-secondary-hover);
+
+  --relay-kit-input-bg: var(--ink-button-secondary);
+  --relay-kit-input-radius: var(--ink-radius-full);
+
+  --relay-kit-skeleton-bg: var(--ink-background-container);
+
+  --relay-kit-dropdown-bg: var(--ink-background-primary);
+  --relay-kit-dropdown-radius: var(--ink-radius-sm);
+
+  --relay-kit-widget-bg: color-mix(
+    in srgb,
+    var(--ink-button-primary) 8%,
+    var(--ink-background-dark)
+  );
+  --relay-kit-widget-radius: var(--ink-radius-sm);
+  --relay-kit-widget-shadow: 0px 4px 30px var(--ink-background-light);
+  --relay-kit-widget-card-bg: var(--ink-background-container);
+  --relay-kit-widget-card-radius: var(--ink-radius-sm);
+  --relay-kit-widget-selector-bg: var(--ink-background-container);
+  --relay-kit-widget-selector-hover: var(--ink-background-container);
+
+  --relay-kit-widget-swap-border: var(--ink-button-secondary);
+  --relay-kit-widget-swap-radius: var(--ink-radius-sm);
+
+  --relay-kit-modal-bg: var(--ink-background-light);
+  --relay-kit-modal-radius: var(--ink-radius-sm);
+}
+
+:root .relay-kit-reset {
+  --relay-colors-button-disabled-color: var(--ink-text-on-secondary-disabled);
+}
+
+/* Relay UI Kit CSS overrides (properties we cannot change through the theme) */
+
+.relay-bg_widget-selector-background {
+  border-radius: 999px !important;
+}
+
+.relay-kit-reset button {
+  border-radius: 999px !important;
+}
+
+.relay-kit-reset button[aria-label="Swap"],
+.relay-kit-reset button[aria-label="Connect wallet"] {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  font-size: 20px !important;
+}
+
+div[type="button"] > button {
+  padding: 22px !important;
+  padding-left: 8px !important;
+  padding-right: 12px !important;
+}
+
+.relay-kit-reset img {
+  border-radius: 999px !important;
+  width: 32px !important;
+}
+
+.relay-bg_secondary-button-background {
+  padding: var(--ink-spacing-1) var(--ink-spacing-2) !important;
+}
+
+.relay-h_24 {
+  height: 32px !important;
+}
+
+.relay-w_24 {
+  width: 32px !important;
+}
+
+button.relay-bg_primary-button-background.relay-rounded_99999 {
+  background-color: var(--relay-colors-widget-selector-background) !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/** 
+Fixes transparency `Search for a chain` input in the modals.
+*/
+.relay-snap-align_start {
+  background-color: var(--relay-colors-modal-background);
+}
