@@ -32,7 +32,28 @@ export const OneTrustCookieConsent: React.FC<OneTrustCookieConsentProps> = ({
   }, [query]);
 
   useEffect(() => {
+    const promoteBannerStyles = () => {
+      for (const sheet of Array.from(document.styleSheets)) {
+        let owner: Element | null = null;
+        try {
+          owner = sheet.ownerNode instanceof Element ? sheet.ownerNode : null;
+          const text = Array.from(sheet.cssRules)
+            .map((rule) => rule.cssText)
+            .join("");
+          if (!text.includes("ink-onetrust-banner-marker")) continue;
+        } catch {
+          continue;
+        }
+        if (owner && document.head.lastElementChild !== owner) {
+          document.head.appendChild(owner);
+        }
+      }
+    };
+
+    promoteBannerStyles();
+
     window.oneTrustLoaded?.then((oneTrust: { OnConsentChanged: Function }) => {
+      promoteBannerStyles();
       oneTrust.OnConsentChanged(() => {
         hasConsent(OneTrustCookieGroups.Performance).then((consented) => {
           if (consented) {
@@ -44,6 +65,15 @@ export const OneTrustCookieConsent: React.FC<OneTrustCookieConsentProps> = ({
         });
       });
     });
+
+    const observer = new MutationObserver(promoteBannerStyles);
+    observer.observe(document.head, { childList: true });
+    const timeout = window.setTimeout(() => observer.disconnect(), 8000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timeout);
+    };
   }, []);
 
   return (

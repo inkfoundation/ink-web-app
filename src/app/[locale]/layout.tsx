@@ -5,6 +5,7 @@ import { getMessages } from "next-intl/server";
 
 import { ConsentLogger } from "@/components/CookieConsent/ConsentLogger";
 import { CookieConsent } from "@/components/CookieConsent/CookieConsent";
+import "@/components/CookieConsent/onetrust-banner.css";
 import { GlobalSvgStuff } from "@/components/icons/GlobalSvgStuff";
 import { ContactUsModal } from "@/components/Modals";
 import { Providers } from "@/components/Providers";

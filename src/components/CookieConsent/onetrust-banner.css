@@ -1,0 +1,148 @@
+/* Compact OneTrust banner — matches the local Decline/Accept card. */
+#ink-onetrust-banner-marker {
+  display: none;
+}
+#onetrust-consent-sdk {
+  pointer-events: none;
+}
+
+#onetrust-consent-sdk #onetrust-banner-sdk,
+#onetrust-consent-sdk #onetrust-pc-sdk,
+#onetrust-consent-sdk .onetrust-pc-dark-filter:not(.ot-hide) {
+  pointer-events: auto;
+}
+
+#ot-sdk-btn-floating,
+#onetrust-consent-sdk .ot-floating-button {
+  display: none !important;
+}
+
+#onetrust-consent-sdk #onetrust-banner-sdk.otFlat,
+#onetrust-consent-sdk #onetrust-banner-sdk {
+  top: auto !important;
+  right: 16px !important;
+  bottom: 16px !important;
+  left: auto !important;
+  width: 350px !important;
+  max-width: calc(100vw - 32px) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: 1px solid var(--border-subtle, #e7e7e7) !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  color: #0b0d12 !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+#onetrust-consent-sdk #onetrust-banner-sdk :is(.ot-sdk-container, .ot-sdk-row),
+#onetrust-consent-sdk #onetrust-group-container,
+#onetrust-consent-sdk #onetrust-policy,
+#onetrust-consent-sdk #onetrust-button-group-parent,
+#onetrust-consent-sdk #onetrust-button-group {
+  float: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#onetrust-consent-sdk #onetrust-banner-sdk .ot-sdk-row {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#onetrust-consent-sdk #onetrust-button-group {
+  position: relative !important;
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+#onetrust-consent-sdk #onetrust-button-group::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 1px !important;
+  background: var(--border-subtle, #e7e7e7) !important;
+  pointer-events: none !important;
+}
+
+#onetrust-consent-sdk #onetrust-banner-sdk :is(#onetrust-pc-btn-handler, #onetrust-accept-btn-handler) {
+  display: flex !important;
+  flex: 1 1 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+  padding: 8px 10px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: inherit !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  white-space: normal !important;
+  box-shadow: none !important;
+}
+
+#onetrust-consent-sdk #onetrust-banner-sdk :is(#onetrust-pc-btn-handler, #onetrust-accept-btn-handler):hover {
+  color: rgba(11, 13, 18, 0.6) !important;
+}
+
+html:is(.dark, [data-theme="dark"]) #onetrust-consent-sdk #onetrust-button-group::after {
+  background: var(--border-subtle, #302d35) !important;
+}
+
+#onetrust-consent-sdk #onetrust-policy-text {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 12px 16px !important;
+  border: 0 !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+}
+
+#onetrust-consent-sdk #onetrust-button-group-parent {
+  border-top: 1px solid var(--border-subtle, #e7e7e7) !important;
+}
+
+#onetrust-consent-sdk #onetrust-banner-sdk .banner_logo,
+#onetrust-consent-sdk #onetrust-close-btn-container:empty {
+  display: none !important;
+}
+
+html:is(.dark, [data-theme="dark"]) #onetrust-consent-sdk #onetrust-banner-sdk {
+  border-color: var(--border-subtle, #302d35) !important;
+  background: #0b0d12 !important;
+  color: #f6f4ff !important;
+}
+
+html:is(.dark, [data-theme="dark"]) #onetrust-consent-sdk #onetrust-banner-sdk :is(#onetrust-pc-btn-handler, #onetrust-accept-btn-handler):hover {
+  color: rgba(246, 244, 255, 0.8) !important;
+}
+
+html:is(.dark, [data-theme="dark"]) #onetrust-consent-sdk #onetrust-button-group-parent {
+  border-top-color: var(--border-subtle, #302d35) !important;
+}
+
+@media (max-width: 480px) {
+  #onetrust-consent-sdk #onetrust-banner-sdk.otFlat,
+  #onetrust-consent-sdk #onetrust-banner-sdk {
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+}
