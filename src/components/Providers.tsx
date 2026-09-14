@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { AnalyticsProvider } from "@/contexts/AnalyticsProvider";
 import { CaptchaProvider } from "@/contexts/CaptchaProvider";
+import { RelayProvider } from "@/contexts/RelayProvider";
 import { ThemeProvider } from "@/contexts/ThemeProvider";
 import { WalletProvider } from "@/contexts/WalletProvider";
 import { clientEnv } from "@/env-client";
@@ -21,9 +22,9 @@ export const Providers: React.FC<PropsWithChildren> = ({ children }) => {
         <AnalyticsProvider writeKey={clientEnv.NEXT_PUBLIC_SEGMENT_WRITE_KEY}>
           <QueryClientProvider client={queryClient}>
             <WalletProvider>
-              {/* Relay remount: wrap with RelayProvider + relayBoardTheme.
-                  See src/app/[locale]/_components/HomeBoard/relay-board.ts */}
-              <CaptchaProvider>{children}</CaptchaProvider>
+              <RelayProvider>
+                <CaptchaProvider>{children}</CaptchaProvider>
+              </RelayProvider>
             </WalletProvider>
           </QueryClientProvider>
         </AnalyticsProvider>

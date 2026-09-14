@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 
 import { OnlyWithFeatureFlag } from "@/components/OnlyWithFeatureFlag";
+import { RelayKitUI } from "@/components/RelayKitUI";
 import { useFeatureFlag } from "@/hooks/useFeatureFlag";
 import { useRouterQuery } from "@/hooks/useRouterQuery";
 import { EXTERNAL_LINKS, Link, usePathname, useRouter } from "@/routing";
@@ -767,7 +768,22 @@ export function HomeBoard() {
             inert={!isOverlay}
           >
             <div className="bridge-layer__inner">
-              {/* Relay remount: add .col--relay + RelayKitUI here. See ./relay-board.ts */}
+              <section className="col col--relay" data-name="relay">
+                <div className="bridge__inner">
+                  <div className="col__top">
+                    <div className="apps__heading">
+                      <span className="pill pill--glass">{t("bridgeCta")}</span>
+                    </div>
+                    <h2 className="headline headline--sm headline--narrow">
+                      {t("bridgesHeadline")}
+                    </h2>
+                  </div>
+                  <div className="bridge__widget relay-board">
+                    <RelayKitUI />
+                  </div>
+                  <BoardFooter />
+                </div>
+              </section>
               <section
                 className="col col--apps-overlay col--catalog"
                 data-name="apps-overlay"
@@ -812,10 +828,7 @@ export function HomeBoard() {
                 </div>
               </section>
 
-              <section
-                className="col col--bridges col--catalog"
-                data-name="bridges"
-              >
+              <section className="col col--bridges" data-name="bridges">
                 <div className="catalog__inner">
                   <div className="col__top">
                     <div className="apps__heading">
@@ -878,8 +891,6 @@ export function HomeBoard() {
                       </a>
                     ))}
                   </div>
-                  {/* Pin to the column bottom until Relay remounts. See ./relay-board.ts */}
-                  <BoardFooter />
                 </div>
               </section>
 

@@ -49,8 +49,8 @@ html[data-home-board]:is([data-theme="dark"], .dark, .ink\:dark-theme) {
   --relay-kit-text-success: #3dd68c;
 }
 
-html[data-home-board] .col--relay,
-html[data-home-board] .col--bridge {
+html[data-home-board] .bridge-layer .col--relay,
+html[data-home-board] .bridge-layer .col--bridge {
   display: flex;
   flex-direction: column;
   flex: 943 1 0;
@@ -66,16 +66,54 @@ html[data-home-board]
 html[data-home-board]
   .bridge-layer:has(:is(.col--relay, .col--bridge))
   .col--bridges {
+  display: flex;
+  flex-direction: column;
   flex: 242 1 0;
+  gap: 20px;
+  padding: 86px 20px calc(20px + var(--round) * 66px);
+}
+
+html[data-home-board]:is(
+    [data-bridge-open],
+    [data-bridge-closing],
+    :has(.home-board[data-bridge-open])
+  )
+  .col--bridges
+  .apps__close-slot {
+  display: block;
+}
+
+html[data-home-board]:is(
+    [data-bridge-open],
+    [data-bridge-closing],
+    :has(.home-board[data-bridge-open])
+  )
+  .col--bridges
+  .apps__close {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  transition-delay: 90ms;
 }
 
 html[data-home-board] .bridge__inner {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  gap: 20px;
+  gap: 24px;
   min-height: 0;
   height: 100%;
+}
+
+html[data-home-board] .col--relay .col__top {
+  flex: none;
+  width: 100%;
+}
+
+html[data-home-board] .col--relay .bridge__inner > .board-footer {
+  flex: none;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 html[data-home-board] :is(.relay-board, .bridge__widget) {
@@ -496,8 +534,12 @@ html[data-home-board]:is(
 }
 
 @media (max-width: 960px) {
-  html[data-home-board] .col--relay,
-  html[data-home-board] .col--bridge {
+  html[data-home-board] .col--relay .board-footer {
+    display: none;
+  }
+
+  html[data-home-board] .bridge-layer .col--relay,
+  html[data-home-board] .bridge-layer .col--bridge {
     flex: none;
     padding-top: calc(20px + var(--round) * 66px);
     padding-bottom: calc(20px + var(--round) * 66px);
@@ -507,5 +549,7 @@ html[data-home-board]:is(
     .bridge-layer:has(:is(.col--relay, .col--bridge))
     .col--bridges {
     flex: none;
+    padding-top: calc(20px + var(--round) * 66px);
+    padding-bottom: calc(20px + var(--round) * 66px);
   }
 }

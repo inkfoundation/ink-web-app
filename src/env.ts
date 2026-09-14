@@ -16,6 +16,7 @@ export const env = createEnv({
     INK_APP_SUBMISSION_SLACK_NOTIFICATION_CHANNEL: z.string().min(1),
     HCAPTCHA_SECRET: z.string().min(1),
     MULTIPLIER_JWT_SECRET: z.string().min(1),
+    RELAY_API_KEY: z.string().optional(),
   },
   experimental__runtimeEnv: process.env,
 });
