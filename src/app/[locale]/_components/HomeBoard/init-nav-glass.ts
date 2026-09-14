@@ -554,24 +554,6 @@ function initSlider({
   const dirButtons = [...slider.querySelectorAll("[data-dir]")];
   dirButtons.forEach((btn) => btn.addEventListener("click", onDirClick));
 
-  const onWheel = (event: Event) => {
-    const wheel = event as WheelEvent;
-    if (window.innerWidth <= 960 || wheel.ctrlKey) return;
-    if (Math.abs(wheel.deltaX) > Math.abs(wheel.deltaY)) return;
-    wheel.preventDefault();
-    const deltaMultiplier =
-      wheel.deltaMode === WheelEvent.DOM_DELTA_LINE
-        ? 16
-        : wheel.deltaMode === WheelEvent.DOM_DELTA_PAGE
-          ? window.innerHeight
-          : 1;
-    apply(target + (wheel.deltaY * deltaMultiplier) / 1200, { animate: true });
-  };
-
-  inks.forEach((ink) => {
-    ink.addEventListener("wheel", onWheel, { passive: false });
-  });
-
   const onPointerDown = (event: Event) => {
     const pointer = event as PointerEvent;
     if (pointer.button !== 0) return;
@@ -641,9 +623,6 @@ function initSlider({
     stopSpring();
     if (dragFrame) cancelAnimationFrame(dragFrame);
     dirButtons.forEach((btn) => btn.removeEventListener("click", onDirClick));
-    inks.forEach((ink) => {
-      ink.removeEventListener("wheel", onWheel);
-    });
     track.removeEventListener("pointerdown", onPointerDown);
     track.removeEventListener("pointermove", onPointerMove);
     track.removeEventListener("pointerup", endDrag);
