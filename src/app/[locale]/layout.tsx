@@ -23,6 +23,50 @@ const themeClassesMapping: Record<string, string> = {
   light: "light ink:light-theme",
 };
 
+const homeBoardThemeBootstrap = `
+(() => {
+  const root = document.documentElement;
+  const segments = window.location.pathname.split("/").filter(Boolean);
+
+  if (segments[0] === root.lang) segments.shift();
+
+  const pathname = "/" + segments.join("/");
+  const isHomeBoard =
+    pathname === "/" ||
+    pathname === "/bridge" ||
+    pathname === "/builders" ||
+    pathname === "/apps" ||
+    pathname.startsWith("/apps/");
+
+  if (!isHomeBoard) return;
+
+  let storedTheme = null;
+  try {
+    storedTheme = window.localStorage.getItem("theme");
+  } catch {}
+
+  const classTheme = root.classList.contains("dark")
+    ? "dark"
+    : root.classList.contains("light")
+      ? "light"
+      : null;
+  const dataTheme =
+    root.dataset.theme === "dark" || root.dataset.theme === "light"
+      ? root.dataset.theme
+      : null;
+  const theme =
+    classTheme ||
+    dataTheme ||
+    (storedTheme === "dark" || storedTheme === "light" ? storedTheme : null) ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+
+  root.dataset.theme = theme;
+  root.setAttribute("data-home-board", "");
+})();
+`;
+
 export default async function LocaleLayout({
   children,
   params,
@@ -71,6 +115,10 @@ export default async function LocaleLayout({
       />
 
       <body>
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: homeBoardThemeBootstrap }}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <ToggleThemeShortcut />

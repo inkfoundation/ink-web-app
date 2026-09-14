@@ -15,10 +15,9 @@ import { useFeatureFlag } from "@/hooks/useFeatureFlag";
 import { useRouterQuery } from "@/hooks/useRouterQuery";
 import { EXTERNAL_LINKS, Link, usePathname, useRouter } from "@/routing";
 
-import "./interactive-ink";
 import "./interactive-ascii";
+import "./interactive-ink";
 
-import tydroArt from "../Home/assets/tydro-banner-trans.png";
 import { isAppsPath } from "../../apps/_components/filter-apps";
 import {
   type InkApp,
@@ -27,6 +26,7 @@ import {
   inkFeaturedApps,
   mainUrl,
 } from "../../apps/_components/InkApp";
+import tydroArt from "../Home/assets/tydro-banner-trans.png";
 
 import { AppsEmptyState, AppsOverlayFilters } from "./AppsOverlayFilters";
 import {
@@ -392,6 +392,25 @@ export function HomeBoard() {
   );
   useLayoutEffect(() => {
     const html = document.documentElement;
+    const classTheme = html.classList.contains("dark")
+      ? "dark"
+      : html.classList.contains("light")
+        ? "light"
+        : null;
+    const dataTheme =
+      html.dataset.theme === "dark" || html.dataset.theme === "light"
+        ? html.dataset.theme
+        : null;
+    const initialTheme =
+      classTheme ??
+      dataTheme ??
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+
+    // Set the correct tokens before enabling the scoped board styles. This
+    // prevents light borders from painting for one frame in dark mode.
+    html.dataset.theme = initialTheme;
     html.setAttribute("data-home-board", "");
     return () => {
       html.removeAttribute("data-home-board");
@@ -404,7 +423,7 @@ export function HomeBoard() {
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (resolvedTheme !== "dark" && resolvedTheme !== "light") return;
     document.documentElement.dataset.theme = resolvedTheme;
     window.dispatchEvent(
