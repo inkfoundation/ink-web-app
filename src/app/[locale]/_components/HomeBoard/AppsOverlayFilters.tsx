@@ -104,9 +104,7 @@ function FilterMenu({
         onClick={() => setOpen((value) => !value)}
       >
         <span>{label}</span>
-        <span
-          className={`apps-filter__suffix${count ? " has-count" : ""}`}
-        >
+        <span className={`apps-filter__suffix${count ? " has-count" : ""}`}>
           <span className="apps-filter__count-clip">
             <span className="apps-filter__count">{displayCount}</span>
           </span>

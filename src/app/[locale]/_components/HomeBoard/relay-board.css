@@ -34,7 +34,8 @@ html[data-home-board] {
   --relay-board-radius-card: min(
     var(--radius),
     calc(
-      var(--radius-rest) + var(--round) * (var(--radius-card) - var(--radius-rest))
+      var(--radius-rest) + var(--round) *
+        (var(--radius-card) - var(--radius-rest))
     )
   );
   --relay-board-radius-control: min(
@@ -56,7 +57,9 @@ html[data-home-board] .col--bridge {
   padding: 86px 20px calc(20px + var(--round) * 66px);
 }
 
-html[data-home-board] .bridge-layer:not([data-mode="bridge"]) :is(.col--relay, .col--bridge) {
+html[data-home-board]
+  .bridge-layer:not([data-mode="bridge"])
+  :is(.col--relay, .col--bridge) {
   display: none;
 }
 
@@ -102,7 +105,9 @@ html[data-home-board] :is(.relay-board, .bridge__widget) .bridge__history {
   overflow: visible;
 }
 
-html[data-home-board] :is(.relay-board, .bridge__widget) .bridge__history:empty {
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  .bridge__history:empty {
   display: none;
 }
 
@@ -144,7 +149,9 @@ html[data-home-board]
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button[aria-label="Connect wallet"],
-html[data-home-board] :is(.relay-board, .bridge__widget) button[aria-label="Swap"] {
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap"] {
   --r-max: var(--radius-card);
 }
 
@@ -180,7 +187,9 @@ html[data-home-board]
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button[aria-label="Connect wallet"],
-html[data-home-board] :is(.relay-board, .bridge__widget) button[aria-label="Swap"],
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button.relay-bg_widget-selector-background,
@@ -210,7 +219,8 @@ html[data-home-board]
   border-radius: min(
     var(--radius),
     calc(
-      var(--radius-rest) + var(--round) * (var(--r-max, var(--radius-card)) - var(--radius-rest))
+      var(--radius-rest) + var(--round) *
+        (var(--r-max, var(--radius-card)) - var(--radius-rest))
     )
   ) !important;
 }
@@ -338,7 +348,9 @@ html[data-home-board]
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button[aria-label="Connect wallet"],
-html[data-home-board] :is(.relay-board, .bridge__widget) button[aria-label="Swap"] {
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[aria-label="Swap"] {
   width: 100%;
   border: 1px solid transparent !important;
   background: var(--accent) !important;
@@ -416,7 +428,9 @@ html[data-home-board]
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
     button[aria-label="Connect wallet"],
-  html[data-home-board] :is(.relay-board, .bridge__widget) button[aria-label="Swap"],
+  html[data-home-board]
+    :is(.relay-board, .bridge__widget)
+    button[aria-label="Swap"],
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
     button.relay-bg_widget-selector-background,

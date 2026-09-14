@@ -213,7 +213,7 @@ class InteractiveInk extends HTMLElement {
     this.canvas.addEventListener("pointercancel", this.onLeave);
     this.canvas.addEventListener("pointerdown", this.onPress);
     this.canvas.addEventListener("pointerup", this.onRelease);
-    this.canvas.addEventListener("contextlost", this.onContextLost);
+    this.canvas.addEventListener("webglcontextlost", this.onContextLost);
     this.updateCanvasStyle();
     this.resize();
     this.startLoop();
@@ -229,7 +229,9 @@ class InteractiveInk extends HTMLElement {
   attributeChangedCallback(name) {
     if (name === "blur") this.updateCanvasStyle();
     if (name === "phase") this.elapsed = this.phase;
-    if (this.gl && this.visible && !document.hidden) this.draw();
+    // The active animation loop will draw the latest value. Drawing here as
+    // well made slider updates render the entire canvas twice in one frame.
+    if (this.gl && this.visible && !document.hidden && !this.raf) this.draw();
   }
   get value() {
     const value = Number(this.getAttribute("value"));

@@ -43,7 +43,11 @@ function filtersFromLocation() {
   });
 }
 
-function writeFilterUrl(filters: InkAppFilters, current: URLSearchParams) {
+function writeFilterUrl(
+  filters: InkAppFilters,
+  current: URLSearchParams,
+  { replace = false } = {}
+) {
   const params = new URLSearchParams();
   for (const [key, value] of current.entries()) {
     if (key in hardcodedFeatureFlags) params.set(key, value);
@@ -57,11 +61,9 @@ function writeFilterUrl(filters: InkAppFilters, current: URLSearchParams) {
   const category = filters.categories[0];
   const path = category ? `/apps/${encodeURIComponent(category)}` : "/apps";
   const query = params.toString();
-  window.history.pushState(
-    null,
-    "",
-    `${localePrefix()}${path}${query ? `?${query}` : ""}`
-  );
+  const url = `${localePrefix()}${path}${query ? `?${query}` : ""}`;
+  if (replace) window.history.replaceState(null, "", url);
+  else window.history.pushState(null, "", url);
 }
 
 export function useAppsOverlayFilters() {
@@ -97,13 +99,17 @@ export function useAppsOverlayFilters() {
 
   const updateFilters = useCallback(
     (next: Partial<InkAppFilters>) => {
-      setFilters((prev) => {
-        const merged = { ...prev, ...next };
-        writeFilterUrl(merged, searchParams);
-        return merged;
+      // State updaters must stay pure, so write the URL out here. Search is
+      // written with replaceState so typing does not flood the history stack
+      // with one entry per keystroke.
+      const merged = { ...filters, ...next };
+      const keys = Object.keys(next);
+      writeFilterUrl(merged, searchParams, {
+        replace: keys.length === 1 && keys[0] === "search",
       });
+      setFilters(merged);
     },
-    [searchParams]
+    [filters, searchParams]
   );
 
   const resetFilters = useCallback(() => {
