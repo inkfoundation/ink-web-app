@@ -179,6 +179,7 @@ html[data-home-board] .step,
 html[data-home-board] .app,
 html[data-home-board] .dev-link,
 html[data-home-board] .dev-focus,
+html[data-home-board] .dev-start,
 html[data-home-board] .dev-stat,
 html[data-home-board] .code,
 html[data-home-board] .apps-filter__panel {
@@ -201,6 +202,7 @@ html[data-home-board] .step,
 html[data-home-board] .app,
 html[data-home-board] .dev-link,
 html[data-home-board] .dev-focus,
+html[data-home-board] .dev-start,
 html[data-home-board] .dev-stat,
 html[data-home-board] .code,
 html[data-home-board] .apps-filter__search,
@@ -1462,6 +1464,8 @@ html[data-home-board] .devs__lede {
 html[data-home-board] .col--devs .col__top,
 html[data-home-board] .devs__block,
 html[data-home-board] .devs__focus,
+html[data-home-board] .devs__media,
+html[data-home-board] .devs__start,
 html[data-home-board] .dev-links,
 html[data-home-board] .devs__grants,
 html[data-home-board] .col--devs .col__bottom {
@@ -1482,6 +1486,93 @@ html[data-home-board] .devs__focus {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+html[data-home-board] .devs__block--hero {
+  gap: 32px;
+}
+
+html[data-home-board] .devs__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+html[data-home-board] .devs__block--hero .cta-row {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+
+html[data-home-board] .devs__media {
+  overflow: hidden;
+  background: var(--surface-page);
+  aspect-ratio: 4 / 3;
+}
+
+html[data-home-board] .devs__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+html[data-home-board]:is([data-theme="dark"], .dark, .ink\:dark-theme)
+  .devs__media
+  img {
+  filter: invert(1);
+}
+
+html[data-home-board] .devs__start {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+html[data-home-board] .dev-start-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+html[data-home-board] .dev-start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 100%;
+  padding: 20px;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-page);
+}
+
+html[data-home-board] .dev-start__n {
+  margin-bottom: 12px;
+  font-family: var(--board-font);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+
+html[data-home-board] .dev-start__name {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+html[data-home-board] .dev-start__desc {
+  flex: 1 1 auto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+html[data-home-board] .dev-start .pill {
+  margin-top: 4px;
 }
 
 html[data-home-board] .col--devs .headline--sm {
@@ -1567,6 +1658,7 @@ html[data-home-board] .dev-stat__value {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
+  color: var(--accent);
   font-feature-settings:
     "lnum" 1,
     "tnum" 1;
@@ -3030,7 +3122,8 @@ html[data-home-board] .app--hero .app__media::after {
   }
 
   html[data-home-board] .dev-links,
-  html[data-home-board] .dev-focus-list {
+  html[data-home-board] .dev-focus-list,
+  html[data-home-board] .dev-start-list {
     grid-template-columns: 1fr;
   }
 

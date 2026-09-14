@@ -12,6 +12,80 @@ export type BuilderResource =
       external?: false;
     };
 
+export type BuilderHeroCta =
+  | {
+      key: "docs";
+      href: typeof EXTERNAL_LINKS.documentation;
+      external: true;
+      tone: "purple";
+    }
+  | {
+      key: "testnet";
+      href: "/faucet";
+      external?: false;
+      tone: "gray";
+    }
+  | {
+      key: "explorer";
+      href:
+        | typeof EXTERNAL_LINKS.mainnetExplorerBlockscout
+        | typeof EXTERNAL_LINKS.testnetExplorerBlockscout;
+      external: true;
+      tone: "gray";
+    }
+  | {
+      key: "github";
+      href: typeof EXTERNAL_LINKS.github;
+      external: true;
+      tone: "gray";
+    };
+
+export function builderHeroCtas(isMainnet: boolean): BuilderHeroCta[] {
+  return [
+    {
+      key: "docs",
+      href: EXTERNAL_LINKS.documentation,
+      external: true,
+      tone: "purple",
+    },
+    { key: "testnet", href: "/faucet", tone: "gray" },
+    {
+      key: "explorer",
+      href: isMainnet
+        ? EXTERNAL_LINKS.mainnetExplorerBlockscout
+        : EXTERNAL_LINKS.testnetExplorerBlockscout,
+      external: true,
+      tone: "gray",
+    },
+    {
+      key: "github",
+      href: EXTERNAL_LINKS.github,
+      external: true,
+      tone: "gray",
+    },
+  ];
+}
+
+export const builderStartSteps = [
+  {
+    key: "faucet",
+    href: "/faucet",
+    external: false,
+  },
+  {
+    key: "docs",
+    href: EXTERNAL_LINKS.documentation,
+    external: true,
+  },
+  {
+    key: "deploy",
+    href: EXTERNAL_LINKS.documentationGettingStarted,
+    external: true,
+  },
+] as const;
+
+export type BuilderStartStepKey = (typeof builderStartSteps)[number]["key"];
+
 export function builderResources(isMainnet: boolean): BuilderResource[] {
   const links: BuilderResource[] = [
     { name: "Ink Kit", href: EXTERNAL_LINKS.inkKit, external: true },
@@ -34,17 +108,6 @@ export function builderResources(isMainnet: boolean): BuilderResource[] {
 
   return links;
 }
-
-export const builderFocusKeys = [
-  "defi",
-  "trading",
-  "prediction",
-  "rwa",
-  "creator",
-  "ai",
-] as const;
-
-export type BuilderFocusKey = (typeof builderFocusKeys)[number];
 
 export const builderStats = [
   {

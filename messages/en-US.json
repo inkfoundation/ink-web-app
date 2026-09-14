@@ -62,6 +62,7 @@
     "aboutLabel": "About",
     "aboutHeadline": "Built by the team that brought you Kraken, home to Ink's DeFi ecosystem, open for trading",
     "bridgeCta": "Bridge",
+    "buildCta": "Build on Ink",
     "docsCta": "Docs",
     "shipHeadline": "Ship end of day.",
     "copyCode": "Copy code",
@@ -74,9 +75,9 @@
     "startedLabel": "Get started",
     "startedHeadline": "60sec to make the most of INK",
     "stepBridge": "Bridge from Ethereum",
-    "stepTrade": "Trade trending tokens on Ink",
+    "stepTrade": "Trade perpetuals on Ink",
     "stepEarn": "Earn Yield and Ink Points",
-    "swapsCta": "Swaps",
+    "perpsCta": "Trade perps",
     "earnCta": "Earn Ink Points",
     "appsLabel": "Apps",
     "appsHeadline": "Killer apps",
@@ -148,6 +149,31 @@
     "why": {
       "title": "Build on Ink"
     },
+    "cta": {
+      "docs": "Docs",
+      "testnet": "Testnet",
+      "explorer": "Explorer",
+      "github": "GitHub"
+    },
+    "start": {
+      "title": "Start building",
+      "description": "Ink is live on testnet. Get ETH from the faucet, follow the docs, and deploy with the same tooling you already use on Ethereum.",
+      "faucet": {
+        "title": "Get testnet ETH",
+        "description": "Claim faucet funds and add Ink Sepolia to your wallet.",
+        "cta": "Open faucet"
+      },
+      "docs": {
+        "title": "Read the docs",
+        "description": "Quickstart, network details, and contract addresses.",
+        "cta": "Open docs"
+      },
+      "deploy": {
+        "title": "Deploy a contract",
+        "description": "Use Foundry, Hardhat, or Remix on Ink.",
+        "cta": "View guide"
+      }
+    },
     "expectations": {
       "title": "Our chain"
     },
@@ -159,7 +185,7 @@
       "blocks": "Block times"
     },
     "tools": {
-      "title": "Our toolkit"
+      "title": "Toolkit"
     },
     "focus": {
       "title": "Our Focus",

@@ -12,6 +12,7 @@ export const defaultLocale = "en-US" as const;
  */
 export const EXTERNAL_LINKS = {
   documentation: "https://docs.inkonchain.com/",
+  documentationGettingStarted: "https://docs.inkonchain.com/build/getting-started",
   brandKit: "https://docs.inkonchain.com/work-with-ink/brand-kit",
   inkubator: "https://inkubator.inkonchain.com/",
   status: "https://status.inkonchain.com/",

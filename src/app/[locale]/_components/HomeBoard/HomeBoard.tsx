@@ -31,8 +31,9 @@ import tydroArt from "../Home/assets/tydro-banner-trans.png";
 import { AppsEmptyState, AppsOverlayFilters } from "./AppsOverlayFilters";
 import {
   builderExpectations,
-  builderFocusKeys,
+  builderHeroCtas,
   builderResources,
+  builderStartSteps,
   builderStats,
 } from "./builder-resources";
 import { CodeStory } from "./CodeStory";
@@ -328,6 +329,7 @@ export function HomeBoard() {
   if (isOverlay) overlayModeRef.current = overlayModeFromPath(pathname);
   const overlayMode = overlayModeRef.current;
   const resources = useMemo(() => builderResources(isMainnet), [isMainnet]);
+  const heroCtas = useMemo(() => builderHeroCtas(isMainnet), [isMainnet]);
 
   const queryParams = useMemo(
     () => Object.fromEntries(new URLSearchParams(query)),
@@ -575,11 +577,9 @@ export function HomeBoard() {
                   </Link>
                   <Link
                     className="pill pill--gray"
-                    href={EXTERNAL_LINKS.documentation}
-                    target="_blank"
-                    rel="noreferrer"
+                    href={{ pathname: "/builders", query }}
                   >
-                    {t("docsCta")}
+                    {t("buildCta")}
                   </Link>
                 </div>
               </div>
@@ -635,7 +635,7 @@ export function HomeBoard() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {t("swapsCta")}
+                  {t("perpsCta")}
                 </Link>
               </div>
             </article>
@@ -812,11 +812,89 @@ export function HomeBoard() {
                       />
                     </div>
                   </div>
-                  <div className="devs__block">
-                    <p className="headline headline--sm">
-                      {tBuilders("why.title")}
-                    </p>
-                    <p className="devs__lede">{tAbout("description")}</p>
+                  <div className="devs__block devs__block--hero">
+                    <div className="devs__intro">
+                      <p className="headline headline--sm">
+                        {tBuilders("why.title")}
+                      </p>
+                      <p className="devs__lede">{tAbout("description")}</p>
+                    </div>
+                    <div className="cta-row">
+                      {heroCtas.map((cta) => {
+                        const className = `pill pill--${cta.tone}`;
+                        const label = tBuilders(`cta.${cta.key}`);
+                        if (cta.external) {
+                          return (
+                            <Link
+                              className={className}
+                              href={cta.href}
+                              key={cta.key}
+                              target="_blank"
+                              rel="noreferrer"
+                              aria-label={`${label}. ${t("opensInNewTab")}`}
+                            >
+                              {label}
+                            </Link>
+                          );
+                        }
+                        return (
+                          <Link
+                            className={className}
+                            href={cta.href}
+                            key={cta.key}
+                          >
+                            {label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="devs__media">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/ink-cube.webp" alt="" />
+                  </div>
+                  <div className="devs__start">
+                    <div className="devs__intro">
+                      <p className="headline headline--sm">
+                        {tBuilders("start.title")}
+                      </p>
+                      <p className="devs__lede">
+                        {tBuilders("start.description")}
+                      </p>
+                    </div>
+                    <div className="dev-start-list">
+                      {builderStartSteps.map((step, index) => {
+                        const title = tBuilders(`start.${step.key}.title`);
+                        const description = tBuilders(
+                          `start.${step.key}.description`
+                        );
+                        const label = tBuilders(`start.${step.key}.cta`);
+                        const cta = step.external ? (
+                          <Link
+                            className="pill pill--purple"
+                            href={step.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${label}. ${t("opensInNewTab")}`}
+                          >
+                            {label}
+                          </Link>
+                        ) : (
+                          <Link className="pill pill--purple" href={step.href}>
+                            {label}
+                          </Link>
+                        );
+
+                        return (
+                          <article className="dev-start" key={step.key}>
+                            <span className="dev-start__n">{index + 1}</span>
+                            <p className="dev-start__name">{title}</p>
+                            <p className="dev-start__desc">{description}</p>
+                            {cta}
+                          </article>
+                        );
+                      })}
+                    </div>
                   </div>
                   <div className="devs__focus">
                     <p className="headline headline--sm">
@@ -870,26 +948,6 @@ export function HomeBoard() {
                           </div>
                         );
                       })}
-                    </div>
-                  </div>
-                  <div className="devs__focus">
-                    <p className="headline headline--sm">
-                      {tBuilders("focus.title")}
-                    </p>
-                    <p className="devs__lede">
-                      {tBuilders("focus.description")}
-                    </p>
-                    <div className="dev-focus-list">
-                      {builderFocusKeys.map((key) => (
-                        <article className="dev-focus" key={key}>
-                          <p className="dev-focus__name">
-                            {tBuilders(`focus.${key}.title`)}
-                          </p>
-                          <p className="dev-focus__desc">
-                            {tBuilders(`focus.${key}.description`)}
-                          </p>
-                        </article>
-                      ))}
                     </div>
                   </div>
                   <div className="devs__block">
@@ -997,7 +1055,6 @@ export function HomeBoard() {
                       </div>
                     </div>
                   </OnlyWithFeatureFlag>
-                  <CodeStory snippetId="builders-deploy-snippet" />
                 </div>
               </section>
 
