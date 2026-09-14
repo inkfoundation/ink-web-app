@@ -2752,6 +2752,7 @@ html[data-home-board]:is(
 }
 
 html[data-home-board] .app {
+  position: relative;
   display: flex;
   flex: none;
   flex-direction: column;
@@ -2771,12 +2772,25 @@ html[data-home-board] .app {
     transform 140ms var(--ease-out);
 }
 
-html[data-home-board] .app:focus-visible {
+html[data-home-board] .app__hit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+html[data-home-board] .app__icon,
+html[data-home-board] .app__meta,
+html[data-home-board] .app__pills {
+  pointer-events: none;
+}
+
+html[data-home-board] .app:focus-visible,
+html[data-home-board] .app:has(.app__hit:focus-visible) {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-html[data-home-board] .app:active {
+html[data-home-board] .app:active:not(:has(.app__social:active)) {
   transform: scale(0.97);
 }
 
@@ -2802,13 +2816,17 @@ html[data-home-board] .app__icon img {
 
 html[data-home-board] .app__meta {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-end;
   width: 100%;
+  min-height: 0;
 }
 
 html[data-home-board] .app__copy {
   width: 100%;
+  min-height: 0;
 }
 
 html[data-home-board] .app__name {
@@ -2819,12 +2837,13 @@ html[data-home-board] .app__name {
   line-height: 20px;
   text-wrap: balance;
   text-box-trim: trim-both;
-  text-box-edge: cap alphabetic;
+  text-box-edge: cap text;
 }
 
 html[data-home-board] .app__desc {
   display: grid;
   grid-template-rows: 0fr;
+  min-height: 0;
   transition: grid-template-rows 180ms var(--ease-out);
 }
 
@@ -2848,23 +2867,92 @@ html[data-home-board] .app__desc-text {
     transform 200ms var(--ease-out);
 }
 
+html[data-home-board] .col--apps .app__desc-text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+html[data-home-board] .col--apps .app {
+  padding-bottom: 16px;
+}
+
+html[data-home-board] .col--apps .app__desc-clip {
+  max-height: 48px;
+}
+
 html[data-home-board] .app__tags {
+  position: relative;
+  z-index: 2;
   display: grid;
+  flex-shrink: 0;
   grid-template-rows: 1fr;
   width: 100%;
   transition: grid-template-rows 180ms var(--ease-out);
 }
 
 html[data-home-board] .app__tags-clip {
+  position: relative;
   min-height: 0;
   overflow: hidden;
 }
 
+html[data-home-board] .app__tags--socials .tags {
+  min-height: 32px;
+}
+
 html[data-home-board] .app .tags {
   padding-top: 16px;
+  transition: opacity 160ms var(--ease-out);
+}
+
+html[data-home-board] .app__socials {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms var(--ease-out);
+}
+
+html[data-home-board] .app__social {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 32px;
+  color: var(--text-primary);
+  pointer-events: none;
   transition:
-    opacity 160ms ease,
-    transform 160ms var(--ease-out);
+    transform 140ms var(--ease-out),
+    opacity 160ms ease;
+}
+
+html[data-home-board] .app__social svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+html[data-home-board] .app--hero .app__social {
+  color: #f8f6f1;
+}
+
+html[data-home-board] .app__social:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+html[data-home-board] .app__social:active {
+  transform: scale(0.97);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -2887,33 +2975,77 @@ html[data-home-board] .app .tags {
     transition-delay: 40ms;
   }
 
-  html[data-home-board] .app:hover .app__tags {
+  html[data-home-board]
+    .app:hover
+    .app__tags:not(.app__tags--socials, .app__tags--keep) {
     grid-template-rows: 0fr;
   }
 
-  html[data-home-board] .app:hover .tags {
+  html[data-home-board] .app:hover .app__tags:not(.app__tags--keep) .tags {
     opacity: 0;
-    transform: translateY(4px);
     pointer-events: none;
+  }
+
+  html[data-home-board] .app:hover .app__socials {
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  html[data-home-board] .app:hover .app__social {
+    pointer-events: auto;
+  }
+
+  html[data-home-board] .app__social:hover {
+    opacity: 0.7;
   }
 }
 
-html[data-home-board] .app:focus-visible .app__desc {
+html[data-home-board] .app:focus-visible .app__desc,
+html[data-home-board] .app:has(.app__hit:focus-visible) .app__desc,
+html[data-home-board] .app:has(.app__social:focus-visible) .app__desc {
   grid-template-rows: 1fr;
 }
 
-html[data-home-board] .app:focus-visible .app__desc-text {
+html[data-home-board] .app:focus-visible .app__desc-text,
+html[data-home-board] .app:has(.app__hit:focus-visible) .app__desc-text,
+html[data-home-board] .app:has(.app__social:focus-visible) .app__desc-text {
   opacity: 1;
   transform: translateY(0);
 }
 
-html[data-home-board] .app:focus-visible .app__tags {
+html[data-home-board]
+  .app:focus-visible
+  .app__tags:not(.app__tags--socials, .app__tags--keep),
+html[data-home-board]
+  .app:has(.app__hit:focus-visible)
+  .app__tags:not(.app__tags--socials, .app__tags--keep),
+html[data-home-board]
+  .app:has(.app__social:focus-visible)
+  .app__tags:not(.app__tags--socials, .app__tags--keep) {
   grid-template-rows: 0fr;
 }
 
-html[data-home-board] .app:focus-visible .tags {
+html[data-home-board] .app:focus-visible .app__tags:not(.app__tags--keep) .tags,
+html[data-home-board]
+  .app:has(.app__hit:focus-visible)
+  .app__tags:not(.app__tags--keep)
+  .tags,
+html[data-home-board]
+  .app:has(.app__social:focus-visible)
+  .app__tags:not(.app__tags--keep)
+  .tags {
   opacity: 0;
   pointer-events: none;
+}
+
+html[data-home-board] .app:has(.app__hit:focus-visible) .app__socials,
+html[data-home-board] .app:has(.app__social:focus-visible) .app__socials {
+  opacity: 1;
+}
+
+html[data-home-board] .app:has(.app__hit:focus-visible) .app__social,
+html[data-home-board] .app:has(.app__social:focus-visible) .app__social {
+  pointer-events: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2921,18 +3053,22 @@ html[data-home-board] .app:focus-visible .tags {
   html[data-home-board] .app__desc,
   html[data-home-board] .app__desc-text,
   html[data-home-board] .app__tags,
-  html[data-home-board] .app .tags {
+  html[data-home-board] .app .tags,
+  html[data-home-board] .app__socials,
+  html[data-home-board] .app__social {
     transition:
       opacity 120ms ease,
       border-color 120ms ease;
   }
 
-  html[data-home-board] .app:active {
+  html[data-home-board] .app:active,
+  html[data-home-board] .app__social:active {
     transform: none;
   }
 
   html[data-home-board] .app__desc-text,
-  html[data-home-board] .app .tags {
+  html[data-home-board] .app .tags,
+  html[data-home-board] .app__socials {
     transform: none;
   }
 }
@@ -3008,7 +3144,8 @@ html[data-home-board] .app--hero {
 
 html[data-home-board] .app.app--hero,
 html[data-home-board] .app.app--hero:hover,
-html[data-home-board] .app.app--hero:focus-visible {
+html[data-home-board] .app.app--hero:focus-visible,
+html[data-home-board] .app.app--hero:has(.app__hit:focus-visible) {
   border: none;
   outline: none;
 }
@@ -3446,6 +3583,6 @@ html[data-home-board] .home-board a:not(.pill--purple) {
   color: inherit;
 }
 
-html[data-home-board] .home-board a.app--hero {
+html[data-home-board] .home-board .app--hero {
   color: #f8f6f1;
 }

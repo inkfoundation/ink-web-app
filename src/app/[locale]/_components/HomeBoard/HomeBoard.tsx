@@ -7,6 +7,7 @@ import {
   useMemo,
   useRef,
 } from "react";
+import { InkIcon } from "@inkonchain/ink-kit";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 
@@ -67,6 +68,18 @@ function isAirdropPill(pill: string) {
   return pill.toLowerCase().replace(/\s+/g, "-") === "airdrop";
 }
 
+const APP_SOCIALS = [
+  { key: "x", label: "X", Icon: InkIcon.Social.X },
+  { key: "discord", label: "Discord", Icon: InkIcon.Social.Discord },
+  { key: "telegram", label: "Telegram", Icon: InkIcon.Social.Telegram },
+  { key: "farcaster", label: "Farcaster", Icon: InkIcon.Social.Farcaster },
+  { key: "github", label: "GitHub", Icon: InkIcon.Social.Github },
+] as const;
+
+function getAppSocials(links: InkApp["links"]) {
+  return APP_SOCIALS.filter(({ key }) => Boolean(links[key]));
+}
+
 function InkMark() {
   return (
     <svg
@@ -101,7 +114,9 @@ const BoardAppCard = memo(function BoardAppCard({
 }) {
   const t = useTranslations("Home");
   const href = mainUrl(app, network) || "/apps";
+  const descId = `app-desc-${app.id}`;
   const tags = app.tags.slice(0, 2);
+  const socials = getAppSocials(app.links);
   const pills = [
     ...(featured
       ? [{ key: "featured", label: t("appsFeatured"), tone: "featured" }]
@@ -117,12 +132,15 @@ const BoardAppCard = memo(function BoardAppCard({
   ];
 
   return (
-    <a
-      className={`app${hero ? " app--hero" : ""}`}
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-    >
+    <article className={`app${hero ? " app--hero" : ""}`}>
+      <a
+        className="app__hit"
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${app.name}. ${t("opensInNewTab")}`}
+        aria-describedby={descId}
+      />
       {hero ? (
         <div className="app__media" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -164,11 +182,15 @@ const BoardAppCard = memo(function BoardAppCard({
           <p className="app__name">{app.name}</p>
           <div className="app__desc">
             <div className="app__desc-clip">
-              <p className="app__desc-text">{app.description}</p>
+              <p className="app__desc-text" id={descId}>
+                {app.description}
+              </p>
             </div>
           </div>
         </div>
-        <div className="app__tags">
+        <div
+          className={`app__tags${socials.length > 0 ? " app__tags--socials" : ""}`}
+        >
           <div className="app__tags-clip">
             <div className="tags">
               {tags.map((tag) => (
@@ -177,10 +199,26 @@ const BoardAppCard = memo(function BoardAppCard({
                 </span>
               ))}
             </div>
+            {socials.length > 0 ? (
+              <div className="app__socials" aria-label="Social links">
+                {socials.map(({ key, label, Icon }) => (
+                  <a
+                    className="app__social"
+                    href={app.links[key]}
+                    key={key}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${label}. ${t("opensInNewTab")}`}
+                  >
+                    <Icon />
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
-    </a>
+    </article>
   );
 });
 
@@ -777,7 +815,7 @@ export function HomeBoard() {
                               </div>
                             </div>
                           </div>
-                          <div className="app__tags">
+                          <div className="app__tags app__tags--keep">
                             <div className="app__tags-clip">
                               <div className="tags">
                                 {bridge.assetIcons.map((icon) => (
