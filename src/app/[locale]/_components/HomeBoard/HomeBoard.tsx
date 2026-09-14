@@ -163,12 +163,20 @@ const BoardAppCard = memo(function BoardAppCard({
       {pills.length > 0 ? (
         <div className="app__pills">
           {pills.map((pill) => (
-            <span className={`tag tag--${pill.tone}`} key={pill.key}>
-              {pill.tone === "airdrop" ? <InkMark /> : null}
-              {pill.tone === "featured" ? (
-                <span className="tag__label">{pill.label}</span>
+            <span
+              className={`tag tag--${pill.tone}`}
+              key={pill.key}
+              aria-label={pill.tone === "airdrop" ? pill.label : undefined}
+            >
+              {pill.tone === "airdrop" ? (
+                <>
+                  <InkMark />
+                  <span className="tag__label tag__label--airdrop">
+                    {pill.label}
+                  </span>
+                </>
               ) : (
-                pill.label
+                <span className="tag__label">{pill.label}</span>
               )}
             </span>
           ))}

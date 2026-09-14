@@ -3299,6 +3299,25 @@ html[data-home-board] .app__pills .tag--airdrop svg {
   flex-shrink: 0;
 }
 
+@media (max-width: 640px) {
+  html[data-home-board] .col--apps-overlay .app__pills > .tag--featured {
+    display: none;
+  }
+
+  html[data-home-board] .col--apps-overlay .app__pills > .tag--airdrop {
+    gap: 3px;
+    height: 26px;
+    padding: 7px 8px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  html[data-home-board] .col--apps-overlay .app__pills > .tag--airdrop svg {
+    width: 11px;
+    height: 11px;
+  }
+}
+
 html[data-home-board] .app--hero {
   aspect-ratio: auto;
   overflow: hidden;
@@ -3680,6 +3699,14 @@ html[data-home-board] .app--hero .app__media::after {
     overflow: visible;
     overscroll-behavior: auto;
   }
+
+  html[data-home-board] .devs__inner > .devs__block:not(.devs__block--hero) {
+    order: 98;
+  }
+
+  html[data-home-board] .devs__inner > .devs__block--hero {
+    order: 99;
+  }
 }
 
 @media (max-width: 1100px) and (min-width: 961px) {
@@ -3779,7 +3806,9 @@ html[data-home-board] .home-board a {
   text-decoration: none;
 }
 
-html[data-home-board] .home-board a:not(.pill--purple):not(.board-footer__icon) {
+html[data-home-board]
+  .home-board
+  a:not(.pill--purple):not(.board-footer__icon) {
   color: inherit;
 }
 
