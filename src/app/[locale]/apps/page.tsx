@@ -4,6 +4,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageView } from "@/components/PageView";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://inkonchain.com/apps",
+  },
   title: "Ink Apps - Discover DeFi Applications on the Superchain",
   description:
     "Explore a curated collection of DeFi applications built on Ink, Kraken's Layer 2 blockchain. Find innovative financial tools, protocols, and services powered by the Superchain.",

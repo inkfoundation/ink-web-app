@@ -9,7 +9,7 @@ export function CodeStory({ snippetId }: { snippetId: string }) {
 
   return (
     <div className="about-ship">
-      <p className="headline headline--sm">{t("shipHeadline")}</p>
+      <h2 className="headline headline--sm">{t("shipHeadline")}</h2>
       <div className="code" data-code-story data-scene="build">
         <div className="code__bar">
           <div

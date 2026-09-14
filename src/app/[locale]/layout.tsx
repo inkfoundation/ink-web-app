@@ -1,4 +1,3 @@
-"use server";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { cookies, headers } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";

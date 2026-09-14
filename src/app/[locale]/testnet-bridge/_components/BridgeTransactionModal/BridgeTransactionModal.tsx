@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Button, Modal, useModalContext } from "@inkonchain/ink-kit";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 
 import { ColoredText } from "@/components/ColoredText";
@@ -10,6 +10,10 @@ import { BlockExplorerButton } from "../BlockExplorerButton";
 
 import { useBridgeTransactionModal } from "./BridgeTransactionModalContext";
 import animation from "./BroadcastSent-checkMark.json";
+
+// lottie-web touches `document` at import time, which crashes server
+// rendering (and Node 22+ where `navigator` exists), so load it client-only.
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export const BRIDGE_TRANSACTION_MODAL_KEY = "bridge-transaction-modal";
 

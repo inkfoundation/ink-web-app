@@ -6,6 +6,7 @@ import {
   useLayoutEffect,
   useMemo,
   useRef,
+  useState,
 } from "react";
 import { InkIcon } from "@inkonchain/ink-kit";
 import { useTranslations } from "next-intl";
@@ -107,11 +108,13 @@ const BoardAppCard = memo(function BoardAppCard({
   network = "Mainnet",
   featured = false,
   hero = false,
+  showVideo = false,
 }: {
   app: InkApp;
   network?: InkAppNetwork;
   featured?: boolean;
   hero?: boolean;
+  showVideo?: boolean;
 }) {
   const t = useTranslations("Home");
   const href = mainUrl(app, network) || "/apps";
@@ -145,19 +148,24 @@ const BoardAppCard = memo(function BoardAppCard({
       {hero ? (
         <div className="app__media" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={tydroArtSrc} alt="" />
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            controls={false}
-            disablePictureInPicture
-            preload="metadata"
-            poster={tydroArtSrc}
-          >
-            <source src="/tydro-animation.mp4" type="video/mp4" />
-          </video>
+          <img src={tydroArtSrc} alt="" loading="lazy" decoding="async" />
+          {/* Mount the 3MB video only while the overlay is open and motion is
+              allowed; an always-mounted autoplay video downloads in full even
+              when the layer is hidden or reduced motion shows the still. */}
+          {showVideo ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls={false}
+              disablePictureInPicture
+              preload="metadata"
+              poster={tydroArtSrc}
+            >
+              <source src="/tydro-animation.mp4" type="video/mp4" />
+            </video>
+          ) : null}
         </div>
       ) : null}
       {pills.length > 0 ? (
@@ -184,7 +192,14 @@ const BoardAppCard = memo(function BoardAppCard({
       ) : null}
       <div className="app__icon">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={app.imageUrl} alt="" width={56} height={56} />
+        <img
+          src={app.imageUrl}
+          alt=""
+          width={56}
+          height={56}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div className="app__meta">
         <div className="app__copy">
@@ -365,6 +380,15 @@ export function HomeBoard() {
   const isBridge = pathname === "/bridge";
   const isBuilders = pathname === "/builders";
   const isOverlay = isApps || isBridge || isBuilders;
+  const [heroVideoActive, setHeroVideoActive] = useState(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setHeroVideoActive(isApps && !reduceMotion.matches);
+    update();
+    reduceMotion.addEventListener("change", update);
+    return () => reduceMotion.removeEventListener("change", update);
+  }, [isApps]);
 
   useEffect(() => {
     router.prefetch("/");
@@ -609,12 +633,12 @@ export function HomeBoard() {
         : {})}
     >
       <div className="page">
-        <div className="board">
+        <main className="board">
           <section className="col col--about" data-name="about">
             <div className="col__top">
               <span className="pill pill--glass">{t("aboutLabel")}</span>
               <div className="col__copy">
-                <p className="headline">{t("aboutHeadline")}</p>
+                <h1 className="headline">{t("aboutHeadline")}</h1>
                 <div className="cta-row">
                   <Link
                     className="pill pill--purple"
@@ -659,9 +683,9 @@ export function HomeBoard() {
           <section className="col col--started" data-name="started">
             <div className="col__top">
               <span className="pill pill--glass">{t("startedLabel")}</span>
-              <p className="headline headline--sm headline--narrow">
+              <h2 className="headline headline--sm headline--narrow">
                 {t("startedHeadline")}
-              </p>
+              </h2>
             </div>
             <article className="step">
               <span className="step__n">1</span>
@@ -719,22 +743,21 @@ export function HomeBoard() {
                     {t("appsLabel")}
                   </button>
                 </div>
-                <p className="headline headline--sm headline--narrow">
+                <h2 className="headline headline--sm headline--narrow">
                   {t("appsHeadline")}
-                </p>
+                </h2>
               </div>
               <div className="app-list">
                 {apps.map((app) => (
                   <BoardAppCard app={app} key={app.id} />
                 ))}
               </div>
-              <button
+              <Link
                 className="pill pill--gray apps__view-all"
-                type="button"
-                onClick={goApps}
+                href={{ pathname: "/apps", query }}
               >
                 {t("appsCta")}
-              </button>
+              </Link>
             </div>
           </section>
 
@@ -755,9 +778,9 @@ export function HomeBoard() {
                       <span className="pill pill--glass">{t("appsLabel")}</span>
                       <OverlayClose label={t("closeApps")} onClick={goHome} />
                     </div>
-                    <p className="headline headline--sm headline--narrow">
+                    <h2 className="headline headline--sm headline--narrow">
                       {t("appsHeadline")}
-                    </p>
+                    </h2>
                     <AppsOverlayFilters
                       enabled={isApps}
                       filters={filters}
@@ -780,6 +803,7 @@ export function HomeBoard() {
                           hero={app.id === TYDRO_APP_ID}
                           key={app.id}
                           network={filters.network || "Mainnet"}
+                          showVideo={app.id === TYDRO_APP_ID && heroVideoActive}
                         />
                       ))
                     )}
@@ -800,9 +824,9 @@ export function HomeBoard() {
                       </span>
                       <OverlayClose label={t("closeBridge")} onClick={goHome} />
                     </div>
-                    <p className="headline headline--sm headline--narrow">
+                    <h2 className="headline headline--sm headline--narrow">
                       {t("bridgesHeadline")}
-                    </p>
+                    </h2>
                   </div>
                   <div className="app-list">
                     {moreBridges.map((bridge) => (
@@ -815,7 +839,12 @@ export function HomeBoard() {
                       >
                         <div className="app__icon">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={bridge.icon} alt="" />
+                          <img
+                            src={bridge.icon}
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                          />
                         </div>
                         <div className="app__meta">
                           <div className="app__copy">
@@ -837,6 +866,8 @@ export function HomeBoard() {
                                     <img
                                       src={`/icons/tokens/${icon}.svg`}
                                       alt=""
+                                      loading="lazy"
+                                      decoding="async"
                                     />
                                   </span>
                                 ))}
@@ -867,9 +898,9 @@ export function HomeBoard() {
                   </div>
                   <div className="devs__block devs__block--hero">
                     <div className="devs__intro">
-                      <p className="headline headline--sm">
+                      <h2 className="headline headline--sm">
                         {tBuilders("why.title")}
-                      </p>
+                      </h2>
                       <p className="devs__lede">{tAbout("description")}</p>
                     </div>
                     <div className="cta-row">
@@ -904,13 +935,18 @@ export function HomeBoard() {
                   </div>
                   <div className="devs__media">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/ink-cube.webp" alt="" />
+                    <img
+                      src="/ink-cube.webp"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <div className="devs__start">
                     <div className="devs__intro">
-                      <p className="headline headline--sm">
+                      <h2 className="headline headline--sm">
                         {tBuilders("start.title")}
-                      </p>
+                      </h2>
                       <p className="devs__lede">
                         {tBuilders("start.description")}
                       </p>
@@ -950,9 +986,9 @@ export function HomeBoard() {
                     </div>
                   </div>
                   <div className="devs__focus">
-                    <p className="headline headline--sm">
+                    <h2 className="headline headline--sm">
                       {tBuilders("expectations.title")}
-                    </p>
+                    </h2>
                     <div className="dev-focus-list">
                       {builderExpectations.map((item) => (
                         <article
@@ -967,9 +1003,9 @@ export function HomeBoard() {
                     </div>
                   </div>
                   <div className="devs__focus">
-                    <p className="headline headline--sm">
+                    <h2 className="headline headline--sm">
                       {tBuilders("stats.title")}
-                    </p>
+                    </h2>
                     <div className="dev-stat-list">
                       {builderStats.map((stat) => {
                         const label = tBuilders(`stats.${stat.key}`);
@@ -1004,9 +1040,9 @@ export function HomeBoard() {
                     </div>
                   </div>
                   <div className="devs__block">
-                    <p className="headline headline--sm">
+                    <h2 className="headline headline--sm">
                       {tBuilders("tools.title")}
-                    </p>
+                    </h2>
                     <div className="dev-links">
                       {resources.map((resource) => {
                         const className = "dev-link";
@@ -1047,9 +1083,9 @@ export function HomeBoard() {
                   </div>
                   <OnlyWithFeatureFlag flag="grantsSection">
                     <div className="devs__grants">
-                      <p className="devs__grants-title">
+                      <h2 className="devs__grants-title">
                         {tBuilders("grants.title")}
-                      </p>
+                      </h2>
                       <p className="devs__lede">
                         {tBuilders("grants.description")}
                       </p>
@@ -1062,7 +1098,12 @@ export function HomeBoard() {
                         >
                           <div className="app__icon">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="/builders/grant.png" alt="" />
+                            <img
+                              src="/builders/grant.png"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                            />
                           </div>
                           <div className="app__meta">
                             <div className="app__copy">
@@ -1087,7 +1128,12 @@ export function HomeBoard() {
                         >
                           <div className="app__icon">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src="/builders/retro-grant.png" alt="" />
+                            <img
+                              src="/builders/retro-grant.png"
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                            />
                           </div>
                           <div className="app__meta">
                             <div className="app__copy">
@@ -1147,9 +1193,9 @@ export function HomeBoard() {
                       onClick={goHome}
                     />
                   </div>
-                  <p className="headline headline--sm headline--narrow">
+                  <h2 className="headline headline--sm headline--narrow">
                     {tBuilders("started.headline")}
-                  </p>
+                  </h2>
                 </div>
                 <article className="step">
                   <span className="step__n">1</span>
@@ -1197,7 +1243,7 @@ export function HomeBoard() {
               </section>
             </div>
           </div>
-        </div>
+        </main>
 
         <BoardFooter />
 

@@ -139,7 +139,13 @@ function compile(gl, type, source) {
   return shader;
 }
 
-class InteractiveInk extends HTMLElement {
+// HTMLElement does not exist in Node. Extending a dummy base keeps this
+// module importable during server rendering, where the element is never
+// instantiated; the browser build still extends the real HTMLElement.
+const HTMLElementBase =
+  typeof HTMLElement !== "undefined" ? HTMLElement : class {};
+
+class InteractiveInk extends HTMLElementBase {
   static observedAttributes = [
     "value",
     "speed",
@@ -472,7 +478,10 @@ class InteractiveInk extends HTMLElement {
   }
 }
 
-if (!customElements.get("interactive-ink"))
+if (
+  typeof customElements !== "undefined" &&
+  !customElements.get("interactive-ink")
+)
   customElements.define("interactive-ink", InteractiveInk);
 export { InteractiveInk };
 

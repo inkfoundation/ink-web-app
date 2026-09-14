@@ -5,6 +5,9 @@ import { PageView } from "@/components/PageView";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://inkonchain.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Ink - DeFi unleashed by Kraken, built on the Superchain",
   description:
     "Ink is a cutting-edge Layer 2 (L2) blockchain built on Optimism's Superchain and released by Kraken. As a natural evolution of our mission, Ink will serve as a seamless bridge to DeFi, empowering users to move onchain with confidence and ease. Join the community today.",

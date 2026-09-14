@@ -120,10 +120,11 @@ export const CaptchaProvider: React.FC<PropsWithChildren> = ({ children }) => {
       {children}
       {!isCaptchaDisabled && (
         <>
+          {/* lazyOnload keeps ~300KB of hCaptcha script + iframe off the
+              critical path; it is only needed once a user submits a form. */}
           <Script
             src="https://js.hcaptcha.com/1/api.js?render=explicit"
-            async
-            defer
+            strategy="lazyOnload"
             onLoad={init}
           />
           <div

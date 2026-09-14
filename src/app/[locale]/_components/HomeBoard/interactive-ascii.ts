@@ -39,7 +39,14 @@ const colorWithAlpha = (color: string, alpha: number) => {
   return `color-mix(in srgb, ${color} ${alpha * 100}%, transparent)`;
 };
 
-class InteractiveAscii extends HTMLElement {
+// HTMLElement does not exist in Node. Extending a dummy base keeps this
+// module importable during server rendering, where the element is never
+// instantiated; the browser build still extends the real HTMLElement.
+const HTMLElementBase = (
+  typeof HTMLElement !== "undefined" ? HTMLElement : class {}
+) as typeof HTMLElement;
+
+class InteractiveAscii extends HTMLElementBase {
   static observedAttributes = ["value", "speed", "interaction", "phase"];
 
   private canvas: HTMLCanvasElement;
@@ -433,7 +440,10 @@ class InteractiveAscii extends HTMLElement {
   }
 }
 
-if (!customElements.get("interactive-ascii")) {
+if (
+  typeof customElements !== "undefined" &&
+  !customElements.get("interactive-ascii")
+) {
   customElements.define("interactive-ascii", InteractiveAscii);
 }
 

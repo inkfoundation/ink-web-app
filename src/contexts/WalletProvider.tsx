@@ -1,15 +1,9 @@
 "use client";
 
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { createContext, ReactNode, useContext, useMemo } from "react";
 import { ToastContainer } from "react-toastify";
 import {
+  cssStringFromTheme,
   darkTheme,
   getDefaultConfig,
   lightTheme,
@@ -21,8 +15,6 @@ import {
   rainbowWallet,
   walletConnectWallet,
 } from "@rainbow-me/rainbowkit/wallets";
-import { useRelayChains } from "@reservoir0x/relay-kit-hooks";
-import { MAINNET_RELAY_API } from "@reservoir0x/relay-sdk";
 import { useTheme } from "next-themes";
 import { Chain } from "viem";
 import {
@@ -34,7 +26,7 @@ import {
   useSwitchChain,
   WagmiProvider,
 } from "wagmi";
-import { mainnet } from "wagmi/chains";
+import { ink, inkSepolia, mainnet, sepolia } from "wagmi/chains";
 
 import { clientEnv } from "@/env-client";
 import { useCurrentInkAppName } from "@/hooks/useCurrentInkAppName";
@@ -90,6 +82,46 @@ function buildTransports(chains: readonly Chain[]) {
   );
 }
 
+/**
+ * Every chain the app touches on-chain: Ethereum mainnet (ENS + bridging
+ * entry), Ink, and the two testnets used by the faucet and testnet bridge.
+ *
+ * This used to be fetched from the Relay API at runtime, which blocked the
+ * first render of the entire app (and all server rendering) on a third-party
+ * network call. The Relay swap widget that needed the full chain list has
+ * been removed; if it returns, extend this list or reintroduce the dynamic
+ * config alongside it rather than gating the whole tree.
+ */
+const chains = [mainnet, ink, inkSepolia, sepolia] as const;
+
+/**
+ * Created once at module scope, as recommended by wagmi for SSR setups
+ * (`ssr: true` + cookie storage keep server and client hydration in sync).
+ */
+const wagmiConfig = getDefaultConfig({
+  appName: "inkonchain.com",
+  appIcon: "https://inkonchain.com/icon.svg",
+  appUrl: "https://inkonchain.com",
+  projectId: clientEnv.NEXT_PUBLIC_WC_PROJECT_ID,
+  chains,
+  transports: buildTransports(chains),
+  wallets: [
+    {
+      groupName: "Recommended",
+      wallets: [
+        krakenWallet,
+        rainbowWallet,
+        walletConnectWallet,
+        injectedWallet,
+      ],
+    },
+  ],
+  ssr: true,
+  storage: createStorage({
+    storage: cookieStorage,
+  }),
+});
+
 export const useWallet = () => {
   const context = useContext(WalletContext);
   if (context === undefined) {
@@ -122,49 +154,8 @@ const WagmiComponent: React.FC<{
 };
 
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
-  const [wagmiConfig, setWagmiConfig] = useState<
-    ReturnType<typeof getDefaultConfig> | undefined
-  >();
-  const { chains, viemChains } = useRelayChains(MAINNET_RELAY_API);
   const { resolvedTheme } = useTheme();
   const appName = useCurrentInkAppName();
-
-  useEffect(() => {
-    if (!wagmiConfig && chains && viemChains) {
-      const resolvedChains = (
-        viemChains.length === 0 ? [mainnet] : viemChains
-      ) as [Chain, ...Chain[]];
-      setWagmiConfig(
-        getDefaultConfig({
-          appName: "inkonchain.com",
-          appIcon: "https://inkonchain.com/icon.svg",
-          appUrl: "https://inkonchain.com",
-          projectId: clientEnv.NEXT_PUBLIC_WC_PROJECT_ID,
-          chains: resolvedChains,
-          transports: buildTransports(resolvedChains),
-          wallets: [
-            {
-              groupName: "Recommended",
-              wallets: [
-                krakenWallet,
-                rainbowWallet,
-                walletConnectWallet,
-                injectedWallet,
-              ],
-            },
-          ],
-          ssr: true,
-          storage: createStorage({
-            storage: cookieStorage,
-          }),
-        })
-      );
-    }
-  }, [wagmiConfig, chains, viemChains]);
-
-  if (!wagmiConfig || !chains) {
-    return null;
-  }
 
   return (
     <WagmiProvider config={wagmiConfig}>
@@ -172,8 +163,21 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         appInfo={{
           appName,
         }}
-        theme={resolvedTheme === "dark" ? darkTheme() : lightTheme()}
+        theme={null}
       >
+        {/* RainbowKit's theme prop bakes the palette into an inline style
+            tag, but the resolved theme is unknown during server rendering,
+            which caused hydration mismatches. Rendering both palettes keyed
+            off next-themes' `dark` class is deterministic on both sides.
+            https://rainbowkit.com/docs/theming#custom-theme-selectors */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              :root { ${cssStringFromTheme(lightTheme())} }
+              html.dark { ${cssStringFromTheme(darkTheme(), { extends: lightTheme() })} }
+            `,
+          }}
+        />
         <WagmiComponent>{children}</WagmiComponent>
         <ToastContainer
           className="font-extrabold"
