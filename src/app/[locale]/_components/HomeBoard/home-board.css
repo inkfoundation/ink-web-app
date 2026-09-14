@@ -219,6 +219,16 @@ html[data-home-board] .home-board {
   --board-font: var(--font-satoshi, "Satoshi"), sans-serif;
   --board-mono: var(--font-departure-mono, "Departure Mono"), ui-monospace,
     "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --tune: 0.109375;
+  --goo-in: min(1, calc(var(--tune) * 9.142857));
+  --radius: max(0px, calc(var(--tune) * var(--radius-top)));
+  --round: max(
+    0,
+    calc(
+      (var(--radius) - var(--radius-rest)) /
+        (var(--radius-top) - var(--radius-rest))
+    )
+  );
   width: 100%;
   font-family: var(--board-font);
 }
@@ -1284,7 +1294,6 @@ html[data-home-board]:is(
   :is(.col--about, .col--hero, .col--started, .col--apps) {
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.98);
 }
 
 html[data-home-board]:is(
@@ -1344,18 +1353,17 @@ html[data-home-board] .bridge-layer {
   left: 13px;
   z-index: 2;
   display: flex;
+  contain: layout paint;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transform: scale(0.97);
+  transform: scale(0.985);
   transform-origin: center;
-  filter: blur(2px);
   transition:
-    opacity 280ms var(--ease-out),
-    transform 280ms var(--ease-out),
-    filter 220ms var(--ease-out),
-    visibility 0s linear 280ms;
+    opacity 220ms var(--ease-out),
+    transform 220ms var(--ease-out),
+    visibility 0s linear 220ms;
 }
 
 html[data-home-board]:is(
@@ -1367,7 +1375,6 @@ html[data-home-board]:is(
   pointer-events: auto;
   visibility: visible;
   transform: none;
-  filter: blur(0);
   transition-delay: 0s;
 }
 
@@ -1375,9 +1382,8 @@ html[data-home-board][data-bridge-closing] .bridge-layer {
   opacity: 0;
   pointer-events: none;
   visibility: visible;
-  transform: scale(0.97);
-  filter: blur(2px);
-  transition-duration: 200ms, 200ms, 160ms, 0s;
+  transform: scale(0.985);
+  transition-duration: 180ms, 180ms, 0s;
   transition-delay: 0s;
 }
 

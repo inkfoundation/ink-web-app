@@ -39,9 +39,9 @@ void main() {
 
   vec4 color = vec4(0.0);
   float total = 0.0;
-  for (float x = -3.0; x <= 3.0; x++) {
-    for (float y = -3.0; y <= 3.0; y++) {
-      vec2 offset = vec2(x, y) * 2.4 / iResolution.xy;
+  for (float x = -2.0; x <= 2.0; x++) {
+    for (float y = -2.0; y <= 2.0; y++) {
+      vec2 offset = vec2(x, y) * 3.0 / iResolution.xy;
       color += texture2D(iChannel0, clamp(lens + offset, 0.001, 0.999));
       total += 1.0;
     }

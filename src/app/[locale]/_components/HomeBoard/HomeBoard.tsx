@@ -1,5 +1,6 @@
 "use client";
 import {
+  memo,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -86,7 +87,7 @@ function InkMark() {
 const TYDRO_APP_ID = "tydro";
 const tydroArtSrc = typeof tydroArt === "string" ? tydroArt : tydroArt.src;
 
-function BoardAppCard({
+const BoardAppCard = memo(function BoardAppCard({
   app,
   network = "Mainnet",
   featured = false,
@@ -180,7 +181,7 @@ function BoardAppCard({
       </div>
     </a>
   );
-}
+});
 
 function DevLinkGoIcon() {
   return (
@@ -316,6 +317,13 @@ export function HomeBoard() {
   const isBridge = pathname === "/bridge";
   const isBuilders = pathname === "/builders";
   const isOverlay = isApps || isBridge || isBuilders;
+
+  useEffect(() => {
+    router.prefetch("/");
+    router.prefetch("/apps");
+    router.prefetch("/bridge");
+    router.prefetch("/builders");
+  }, [router]);
 
   if (isOverlay) overlayModeRef.current = overlayModeFromPath(pathname);
   const overlayMode = overlayModeRef.current;
@@ -472,6 +480,28 @@ export function HomeBoard() {
 
     overlayReady.current = true;
   }, [isOverlay, overlayMode]);
+
+  useLayoutEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    type AnimatedSurface = HTMLElement & {
+      pause?: () => void;
+      play?: () => void;
+    };
+    const homeInk = root.querySelector<AnimatedSurface>(
+      ".col--hero interactive-ink"
+    );
+    const developerAscii = root.querySelector<AnimatedSurface>(
+      ".col--devs-hero interactive-ascii"
+    );
+    const setPlaying = (surface: AnimatedSurface | null, playing: boolean) => {
+      if (playing) surface?.play?.();
+      else surface?.pause?.();
+    };
+
+    setPlaying(homeInk, !isOverlay);
+    setPlaying(developerAscii, isBuilders);
+  }, [isBuilders, isOverlay]);
 
   const toggleTheme = useCallback(() => {
     const nextTheme = resolvedTheme === "dark" ? "light" : "dark";

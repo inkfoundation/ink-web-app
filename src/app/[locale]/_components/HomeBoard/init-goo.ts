@@ -71,6 +71,7 @@ const create = <K extends keyof SVGElementTagNameMap>(
 
 export function initGoo(scope: ParentNode): () => void {
   const root = document.documentElement;
+  const tuneRoot = scope instanceof Element ? scope : root;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const defs = create("defs", {});
   const defsHost = create("svg", { class: "goo-defs", "aria-hidden": "true" });
@@ -235,7 +236,7 @@ export function initGoo(scope: ParentNode): () => void {
 
   const syncAll = () => {
     const tune = clamp01(
-      parseFloat(getComputedStyle(root).getPropertyValue("--tune"))
+      parseFloat(getComputedStyle(tuneRoot).getPropertyValue("--tune"))
     );
     for (const group of groups) {
       if (group.enabled && group.visible) syncGroup(group, tune);

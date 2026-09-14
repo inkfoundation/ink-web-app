@@ -276,6 +276,7 @@ export function initNavGlass(scope: ParentNode): () => void {
   };
 
   let paintFrame = 0;
+  let lastInkPaint = 0;
   const requestPaint = () => {
     if (paintFrame) return;
     paintFrame = requestAnimationFrame(() => {
@@ -286,6 +287,11 @@ export function initNavGlass(scope: ParentNode): () => void {
 
   const onInkFrame = () => {
     if (document.hidden) return;
+    const now = performance.now();
+    // The refracted glass does not need to resample at the canvas's full
+    // frame rate. This halves its texture uploads without changing motion.
+    if (now - lastInkPaint < 30) return;
+    lastInkPaint = now;
     if (layoutDirty) measure();
     if (!painters.some(({ layout }) => layout.visible && layout.overlaps))
       return;
@@ -384,6 +390,7 @@ export function initNavGlass(scope: ParentNode): () => void {
   ];
   const cleanSlider = initSlider({
     root,
+    tuneRoot: scope instanceof HTMLElement ? scope : root,
     slider: slider ?? null,
     track: track ?? null,
     inks,
@@ -420,12 +427,14 @@ export function initNavGlass(scope: ParentNode): () => void {
 
 function initSlider({
   root,
+  tuneRoot,
   slider,
   track,
   inks,
   markLayoutDirty,
 }: {
   root: HTMLElement;
+  tuneRoot: HTMLElement;
   slider: Element | null;
   track: Element | null;
   inks: Element[];
@@ -441,12 +450,14 @@ function initSlider({
   const IMPULSE = 3.4;
   const BOUNCE = 0.4;
   let value =
-    Number.parseFloat(getComputedStyle(root).getPropertyValue("--tune")) ||
+    Number.parseFloat(getComputedStyle(tuneRoot).getPropertyValue("--tune")) ||
     0.109375;
   let target = value;
   let velocity = 0;
   let dragging = false;
   let springFrame = 0;
+  let dragFrame = 0;
+  let pendingDragValue = value;
   let lastStamp = 0;
 
   const clamp = (n: number) => Math.min(1, Math.max(0, n));
@@ -461,7 +472,7 @@ function initSlider({
   };
 
   const writeTune = () => {
-    root.style.setProperty("--tune", String(value));
+    tuneRoot.style.setProperty("--tune", String(value));
     track.setAttribute("aria-valuenow", String(Math.round(clamp(value) * 100)));
     inks.forEach((ink) => {
       if ("value" in ink) {
@@ -567,17 +578,29 @@ function initSlider({
     dragging = true;
     slider.classList.add("is-dragging");
     track.setPointerCapture(pointer.pointerId);
-    apply(valueFromPointer(pointer.clientX), { animate: true });
+    pendingDragValue = valueFromPointer(pointer.clientX);
+    apply(pendingDragValue);
   };
 
   const onPointerMove = (event: Event) => {
     if (!dragging) return;
-    apply(valueFromPointer((event as PointerEvent).clientX), { animate: true });
+    pendingDragValue = valueFromPointer((event as PointerEvent).clientX);
+    if (!dragFrame) {
+      dragFrame = requestAnimationFrame(() => {
+        dragFrame = 0;
+        apply(pendingDragValue);
+      });
+    }
   };
 
   const endDrag = (event: Event) => {
     if (!dragging) return;
     dragging = false;
+    if (dragFrame) {
+      cancelAnimationFrame(dragFrame);
+      dragFrame = 0;
+      apply(pendingDragValue);
+    }
     slider.classList.remove("is-dragging");
     const pointer = event as PointerEvent;
     if (track.hasPointerCapture(pointer.pointerId)) {
@@ -616,6 +639,7 @@ function initSlider({
 
   return () => {
     stopSpring();
+    if (dragFrame) cancelAnimationFrame(dragFrame);
     dirButtons.forEach((btn) => btn.removeEventListener("click", onDirClick));
     inks.forEach((ink) => {
       ink.removeEventListener("wheel", onWheel);
@@ -626,6 +650,6 @@ function initSlider({
     track.removeEventListener("pointercancel", endDrag);
     track.removeEventListener("keydown", onKeyDown);
     root.classList.remove("is-instant");
-    root.style.removeProperty("--tune");
+    tuneRoot.style.removeProperty("--tune");
   };
 }

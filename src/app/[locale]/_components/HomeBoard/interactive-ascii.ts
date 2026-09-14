@@ -61,6 +61,9 @@ class InteractiveAscii extends HTMLElement {
   private ripples: Ripple[] = [];
   private width = 1;
   private height = 1;
+  private background = "#ffffff";
+  private foreground = "#000000";
+  private readonly frameEvent = new Event("inkframe");
   private readonly reduceMotion = matchMedia("(prefers-reduced-motion: reduce)")
     .matches;
 
@@ -98,7 +101,7 @@ class InteractiveAscii extends HTMLElement {
       else this.stopLoop();
     });
     this.intersectionObserver.observe(this);
-    this.themeObserver = new MutationObserver(() => this.draw());
+    this.themeObserver = new MutationObserver(this.refreshPalette);
     this.themeObserver.observe(document.documentElement, {
       attributeFilter: ["class", "data-theme"],
     });
@@ -108,6 +111,7 @@ class InteractiveAscii extends HTMLElement {
     this.canvas.addEventListener("pointerleave", this.onPointerLeave);
     this.canvas.addEventListener("pointercancel", this.onPointerLeave);
     this.canvas.addEventListener("pointerdown", this.onPointerDown);
+    this.refreshPalette();
     this.resize();
     this.startLoop();
   }
@@ -125,9 +129,12 @@ class InteractiveAscii extends HTMLElement {
     this.canvas.removeEventListener("pointerdown", this.onPointerDown);
   }
 
-  attributeChangedCallback(name: string) {
+  attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+    if (oldValue === newValue) return;
     if (name === "phase") this.elapsed = this.phase;
-    if (this.visible) this.draw();
+    // The active animation loop will draw the latest value. Drawing here as
+    // well made slider updates render the entire canvas twice in one frame.
+    if (this.visible && !this.animationFrame) this.draw();
   }
 
   get value() {
@@ -203,6 +210,15 @@ class InteractiveAscii extends HTMLElement {
   private onVisibilityChange = () => {
     if (this.wantsFrames()) this.startLoop();
     else this.stopLoop();
+  };
+
+  private refreshPalette = () => {
+    const rootStyles = getComputedStyle(document.documentElement);
+    this.background =
+      rootStyles.getPropertyValue("--surface-page").trim() || "#ffffff";
+    this.foreground =
+      rootStyles.getPropertyValue("--text-primary").trim() || "#000000";
+    if (this.visible && !this.animationFrame) this.draw();
   };
 
   private resize = () => {
@@ -302,11 +318,6 @@ class InteractiveAscii extends HTMLElement {
 
   private draw() {
     if (!this.context || this.width < 1 || this.height < 1) return;
-    const rootStyles = getComputedStyle(document.documentElement);
-    const background =
-      rootStyles.getPropertyValue("--surface-page").trim() || "#ffffff";
-    const foreground =
-      rootStyles.getPropertyValue("--text-primary").trim() || "#000000";
     const level = (this.value - 1) / 4;
     const cellWidth = 10 - level * 1.5;
     const cellHeight = 15 - level * 2;
@@ -315,7 +326,23 @@ class InteractiveAscii extends HTMLElement {
     const aspect = this.width / this.height;
     const time = this.elapsed;
 
-    this.context.fillStyle = background;
+    const activeRipples = this.ripples.map((ripple) => {
+      const age = time - ripple.startedAt;
+      return {
+        ...ripple,
+        age,
+        decay: Math.exp(-age * 0.7) * ripple.strength * this.interaction,
+      };
+    });
+    const activeHoverAreas = this.hoverAreas.map((area) => ({
+      ...area,
+      fade:
+        (1 - smoothstep(0.18, 1.7, this.interactionTime - area.startedAt)) *
+        this.interaction,
+    }));
+    const correctedAspect = Math.max(aspect, 0.45);
+
+    this.context.fillStyle = this.background;
     this.context.fillRect(0, 0, this.width, this.height);
 
     this.context.font = `${Math.max(9, cellHeight - 3)}px var(--font-departure-mono, ui-monospace, monospace)`;
@@ -324,6 +351,7 @@ class InteractiveAscii extends HTMLElement {
 
     for (let row = 0; row < rows; row += 1) {
       const v = row / Math.max(1, rows - 1);
+      const rowOffset = Math.sin(v * 7 + time) * 1.5;
       for (let column = 0; column < columns; column += 1) {
         const u = column / Math.max(1, columns - 1);
         const x = (u - 0.5) * aspect;
@@ -335,27 +363,25 @@ class InteractiveAscii extends HTMLElement {
           ) +
           Math.sin((x + y) * (11 + level * 3) - time * 0.9) * 0.65;
         let rippleWave = 0;
-        for (const ripple of this.ripples) {
-          const age = time - ripple.startedAt;
+        for (const ripple of activeRipples) {
           const distance = Math.hypot(
             u - ripple.x,
-            (v - ripple.y) / Math.max(aspect, 0.45)
+            (v - ripple.y) / correctedAspect
           );
-          const crest = distance - age * 0.19;
+          const crest = distance - ripple.age * 0.19;
           rippleWave +=
             Math.sin(crest * 62) *
             Math.exp(-crest * crest * 260) *
-            Math.exp(-age * 0.7) *
-            ripple.strength *
-            this.interaction;
+            ripple.decay;
         }
         const field = drift + rippleWave;
         const threshold = 1.15 - level;
         let hoverArea = 0;
-        for (const area of this.hoverAreas) {
-          const age = this.interactionTime - area.startedAt;
+        for (const area of activeHoverAreas) {
           const areaX = u - area.x;
-          const areaY = (v - area.y) / Math.max(aspect, 0.45);
+          const areaY = (v - area.y) / correctedAspect;
+          // Beyond this box the exponential contribution is visually zero.
+          if (Math.abs(areaX) > 0.45 || Math.abs(areaY) > 0.45) continue;
           const irregularity =
             Math.sin((u + area.seed) * 19) *
             Math.sin((v - area.seed) * 13) *
@@ -364,10 +390,9 @@ class InteractiveAscii extends HTMLElement {
             0,
             Math.hypot(areaX * 0.82, areaY * 1.12) + irregularity
           );
-          const fade = 1 - smoothstep(0.18, 1.7, age);
           hoverArea = Math.max(
             hoverArea,
-            Math.exp(-distance * distance * 25) * fade * this.interaction
+            Math.exp(-distance * distance * 25) * area.fade
           );
         }
         const hoverResponse =
@@ -390,7 +415,7 @@ class InteractiveAscii extends HTMLElement {
           CHARACTERS[Math.floor(glyphDensity * (CHARACTERS.length - 1))];
         const interactionLift = clamp(Math.abs(rippleWave) * 0.24);
         this.context.fillStyle = colorWithAlpha(
-          foreground,
+          this.foreground,
           clamp(
             0.18 + visibility * 0.68 + hoverResponse * 0.82 + interactionLift,
             0,
@@ -399,12 +424,12 @@ class InteractiveAscii extends HTMLElement {
         );
         this.context.fillText(
           character,
-          column * cellWidth + Math.sin(v * 7 + time) * 1.5,
+          column * cellWidth + rowOffset,
           row * cellHeight
         );
       }
     }
-    this.dispatchEvent(new Event("inkframe"));
+    this.dispatchEvent(this.frameEvent);
   }
 }
 
