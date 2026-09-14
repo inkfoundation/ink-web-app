@@ -280,6 +280,7 @@ export function initGoo(scope: ParentNode): () => void {
   );
 
   const resize = new ResizeObserver(wake);
+  const itemState = new MutationObserver(wake);
   const mediaCleanups: Array<() => void> = [];
 
   groups.forEach((group) => {
@@ -294,7 +295,13 @@ export function initGoo(scope: ParentNode): () => void {
     }
     visibility.observe(group.container);
     resize.observe(group.container);
-    group.items.forEach((item) => resize.observe(item));
+    group.items.forEach((item) => {
+      resize.observe(item);
+      itemState.observe(item, {
+        attributes: true,
+        attributeFilter: ["class", "aria-current"],
+      });
+    });
   });
 
   const pointerEvents = [
@@ -334,6 +341,7 @@ export function initGoo(scope: ParentNode): () => void {
     if (frame) cancelAnimationFrame(frame);
     visibility.disconnect();
     resize.disconnect();
+    itemState.disconnect();
     themeObserver.disconnect();
     mediaCleanups.forEach((stop) => stop());
     for (const event of pointerEvents) {

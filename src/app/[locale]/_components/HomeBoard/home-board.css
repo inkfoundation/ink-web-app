@@ -348,13 +348,21 @@ html[data-home-board] .pill--gray {
   background: var(--surface-muted);
 }
 
+html[data-home-board] .pill--active {
+  border-color: var(--text-primary);
+  background: var(--text-primary);
+  color: var(--surface-page);
+}
+
 html[data-home-board] .pill:active:not(.pill--glass) {
   transform: scale(0.97);
 }
 
 @media (hover: hover) and (pointer: fine) {
   html[data-home-board]
-    .pill:hover:not(.pill--glass):not(.pill--purple):not(.pill--gray) {
+    .pill:hover:not(.pill--glass):not(.pill--purple):not(.pill--gray):not(
+      .pill--active
+    ) {
     background: var(--surface-muted);
   }
 
@@ -620,6 +628,11 @@ html[data-home-board] .cta-row > .pill--gray {
   --goo-fill: var(--surface-muted);
 }
 
+html[data-home-board] .nav__menu-inner .pill--active {
+  --goo-fill: var(--text-primary);
+  --goo-ring: var(--text-primary);
+}
+
 html[data-home-board] .apps-filter__categories > .pill.is-selected {
   --goo-fill: var(--text-primary);
   --goo-ring: var(--text-primary);
@@ -709,15 +722,18 @@ html[data-home-board] .apps-filter__actions.is-goo .pill {
 
 @media (min-width: 641px) and (hover: hover) and (pointer: fine) {
   html[data-home-board] .nav.is-goo .nav__menu-inner .pill {
-    transition:
-      transform 220ms var(--ease-out),
-      --goo-fill 220ms ease;
+    transition: transform 220ms var(--ease-out);
   }
 
   html[data-home-board] .nav.is-goo .nav__menu-inner .pill:hover {
     --goo-fill: var(--surface-muted);
     background: transparent;
     transform: scale(1.06);
+  }
+
+  html[data-home-board] .nav.is-goo .nav__menu-inner .pill--active:hover {
+    --goo-fill: var(--text-primary);
+    --goo-ring: var(--text-primary);
   }
 
   html[data-home-board] .nav.is-goo .nav__menu-inner .pill--purple:hover {

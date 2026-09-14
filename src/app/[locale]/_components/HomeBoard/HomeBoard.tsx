@@ -1309,7 +1309,7 @@ export function HomeBoard() {
             <div className="nav__menu" id="mobile-nav-menu">
               <div className="nav__menu-inner">
                 <button
-                  className="pill"
+                  className={isApps ? "pill pill--active" : "pill"}
                   data-w="apps"
                   type="button"
                   aria-expanded={isApps}
@@ -1319,7 +1319,7 @@ export function HomeBoard() {
                   {t("appsLabel")}
                 </button>
                 <button
-                  className="pill"
+                  className={isBridge ? "pill pill--active" : "pill"}
                   data-w="bridge"
                   type="button"
                   aria-expanded={isBridge}
@@ -1329,7 +1329,7 @@ export function HomeBoard() {
                   {t("bridgeCta")}
                 </button>
                 <button
-                  className="pill"
+                  className={isBuilders ? "pill pill--active" : "pill"}
                   data-w="developers"
                   type="button"
                   aria-expanded={isBuilders}
