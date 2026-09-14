@@ -21,6 +21,7 @@ import { appCategories } from "../../apps/_components/categories";
 import {
   type InkAppFilters,
   type InkAppNetwork,
+  inkPills,
   inkTags,
 } from "../../apps/_components/InkApp";
 
@@ -35,13 +36,27 @@ const NETWORKS: {
 
 function formatTag(tag: string) {
   return tag
+    .toLowerCase()
     .replace(/[-_]/g, " ")
     .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
-const tagOptions = inkTags
-  .map((tag) => ({ value: tag, label: formatTag(tag) }))
+const promoOptions = inkPills
+  .map((pill) => ({ value: pill, label: formatTag(pill) }))
   .sort((a, b) => a.label.localeCompare(b.label));
+
+const tagOptions = [
+  ...promoOptions,
+  ...inkTags
+    .map((tag) => ({ value: tag, label: formatTag(tag) }))
+    .sort((a, b) => a.label.localeCompare(b.label))
+    .filter(
+      (tag) =>
+        !promoOptions.some(
+          (promo) => promo.value.toLowerCase() === tag.value.toLowerCase()
+        )
+    ),
+];
 
 function FilterMenu({
   label,

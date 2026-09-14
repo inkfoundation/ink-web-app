@@ -17,6 +17,7 @@ import { EXTERNAL_LINKS, Link, usePathname, useRouter } from "@/routing";
 import "./interactive-ink";
 import "./interactive-ascii";
 
+import tydroArt from "../Home/assets/tydro-banner-trans.png";
 import { isAppsPath } from "../../apps/_components/filter-apps";
 import {
   type InkApp,
@@ -55,21 +56,103 @@ function overlayModeFromPath(pathname: string): OverlayMode {
 
 function formatTag(tag: string) {
   return tag
+    .toLowerCase()
     .replace(/[-_]/g, " ")
     .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
+function isAirdropPill(pill: string) {
+  return pill.toLowerCase().replace(/\s+/g, "-") === "airdrop";
+}
+
+function InkMark() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 30 30"
+      fill="none"
+      shapeRendering="auto"
+    >
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M30 15C30 6.71573 23.2843 -3.62117e-7 15 0 6.71573 3.62117e-7 -3.62117e-7 6.71573 0 15c3.62117e-7 8.2843 6.71573 15 15 15s15-6.7157 15-15ZM17.1409 26.2262c0 1.0176-.8352 1.8448-2.0207 1.8685l-.0986.0005h-.0432C7.756 28.0836 1.90476 22.2251 1.90476 15 1.90476 7.76772 7.7677 1.90479 15 1.90479l.1169.00051c1.3378.02382 2.024.85093 2.024 1.86847 0 1.03561-.9154 1.79766-1.8853 1.79766s-1.0175 0-1.9459.0744c-.9284.07439-1.8884.83645-1.8884 1.869 0 1.03867.8438 1.87512 1.8884 1.87512h8.2336c1.0415 0 1.8853.83645 1.8853 1.86895 0 1.0326-.8438 1.869-1.8853 1.869H8.86143c-1.04464 0-1.88839.8396-1.88839 1.8752 0 1.0325.84375 1.869 1.88839 1.869h6.39417c1.0416 0 1.8853.8364 1.8853 1.872 0 1.0326-.8437 1.869-1.8853 1.869h-1.9459c-1.0446 0-1.8884.8365-1.8884 1.869 0 1.0356.8648 1.7916 1.8884 1.869l.2225.0169c.3602.0275.5571.0425.7542.0507.2373.0099.4751.0099.9993.0099 1.0416 0 1.8552.7651 1.8552 1.7976Z"
+      />
+    </svg>
+  );
+}
+
+const TYDRO_APP_ID = "tydro";
+const tydroArtSrc = typeof tydroArt === "string" ? tydroArt : tydroArt.src;
+
 function BoardAppCard({
   app,
   network = "Mainnet",
+  featured = false,
+  hero = false,
 }: {
   app: InkApp;
   network?: InkAppNetwork;
+  featured?: boolean;
+  hero?: boolean;
 }) {
+  const t = useTranslations("Home");
   const href = mainUrl(app, network) || "/apps";
   const tags = app.tags.slice(0, 2);
+  const pills = [
+    ...(featured
+      ? [{ key: "featured", label: t("appsFeatured"), tone: "featured" }]
+      : []),
+    ...(app.pills ?? [])
+      .filter(isAirdropPill)
+      .slice(0, 1)
+      .map((pill) => ({
+        key: pill,
+        label: t("appsPillAirdrop"),
+        tone: "airdrop",
+      })),
+  ];
+
   return (
-    <a className="app" href={href} target="_blank" rel="noreferrer">
+    <a
+      className={`app${hero ? " app--hero" : ""}`}
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {hero ? (
+        <div className="app__media" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={tydroArtSrc} alt="" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls={false}
+            disablePictureInPicture
+            preload="metadata"
+            poster={tydroArtSrc}
+          >
+            <source src="/tydro-animation.mp4" type="video/mp4" />
+          </video>
+        </div>
+      ) : null}
+      {pills.length > 0 ? (
+        <div className="app__pills">
+          {pills.map((pill) => (
+            <span className={`tag tag--${pill.tone}`} key={pill.key}>
+              {pill.tone === "airdrop" ? <InkMark /> : null}
+              {pill.tone === "featured" ? (
+                <span className="tag__label">{pill.label}</span>
+              ) : (
+                pill.label
+              )}
+            </span>
+          ))}
+        </div>
+      ) : null}
       <div className="app__icon">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={app.imageUrl} alt="" width={56} height={56} />
@@ -233,6 +316,7 @@ export function HomeBoard() {
   const isBridge = pathname === "/bridge";
   const isBuilders = pathname === "/builders";
   const isOverlay = isApps || isBridge || isBuilders;
+
   if (isOverlay) overlayModeRef.current = overlayModeFromPath(pathname);
   const overlayMode = overlayModeRef.current;
   const resources = useMemo(() => builderResources(isMainnet), [isMainnet]);
@@ -282,14 +366,22 @@ export function HomeBoard() {
     goBuilders();
   }, [goBuilders, goHome, isBuilders]);
 
-  const apps = useMemo(() => {
-    const featuredIds = new Set(inkFeaturedApps.map((app) => app.id));
-    return [
+  const featuredIds = useMemo(
+    () => new Set(inkFeaturedApps.map((app) => app.id)),
+    []
+  );
+  const overlayList = useMemo(() => {
+    const hero = overlayApps.find((app) => app.id === TYDRO_APP_ID);
+    if (!hero) return overlayApps;
+    return [hero, ...overlayApps.filter((app) => app.id !== TYDRO_APP_ID)];
+  }, [overlayApps]);
+  const apps = useMemo(
+    () => [
       ...inkFeaturedApps,
       ...inkApps.filter((app) => !featuredIds.has(app.id)),
-    ];
-  }, []);
-
+    ],
+    [featuredIds]
+  );
   useLayoutEffect(() => {
     const html = document.documentElement;
     html.setAttribute("data-home-board", "");
@@ -582,9 +674,11 @@ export function HomeBoard() {
                         onResetSearch={resetSearch}
                       />
                     ) : (
-                      overlayApps.map((app) => (
+                      overlayList.map((app) => (
                         <BoardAppCard
                           app={app}
+                          featured={featuredIds.has(app.id)}
+                          hero={app.id === TYDRO_APP_ID}
                           key={app.id}
                           network={filters.network || "Mainnet"}
                         />

@@ -17,6 +17,11 @@ const GROUPS = [
   { container: ".cta-row", items: ".pill", blur: [6, 8] as [number, number] },
   { container: ".tags", items: ".tag", blur: [4.2, 5.5] as [number, number] },
   {
+    container: ".app__pills",
+    items: ".tag",
+    blur: [4.2, 5.5] as [number, number],
+  },
+  {
     container: ".apps-filter__categories",
     items: ".pill",
     blur: [6, 8] as [number, number],

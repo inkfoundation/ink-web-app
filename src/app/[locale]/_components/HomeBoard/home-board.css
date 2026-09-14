@@ -566,6 +566,7 @@ html[data-home-board] .goo-defs {
 
 html[data-home-board] .cta-row,
 html[data-home-board] .tags,
+html[data-home-board] .app__pills,
 html[data-home-board] .apps-filter__categories,
 html[data-home-board] .apps-filter__actions {
   position: relative;
@@ -582,6 +583,7 @@ html[data-home-board] .apps-filter__categories {
 
 html[data-home-board] .cta-row > .pill,
 html[data-home-board] .tags > .tag,
+html[data-home-board] .app__pills > .tag,
 html[data-home-board] .apps-filter__categories > .pill,
 html[data-home-board] .apps-filter__actions .pill {
   position: relative;
@@ -595,6 +597,7 @@ html[data-home-board] .cta-row > .pill,
 html[data-home-board] .tags > .tag,
 html[data-home-board] .nav__logo,
 html[data-home-board] .nav__menu-inner .pill,
+html[data-home-board] .app__pills > .tag,
 html[data-home-board] .apps-filter__categories > .pill,
 html[data-home-board] .apps-filter__actions .pill {
   --goo-fill: var(--surface-page);
@@ -612,14 +615,39 @@ html[data-home-board] .apps-filter__categories > .pill.is-selected {
 
 html[data-home-board] .cta-row > .pill--purple,
 html[data-home-board] .nav__menu-inner .pill--purple,
-html[data-home-board] .apps-filter__actions .pill--purple {
+html[data-home-board] .apps-filter__actions .pill--purple,
+html[data-home-board] .app__pills > .tag--airdrop {
   --goo-fill: var(--accent);
   --goo-ring: var(--accent);
+}
+
+html[data-home-board] .app--hero .app__pills > .tag--featured {
+  --goo-fill: var(--glass-fill);
+  --goo-ring: var(--glass-border);
+  isolation: isolate;
+  border-color: var(--glass-border);
+  border-radius: 999px;
+  background: var(--glass-fill);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+}
+
+html[data-home-board] .app--hero .app__pills > .tag--featured .tag__label {
+  position: relative;
+  z-index: 1;
+  color: var(--code-text);
+  mix-blend-mode: difference;
+}
+
+html[data-home-board] .app--hero .app__pills.is-goo > .tag--featured {
+  border-color: var(--glass-border);
+  background: var(--glass-fill);
 }
 
 /* The blob carries the surface, so the real controls ride on top unfilled. */
 html[data-home-board] .cta-row.is-goo > .pill,
 html[data-home-board] .tags.is-goo > .tag,
+html[data-home-board] .app__pills.is-goo > .tag,
 html[data-home-board] .apps-filter__categories.is-goo > .pill,
 html[data-home-board] .apps-filter__actions.is-goo .pill {
   border-color: transparent;
@@ -2254,7 +2282,9 @@ html[data-home-board] .apps-filter__chevron-clip {
   transition: opacity 160ms var(--ease-out);
 }
 
-html[data-home-board] .apps-filter__suffix.has-count .apps-filter__chevron-clip {
+html[data-home-board]
+  .apps-filter__suffix.has-count
+  .apps-filter__chevron-clip {
   opacity: 0;
 }
 
@@ -2527,6 +2557,17 @@ html[data-home-board]:is(
   );
 }
 
+html[data-home-board]:is(
+    [data-bridge-open],
+    [data-bridge-closing],
+    :has(.home-board[data-bridge-open])
+  )
+  .col--catalog
+  .app--hero {
+  grid-column: span 4;
+  aspect-ratio: auto;
+}
+
 @media (min-width: 961px) {
   html[data-home-board] .col--started,
   html[data-home-board] .col--apps,
@@ -2695,6 +2736,10 @@ html[data-home-board] .app .tags {
     border-color: var(--border-hover);
   }
 
+  html[data-home-board] .app.app--hero:hover {
+    border: none;
+  }
+
   html[data-home-board] .app:hover .app__desc {
     grid-template-rows: 1fr;
     transition-duration: 220ms;
@@ -2791,6 +2836,100 @@ html[data-home-board] .tag {
 
 html[data-home-board] .tag--thick {
   border-width: 1.5px;
+}
+
+html[data-home-board] .app__pills {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--goo-in) * (1px + (1 - var(--tune)) * 2px));
+  justify-content: flex-end;
+}
+
+html[data-home-board] .app__pills .tag--airdrop {
+  gap: 5px;
+  border-color: transparent;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+html[data-home-board] .app__pills .tag--airdrop svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+html[data-home-board] .app--hero {
+  aspect-ratio: auto;
+  overflow: hidden;
+  border: none;
+  color: #f8f6f1;
+  background: linear-gradient(90deg, #444f3c 0%, #1f221c 100%);
+}
+
+html[data-home-board] .app.app--hero,
+html[data-home-board] .app.app--hero:hover,
+html[data-home-board] .app.app--hero:focus-visible {
+  border: none;
+  outline: none;
+}
+
+html[data-home-board] .app--hero .app__icon,
+html[data-home-board] .app--hero .app__meta {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-home-board] .app--hero .app__desc-text {
+  color: color-mix(in srgb, #f8f6f1 72%, transparent);
+}
+
+html[data-home-board] .app--hero .app__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+html[data-home-board] .app--hero .app__media img,
+html[data-home-board] .app--hero .app__media video {
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  width: 68%;
+  height: 250%;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  transform: translateY(-50%);
+}
+
+html[data-home-board] .app--hero .app__media img {
+  display: none;
+}
+
+html[data-home-board] .app--hero .app__media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #444f3c 12%,
+    color-mix(in srgb, #444f3c 35%, transparent) 42%,
+    transparent 68%
+  );
+  content: "";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-home-board] .app--hero .app__media video {
+    display: none;
+  }
+
+  html[data-home-board] .app--hero .app__media img {
+    display: block;
+  }
 }
 
 @media (max-width: 960px) {
@@ -2979,6 +3118,20 @@ html[data-home-board] .tag--thick {
       :has(.home-board[data-bridge-open])
     )
     .col--catalog
+    .app--hero {
+    grid-column: 1 / -1;
+    aspect-ratio: auto;
+    min-height: calc(
+      (100cqi - (var(--app-cols) - 1) * var(--app-gap)) / var(--app-cols)
+    );
+  }
+
+  html[data-home-board]:is(
+      [data-bridge-open],
+      [data-bridge-closing],
+      :has(.home-board[data-bridge-open])
+    )
+    .col--catalog
     .app__name {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -3065,6 +3218,16 @@ html[data-home-board] .tag--thick {
     .app-list {
     --app-cols: 3;
   }
+
+  html[data-home-board]:is(
+      [data-bridge-open],
+      [data-bridge-closing],
+      :has(.home-board[data-bridge-open])
+    )
+    .col--catalog
+    .app--hero {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (min-width: 1400px) {
@@ -3144,4 +3307,8 @@ html[data-home-board] .home-board a {
 
 html[data-home-board] .home-board a:not(.pill--purple) {
   color: inherit;
+}
+
+html[data-home-board] .home-board a.app--hero {
+  color: #f8f6f1;
 }

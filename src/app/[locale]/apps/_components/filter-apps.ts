@@ -107,11 +107,14 @@ export function filterInkApps(
       return false;
     }
 
-    if (
-      filters.tags.length > 0 &&
-      !app.tags.some((tag) => filters.tags.includes(tag))
-    ) {
-      return false;
+    if (filters.tags.length > 0) {
+      const selected = filters.tags.map((tag) => tag.toLowerCase());
+      const appLabels = [...app.tags, ...(app.pills ?? [])].map((label) =>
+        label.toLowerCase()
+      );
+      if (!selected.some((tag) => appLabels.includes(tag))) {
+        return false;
+      }
     }
 
     if (
@@ -121,7 +124,8 @@ export function filterInkApps(
       !app.category.some((category) =>
         category.toLowerCase().includes(searchTerm)
       ) &&
-      !app.tags.some((tag) => tag.toLowerCase().includes(searchTerm))
+      !app.tags.some((tag) => tag.toLowerCase().includes(searchTerm)) &&
+      !app.pills?.some((pill) => pill.toLowerCase().includes(searchTerm))
     ) {
       return false;
     }
