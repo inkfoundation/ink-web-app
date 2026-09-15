@@ -7,7 +7,7 @@ export const CookieSettingsButton: React.FC<CookieSettingsButtonProps> = () => {
     <button
       className="group relative text-left"
       onClick={() => {
-        window.OneTrust.ToggleInfoDisplay();
+        window.OneTrust?.ToggleInfoDisplay();
       }}
     >
       <div className="relative inline-block">Cookie Settings</div>
