@@ -1385,6 +1385,25 @@
       }
     },
     {
+      "id": "xintechtic",
+      "name": "Xintechtic",
+      "description": "$XTECH",
+      "imageUrl": "/featured-apps/icons/xintechtic.webp",
+      "category": ["Other"],
+      "network": "Both",
+      "tags": ["fun"],
+      "links": {
+        "mainnetWebsite": "http://inkonchain.com",
+        "testnetWebsite": "http://inkonchain.com",
+        "x": "",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "yieldnest",
       "name": "YieldNest",
       "description": "YieldNest simplifies DeFi with high-yield, risk-adjusted restaking and DeFi strategies—unified in a single asset, secured by DeFAI, and settled on L1.",
