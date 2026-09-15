@@ -6,6 +6,8 @@ import Script from "next/script";
 import { onAcceptCookiePolicy, onRefuseCookiePolicy } from "@/actions/consent";
 import Consent, { ConsentType } from "@/integrations/consent";
 
+import "./onetrust-banner.css";
+
 interface OneTrustCookieConsentProps {
   id: string;
 }
@@ -32,7 +34,10 @@ export const OneTrustCookieConsent: React.FC<OneTrustCookieConsentProps> = ({
   }, [query]);
 
   useEffect(() => {
-    window.oneTrustLoaded?.then((oneTrust: { OnConsentChanged: Function }) => {
+    keepBannerOverridesLast();
+
+    window.oneTrustLoaded?.then((oneTrust) => {
+      keepBannerOverridesLast();
       oneTrust.OnConsentChanged(() => {
         hasConsent(OneTrustCookieGroups.Performance).then((consented) => {
           if (consented) {
@@ -44,6 +49,15 @@ export const OneTrustCookieConsent: React.FC<OneTrustCookieConsentProps> = ({
         });
       });
     });
+
+    const observer = new MutationObserver(keepBannerOverridesLast);
+    observer.observe(document.head, { childList: true });
+    const timeout = window.setTimeout(() => observer.disconnect(), 8000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timeout);
+    };
   }, []);
 
   return (
@@ -98,4 +112,53 @@ async function waitUntilConditionIsMet({
     currentRetry++;
   }
   return condition();
+}
+
+const BANNER_OVERRIDE_STYLE_ID = "ink-onetrust-banner-overrides";
+
+function isBannerOverrideRule(cssText: string) {
+  return (
+    cssText.includes("onetrust") ||
+    cssText.includes("ot-sdk") ||
+    cssText.includes("ink-onetrust-banner-marker")
+  );
+}
+
+/** Copy only our banner rules into a dedicated tag so OneTrust cannot restyle the app chunk. */
+function keepBannerOverridesLast() {
+  const existing = document.getElementById(BANNER_OVERRIDE_STYLE_ID);
+  if (existing) {
+    if (document.head.lastElementChild !== existing) {
+      document.head.appendChild(existing);
+    }
+    return;
+  }
+
+  const rules: string[] = [];
+  for (const sheet of Array.from(document.styleSheets)) {
+    try {
+      const cssRules = Array.from(sheet.cssRules);
+      if (
+        !cssRules.some((rule) =>
+          rule.cssText.includes("ink-onetrust-banner-marker")
+        )
+      ) {
+        continue;
+      }
+      for (const rule of cssRules) {
+        if (isBannerOverrideRule(rule.cssText)) {
+          rules.push(rule.cssText);
+        }
+      }
+    } catch {
+      continue;
+    }
+  }
+
+  if (rules.length === 0) return;
+
+  const style = document.createElement("style");
+  style.id = BANNER_OVERRIDE_STYLE_ID;
+  style.textContent = rules.join("\n");
+  document.head.appendChild(style);
 }

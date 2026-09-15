@@ -1,4 +1,12 @@
 declare interface Window {
+  OneTrust?: {
+    ToggleInfoDisplay: () => void;
+    AllowAll: () => void;
+    RejectAll: () => void;
+    OnConsentChanged: (callback: () => void) => void;
+  };
+  oneTrustLoaded?: Promise<NonNullable<Window["OneTrust"]>>;
+  OnetrustActiveGroups?: string;
   ethereum?: {
     isMetaMask?: boolean;
     request: (args: {
