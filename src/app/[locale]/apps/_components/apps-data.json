@@ -939,6 +939,25 @@
       }
     },
     {
+      "id": "pump",
+      "name": "Pump",
+      "description": "Launch and trade coins on Pump. Trade Ink tokens seamlessly with USDC, no bridging required.",
+      "imageUrl": "/featured-apps/icons/pump.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["fun", "tokens"],
+      "links": {
+        "mainnetWebsite": "https://pump.fun",
+        "testnetWebsite": "https://pump.fun",
+        "x": "https://x.com/Pumpfun",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/pump-fun",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "pyth",
       "name": "Pyth",
       "description": "Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
@@ -1328,6 +1347,25 @@
       },
       "order": 2,
       "pills": ["AIRDROP"]
+    },
+    {
+      "id": "uniswap",
+      "name": "Uniswap",
+      "description": "The largest decentralized trading protocol. Swap tokens and provide liquidity on Ink across Uniswap v2, v3, and v4.",
+      "imageUrl": "/featured-apps/icons/uniswap.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex"],
+      "links": {
+        "mainnetWebsite": "https://app.uniswap.org/swap?chain=ink",
+        "testnetWebsite": "https://app.uniswap.org/swap?chain=ink",
+        "x": "https://x.com/Uniswap",
+        "discord": "https://discord.com/invite/uniswap",
+        "telegram": "",
+        "github": "https://github.com/Uniswap",
+        "farcaster": "https://warpcast.com/uniswap",
+        "smartContractUrl": ""
+      }
     },
     {
       "id": "utila",
