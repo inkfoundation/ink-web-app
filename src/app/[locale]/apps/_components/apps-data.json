@@ -542,6 +542,25 @@
       }
     },
     {
+      "id": "inkcoming",
+      "name": "inkcoming",
+      "description": "Launch a coin on Ink in one transaction. Pair it with ETH, USDG or tokenized stocks, choose who the trading fees pay, and the liquidity stays locked forever.",
+      "imageUrl": "/featured-apps/icons/inkcoming.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["fun", "tokens"],
+      "links": {
+        "mainnetWebsite": "https://inkcoming.fun",
+        "testnetWebsite": "https://inkcoming.fun",
+        "x": "https://x.com/inkcomingfun",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x1CfF785f8c6571235C468dcF5f528C692AAB505b"
+      }
+    },
+    {
       "id": "inkdca",
       "name": "InkDCA",
       "description": "InkDCA is a fully decentralized, trust minimized Dollar-Cost Averaging (DCA) platform built exclusively on Ink .",
