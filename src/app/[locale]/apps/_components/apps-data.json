@@ -207,6 +207,25 @@
       }
     },
     {
+      "id": "confetti",
+      "name": "Confetti",
+      "description": "Social opinion markets: buy votes on contests, rally a community, and earn if your pick wins. Formerly JokeRace.",
+      "imageUrl": "/featured-apps/icons/confetti.webp",
+      "category": ["Social"],
+      "network": "Mainnet",
+      "tags": ["fun"],
+      "links": {
+        "mainnetWebsite": "https://confetti.winhttps://confetti.win",
+        "testnetWebsite": "https://confetti.win",
+        "x": "https://x.com/confetti_win",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/jk-labs-inc/confetti",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "conft",
       "name": "conft",
       "description": "conft - a Multi-Chain Web3 Utility Hub offering comprehensive services such as Web3 Name Service, NFT Aggregator, and Launchpad.",
