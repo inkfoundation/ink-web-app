@@ -1583,6 +1583,10 @@ html[data-home-board] .devs__lede {
   color: var(--text-secondary);
 }
 
+html[data-home-board] .devs__block--hero .devs__lede {
+  text-wrap: balance;
+}
+
 html[data-home-board] .col--devs .col__top,
 html[data-home-board] .devs__block,
 html[data-home-board] .devs__focus,
@@ -1617,6 +1621,7 @@ html[data-home-board] .devs__focus {
 
 html[data-home-board] .devs__block--hero {
   gap: 32px;
+  container-type: inline-size;
 }
 
 html[data-home-board] .devs__intro {
@@ -1626,8 +1631,11 @@ html[data-home-board] .devs__intro {
 }
 
 html[data-home-board] .devs__block--hero .cta-row {
-  flex-wrap: wrap;
-  row-gap: 8px;
+  flex-wrap: nowrap;
+}
+
+html[data-home-board] .devs__block--hero .cta-row > .pill {
+  padding-inline: clamp(12px, calc(20px - (366px - 100cqi) / 8), 20px);
 }
 
 html[data-home-board] .devs__media {
