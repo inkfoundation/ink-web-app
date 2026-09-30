@@ -11,6 +11,10 @@ import { env } from "@/env";
  */
 const RELAY_API_URL = "https://api.relay.link";
 
+// The chain list is requested on every page load and rarely changes; prices
+// and quotes must stay uncached.
+const CDN_CACHEABLE_GET_PATHS = new Set(["chains"]);
+
 async function proxy(
   request: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
@@ -38,11 +42,19 @@ async function proxy(
     cache: "no-store",
   });
 
+  const isCdnCacheable =
+    request.method === "GET" &&
+    response.ok &&
+    CDN_CACHEABLE_GET_PATHS.has(path.join("/"));
+
   return new NextResponse(response.body, {
     status: response.status,
     headers: {
       "content-type":
         response.headers.get("content-type") ?? "application/json",
+      ...(isCdnCacheable && {
+        "cdn-cache-control": "max-age=300, stale-while-revalidate=86400",
+      }),
     },
   });
 }

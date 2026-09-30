@@ -9,7 +9,6 @@ import { RelayLogo } from "@/components/icons/RelayLogo";
 import { useAdaptedWallet } from "@/hooks/useAdaptedWallet";
 
 import "@reservoir0x/relay-kit-ui/styles.css";
-import "./RelayKitUI.css";
 
 export const RelayKitUI: React.FC = () => {
   const { openConnectModal } = useConnectModal();
@@ -37,7 +36,7 @@ export const RelayKitUI: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 items-center">
       <div className="flex flex-col gap-4 p-6 pt-5">
-        <div className="flex justify-end items-center h-4">
+        <div className="bridge__history flex justify-end items-center h-4">
           {address && (
             <a
               href={`https://relay.link/transactions?address=${address}`}
