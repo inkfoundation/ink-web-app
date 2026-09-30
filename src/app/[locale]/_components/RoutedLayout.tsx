@@ -11,7 +11,6 @@ import { isAppsPath } from "../apps/_components/filter-apps";
 import { HomeBoard } from "./HomeBoard";
 import { InkLogo, InkLogoImage } from "./InkLogo";
 import { LayoutColumns } from "./LayoutColumns";
-import { MainPageBackground } from "./MainPageBackground";
 import { MobileNav } from "./MobileNav";
 import { SideNav } from "./SideNav";
 import { ThemeToggle } from "./ThemeToggle";
@@ -58,7 +57,6 @@ export function RoutedLayout({ children }: { children: React.ReactNode }) {
         </div>
         <Footer />
       </div>
-      <MainPageBackground />
     </InkLayout>
   );
 }

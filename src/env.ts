@@ -5,7 +5,16 @@ export const env = createEnv({
   server: {
     CI: z.string().optional(),
     SENTRY_AUTH_TOKEN: z.string().optional(),
-    ORIGIN: z.string().min(1).default("inkonchain.com"),
+    ORIGIN: z
+      .string()
+      .min(1)
+      .default("https://inkonchain.com")
+      .transform((origin) =>
+        (/^https?:\/\//.test(origin) ? origin : `https://${origin}`).replace(
+          /\/+$/,
+          ""
+        )
+      ),
     INK_APP_SUBMISSION_BOT_GITHUB_APP_ID: z.string().min(1),
     INK_APP_SUBMISSION_BOT_GITHUB_PRIVATE_KEY: z.string().min(1),
     INK_APP_SUBMISSION_BOT_GITHUB_INSTALLATION_ID: z.string().min(1),

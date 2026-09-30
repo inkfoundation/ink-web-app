@@ -1,5 +1,4 @@
 import React from "react";
-import Script from "next/script";
 import type {
   CollectionPage,
   Organization,
@@ -13,10 +12,8 @@ export interface JsonLdProps {
 
 export const JsonLd: React.FC<JsonLdProps> = ({ schema }) => {
   return (
-    <Script
-      id="schema-markup"
+    <script
       type="application/ld+json"
-      strategy="afterInteractive"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
@@ -26,7 +23,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({ schema }) => {
             url: "https://inkonchain.com/",
           },
           ...(typeof schema === "object" ? schema : {}),
-        }),
+        }).replace(/</g, "\\u003c"),
       }}
     />
   );

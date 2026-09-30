@@ -58,7 +58,8 @@ export const AppSubmissionModal: React.FC = () => {
           smartContractUrl:
             "https://explorer.inkonchain.com/address/0x00000000E3dA5fC031282A39759bDDA78ae7fAE5",
         }
-      : {}
+      : {},
+    { loadCaptcha: isModalOpen }
   );
 
   return (

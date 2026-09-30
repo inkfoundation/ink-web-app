@@ -1,5 +1,16 @@
+import { Metadata } from "next";
+
 import { ColoredText } from "@/components/ColoredText";
 import { EXTERNAL_LINKS, Link } from "@/routing";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://inkonchain.com/terms",
+  },
+  title: "Terms of Service",
+  description:
+    "This summary provides an overview of our Terms of Service that apply to your use of our website and other services.",
+};
 
 export default function Terms() {
   return (

@@ -10,10 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((value): value is NonNullable<typeof value> => value !== null)
     .map((value) => `apps/${value}`);
   const basicPaths = [
+    "about",
     "apps",
     ...appCategoryPaths,
     "bridge",
     "builders",
+    "community",
     "faucet",
     "terms",
   ];
