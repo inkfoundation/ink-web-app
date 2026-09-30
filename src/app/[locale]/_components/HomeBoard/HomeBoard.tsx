@@ -26,6 +26,7 @@ import { isAppsPath } from "../../apps/_components/filter-apps";
 import {
   type InkApp,
   type InkAppNetwork,
+  inkApps,
   inkAppsNewestFirst,
   inkFeaturedApps,
   mainUrl,
@@ -33,6 +34,7 @@ import {
 import tydroArt from "../Home/assets/tydro-banner-trans.png";
 
 import { AppsEmptyState, AppsOverlayFilters } from "./AppsOverlayFilters";
+import { RankSort } from "./RankSort";
 import { BoardFooter } from "./BoardFooter";
 import {
   builderExpectations,
@@ -109,6 +111,13 @@ function InkMark() {
 }
 
 const TYDRO_APP_ID = "tydro";
+const APP_SORTS = ["featured", "latest", "name"] as const;
+type AppSort = (typeof APP_SORTS)[number];
+const APP_SORT_LABEL = {
+  featured: "appSortFeatured",
+  latest: "appSortLatest",
+  name: "appSortName",
+} as const;
 const tydroArtSrc = typeof tydroArt === "string" ? tydroArt : tydroArt.src;
 
 const BoardAppCard = memo(function BoardAppCard({
@@ -436,9 +445,9 @@ export function HomeBoard() {
   const isOverlay = isApps || isBridge || isBuilders;
   const [heroVideoActive, setHeroVideoActive] = useState(false);
   const [feedTab, setFeedTab] = useState<FeedTab>("apps");
-  const feedTabRefs = useRef<Partial<Record<FeedTab, HTMLButtonElement | null>>>(
-    {}
-  );
+  const feedTabRefs = useRef<
+    Partial<Record<FeedTab, HTMLButtonElement | null>>
+  >({});
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -526,6 +535,7 @@ export function HomeBoard() {
     goBuilders();
   }, [goBuilders, goHome, isBuilders]);
 
+  const [appSort, setAppSort] = useState<AppSort>("featured");
   const featuredIds = useMemo(
     () => new Set(inkFeaturedApps.map((app) => app.id)),
     []
@@ -536,9 +546,11 @@ export function HomeBoard() {
     return [hero, ...overlayApps.filter((app) => app.id !== TYDRO_APP_ID)];
   }, [overlayApps]);
   const apps = useMemo(() => {
+    if (appSort === "latest") return inkAppsNewestFirst.slice(0, 24);
+    if (appSort === "name") return inkApps.slice(0, 24);
     const latest = inkAppsNewestFirst.filter((app) => !featuredIds.has(app.id));
     return [...inkFeaturedApps, ...latest].slice(0, 24);
-  }, [featuredIds]);
+  }, [appSort, featuredIds]);
   useLayoutEffect(() => {
     const html = document.documentElement;
     const classTheme = html.classList.contains("dark")
@@ -884,10 +896,22 @@ export function HomeBoard() {
                     {t("appsHeadline")}
                   </h2>
                 </div>
-                <div className="app-list">
-                  {apps.map((app) => (
-                    <BoardAppCard app={app} key={app.id} />
-                  ))}
+                <div className="apps__board">
+                  <div className="token-list__heading">
+                    <RankSort
+                      value={appSort}
+                      options={APP_SORTS.map((item) => ({
+                        value: item,
+                        label: t(APP_SORT_LABEL[item]),
+                      }))}
+                      onChange={setAppSort}
+                    />
+                  </div>
+                  <div className="app-list">
+                    {apps.map((app) => (
+                      <BoardAppCard app={app} key={app.id} />
+                    ))}
+                  </div>
                 </div>
                 <Link
                   className="pill pill--gray apps__view-all"

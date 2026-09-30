@@ -1428,12 +1428,12 @@ html[data-home-board] .col--nfts {
   html[data-home-board] .board > .col--hero,
   html[data-home-board] .board > .col--started,
   html[data-home-board] .col--apps,
+  html[data-home-board] .col--tokens,
   html[data-home-board] .bridge-layer__inner > .col--devs-hero,
   html[data-home-board] .bridge-layer__inner > .col--devs-started {
     min-width: 280px;
   }
 
-  html[data-home-board] .col--tokens,
   html[data-home-board] .col--nfts {
     min-width: 240px;
   }
@@ -2639,6 +2639,15 @@ html[data-home-board] .app-list {
   overflow-y: auto;
 }
 
+html[data-home-board] .apps__board {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  min-height: 0;
+}
+
 html[data-home-board] .apps__heading {
   display: flex;
   align-items: center;
@@ -3070,6 +3079,129 @@ html[data-home-board] .token-list {
   container-type: inline-size;
 }
 
+html[data-home-board] .token-list__heading {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 4px;
+  align-items: baseline;
+  margin: 0;
+  padding: 0 0 12px;
+  background: var(--surface-page);
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+html[data-home-board] .token-list__heading span {
+  white-space: nowrap;
+}
+
+html[data-home-board] .token-list__heading span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html[data-home-board] .token-list__source {
+  justify-self: end;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+html[data-home-board] .rank-sort {
+  min-width: 0;
+}
+
+html[data-home-board] .home-board button.rank-sort__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+html[data-home-board] .rank-sort__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html[data-home-board] .rank-sort__chevron {
+  width: 5px;
+  height: 5px;
+  flex: none;
+  border-right: 1.25px solid currentColor;
+  border-bottom: 1.25px solid currentColor;
+  transform: translateY(-1px) rotate(45deg);
+}
+
+html[data-home-board]
+  .rank-sort__trigger[aria-expanded="true"]
+  .rank-sort__chevron {
+  transform: translateY(1px) rotate(225deg);
+}
+
+html[data-home-board] .rank-sort__menu {
+  position: fixed;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  width: 168px;
+  padding: 6px;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-page);
+  box-shadow: 0 8px 24px var(--glass-shadow);
+}
+
+html[data-home-board]
+  .home-board
+  button.rank-sort__option:not(.pill):not(.code__step):not(.code__copy):not(
+    .board-footer__icon
+  ) {
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--board-font);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+html[data-home-board] .home-board button.rank-sort__option.is-selected,
+html[data-home-board] .home-board button.rank-sort__option:hover {
+  background: var(--surface-muted);
+}
+
+html[data-home-board] .rank-sort__trigger:focus-visible,
+html[data-home-board] .rank-sort__option:focus-visible,
+html[data-home-board] .token-list__source:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+html[data-home-board] .token-list__heading:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 html[data-home-board] .token-list__status {
   margin: 0;
   color: var(--text-secondary);
@@ -3188,7 +3320,8 @@ html[data-home-board] .token__price {
 }
 
 html[data-home-board] .token__name,
-html[data-home-board] .token__change {
+html[data-home-board] .token__change,
+html[data-home-board] .token__window {
   overflow: hidden;
   color: var(--text-secondary);
   font-size: 12px;
@@ -3197,17 +3330,24 @@ html[data-home-board] .token__change {
   white-space: nowrap;
 }
 
+html[data-home-board] .token__change {
+  display: inline-flex;
+  gap: 4px;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+
 @container (max-width: 260px) {
   html[data-home-board] .token__name {
     display: none;
   }
 }
 
-html[data-home-board] .token__change--up {
+html[data-home-board] .token__delta--up {
   color: var(--change-up);
 }
 
-html[data-home-board] .token__change--down {
+html[data-home-board] .token__delta--down {
   color: var(--change-down);
 }
 
@@ -4022,6 +4162,22 @@ html[data-home-board] .app--hero .app__media::after {
     height: auto;
   }
 
+  html[data-home-board] .board > .col--about {
+    order: 1;
+  }
+
+  html[data-home-board] .board > .col--hero {
+    order: 2;
+  }
+
+  html[data-home-board] .board > .col--started {
+    order: 3;
+  }
+
+  html[data-home-board] .board > .board-feed {
+    order: 4;
+  }
+
   html[data-home-board] .col--about,
   html[data-home-board] .col--hero,
   html[data-home-board] .col--started,
@@ -4083,6 +4239,7 @@ html[data-home-board] .app--hero .app__media::after {
     overflow: visible;
   }
 
+  html[data-home-board] .board-feed .apps__board,
   html[data-home-board] .board-feed .app-list,
   html[data-home-board] .board-feed .token-list {
     flex: none;
@@ -4150,6 +4307,7 @@ html[data-home-board] .app--hero .app__media::after {
   html[data-home-board] .col--started .step,
   html[data-home-board] .col--devs-started .step,
   html[data-home-board] .col--apps .app,
+  html[data-home-board] .apps__board,
   html[data-home-board] .col--apps .app-list,
   html[data-home-board] .col--tokens .token-list,
   html[data-home-board] .col--nfts .token-list,
@@ -4524,6 +4682,21 @@ html[data-home-board]
   .home-board
   a:not(.pill--purple):not(.board-footer__icon) {
   color: inherit;
+}
+
+html[data-home-board]
+  .home-board
+  a.token-list__source:not(.pill--purple):not(.board-footer__icon) {
+  color: var(--text-secondary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-home-board]
+    .home-board
+    a.token-list__source:not(.pill--purple):not(.board-footer__icon):hover,
+  html[data-home-board] .home-board button.rank-sort__trigger:hover {
+    color: var(--text-primary);
+  }
 }
 
 html[data-home-board] .home-board .app--hero {

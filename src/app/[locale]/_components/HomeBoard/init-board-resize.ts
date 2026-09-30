@@ -29,7 +29,7 @@ const MIN_PX: Record<ColumnName, number> = {
   hero: 280,
   started: 280,
   apps: 280,
-  tokens: 240,
+  tokens: 280,
   nfts: 240,
   developers: 380,
   "developers-ink": 280,

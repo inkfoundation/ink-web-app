@@ -6,6 +6,22 @@ export const revalidate = 60;
 
 const GECKO_TRENDING_URL =
   "https://api.geckoterminal.com/api/v2/networks/ink/trending_pools?include=base_token,quote_token";
+const GECKO_POOLS_URL =
+  "https://api.geckoterminal.com/api/v2/networks/ink/pools?include=base_token,quote_token";
+
+const TOKEN_SORTS = ["trending", "volume", "txns"] as const;
+type TokenSort = (typeof TOKEN_SORTS)[number];
+
+function parseTokenSort(value: string | null): TokenSort {
+  return TOKEN_SORTS.find((sort) => sort === value) ?? "trending";
+}
+
+function poolsPageUrl(sort: TokenSort, page: number) {
+  if (sort === "trending") return `${GECKO_TRENDING_URL}&page=${page}`;
+  const geckoSort =
+    sort === "volume" ? "h24_volume_usd_desc" : "h24_tx_count_desc";
+  return `${GECKO_POOLS_URL}&sort=${geckoSort}&page=${page}`;
+}
 
 const MAX_TOKENS = 24;
 const TRENDING_PAGES = 2;
@@ -201,8 +217,8 @@ function appendPools(
   }
 }
 
-async function fetchTrendingPage(page: number) {
-  const response = await fetch(`${GECKO_TRENDING_URL}&page=${page}`, {
+async function fetchPoolsPage(sort: TokenSort, page: number) {
+  const response = await fetch(poolsPageUrl(sort, page), {
     headers: {
       Accept: "application/json",
       "User-Agent": "Ink-WebApp/1.0",
@@ -212,18 +228,20 @@ async function fetchTrendingPage(page: number) {
 
   if (!response.ok) {
     throw new Error(
-      `GeckoTerminal trending page ${page} failed: ${response.status}`
+      `GeckoTerminal ${sort} page ${page} failed: ${response.status}`
     );
   }
 
   return (await response.json()) as GeckoResponse;
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const sort = parseTokenSort(new URL(request.url).searchParams.get("sort"));
+
   try {
     const pages = await Promise.all(
       Array.from({ length: TRENDING_PAGES }, (_, index) =>
-        fetchTrendingPage(index + 1)
+        fetchPoolsPage(sort, index + 1)
       )
     );
 

@@ -9,10 +9,24 @@ const MAX_NFTS = 24;
 const SLUG_RE = /^[a-z0-9](?:[a-z0-9-]{0,78}[a-z0-9])?$/;
 const IMAGE_HOSTS = new Set(["i2c.seadn.io", "i.seadn.io", "opensea.io"]);
 
+const NFT_SORTS = {
+  volume: "ONE_DAY_VOLUME",
+  hour: "ONE_HOUR_VOLUME",
+  floor: "FLOOR_PRICE",
+  sales: "ONE_DAY_SALES",
+} as const;
+
+type NftSort = keyof typeof NFT_SORTS;
+
+function parseNftSort(value: string | null): NftSort {
+  if (value !== null && value in NFT_SORTS) return value as NftSort;
+  return "volume";
+}
+
 const TOP_COLLECTIONS_QUERY = `
-  query InkTopCollections($limit: Int!) {
+  query InkTopCollections($limit: Int!, $sort: TopCollectionsSortBy!) {
     topCollections(
-      sort: { by: ONE_DAY_VOLUME, direction: DESC }
+      sort: { by: $sort, direction: DESC }
       limit: $limit
       filter: { chains: ["ink"] }
     ) {
@@ -110,7 +124,9 @@ function mapCollections(items: unknown): InkNft[] {
   return nfts;
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const sort = parseNftSort(new URL(request.url).searchParams.get("sort"));
+
   try {
     const response = await fetch(OPENSEA_GRAPHQL, {
       method: "POST",
@@ -121,7 +137,7 @@ export async function GET() {
       },
       body: JSON.stringify({
         query: TOP_COLLECTIONS_QUERY,
-        variables: { limit: MAX_NFTS },
+        variables: { limit: MAX_NFTS, sort: NFT_SORTS[sort] },
       }),
       next: { revalidate: 60 },
     });

@@ -6,7 +6,15 @@ import { useTranslations } from "next-intl";
 
 import { EXTERNAL_LINKS, Link } from "@/routing";
 
-import { fetchInkNfts, type InkNft } from "./ink-nfts";
+import { fetchInkNfts, nftSorts, type InkNft, type NftSort } from "./ink-nfts";
+import { RankSort } from "./RankSort";
+
+const NFT_SORT_LABEL = {
+  volume: "nftSortVolume",
+  hour: "nftSortHour",
+  floor: "nftSortFloor",
+  sales: "nftSortSales",
+} as const;
 
 const OPENSEA_HREF =
   /^https:\/\/opensea\.io\/collection\/[a-z0-9](?:[a-z0-9-]{0,78}[a-z0-9])?$/;
@@ -77,17 +85,20 @@ function NftRow({ nft }: { nft: InkNft }) {
       href={nft.href}
       target="_blank"
       rel="noreferrer"
-      aria-label={`${nft.name}. ${t("opensInNewTab")}`}
+      aria-label={`${nft.name}. ${t("nftsFloor")} ${formatUsd(nft.floorUsd)}. ${t("changeWindow")} ${formatChange(nft.change24h)}. ${t("opensInNewTab")}`}
     >
       <NftIcon nft={nft} />
       <span className="token__id">
         <span className="token__symbol">{nft.name}</span>
-        <span className="token__name">Floor</span>
+        <span className="token__name">{t("nftsFloor")}</span>
       </span>
       <span className="token__quote">
         <span className="token__price">{formatUsd(nft.floorUsd)}</span>
-        <span className={`token__change token__change--${tone}`}>
-          {formatChange(nft.change24h)}
+        <span className="token__change">
+          <span className="token__window">{t("changeWindow")}</span>
+          <span className={`token__delta token__delta--${tone}`}>
+            {formatChange(nft.change24h)}
+          </span>
         </span>
       </span>
     </a>
@@ -96,9 +107,10 @@ function NftRow({ nft }: { nft: InkNft }) {
 
 export function NftsColumn() {
   const t = useTranslations("Home");
+  const [sort, setSort] = useState<NftSort>("volume");
   const { data, isError, isPending } = useQuery({
-    queryKey: ["ink-nfts"],
-    queryFn: fetchInkNfts,
+    queryKey: ["ink-nfts", sort],
+    queryFn: () => fetchInkNfts(sort),
     staleTime: 60_000,
   });
   const nfts = (data ?? []).filter((nft) => OPENSEA_HREF.test(nft.href));
@@ -119,8 +131,27 @@ export function NftsColumn() {
           </h2>
         </div>
         <div className="token-list">
+          <div className="token-list__heading">
+            <RankSort
+              value={sort}
+              options={nftSorts.map((item) => ({
+                value: item,
+                label: t(NFT_SORT_LABEL[item]),
+              }))}
+              onChange={setSort}
+            />
+            <Link
+              className="token-list__source"
+              href={EXTERNAL_LINKS.openseaInk}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${t(NFT_SORT_LABEL[sort])}. ${t("nftsSource")}. ${t("opensInNewTab")}`}
+            >
+              {t("nftsSource")}
+            </Link>
+          </div>
           {isPending
-            ? Array.from({ length: 12 }, (_, index) => (
+            ? Array.from({ length: 24 }, (_, index) => (
                 <div className="token token--skeleton" key={index} />
               ))
             : null}

@@ -13,8 +13,15 @@ export type InkTokensResponse = {
   tokens: InkToken[];
 };
 
-export async function fetchInkTokens(): Promise<InkToken[]> {
-  const response = await fetch("/api/ink-tokens");
+export const tokenSorts = ["trending", "volume", "txns"] as const;
+export type TokenSort = (typeof tokenSorts)[number];
+
+export async function fetchInkTokens(
+  sort: TokenSort = "trending"
+): Promise<InkToken[]> {
+  const response = await fetch(
+    sort === "trending" ? "/api/ink-tokens" : `/api/ink-tokens?sort=${sort}`
+  );
   const payload = (await response.json()) as InkTokensResponse;
   if (!response.ok) {
     throw new Error("Failed to load tokens");
