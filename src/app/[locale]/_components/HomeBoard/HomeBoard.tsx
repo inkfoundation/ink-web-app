@@ -25,7 +25,7 @@ import { isAppsPath } from "../../apps/_components/filter-apps";
 import {
   type InkApp,
   type InkAppNetwork,
-  inkApps,
+  inkAppsNewestFirst,
   inkFeaturedApps,
   mainUrl,
 } from "../../apps/_components/InkApp";
@@ -324,6 +324,52 @@ function BuilderFeatureIcon({ icon }: { icon: string }) {
   );
 }
 
+function StartStepIcon({ kind }: { kind: "bridge" | "trade" | "earn" }) {
+  let symbol;
+
+  if (kind === "bridge") {
+    symbol = (
+      <>
+        <path d="M2 15h20M7 5v14M17 5v14" />
+        <path d="M7 6q5 7 10 0M2 11q3.5-1 5-5M17 6q1.5 4 5 5" />
+        <path d="M9.5 8.7V15M14.5 8.7V15" />
+      </>
+    );
+  } else if (kind === "trade") {
+    symbol = (
+      <>
+        <path d="M6 3v3M6 15v3M12 7v3M12 17v4M18 4v2M18 12v3" />
+        <rect x="4" y="6" width="4" height="9" rx="1" />
+        <rect x="10" y="10" width="4" height="7" rx="1" />
+        <rect x="16" y="6" width="4" height="6" rx="1" />
+      </>
+    );
+  } else {
+    symbol = (
+      <>
+        <circle cx="9.5" cy="13.5" r="6.5" />
+        <path d="M9 7a6.5 6.5 0 1 1 6 10" />
+        <path d="M9.5 11v5M7 13.5h5" />
+      </>
+    );
+  }
+
+  return (
+    <svg
+      className="step__icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {symbol}
+    </svg>
+  );
+}
+
 function OverlayClose({
   label,
   onClick,
@@ -457,13 +503,10 @@ export function HomeBoard() {
     if (!hero) return overlayApps;
     return [hero, ...overlayApps.filter((app) => app.id !== TYDRO_APP_ID)];
   }, [overlayApps]);
-  const apps = useMemo(
-    () => [
-      ...inkFeaturedApps,
-      ...inkApps.filter((app) => !featuredIds.has(app.id)),
-    ],
-    [featuredIds]
-  );
+  const apps = useMemo(() => {
+    const latest = inkAppsNewestFirst.filter((app) => !featuredIds.has(app.id));
+    return [...inkFeaturedApps, ...latest].slice(0, 24);
+  }, [featuredIds]);
   useLayoutEffect(() => {
     const html = document.documentElement;
     const classTheme = html.classList.contains("dark")
@@ -689,7 +732,7 @@ export function HomeBoard() {
               </h2>
             </div>
             <article className="step">
-              <span className="step__n">1</span>
+              <StartStepIcon kind="bridge" />
               <div className="step__body">
                 <p className="step__label">{t("stepBridge")}</p>
                 <Link
@@ -701,7 +744,7 @@ export function HomeBoard() {
               </div>
             </article>
             <article className="step">
-              <span className="step__n">2</span>
+              <StartStepIcon kind="trade" />
               <div className="step__body">
                 <p className="step__label">{t("stepTrade")}</p>
                 <Link
@@ -710,12 +753,12 @@ export function HomeBoard() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {t("perpsCta")}
+                  {t("tradeCta")}
                 </Link>
               </div>
             </article>
             <article className="step">
-              <span className="step__n">3</span>
+              <StartStepIcon kind="earn" />
               <div className="step__body">
                 <p className="step__label">{t("stepEarn")}</p>
                 <Link

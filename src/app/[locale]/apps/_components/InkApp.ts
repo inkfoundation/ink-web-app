@@ -80,6 +80,100 @@ export const inkFeaturedApps = inkApps
     return a.name.localeCompare(b.name);
   });
 
+// Newest addition first. Ids missing from this list (apps added later) sort ahead of it.
+const newestAppIds = [
+  "pump",
+  "uniswap",
+  "templars-trade",
+  "ophis",
+  "monipay",
+  "delora-protocol",
+  "arkada",
+  "aleph-cloud",
+  "zeroway",
+  "copass",
+  "conft",
+  "firefly-bridge",
+  "omnihub",
+  "multisender",
+  "anycampus",
+  "eco-portal",
+  "eco",
+  "quick-intel",
+  "concero",
+  "nado-explorer",
+  "ink-brokers",
+  "lunar-finance",
+  "envio",
+  "garden",
+  "tristero",
+  "rampnow",
+  "utila",
+  "octav.fi",
+  "blocksense",
+  "gem-wallet",
+  "yieldnest",
+  "sweep",
+  "interport-finance",
+  "nadobro",
+  "otomate",
+  "stableflow",
+  "spreads-finance",
+  "0x",
+  "blockscout",
+  "boi",
+  "bungee-exchange",
+  "chaos-oracles",
+  "curve",
+  "deep-on-ink",
+  "dune",
+  "gelato",
+  "goldsky",
+  "hypernative",
+  "layerzero",
+  "merkl",
+  "okx-explorer",
+  "pyth",
+  "rainbow",
+  "redstone",
+  "reservoir:-relay",
+  "rhino.fi",
+  "routescan",
+  "safe",
+  "seda",
+  "stargate",
+  "superbridge",
+  "superswap",
+  "tenderly",
+  "token-terminal",
+  "wormhole",
+  "zerion",
+  "zerodev",
+  "zns-connect",
+  "magna",
+  "flowbot",
+  "nado",
+  "inkdca",
+  "mavrk",
+  "tydro",
+  "across-protocol",
+  "gm",
+  "inkypump",
+  "inkyswap",
+  "kraken",
+  "kraken-wallet",
+  "velodrome",
+];
+
+const newestAppRank = new Map(newestAppIds.map((id, index) => [id, index]));
+
+export const inkAppsNewestFirst = [...inkApps].sort((a, b) => {
+  const aRank = newestAppRank.get(a.id) ?? -1;
+  const bRank = newestAppRank.get(b.id) ?? -1;
+  if (aRank !== bRank) return aRank - bRank;
+  return a.name.localeCompare(b.name);
+});
+
 export const inkTransparentIcons: string[] = [];
 export const inkTags: string[] = apps.reduce((acc, app) => {
   app.tags.forEach((tag) => {

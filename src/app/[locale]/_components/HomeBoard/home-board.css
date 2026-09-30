@@ -1365,6 +1365,10 @@ html[data-home-board] .col--devs-started {
   padding: 86px 20px calc(20px + var(--round) * 66px);
 }
 
+html[data-home-board] .col--apps {
+  flex-grow: 310;
+}
+
 html[data-home-board] .bridge-layer {
   position: absolute;
   top: 15px;
@@ -2362,6 +2366,15 @@ html[data-home-board] .step__label {
   text-box-edge: cap alphabetic;
 }
 
+html[data-home-board] .step__icon {
+  display: block;
+  flex: none;
+  width: 26px;
+  height: 26px;
+  color: var(--text-primary);
+  overflow: visible;
+}
+
 /* App cards */
 html[data-home-board] .app-list {
   display: flex;
@@ -2794,10 +2807,6 @@ html[data-home-board] .apps__view-all {
   margin-bottom: 40px;
 }
 
-html[data-home-board] .col--apps .app:nth-child(n + 9) {
-  display: none;
-}
-
 html[data-home-board]:is(
     [data-bridge-open],
     [data-bridge-closing],
@@ -2988,10 +2997,87 @@ html[data-home-board] .app__icon {
   flex-shrink: 0;
 }
 
+html[data-home-board] .col--apps .app-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  container-type: inline-size;
+}
+
+html[data-home-board] .col--apps .app {
+  aspect-ratio: 1;
+  min-height: 0;
+  justify-content: space-between;
+  gap: 16px;
+  padding: calc(16px + var(--round) * 4px);
+}
+
+html[data-home-board] .col--apps .app__pills {
+  top: calc(16px + var(--round) * 4px);
+  right: calc(16px + var(--round) * 4px);
+}
+
 html[data-home-board] .col--apps .app__icon {
   width: 48px;
   height: 48px;
   border-radius: 12px;
+}
+
+html[data-home-board] .col--apps .app__name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+}
+
+html[data-home-board] .col--apps .app__tags {
+  display: none;
+}
+
+html[data-home-board] .col--apps .app__pills > .tag--airdrop {
+  gap: 3px;
+  height: 26px;
+  padding: 6px 6px;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+html[data-home-board] .col--apps .app__pills > .tag--airdrop svg {
+  width: 11px;
+  height: 11px;
+}
+
+@container (max-width: 280px) {
+  html[data-home-board] .col--apps .app {
+    gap: 8px;
+    padding: calc(12px + var(--round) * 6px);
+  }
+
+  html[data-home-board] .col--apps .app__pills {
+    top: calc(12px + var(--round) * 6px);
+    right: calc(12px + var(--round) * 6px);
+  }
+}
+
+@container (max-width: 96px) {
+  html[data-home-board] .col--apps .app__name {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+
+@container (max-width: 100px) {
+  html[data-home-board] .col--apps .tag__label--airdrop {
+    display: none;
+  }
+
+  html[data-home-board] .col--apps .app__pills > .tag--airdrop {
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+  }
 }
 
 html[data-home-board] .app__icon img {
@@ -3058,14 +3144,13 @@ html[data-home-board] .col--apps .app__desc-text {
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-}
-
-html[data-home-board] .col--apps .app {
-  padding-bottom: 16px;
+  padding-top: 4px;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 html[data-home-board] .col--apps .app__desc-clip {
-  max-height: 48px;
+  max-height: 36px;
 }
 
 html[data-home-board] .app__tags {
@@ -3321,11 +3406,17 @@ html[data-home-board] .app__pills .tag--airdrop svg {
 }
 
 @media (max-width: 640px) {
-  html[data-home-board] .col--apps-overlay .app__pills > .tag--featured {
+  html[data-home-board]
+    :is(.col--apps, .col--apps-overlay)
+    .app__pills
+    > .tag--featured {
     display: none;
   }
 
-  html[data-home-board] .col--apps-overlay .app__pills > .tag--airdrop {
+  html[data-home-board]
+    :is(.col--apps, .col--apps-overlay)
+    .app__pills
+    > .tag--airdrop {
     gap: 3px;
     height: 26px;
     padding: 7px 8px;
@@ -3333,7 +3424,11 @@ html[data-home-board] .app__pills .tag--airdrop svg {
     line-height: 12px;
   }
 
-  html[data-home-board] .col--apps-overlay .app__pills > .tag--airdrop svg {
+  html[data-home-board]
+    :is(.col--apps, .col--apps-overlay)
+    .app__pills
+    > .tag--airdrop
+    svg {
     width: 11px;
     height: 11px;
   }
@@ -3534,6 +3629,30 @@ html[data-home-board] .app--hero .app__media::after {
   html[data-home-board] .col--apps .app,
   html[data-home-board] .col--catalog .app {
     aspect-ratio: auto;
+  }
+
+  html[data-home-board] .col--apps .app-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  html[data-home-board] .col--apps .app {
+    aspect-ratio: 1;
+    min-height: 0;
+    justify-content: space-between;
+    gap: 16px;
+    padding: calc(16px + var(--round) * 4px);
+  }
+
+  html[data-home-board] .col--apps .app__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  html[data-home-board] .col--apps .app__tags {
+    display: none;
   }
 
   html[data-home-board] .dev-links,
