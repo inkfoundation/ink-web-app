@@ -3058,13 +3058,9 @@ html[data-home-board] .apps__close-icon {
 html[data-home-board] .apps__view-all,
 html[data-home-board] .tokens__view-all {
   align-self: flex-start;
-  margin-top: 12px;
-  margin-bottom: 8px;
-}
-
-html[data-home-board] .app-list > .apps__view-all {
-  grid-column: 1 / -1;
-  justify-self: start;
+  flex: none;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 html[data-home-board] .token-list {
@@ -3287,7 +3283,6 @@ html[data-home-board]:is(
   }
 
   html[data-home-board] .col--started,
-  html[data-home-board] .col--apps,
   html[data-home-board] .col--catalog,
   html[data-home-board] .col--devs-started {
     overflow-x: hidden;
@@ -3295,15 +3290,50 @@ html[data-home-board]:is(
     scrollbar-width: none;
   }
 
-  html[data-home-board] .col--tokens,
-  html[data-home-board] .col--nfts {
+  html[data-home-board] .col--apps {
     overflow: hidden;
   }
 
+  html[data-home-board] .col--apps .apps__inner,
   html[data-home-board] .col--tokens .tokens__inner,
   html[data-home-board] .col--nfts .tokens__inner {
+    position: relative;
     flex: 1 1 0;
     height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  html[data-home-board] .col--apps .apps__inner::after,
+  html[data-home-board] .col--tokens .tokens__inner::after,
+  html[data-home-board] .col--nfts .tokens__inner::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 96px;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--surface-page) 0%, transparent),
+      var(--surface-page) 72%
+    );
+    content: "";
+  }
+
+  html[data-home-board] .col--apps .apps__view-all,
+  html[data-home-board] .col--tokens .tokens__view-all,
+  html[data-home-board] .col--nfts .tokens__view-all {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  html[data-home-board] .col--tokens,
+  html[data-home-board] .col--nfts {
+    overflow: hidden;
   }
 
   html[data-home-board] .col--apps-overlay {
@@ -3325,6 +3355,7 @@ html[data-home-board]:is(
   html[data-home-board] .col--apps::-webkit-scrollbar,
   html[data-home-board] .col--catalog::-webkit-scrollbar,
   html[data-home-board] .col--devs-started::-webkit-scrollbar,
+  html[data-home-board] .col--apps .app-list::-webkit-scrollbar,
   html[data-home-board] .col--tokens .token-list::-webkit-scrollbar,
   html[data-home-board] .col--nfts .token-list::-webkit-scrollbar {
     display: none;
@@ -3335,11 +3366,21 @@ html[data-home-board]:is(
     min-height: 10.75rem;
   }
 
-  html[data-home-board] .col--apps .app-list,
   html[data-home-board] .col--catalog .app-list {
     flex: none;
     min-height: auto;
     overflow: visible;
+  }
+
+  html[data-home-board] .col--apps .app-list {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    align-content: start;
+    grid-auto-rows: min-content;
+    padding-bottom: 56px;
+    scrollbar-width: none;
   }
 
   html[data-home-board] .col--tokens .token-list,
@@ -3348,6 +3389,7 @@ html[data-home-board]:is(
     min-height: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    padding-bottom: 56px;
     scrollbar-width: none;
   }
 

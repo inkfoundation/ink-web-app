@@ -96,7 +96,7 @@
     "tokensEmpty": "No trending tokens right now",
     "tokensError": "Could not load tokens",
     "nftsLabel": "NFTs",
-    "nftsHeadline": "Top on Ink",
+    "nftsHeadline": "Top collections",
     "nftsCta": "OpenSea",
     "nftsEmpty": "No top NFTs right now",
     "nftsError": "Could not load NFTs",

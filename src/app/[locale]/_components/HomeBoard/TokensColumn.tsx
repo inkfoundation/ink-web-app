@@ -143,15 +143,15 @@ export function TokensColumn() {
                 <TokenRow key={token.pairAddress} token={token} />
               ))
             : null}
-          <Link
-            className="pill pill--gray tokens__view-all"
-            href={EXTERNAL_LINKS.geckoTerminalInk}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t("tokensCta")}
-          </Link>
         </div>
+        <Link
+          className="pill pill--gray tokens__view-all"
+          href={EXTERNAL_LINKS.geckoTerminalInk}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("tokensCta")}
+        </Link>
       </div>
     </section>
   );

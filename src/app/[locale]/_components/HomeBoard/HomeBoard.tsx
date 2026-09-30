@@ -888,13 +888,13 @@ export function HomeBoard() {
                   {apps.map((app) => (
                     <BoardAppCard app={app} key={app.id} />
                   ))}
-                  <Link
-                    className="pill pill--gray apps__view-all"
-                    href={{ pathname: "/apps", query }}
-                  >
-                    {t("appsCta")}
-                  </Link>
                 </div>
+                <Link
+                  className="pill pill--gray apps__view-all"
+                  href={{ pathname: "/apps", query }}
+                >
+                  {t("appsCta")}
+                </Link>
               </div>
             </section>
             <button

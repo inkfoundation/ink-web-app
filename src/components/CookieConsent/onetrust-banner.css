@@ -36,8 +36,8 @@
   padding: 0 !important;
   border: 1px solid var(--border-subtle, #e7e7e7) !important;
   border-radius: 12px !important;
-  background: #ffffff !important;
-  color: #0b0d12 !important;
+  background: var(--surface-page, #ffffff) !important;
+  color: var(--text-primary, #0b0d12) !important;
   box-shadow: none !important;
   animation: none !important;
 }
@@ -130,13 +130,20 @@
   color: rgba(11, 13, 18, 0.6) !important;
 }
 
-html:is(.dark, [data-theme="dark"])
+html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
   #onetrust-consent-sdk
   #onetrust-banner-sdk
   #onetrust-button-group
   > button
   + :is(#onetrust-reject-all-handler, #onetrust-accept-btn-handler) {
   border-left-color: var(--border-subtle, #302d35) !important;
+}
+
+#onetrust-consent-sdk #onetrust-policy,
+#onetrust-consent-sdk #onetrust-policy-title,
+#onetrust-consent-sdk #onetrust-policy-text,
+#onetrust-consent-sdk #onetrust-policy-text * {
+  color: inherit !important;
 }
 
 #onetrust-consent-sdk #onetrust-policy-text {
@@ -181,7 +188,7 @@ html:is(.dark, [data-theme="dark"])
   opacity: 1 !important;
 }
 
-html:is(.dark, [data-theme="dark"])
+html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
   #onetrust-consent-sdk
   #onetrust-close-btn-container
   .onetrust-close-btn-handler {
@@ -197,13 +204,30 @@ html:is(.dark, [data-theme="dark"])
   display: none !important;
 }
 
-html:is(.dark, [data-theme="dark"]) #onetrust-consent-sdk #onetrust-banner-sdk {
+html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
+  #onetrust-consent-sdk
+  #onetrust-banner-sdk {
   border-color: var(--border-subtle, #302d35) !important;
-  background: #0b0d12 !important;
-  color: #f6f4ff !important;
+  background: var(--surface-page, #0b0d12) !important;
+  color: var(--text-primary, #f6f4ff) !important;
 }
 
-html:is(.dark, [data-theme="dark"])
+html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
+  #onetrust-consent-sdk
+  #onetrust-policy,
+html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
+  #onetrust-consent-sdk
+  #onetrust-policy-title,
+html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
+  #onetrust-consent-sdk
+  #onetrust-policy-text,
+html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
+  #onetrust-consent-sdk
+  #onetrust-policy-text * {
+  color: var(--text-primary, #f6f4ff) !important;
+}
+
+html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
   #onetrust-consent-sdk
   #onetrust-banner-sdk
   :is(
@@ -214,7 +238,7 @@ html:is(.dark, [data-theme="dark"])
   color: rgba(246, 244, 255, 0.8) !important;
 }
 
-html:is(.dark, [data-theme="dark"])
+html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
   #onetrust-consent-sdk
   #onetrust-button-group-parent {
   border-top-color: var(--border-subtle, #302d35) !important;

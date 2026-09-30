@@ -133,15 +133,15 @@ export function NftsColumn() {
           {!isPending && !isError
             ? nfts.map((nft) => <NftRow key={nft.slug} nft={nft} />)
             : null}
-          <Link
-            className="pill pill--gray tokens__view-all"
-            href={EXTERNAL_LINKS.openseaInk}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t("nftsCta")}
-          </Link>
         </div>
+        <Link
+          className="pill pill--gray tokens__view-all"
+          href={EXTERNAL_LINKS.openseaInk}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("nftsCta")}
+        </Link>
       </div>
     </section>
   );
