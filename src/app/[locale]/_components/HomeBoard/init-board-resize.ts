@@ -3,6 +3,8 @@ const COLUMN_NAMES = [
   "hero",
   "started",
   "apps",
+  "tokens",
+  "nfts",
   "developers",
   "developers-ink",
   "developers-started",
@@ -15,6 +17,8 @@ const DEFAULT_WEIGHTS: Record<ColumnName, number> = {
   hero: 422,
   started: 242,
   apps: 310,
+  tokens: 280,
+  nfts: 280,
   developers: 521,
   "developers-ink": 422,
   "developers-started": 242,
@@ -25,6 +29,8 @@ const MIN_PX: Record<ColumnName, number> = {
   hero: 280,
   started: 280,
   apps: 280,
+  tokens: 240,
+  nfts: 240,
   developers: 380,
   "developers-ink": 280,
   "developers-started": 280,
@@ -32,6 +38,12 @@ const MIN_PX: Record<ColumnName, number> = {
 
 const isColumnName = (value: string | undefined): value is ColumnName =>
   COLUMN_NAMES.some((name) => name === value);
+
+const isStackWrap = (el: HTMLElement) =>
+  el.classList.contains("board-feed") || el.classList.contains("board-market");
+
+const isPassthrough = (el: HTMLElement) =>
+  isStackWrap(el) && getComputedStyle(el).display === "contents";
 
 export function initBoardResize(scope: ParentNode): () => void {
   const board = scope.querySelector<HTMLElement>(":scope .board");
@@ -43,11 +55,37 @@ export function initBoardResize(scope: ParentNode): () => void {
 
   const weights: Record<ColumnName, number> = { ...DEFAULT_WEIGHTS };
 
+  const flattenRowItems = (parent: HTMLElement): HTMLElement[] => {
+    const items: HTMLElement[] = [];
+    for (const child of parent.children) {
+      if (!(child instanceof HTMLElement)) continue;
+      if (isPassthrough(child)) items.push(...flattenRowItems(child));
+      else items.push(child);
+    }
+    return items;
+  };
+
+  const rowOf = (el: HTMLElement) => {
+    let node: HTMLElement | null = el;
+    while (node) {
+      if (rows.includes(node)) return node;
+      node = node.parentElement;
+    }
+    return null;
+  };
+
+  const rowHandles = (row: HTMLElement) =>
+    flattenRowItems(row).filter(
+      (el): el is HTMLButtonElement =>
+        el instanceof HTMLButtonElement && el.classList.contains("col-resize")
+    );
+
+  const rowColumnEls = (row: HTMLElement) =>
+    flattenRowItems(row).filter((el) => el.classList.contains("col"));
+
   const columnFor = (name: ColumnName) => {
     for (const row of rows) {
-      const column = row.querySelector<HTMLElement>(
-        `:scope > .col[data-name="${name}"]`
-      );
+      const column = rowColumnEls(row).find((el) => el.dataset.name === name);
       if (column) return column;
     }
     return null;
@@ -83,9 +121,7 @@ export function initBoardResize(scope: ParentNode): () => void {
         rowStyle.visibility === "hidden" ||
         ancestorTransformed(row);
       const rowRect = row.getBoundingClientRect();
-      for (const handle of row.querySelectorAll<HTMLButtonElement>(
-        ":scope > button.col-resize"
-      )) {
+      for (const handle of rowHandles(row)) {
         const pair = rowUnready ? null : pairFromHandle(handle);
         const leftRect = pair?.leftCol.getBoundingClientRect();
         const rightRect = pair?.rightCol.getBoundingClientRect();
@@ -112,43 +148,34 @@ export function initBoardResize(scope: ParentNode): () => void {
     }
   }
 
-  const nextVisibleColumn = (start: Element | null) => {
-    let node = start;
-    while (node) {
-      if (
-        node instanceof HTMLElement &&
-        node.classList.contains("col") &&
-        getComputedStyle(node).display !== "none" &&
-        isColumnName(node.dataset.name)
-      ) {
-        return node;
+  const adjacentColumn = (
+    items: HTMLElement[],
+    from: number,
+    dir: -1 | 1,
+    visibleOnly: boolean
+  ) => {
+    for (let index = from + dir; index >= 0 && index < items.length; index += dir) {
+      const node = items[index];
+      if (!node.classList.contains("col") || !isColumnName(node.dataset.name)) {
+        continue;
       }
-      node = node.nextElementSibling;
-    }
-    return null;
-  };
-
-  const previousColumn = (start: Element | null) => {
-    let node = start;
-    while (node) {
-      if (
-        node instanceof HTMLElement &&
-        node.classList.contains("col") &&
-        isColumnName(node.dataset.name)
-      ) {
-        return node;
-      }
-      node = node.previousElementSibling;
+      if (visibleOnly && getComputedStyle(node).display === "none") continue;
+      return node;
     }
     return null;
   };
 
   const pairFromHandle = (handle: HTMLButtonElement) => {
-    const leftCol = previousColumn(handle.previousElementSibling);
+    const row = rowOf(handle);
+    if (!row) return null;
+    const items = flattenRowItems(row);
+    const from = items.indexOf(handle);
+    if (from < 0) return null;
+    const leftCol = adjacentColumn(items, from, -1, false);
     if (!leftCol || getComputedStyle(leftCol).display === "none") return null;
     const left = leftCol.dataset.name;
     if (!isColumnName(left)) return null;
-    const rightCol = nextVisibleColumn(handle.nextElementSibling);
+    const rightCol = adjacentColumn(items, from, 1, true);
     if (!rightCol) return null;
     const right = rightCol.dataset.name;
     if (!isColumnName(right)) return null;
@@ -162,7 +189,7 @@ export function initBoardResize(scope: ParentNode): () => void {
   };
 
   const rowColumns = (row: HTMLElement): RowColumn[] =>
-    [...row.querySelectorAll<HTMLElement>(":scope > .col")].flatMap((el) => {
+    rowColumnEls(row).flatMap((el) => {
       if (
         !isColumnName(el.dataset.name) ||
         getComputedStyle(el).display === "none"
@@ -253,7 +280,7 @@ export function initBoardResize(scope: ParentNode): () => void {
 
   const clearRowWidths = (row: HTMLElement) => {
     savedLayouts.delete(row);
-    for (const column of row.querySelectorAll<HTMLElement>(":scope > .col")) {
+    for (const column of rowColumnEls(row)) {
       column.style.removeProperty("flex");
     }
   };
@@ -282,9 +309,9 @@ export function initBoardResize(scope: ParentNode): () => void {
   };
 
   const snapshotRow = (handle: HTMLButtonElement) => {
-    const row = handle.parentElement;
+    const row = rowOf(handle);
     const pair = pairFromHandle(handle);
-    if (!(row instanceof HTMLElement) || !pair) return null;
+    if (!row || !pair) return null;
     const columns = rowColumns(row);
     if (!columns.some((column) => column.name === pair.left)) return null;
     return { row, columns, active: pair.left };
@@ -513,11 +540,11 @@ export function initBoardResize(scope: ParentNode): () => void {
   const onDoubleClick = (event: MouseEvent) => {
     const handle = event.currentTarget;
     if (!(handle instanceof HTMLButtonElement)) return;
-    const row = handle.parentElement;
-    if (!(row instanceof HTMLElement)) return;
+    const row = rowOf(handle);
+    if (!row) return;
     stopMotion();
     motion = null;
-    for (const column of row.querySelectorAll<HTMLElement>(":scope > .col")) {
+    for (const column of rowColumnEls(row)) {
       if (!isColumnName(column.dataset.name)) continue;
       weights[column.dataset.name] = DEFAULT_WEIGHTS[column.dataset.name];
     }
@@ -529,7 +556,7 @@ export function initBoardResize(scope: ParentNode): () => void {
     const saved = savedLayouts.get(row);
     if (!saved) return;
     if (window.matchMedia("(max-width: 960px)").matches) {
-      for (const column of row.querySelectorAll<HTMLElement>(":scope > .col")) {
+      for (const column of rowColumnEls(row)) {
         column.style.removeProperty("flex");
       }
       return;
@@ -594,9 +621,7 @@ export function initBoardResize(scope: ParentNode): () => void {
     ],
   });
 
-  const handles = rows.flatMap((row) => [
-    ...row.querySelectorAll<HTMLButtonElement>(":scope > button.col-resize"),
-  ]);
+  const handles = rows.flatMap((row) => rowHandles(row));
   const cleanups = handles.map((handle) => {
     handle.addEventListener("pointerdown", onPointerDown);
     handle.addEventListener("keydown", onKeyDown);

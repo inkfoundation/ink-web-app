@@ -7,6 +7,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type KeyboardEvent,
 } from "react";
 import { InkIcon } from "@inkonchain/ink-kit";
 import { useTranslations } from "next-intl";
@@ -48,12 +49,17 @@ import { initBoardResize } from "./init-board-resize";
 import { initGoo } from "./init-goo";
 import { initNavGlass } from "./init-nav-glass";
 import { moreBridges } from "./more-bridges";
+import { NftsColumn } from "./NftsColumn";
+import { TokensColumn } from "./TokensColumn";
 import { useAppsOverlayFilters } from "./use-apps-overlay-filters";
 
 import "./home-board.css";
 import "./relay-board.css";
 
 type OverlayMode = "apps" | "bridge" | "builders";
+type FeedTab = "apps" | "tokens" | "nfts";
+
+const FEED_TABS = ["apps", "tokens", "nfts"] as const;
 
 function overlayModeFromPath(pathname: string): OverlayMode {
   if (isAppsPath(pathname)) return "apps";
@@ -429,6 +435,10 @@ export function HomeBoard() {
   const isBuilders = pathname === "/builders";
   const isOverlay = isApps || isBridge || isBuilders;
   const [heroVideoActive, setHeroVideoActive] = useState(false);
+  const [feedTab, setFeedTab] = useState<FeedTab>("apps");
+  const feedTabRefs = useRef<Partial<Record<FeedTab, HTMLButtonElement | null>>>(
+    {}
+  );
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -478,6 +488,27 @@ export function HomeBoard() {
     }
     goApps();
   }, [goApps, goHome, isApps]);
+
+  const onFeedTabKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      const delta =
+        event.key === "ArrowRight" || event.key === "ArrowDown"
+          ? 1
+          : event.key === "ArrowLeft" || event.key === "ArrowUp"
+            ? -1
+            : 0;
+      if (!delta) return;
+      event.preventDefault();
+      const next =
+        FEED_TABS[
+          (FEED_TABS.indexOf(feedTab) + delta + FEED_TABS.length) %
+            FEED_TABS.length
+        ];
+      setFeedTab(next);
+      feedTabRefs.current[next]?.focus();
+    },
+    [feedTab]
+  );
 
   const toggleBridge = useCallback(() => {
     if (isBridge) {
@@ -715,32 +746,6 @@ export function HomeBoard() {
             aria-label={t("resizeColumn", { name: t("aboutLabel") })}
           />
 
-          <section className="col col--hero" data-name="hero">
-            <interactive-ink
-              className="hero-media"
-              value="3"
-              speed="1"
-              interaction="0.7"
-              edge="0"
-              blur="0"
-              phase="28"
-            />
-            <Link
-              className="pill pill--glass pill--refractive glass-bar"
-              href={{ pathname: "/builders", query }}
-            >
-              <canvas className="pill__glass" aria-hidden="true" />
-              <span className="pill__label">{t("buildCta")}</span>
-            </Link>
-          </section>
-          <button
-            type="button"
-            className="col-resize"
-            role="separator"
-            aria-orientation="vertical"
-            aria-label={t("resizeColumn", { name: t("builtOnInk") })}
-          />
-
           <section className="col col--started" data-name="started">
             <div className="col__top">
               <span className="pill pill--glass">{t("startedLabel")}</span>
@@ -797,37 +802,122 @@ export function HomeBoard() {
             aria-label={t("resizeColumn", { name: t("startedLabel") })}
           />
 
-          <section className="col col--apps" id="apps" data-name="apps">
-            <div className="apps__inner">
-              <div className="col__top">
-                <div className="apps__heading">
-                  <button
-                    className="pill pill--glass apps__tag"
-                    type="button"
-                    aria-expanded={isApps}
-                    aria-current={isApps ? "page" : undefined}
-                    onClick={goApps}
-                  >
-                    {t("appsLabel")}
-                  </button>
-                </div>
-                <h2 className="headline headline--sm headline--narrow">
-                  {t("appsHeadline")}
-                </h2>
-              </div>
-              <div className="app-list">
-                {apps.map((app) => (
-                  <BoardAppCard app={app} key={app.id} />
-                ))}
-              </div>
-              <Link
-                className="pill pill--gray apps__view-all"
-                href={{ pathname: "/apps", query }}
-              >
-                {t("appsCta")}
-              </Link>
-            </div>
+          <section className="col col--hero" data-name="hero">
+            <interactive-ink
+              className="hero-media"
+              value="3"
+              speed="1"
+              interaction="0.7"
+              edge="0"
+              blur="0"
+              phase="28"
+            />
+            <Link
+              className="pill pill--glass pill--refractive glass-bar"
+              href={{ pathname: "/builders", query }}
+            >
+              <canvas className="pill__glass" aria-hidden="true" />
+              <span className="pill__label">{t("buildCta")}</span>
+            </Link>
           </section>
+          <button
+            type="button"
+            className="col-resize"
+            role="separator"
+            aria-orientation="vertical"
+            aria-label={t("resizeColumn", { name: t("builtOnInk") })}
+          />
+
+          <div className="board-feed" data-tab={feedTab}>
+            <div
+              className="feed-toggle"
+              role="tablist"
+              aria-label={t("feedToggle")}
+              onKeyDown={onFeedTabKeyDown}
+            >
+              {FEED_TABS.map((tab) => (
+                <button
+                  key={tab}
+                  ref={(node) => {
+                    feedTabRefs.current[tab] = node;
+                  }}
+                  className={
+                    feedTab === tab ? "pill pill--active" : "pill pill--glass"
+                  }
+                  type="button"
+                  role="tab"
+                  id={`feed-tab-${tab}`}
+                  aria-selected={feedTab === tab}
+                  aria-controls={tab}
+                  tabIndex={feedTab === tab ? 0 : -1}
+                  onClick={() => setFeedTab(tab)}
+                >
+                  {tab === "apps"
+                    ? t("appsLabel")
+                    : tab === "tokens"
+                      ? t("tokensLabel")
+                      : t("nftsLabel")}
+                </button>
+              ))}
+            </div>
+            <section
+              className="col col--apps"
+              id="apps"
+              data-name="apps"
+              role="tabpanel"
+              aria-labelledby="feed-tab-apps"
+            >
+              <div className="apps__inner">
+                <div className="col__top">
+                  <div className="apps__heading">
+                    <button
+                      className="pill pill--glass apps__tag"
+                      type="button"
+                      aria-expanded={isApps}
+                      aria-current={isApps ? "page" : undefined}
+                      onClick={goApps}
+                    >
+                      {t("appsLabel")}
+                    </button>
+                  </div>
+                  <h2 className="headline headline--sm headline--narrow">
+                    {t("appsHeadline")}
+                  </h2>
+                </div>
+                <div className="app-list">
+                  {apps.map((app) => (
+                    <BoardAppCard app={app} key={app.id} />
+                  ))}
+                  <Link
+                    className="pill pill--gray apps__view-all"
+                    href={{ pathname: "/apps", query }}
+                  >
+                    {t("appsCta")}
+                  </Link>
+                </div>
+              </div>
+            </section>
+            <button
+              type="button"
+              className="col-resize"
+              role="separator"
+              aria-orientation="vertical"
+              aria-label={t("resizeColumn", { name: t("appsLabel") })}
+            />
+
+            <div className="board-market">
+              <TokensColumn />
+              <button
+                type="button"
+                className="col-resize"
+                role="separator"
+                aria-orientation="vertical"
+                aria-label={t("resizeColumn", { name: t("tokensLabel") })}
+              />
+
+              <NftsColumn />
+            </div>
+          </div>
 
           <div
             className="bridge-layer"

@@ -53,6 +53,8 @@ export const EXTERNAL_LINKS = {
   retroGrant: "https://docs.inkonchain.com/ink-grants/retro-grants",
   tydro: "https://app.tydro.com/",
   nado: "https://app.nado.xyz/",
+  geckoTerminalInk: "https://www.geckoterminal.com/ink/pools",
+  openseaInk: "https://opensea.io/discover/chain/ink",
   defillamaInk: "https://defillama.com/chain/ink",
   l2beatInk: "https://l2beat.com/scaling/projects/ink",
   growthepieInk: "https://www.growthepie.com/chains/ink",

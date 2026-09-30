@@ -73,7 +73,7 @@ export function initBoard(scope: ParentNode): () => void {
     const overlayOpen = isOverlayOpen();
     scope
       .querySelectorAll<HTMLElement>(
-        ".col--about, .col--hero, .col--started, .col--apps"
+        ".col--about, .col--hero, .col--started, .col--apps, .col--tokens, .col--nfts, .board-feed"
       )
       .forEach((col) => {
         col.inert = overlayOpen;
