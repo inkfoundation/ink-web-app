@@ -3167,7 +3167,7 @@ html[data-home-board] .col--apps .app__pills > .tag--airdrop svg {
   }
 }
 
-@container (max-width: 100px) {
+@container (max-width: 124px) {
   html[data-home-board] .col--apps .tag__label--airdrop {
     display: none;
   }
