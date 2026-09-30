@@ -1336,15 +1336,19 @@ html[data-home-board] .apps__inner {
 
 html[data-home-board] .col--about {
   display: flex;
-  flex: 521 1 0;
+  flex: var(--w-about, 521) 1 0;
   flex-direction: column;
   justify-content: space-between;
   padding: 86px 20px calc(20px + var(--round) * 66px);
 }
 
-html[data-home-board] .col--hero,
+html[data-home-board] .col--hero {
+  flex: var(--w-hero, 422) 1 0;
+  padding: 0;
+}
+
 html[data-home-board] .col--devs-hero {
-  flex: 422 1 0;
+  flex: var(--w-developers-ink, 422) 1 0;
   padding: 0;
 }
 
@@ -1359,14 +1363,109 @@ html[data-home-board] .col--started,
 html[data-home-board] .col--apps,
 html[data-home-board] .col--devs-started {
   display: flex;
-  flex: 242 1 0;
   flex-direction: column;
   gap: 20px;
   padding: 86px 20px calc(20px + var(--round) * 66px);
 }
 
+html[data-home-board] .col--started {
+  flex: var(--w-started, 242) 1 0;
+}
+
+html[data-home-board] .col--devs-started {
+  flex: var(--w-developers-started, 242) 1 0;
+}
+
 html[data-home-board] .col--apps {
-  flex-grow: 310;
+  flex: var(--w-apps, 310) 1 0;
+}
+
+@media (min-width: 961px) {
+  html[data-home-board] .board > .col--about {
+    min-width: 380px;
+  }
+
+  html[data-home-board] .board > .col--hero,
+  html[data-home-board] .board > .col--started,
+  html[data-home-board] .board > .col--apps,
+  html[data-home-board] .bridge-layer__inner > .col--devs-hero,
+  html[data-home-board] .bridge-layer__inner > .col--devs-started {
+    min-width: 280px;
+  }
+
+  html[data-home-board] .bridge-layer__inner > .col--devs {
+    min-width: 380px;
+  }
+}
+
+html[data-home-board] .home-board button.col-resize {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+  width: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: col-resize;
+  touch-action: none;
+  transform: translateX(-50%);
+  visibility: hidden;
+}
+
+html[data-home-board] .home-board button.col-resize[data-placed] {
+  visibility: visible;
+}
+
+html[data-home-board]:is([data-bridge-open], [data-overlay])
+  .board
+  > button.col-resize {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+html[data-home-board] .home-board button.col-resize::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 28px;
+  border-radius: 99px;
+  background: var(--text-primary);
+  content: "";
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition:
+    height 160ms ease,
+    opacity 160ms ease;
+}
+
+html[data-home-board] .home-board button.col-resize:focus-visible {
+  outline: none;
+}
+
+html[data-home-board] .home-board button.col-resize:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-home-board] .home-board button.col-resize:hover::after,
+  html[data-home-board] .home-board button.col-resize:focus-visible::after,
+  html[data-home-board]
+    .board[data-resizing]
+    button.col-resize[data-active]::after {
+    height: 40px;
+    opacity: 0.4;
+  }
+}
+
+html[data-home-board] .board[data-resizing],
+html[data-home-board] .board[data-resizing] * {
+  cursor: col-resize;
+  user-select: none;
 }
 
 html[data-home-board] .bridge-layer {
@@ -1412,6 +1511,7 @@ html[data-home-board][data-bridge-closing] .bridge-layer {
 }
 
 html[data-home-board] .bridge-layer__inner {
+  position: relative;
   display: flex;
   align-items: stretch;
   gap: 16px;
@@ -1429,7 +1529,7 @@ html[data-home-board] .col--devs-started {
 }
 
 html[data-home-board] .col--devs {
-  flex: 521 1 0;
+  flex: var(--w-developers, 521) 1 0;
   padding: 86px 20px calc(20px + var(--round) * 66px);
 }
 
@@ -3506,6 +3606,10 @@ html[data-home-board] .app--hero .app__media::after {
 }
 
 @media (max-width: 960px) {
+  html[data-home-board] .col-resize {
+    display: none;
+  }
+
   html[data-home-board] .page {
     height: auto;
     overflow: visible;

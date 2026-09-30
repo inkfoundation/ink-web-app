@@ -44,6 +44,7 @@ import { CodeStory } from "./CodeStory";
 import { departureMono, satoshi } from "./home-board-fonts";
 import { HomeConnectPill } from "./HomeConnectPill";
 import { initBoard } from "./init-board";
+import { initBoardResize } from "./init-board-resize";
 import { initGoo } from "./init-goo";
 import { initNavGlass } from "./init-nav-glass";
 import { moreBridges } from "./more-bridges";
@@ -552,11 +553,13 @@ export function HomeBoard() {
     const root = rootRef.current;
     if (!root) return;
     const stopBoard = initBoard(root);
+    const stopResize = initBoardResize(root);
     const stopGlass = initNavGlass(root);
     const stopGoo = initGoo(root);
     return () => {
       stopGoo();
       stopGlass();
+      stopResize();
       stopBoard();
     };
   }, []);
@@ -704,6 +707,13 @@ export function HomeBoard() {
               <BoardFooter />
             </div>
           </section>
+          <button
+            type="button"
+            className="col-resize"
+            role="separator"
+            aria-orientation="vertical"
+            aria-label={t("resizeColumn", { name: t("aboutLabel") })}
+          />
 
           <section className="col col--hero" data-name="hero">
             <interactive-ink
@@ -723,6 +733,13 @@ export function HomeBoard() {
               <span className="pill__label">{t("builtOnInk")}</span>
             </Link>
           </section>
+          <button
+            type="button"
+            className="col-resize"
+            role="separator"
+            aria-orientation="vertical"
+            aria-label={t("resizeColumn", { name: t("builtOnInk") })}
+          />
 
           <section className="col col--started" data-name="started">
             <div className="col__top">
@@ -772,6 +789,13 @@ export function HomeBoard() {
               </div>
             </article>
           </section>
+          <button
+            type="button"
+            className="col-resize"
+            role="separator"
+            aria-orientation="vertical"
+            aria-label={t("resizeColumn", { name: t("startedLabel") })}
+          />
 
           <section className="col col--apps" id="apps" data-name="apps">
             <div className="apps__inner">
@@ -1211,6 +1235,15 @@ export function HomeBoard() {
                   </OnlyWithFeatureFlag>
                 </div>
               </section>
+              <button
+                type="button"
+                className="col-resize"
+                role="separator"
+                aria-orientation="vertical"
+                aria-label={t("resizeColumn", {
+                  name: t("developersCta"),
+                })}
+              />
 
               <section
                 className="col col--devs-hero"
@@ -1232,6 +1265,15 @@ export function HomeBoard() {
                   <span className="pill__label">{t("builtOnInk")}</span>
                 </Link>
               </section>
+              <button
+                type="button"
+                className="col-resize"
+                role="separator"
+                aria-orientation="vertical"
+                aria-label={t("resizeColumn", {
+                  name: t("builtOnInk"),
+                })}
+              />
 
               <section
                 className="col col--devs-started"

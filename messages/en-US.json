@@ -60,6 +60,7 @@
     "appsPillAirdrop": "Airdrop",
     "appsCta": "View all apps",
     "aboutLabel": "About",
+    "resizeColumn": "Resize {name}",
     "aboutHeadline": "Built by the team that brought you Kraken, home to Ink's DeFi ecosystem, open for trading",
     "bridgeCta": "Bridge",
     "buildCta": "Build on Ink",
