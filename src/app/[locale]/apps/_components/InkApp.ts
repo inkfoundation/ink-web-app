@@ -90,6 +90,15 @@ export const inkTags: string[] = apps.reduce((acc, app) => {
   return acc;
 }, [] as string[]);
 
+export const inkPills: string[] = apps.reduce((acc, app) => {
+  app.pills?.forEach((pill) => {
+    if (!acc.includes(pill)) {
+      acc.push(pill);
+    }
+  });
+  return acc;
+}, [] as string[]);
+
 export interface InkAppFilters {
   search: string;
   categories: string[];

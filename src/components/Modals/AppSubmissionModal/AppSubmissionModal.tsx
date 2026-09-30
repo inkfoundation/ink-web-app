@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Button, Modal, useModalContext } from "@inkonchain/ink-kit";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 
 import type { FormState } from "@/actions/submit-your-app";
@@ -18,6 +18,10 @@ import { ColoredText } from "../../ColoredText";
 import { AppSubmissionForm } from "./_components/AppSubmissionForm";
 import { PullRequestButton } from "./_components/PullRequestButton";
 import animation from "./animation.json";
+
+// lottie-web touches `document` at import time, which crashes server
+// rendering (and Node 22+ where `navigator` exists), so load it client-only.
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export const APP_SUBMISSION_MODAL_KEY = "app-submission-modal";
 

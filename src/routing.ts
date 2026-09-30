@@ -12,6 +12,10 @@ export const defaultLocale = "en-US" as const;
  */
 export const EXTERNAL_LINKS = {
   documentation: "https://docs.inkonchain.com/",
+  documentationGettingStarted:
+    "https://docs.inkonchain.com/build/getting-started",
+  documentationDeployContract:
+    "https://docs.inkonchain.com/build/tutorials/deploying-a-smart-contract",
   brandKit: "https://docs.inkonchain.com/work-with-ink/brand-kit",
   inkubator: "https://inkubator.inkonchain.com/",
   status: "https://status.inkonchain.com/",
@@ -49,6 +53,9 @@ export const EXTERNAL_LINKS = {
   retroGrant: "https://docs.inkonchain.com/ink-grants/retro-grants",
   tydro: "https://app.tydro.com/",
   nado: "https://app.nado.xyz/",
+  defillamaInk: "https://defillama.com/chain/ink",
+  l2beatInk: "https://l2beat.com/scaling/projects/ink",
+  growthepieInk: "https://www.growthepie.com/chains/ink",
 } as const;
 
 type ExternalLinkValues = (typeof EXTERNAL_LINKS)[keyof typeof EXTERNAL_LINKS];
