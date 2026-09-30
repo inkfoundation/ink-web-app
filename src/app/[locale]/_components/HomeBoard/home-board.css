@@ -1421,7 +1421,7 @@ html[data-home-board] .home-board button.col-resize[data-placed] {
 
 html[data-home-board]:is([data-bridge-open], [data-overlay])
   .board
-  > button.col-resize {
+  > button.col-resize[data-placed] {
   pointer-events: none;
   visibility: hidden;
 }

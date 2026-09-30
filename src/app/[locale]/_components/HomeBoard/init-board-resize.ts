@@ -60,22 +60,49 @@ export function initBoardResize(scope: ParentNode): () => void {
     placeHandles();
   };
 
+  const ancestorTransformed = (el: HTMLElement) => {
+    let node: HTMLElement | null = el;
+    while (node) {
+      const transform = getComputedStyle(node).transform;
+      if (transform && transform !== "none") return true;
+      node = node.parentElement;
+    }
+    return false;
+  };
+
   function placeHandles() {
     const narrow = window.matchMedia("(max-width: 960px)").matches;
     for (const row of rows) {
+      const rowStyle = getComputedStyle(row);
+      const rowUnready =
+        narrow ||
+        rowStyle.display === "none" ||
+        rowStyle.visibility === "hidden" ||
+        ancestorTransformed(row);
+      const rowRect = row.getBoundingClientRect();
       for (const handle of row.querySelectorAll<HTMLButtonElement>(
         ":scope > button.col-resize"
       )) {
-        const pair = narrow ? null : pairFromHandle(handle);
-        const parent = handle.offsetParent;
-        if (!pair || !(parent instanceof HTMLElement)) {
+        const pair = rowUnready ? null : pairFromHandle(handle);
+        const leftRect = pair?.leftCol.getBoundingClientRect();
+        const rightRect = pair?.rightCol.getBoundingClientRect();
+        const gap = leftRect && rightRect ? rightRect.left - leftRect.right : 0;
+        const mid =
+          leftRect && rightRect
+            ? (leftRect.right + rightRect.left) / 2 - rowRect.left
+            : 0;
+        const inGap =
+          !!leftRect &&
+          !!rightRect &&
+          leftRect.width >= 8 &&
+          rightRect.width >= 8 &&
+          gap >= 4 &&
+          mid >= 8 &&
+          mid <= rowRect.width - 8;
+        if (!pair || !inGap) {
           handle.removeAttribute("data-placed");
           continue;
         }
-        const parentRect = parent.getBoundingClientRect();
-        const leftRect = pair.leftCol.getBoundingClientRect();
-        const rightRect = pair.rightCol.getBoundingClientRect();
-        const mid = (leftRect.right + rightRect.left) / 2 - parentRect.left;
         handle.style.left = `${mid}px`;
         handle.dataset.placed = "";
       }
@@ -522,6 +549,33 @@ export function initBoardResize(scope: ParentNode): () => void {
   }
   apply();
 
+  const refreshHandles = () => {
+    placeHandles();
+    requestAnimationFrame(() => {
+      placeHandles();
+      requestAnimationFrame(placeHandles);
+    });
+  };
+  const bridgeLayer = scope.querySelector<HTMLElement>(":scope .bridge-layer");
+  const onBridgeTransition = (event: TransitionEvent) => {
+    if (event.target !== bridgeLayer) return;
+    if (event.propertyName !== "transform" && event.propertyName !== "opacity") {
+      return;
+    }
+    refreshHandles();
+  };
+  bridgeLayer?.addEventListener("transitionend", onBridgeTransition);
+  const overlayObserver = new MutationObserver(() => refreshHandles());
+  overlayObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: [
+      "data-bridge-open",
+      "data-overlay",
+      "data-bridge-closing",
+      "data-bridge-instant",
+    ],
+  });
+
   const handles = rows.flatMap((row) => [
     ...row.querySelectorAll<HTMLButtonElement>(":scope > button.col-resize"),
   ]);
@@ -538,6 +592,8 @@ export function initBoardResize(scope: ParentNode): () => void {
 
   return () => {
     resizeObserver.disconnect();
+    overlayObserver.disconnect();
+    bridgeLayer?.removeEventListener("transitionend", onBridgeTransition);
     stopMotion();
     endDrag();
     for (const cleanup of cleanups) cleanup();
