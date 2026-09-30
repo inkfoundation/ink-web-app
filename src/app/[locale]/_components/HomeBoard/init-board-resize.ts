@@ -55,7 +55,10 @@ export function initBoardResize(scope: ParentNode): () => void {
 
   const apply = () => {
     for (const name of COLUMN_NAMES) {
-      columnFor(name)?.style.setProperty(`--w-${name}`, weights[name].toFixed(2));
+      columnFor(name)?.style.setProperty(
+        `--w-${name}`,
+        weights[name].toFixed(2)
+      );
     }
     placeHandles();
   };
@@ -203,7 +206,8 @@ export function initBoardResize(scope: ParentNode): () => void {
         remaining -= MIN_PX[column.name];
       }
       open = open.filter(
-        (column) => !pinned.some((pinnedColumn) => pinnedColumn.name === column.name)
+        (column) =>
+          !pinned.some((pinnedColumn) => pinnedColumn.name === column.name)
       );
       if (remaining < 0) remaining = 0;
     }
@@ -221,12 +225,17 @@ export function initBoardResize(scope: ParentNode): () => void {
   const contentWidth = (row: HTMLElement, count: number) => {
     const style = getComputedStyle(row);
     const pad =
-      Number.parseFloat(style.paddingLeft) + Number.parseFloat(style.paddingRight);
+      Number.parseFloat(style.paddingLeft) +
+      Number.parseFloat(style.paddingRight);
     const gap = Number.parseFloat(style.columnGap) || 0;
     return row.clientWidth - pad - gap * Math.max(count - 1, 0);
   };
 
-  const writeWidths = (row: HTMLElement, columns: RowColumn[], widths: Map<ColumnName, number>) => {
+  const writeWidths = (
+    row: HTMLElement,
+    columns: RowColumn[],
+    widths: Map<ColumnName, number>
+  ) => {
     const total = [...widths.values()].reduce((sum, value) => sum + value, 0);
     const ratios = new Map<ColumnName, number>();
     for (const column of columns) {
@@ -340,7 +349,8 @@ export function initBoardResize(scope: ParentNode): () => void {
     );
     motion.lastStamp = stamp;
     const accel =
-      (-STIFFNESS * (motion.value - motion.target) - DAMPING * motion.velocity) /
+      (-STIFFNESS * (motion.value - motion.target) -
+        DAMPING * motion.velocity) /
       MASS;
     motion.velocity += accel * dt;
     motion.value += motion.velocity * dt;
@@ -448,7 +458,12 @@ export function initBoardResize(scope: ParentNode): () => void {
     );
     if (!active) return;
 
-    beginMotion(snapshot.row, snapshot.columns, snapshot.active, active.startPx);
+    beginMotion(
+      snapshot.row,
+      snapshot.columns,
+      snapshot.active,
+      active.startPx
+    );
     drag = {
       startX: event.clientX,
       startValue: motion?.value ?? 0,
@@ -559,7 +574,10 @@ export function initBoardResize(scope: ParentNode): () => void {
   const bridgeLayer = scope.querySelector<HTMLElement>(":scope .bridge-layer");
   const onBridgeTransition = (event: TransitionEvent) => {
     if (event.target !== bridgeLayer) return;
-    if (event.propertyName !== "transform" && event.propertyName !== "opacity") {
+    if (
+      event.propertyName !== "transform" &&
+      event.propertyName !== "opacity"
+    ) {
       return;
     }
     refreshHandles();
