@@ -1256,14 +1256,13 @@ export function HomeBoard() {
                   interaction="0.9"
                   phase="12"
                 />
-                <Link
-                  className="pill pill--glass pill--refractive glass-bar"
-                  href={{ pathname: "/builders", query }}
-                  aria-current="page"
-                >
+                {/* A label here, not a link: on the homepage this pill opens
+                    Developers, but inside Developers it would only point at
+                    the page already open. */}
+                <span className="pill pill--glass pill--refractive glass-bar">
                   <canvas className="pill__glass" aria-hidden="true" />
                   <span className="pill__label">{t("builtOnInk")}</span>
-                </Link>
+                </span>
               </section>
               <button
                 type="button"

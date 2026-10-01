@@ -2429,6 +2429,10 @@ html[data-home-board] .col--devs-hero .pill {
   cursor: pointer;
 }
 
+html[data-home-board] .col--devs-hero .pill {
+  cursor: default;
+}
+
 html[data-home-board] .col--started .step,
 html[data-home-board] .col--devs-started .step,
 html[data-home-board] .col--apps .app-list {
