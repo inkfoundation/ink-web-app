@@ -63,8 +63,11 @@ html[data-home-board]
   display: none;
 }
 
+/* Scoped to bridge mode: this ties with home-board.css's display: none for
+   the other overlays on specificity, and whichever stylesheet loads last would
+   otherwise win and show the bridges catalog beside the apps overlay. */
 html[data-home-board]
-  .bridge-layer:has(:is(.col--relay, .col--bridge))
+  .bridge-layer[data-mode="bridge"]:has(:is(.col--relay, .col--bridge))
   .col--bridges {
   display: flex;
   flex-direction: column;
