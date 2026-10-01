@@ -5,6 +5,7 @@ import React, {
   PropsWithChildren,
   useCallback,
   useContext,
+  useEffect,
   useState,
 } from "react";
 import Script from "next/script";
@@ -48,12 +49,23 @@ interface CaptchaContextType {
   isReady: boolean;
   isLoading: boolean;
   error: Error | null;
+  requestScript: () => void;
 }
 
 const CaptchaContext = createContext<CaptchaContextType | undefined>(undefined);
 
-export const useCaptcha = (): CaptchaContextType => {
+export const useCaptcha = ({
+  load = true,
+}: { load?: boolean } = {}): CaptchaContextType => {
   const context = useContext(CaptchaContext);
+  const requestScript = context?.requestScript;
+
+  useEffect(() => {
+    if (load) {
+      requestScript?.();
+    }
+  }, [load, requestScript]);
+
   if (!context) {
     throw new Error("useCaptcha must be used within a CaptchaProvider");
   }
@@ -63,6 +75,8 @@ export const useCaptcha = (): CaptchaContextType => {
 export const CaptchaProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  const [isScriptRequested, setIsScriptRequested] = useState(false);
+  const requestScript = useCallback(() => setIsScriptRequested(true), []);
 
   // If captcha is disabled in local environment, mark as ready immediately
   const isCaptchaDisabled = clientEnv.NEXT_PUBLIC_DISABLE_CAPTCHA;
@@ -115,17 +129,21 @@ export const CaptchaProvider: React.FC<PropsWithChildren> = ({ children }) => {
         isReady: isCaptchaDisabled || !!widgetId,
         isLoading,
         error,
+        requestScript,
       }}
     >
       {children}
       {!isCaptchaDisabled && (
         <>
-          <Script
-            src="https://js.hcaptcha.com/1/api.js?render=explicit"
-            async
-            defer
-            onLoad={init}
-          />
+          {/* ~300KB of hCaptcha script + iframe: only requested by forms that
+              are mounted and visible, then loaded off the critical path. */}
+          {isScriptRequested && (
+            <Script
+              src="https://js.hcaptcha.com/1/api.js?render=explicit"
+              strategy="lazyOnload"
+              onLoad={init}
+            />
+          )}
           <div
             id="hcaptcha-container"
             style={{
