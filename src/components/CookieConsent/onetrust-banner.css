@@ -223,7 +223,8 @@ html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
   #onetrust-policy-text,
 html:is(.dark, [data-theme="dark"], .ink\:dark-theme)
   #onetrust-consent-sdk
-  #onetrust-policy-text * {
+  #onetrust-policy-text
+  * {
   color: var(--text-primary, #f6f4ff) !important;
 }
 

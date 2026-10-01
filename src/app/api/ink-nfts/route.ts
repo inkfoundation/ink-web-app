@@ -8,6 +8,11 @@ const OPENSEA_GRAPHQL = "https://gql.opensea.io/graphql";
 const MAX_NFTS = 24;
 const SLUG_RE = /^[a-z0-9](?:[a-z0-9-]{0,78}[a-z0-9])?$/;
 const IMAGE_HOSTS = new Set(["i2c.seadn.io", "i.seadn.io", "opensea.io"]);
+// seadn's image CDN resizes on request. Logos render at 36px, so 96px
+// covers 2x displays while cutting multi-megabyte originals down to tens of KB.
+const RESIZABLE_IMAGE_HOSTS = new Set(["i2c.seadn.io", "i.seadn.io"]);
+const IMAGE_WIDTH = 96;
+const UPSTREAM_TIMEOUT_MS = 8_000;
 
 const NFT_SORTS = {
   volume: "ONE_DAY_VOLUME",
@@ -90,6 +95,9 @@ function sanitizeImageUrl(value: unknown) {
     if (url.protocol !== "https:") return null;
     const host = url.hostname.toLowerCase();
     if (IMAGE_HOSTS.has(host) || host.endsWith(".seadn.io")) {
+      if (RESIZABLE_IMAGE_HOSTS.has(host)) {
+        url.searchParams.set("w", String(IMAGE_WIDTH));
+      }
       return url.href;
     }
   } catch {
@@ -140,6 +148,7 @@ export async function GET(request: Request) {
         variables: { limit: MAX_NFTS, sort: NFT_SORTS[sort] },
       }),
       next: { revalidate: 60 },
+      signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
     });
 
     if (!response.ok) {

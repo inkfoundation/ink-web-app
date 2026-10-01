@@ -25,6 +25,7 @@ function poolsPageUrl(sort: TokenSort, page: number) {
 
 const MAX_TOKENS = 24;
 const TRENDING_PAGES = 2;
+const UPSTREAM_TIMEOUT_MS = 8_000;
 
 const QUOTE_ADDRESSES = new Set([
   "0x4200000000000000000000000000000000000006",
@@ -224,6 +225,7 @@ async function fetchPoolsPage(sort: TokenSort, page: number) {
       "User-Agent": "Ink-WebApp/1.0",
     },
     next: { revalidate: 60 },
+    signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
   });
 
   if (!response.ok) {

@@ -1,5 +1,6 @@
 "use client";
 import {
+  type KeyboardEvent,
   memo,
   useCallback,
   useEffect,
@@ -7,7 +8,6 @@ import {
   useMemo,
   useRef,
   useState,
-  type KeyboardEvent,
 } from "react";
 import { InkIcon } from "@inkonchain/ink-kit";
 import { useTranslations } from "next-intl";
@@ -34,7 +34,6 @@ import {
 import tydroArt from "../Home/assets/tydro-banner-trans.png";
 
 import { AppsEmptyState, AppsOverlayFilters } from "./AppsOverlayFilters";
-import { RankSort } from "./RankSort";
 import { BoardFooter } from "./BoardFooter";
 import {
   builderExpectations,
@@ -52,6 +51,7 @@ import { initGoo } from "./init-goo";
 import { initNavGlass } from "./init-nav-glass";
 import { moreBridges } from "./more-bridges";
 import { NftsColumn } from "./NftsColumn";
+import { RankSort } from "./RankSort";
 import { TokensColumn } from "./TokensColumn";
 import { useAppsOverlayFilters } from "./use-apps-overlay-filters";
 

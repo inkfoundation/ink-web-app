@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 
 import { EXTERNAL_LINKS, Link } from "@/routing";
 
-import { fetchInkNfts, nftSorts, type InkNft, type NftSort } from "./ink-nfts";
+import { fetchInkNfts, type InkNft, type NftSort, nftSorts } from "./ink-nfts";
 import { RankSort } from "./RankSort";
 
 const NFT_SORT_LABEL = {
@@ -112,6 +112,7 @@ export function NftsColumn() {
     queryKey: ["ink-nfts", sort],
     queryFn: () => fetchInkNfts(sort),
     staleTime: 60_000,
+    retry: 1,
   });
   const nfts = (data ?? []).filter((nft) => OPENSEA_HREF.test(nft.href));
 

@@ -154,7 +154,11 @@ export function initBoardResize(scope: ParentNode): () => void {
     dir: -1 | 1,
     visibleOnly: boolean
   ) => {
-    for (let index = from + dir; index >= 0 && index < items.length; index += dir) {
+    for (
+      let index = from + dir;
+      index >= 0 && index < items.length;
+      index += dir
+    ) {
       const node = items[index];
       if (!node.classList.contains("col") || !isColumnName(node.dataset.name)) {
         continue;

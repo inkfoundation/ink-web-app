@@ -8,9 +8,9 @@ import { EXTERNAL_LINKS, Link } from "@/routing";
 
 import {
   fetchInkTokens,
-  tokenSorts,
   type InkToken,
   type TokenSort,
+  tokenSorts,
 } from "./ink-tokens";
 import { RankSort } from "./RankSort";
 
@@ -39,7 +39,8 @@ function formatUsd(value: number) {
       maximumFractionDigits: 4,
     })}`;
   }
-  return `$${Number(value.toPrecision(3))}`;
+  // toLocaleString keeps tiny prices as plain decimals instead of "1e-7".
+  return `$${value.toLocaleString("en-US", { maximumSignificantDigits: 3 })}`;
 }
 
 function formatChange(value: number) {
@@ -122,6 +123,9 @@ export function TokensColumn() {
     queryKey: ["ink-tokens", sort],
     queryFn: () => fetchInkTokens(sort),
     staleTime: 60_000,
+    // Failed responses aren't cached, and GeckoTerminal's free tier allows
+    // 10 calls a minute, so don't let every visitor retry three times.
+    retry: 1,
   });
   const tokens = (data ?? []).filter((token) =>
     GECKO_TERMINAL_HREF.test(token.href)
