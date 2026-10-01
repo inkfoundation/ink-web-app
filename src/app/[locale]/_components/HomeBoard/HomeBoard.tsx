@@ -68,8 +68,8 @@ function formatTag(tag: string) {
     .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
-function isAirdropPill(pill: string) {
-  return pill.toLowerCase().replace(/\s+/g, "-") === "airdrop";
+function isPointsPill(pill: string) {
+  return pill.toLowerCase().replace(/\s+/g, "-") === "points";
 }
 
 const APP_SOCIALS = [
@@ -128,12 +128,12 @@ const BoardAppCard = memo(function BoardAppCard({
       ? [{ key: "featured", label: t("appsFeatured"), tone: "featured" }]
       : []),
     ...(app.pills ?? [])
-      .filter(isAirdropPill)
+      .filter(isPointsPill)
       .slice(0, 1)
       .map((pill) => ({
         key: pill,
-        label: t("appsPillAirdrop"),
-        tone: "airdrop",
+        label: t("appsPillPoints"),
+        tone: "points",
       })),
   ];
 
@@ -176,12 +176,12 @@ const BoardAppCard = memo(function BoardAppCard({
             <span
               className={`tag tag--${pill.tone}`}
               key={pill.key}
-              aria-label={pill.tone === "airdrop" ? pill.label : undefined}
+              aria-label={pill.tone === "points" ? pill.label : undefined}
             >
-              {pill.tone === "airdrop" ? (
+              {pill.tone === "points" ? (
                 <>
                   <InkMark />
-                  <span className="tag__label tag__label--airdrop">
+                  <span className="tag__label tag__label--points">
                     {pill.label}
                   </span>
                 </>

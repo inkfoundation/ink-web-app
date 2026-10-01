@@ -643,7 +643,7 @@ html[data-home-board] .apps-filter__categories > .pill.is-selected {
 html[data-home-board] .cta-row > .pill--purple,
 html[data-home-board] .nav__menu-inner .pill--purple,
 html[data-home-board] .apps-filter__actions .pill--purple,
-html[data-home-board] .app__pills > .tag--airdrop {
+html[data-home-board] .app__pills > .tag--points {
   --goo-fill: var(--accent);
   --goo-ring: var(--accent);
 }
@@ -3143,7 +3143,7 @@ html[data-home-board] .col--apps .app__tags {
   display: none;
 }
 
-html[data-home-board] .col--apps .app__pills > .tag--airdrop {
+html[data-home-board] .col--apps .app__pills > .tag--points {
   gap: 3px;
   height: 26px;
   padding: 6px 6px;
@@ -3151,7 +3151,7 @@ html[data-home-board] .col--apps .app__pills > .tag--airdrop {
   line-height: 12px;
 }
 
-html[data-home-board] .col--apps .app__pills > .tag--airdrop svg {
+html[data-home-board] .col--apps .app__pills > .tag--points svg {
   width: 11px;
   height: 11px;
 }
@@ -3176,11 +3176,11 @@ html[data-home-board] .col--apps .app__pills > .tag--airdrop svg {
 }
 
 @container (max-width: 124px) {
-  html[data-home-board] .col--apps .tag__label--airdrop {
+  html[data-home-board] .col--apps .tag__label--points {
     display: none;
   }
 
-  html[data-home-board] .col--apps .app__pills > .tag--airdrop {
+  html[data-home-board] .col--apps .app__pills > .tag--points {
     justify-content: center;
     width: 22px;
     height: 22px;
@@ -3500,14 +3500,14 @@ html[data-home-board] .app__pills {
   justify-content: flex-end;
 }
 
-html[data-home-board] .app__pills .tag--airdrop {
+html[data-home-board] .app__pills .tag--points {
   gap: 5px;
   border-color: transparent;
   background: var(--accent);
   color: var(--on-accent);
 }
 
-html[data-home-board] .app__pills .tag--airdrop svg {
+html[data-home-board] .app__pills .tag--points svg {
   width: 14px;
   height: 14px;
   flex-shrink: 0;
@@ -3524,7 +3524,7 @@ html[data-home-board] .app__pills .tag--airdrop svg {
   html[data-home-board]
     :is(.col--apps, .col--apps-overlay)
     .app__pills
-    > .tag--airdrop {
+    > .tag--points {
     gap: 3px;
     height: 26px;
     padding: 7px 8px;
@@ -3535,7 +3535,7 @@ html[data-home-board] .app__pills .tag--airdrop svg {
   html[data-home-board]
     :is(.col--apps, .col--apps-overlay)
     .app__pills
-    > .tag--airdrop
+    > .tag--points
     svg {
     width: 11px;
     height: 11px;

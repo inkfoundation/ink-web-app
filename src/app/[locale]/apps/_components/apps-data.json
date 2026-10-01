@@ -804,7 +804,7 @@
         "smartContractUrl": ""
       },
       "order": 1,
-      "pills": ["AIRDROP"]
+      "pills": ["POINTS"]
     },
     {
       "id": "nado-explorer",
@@ -1346,7 +1346,7 @@
         "smartContractUrl": ""
       },
       "order": 2,
-      "pills": ["AIRDROP"]
+      "pills": ["POINTS"]
     },
     {
       "id": "uniswap",

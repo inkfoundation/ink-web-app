@@ -57,7 +57,7 @@
     "cta:exploreApps": "Explore Apps",
     "appsTitle": "Featured apps on Ink",
     "appsFeatured": "Featured",
-    "appsPillAirdrop": "Airdrop",
+    "appsPillPoints": "Points",
     "appsCta": "View all apps",
     "aboutLabel": "About",
     "resizeColumn": "Resize {name}",
@@ -82,7 +82,7 @@
     "codeStepLive": "Live",
     "builtOnInk": "Built on Ink",
     "startedLabel": "Get started",
-    "startedHeadline": "60sec to make the most of INK",
+    "startedHeadline": "60sec to make the most of Ink",
     "stepBridge": "Bridge to Ink",
     "stepTrade": "Trade on Ink",
     "stepEarn": "Earn on Ink",
@@ -166,7 +166,7 @@
     },
     "start": {
       "title": "Start building",
-      "description": "Ink is live on testnet. Get ETH from the faucet, follow the docs, and deploy with the same tooling you already use on Ethereum.",
+      "description": "Ink also has a live testnet. Get ETH from the faucet, follow the docs, and deploy with the same tooling you already use on Ethereum.",
       "faucet": {
         "title": "Get testnet ETH",
         "description": "Claim faucet funds and add Ink Sepolia to your wallet.",
