@@ -27,13 +27,26 @@ const MAX_TOKENS = 24;
 const TRENDING_PAGES = 2;
 const UPSTREAM_TIMEOUT_MS = 8_000;
 
+// Stablecoins on Ink. A pool quoted in one of these gives a 24hr change that is
+// effectively in USD, so it is the preferred source for a token's change.
+const STABLE_ADDRESSES = new Set([
+  "0x0200c29006150606b650577bbe7b6248f58470c1", // USD₮0
+  "0xe343167631d89b6ffc58b88d6b7fb0228795491d", // USDG
+  "0xf1815bd50389c46847f0bda824ec8da914045d14", // USDC.e
+  "0x2d270e6886d130d724215a266106e6832161eaed", // USDC
+  "0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189", // oUSDT
+  "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73", // GHO
+]);
+
+// Quote assets: the stablecoins plus ETH. These sit on the quote side of almost
+// every pool, so their "volume" is really everyone else's trading. They are
+// never listed as tokens, and pools where both sides are quote assets
+// (USDG/USDC.e, USD₮0/WETH, ...) are skipped rather than surfacing a
+// stablecoin at $1.00 as the top token on Ink.
 const QUOTE_ADDRESSES = new Set([
-  "0x4200000000000000000000000000000000000006",
-  "0x0000000000000000000000000000000000000000",
-  "0x0200c29006150606b650577bbe7b6248f58470c1",
-  "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
-  "0xf1815bd50389c46847f0bda824ec8da914045d14",
-  "0x2d270e6886d130d724215a266106e6832161eaed",
+  "0x4200000000000000000000000000000000000006", // WETH
+  "0x0000000000000000000000000000000000000000", // native ETH
+  ...STABLE_ADDRESSES,
 ]);
 
 const PAIR_ADDRESS_RE = /^0x[a-f0-9]{40,64}$/;
@@ -57,6 +70,7 @@ type GeckoPool = {
     quote_token_price_usd?: unknown;
     price_change_percentage?: { h24?: unknown };
     volume_usd?: { h24?: unknown };
+    reserve_in_usd?: unknown;
   };
   relationships?: {
     base_token?: { data?: { id?: unknown } };
@@ -160,10 +174,26 @@ function collectIncluded(
   }
 }
 
-function appendPools(
+type TokenInfo = NonNullable<ReturnType<typeof tokenFromIncluded>>;
+
+type Candidate = {
+  pairAddress: string;
+  priceUsd: number;
+  change24h: number;
+  volume24h: number;
+  reserveUsd: number;
+  // 2: token is the pool's base and the quote is a stablecoin.
+  // 1: token is the base, quoted in something else (ETH).
+  // 0: token is the quote side; the change is only an estimate.
+  quality: 0 | 1 | 2;
+};
+
+type TokenPools = { token: TokenInfo; candidates: Candidate[] };
+
+function collectPools(
   payload: GeckoResponse,
-  tokens: InkToken[],
-  seen: Set<string>
+  byToken: Map<string, TokenPools>,
+  order: string[]
 ) {
   const included = new Map<string, GeckoTokenAttributes>();
   collectIncluded(payload, included);
@@ -173,8 +203,6 @@ function appendPools(
     : [];
 
   for (const pool of pools) {
-    if (tokens.length >= MAX_TOKENS) break;
-
     const pairAddress = normalizeAddress(pool.attributes?.address);
     if (!pairAddress) continue;
 
@@ -188,10 +216,13 @@ function appendPools(
     );
     if (!base || !quote) continue;
 
-    const flip = isQuoteAddress(base.address) && !isQuoteAddress(quote.address);
-    const displayed = flip ? quote : base;
-    if (seen.has(displayed.address)) continue;
+    const baseIsQuoteAsset = isQuoteAddress(base.address);
+    const quoteIsQuoteAsset = isQuoteAddress(quote.address);
+    // Stable/stable and stable/ETH pools: nothing here to list as a token.
+    if (baseIsQuoteAsset && quoteIsQuoteAsset) continue;
 
+    const flip = baseIsQuoteAsset;
+    const token = flip ? quote : base;
     const priceUsd = toNumber(
       flip
         ? pool.attributes?.quote_token_price_usd
@@ -199,23 +230,77 @@ function appendPools(
     );
     if (priceUsd === null) continue;
 
+    // GeckoTerminal's h24 figure is the *base* token's change. When the listed
+    // token is the quote side, invert the base's move as an estimate; the
+    // picker only uses it if the token has no pool where it is the base.
     const rawChange =
       toNumber(pool.attributes?.price_change_percentage?.h24) ?? 0;
-    const change24h = flip ? -rawChange : rawChange;
-    const volume24h = toNumber(pool.attributes?.volume_usd?.h24) ?? 0;
+    const change24h = flip
+      ? rawChange <= -100
+        ? 0
+        : (1 / (1 + rawChange / 100) - 1) * 100
+      : rawChange;
 
-    seen.add(displayed.address);
-    tokens.push({
-      symbol: displayed.symbol,
-      name: displayed.name,
-      imageUrl: displayed.imageUrl,
+    const quality: Candidate["quality"] = flip
+      ? 0
+      : STABLE_ADDRESSES.has(quote.address)
+        ? 2
+        : 1;
+
+    const entry = byToken.get(token.address);
+    const candidate: Candidate = {
+      pairAddress,
       priceUsd,
       change24h,
+      volume24h: toNumber(pool.attributes?.volume_usd?.h24) ?? 0,
+      reserveUsd: toNumber(pool.attributes?.reserve_in_usd) ?? 0,
+      quality,
+    };
+    if (entry) {
+      entry.candidates.push(candidate);
+    } else {
+      byToken.set(token.address, { token, candidates: [candidate] });
+      order.push(token.address);
+    }
+  }
+}
+
+// Ranking position comes from the first pool a token appears in (so the sort
+// still means what it says); price, 24hr change and link come from the
+// token's best pool: stablecoin-quoted beats ETH-quoted beats quote-side, and
+// within a tier the deepest pool wins. This keeps the change consistent across
+// sorts instead of depending on whichever pool happened to come first.
+function pickTokens(byToken: Map<string, TokenPools>, order: string[]) {
+  const tokens: InkToken[] = [];
+  for (const address of order) {
+    if (tokens.length >= MAX_TOKENS) break;
+    const entry = byToken.get(address);
+    if (!entry) continue;
+
+    const best = entry.candidates.reduce((current, candidate) =>
+      candidate.quality > current.quality ||
+      (candidate.quality === current.quality &&
+        candidate.reserveUsd > current.reserveUsd)
+        ? candidate
+        : current
+    );
+    const volume24h = entry.candidates.reduce(
+      (sum, candidate) => sum + candidate.volume24h,
+      0
+    );
+
+    tokens.push({
+      symbol: entry.token.symbol,
+      name: entry.token.name,
+      imageUrl: entry.token.imageUrl,
+      priceUsd: best.priceUsd,
+      change24h: best.change24h,
       volume24h,
-      pairAddress,
-      href: geckoTerminalHref(pairAddress),
+      pairAddress: best.pairAddress,
+      href: geckoTerminalHref(best.pairAddress),
     });
   }
+  return tokens;
 }
 
 async function fetchPoolsPage(sort: TokenSort, page: number) {
@@ -247,12 +332,12 @@ export async function GET(request: Request) {
       )
     );
 
-    const tokens: InkToken[] = [];
-    const seen = new Set<string>();
+    const byToken = new Map<string, TokenPools>();
+    const order: string[] = [];
     for (const page of pages) {
-      appendPools(page, tokens, seen);
-      if (tokens.length >= MAX_TOKENS) break;
+      collectPools(page, byToken, order);
     }
+    const tokens = pickTokens(byToken, order);
 
     return NextResponse.json(
       { tokens },
