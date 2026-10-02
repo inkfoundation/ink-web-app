@@ -2067,6 +2067,19 @@ html[data-home-board] .col__top {
   align-items: flex-start;
 }
 
+/* Legal note under a column headline (e.g. the token and NFT lists). Sits
+   tighter than the 24px column gap so it reads as a caption to the title. */
+html[data-home-board] .col__note {
+  width: 100%;
+  margin-top: -12px;
+  font-family: var(--board-font);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
 html[data-home-board] .col__copy {
   display: flex;
   flex-direction: column;
@@ -3790,6 +3803,44 @@ html[data-home-board] .col--apps .app__desc-clip {
   max-height: 36px;
 }
 
+/* The column cards are fixed squares with no tags row to collapse, so the
+   revealed description used to be pushed past the card edge and clipped
+   mid-sentence. Fold the icon away instead so name + description fit. */
+html[data-home-board] .col--apps .app {
+  transition:
+    border-color 160ms ease,
+    transform 140ms var(--ease-out),
+    gap 180ms var(--ease-out);
+}
+
+html[data-home-board] .col--apps .app__icon {
+  transition:
+    height 180ms var(--ease-out),
+    opacity 120ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-home-board] .col--apps .app:hover {
+    gap: 0;
+  }
+
+  html[data-home-board] .col--apps .app:hover .app__icon {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+html[data-home-board] .col--apps .app:focus-visible,
+html[data-home-board] .col--apps .app:has(.app__hit:focus-visible) {
+  gap: 0;
+}
+
+html[data-home-board] .col--apps .app:focus-visible .app__icon,
+html[data-home-board] .col--apps .app:has(.app__hit:focus-visible) .app__icon {
+  height: 0;
+  opacity: 0;
+}
+
 html[data-home-board] .app__tags {
   position: relative;
   z-index: 2;
@@ -3958,6 +4009,8 @@ html[data-home-board] .app:has(.app__social:focus-visible) .app__social {
 
 @media (prefers-reduced-motion: reduce) {
   html[data-home-board] .app,
+  html[data-home-board] .col--apps .app,
+  html[data-home-board] .col--apps .app__icon,
   html[data-home-board] .app__desc,
   html[data-home-board] .app__desc-text,
   html[data-home-board] .app__tags,

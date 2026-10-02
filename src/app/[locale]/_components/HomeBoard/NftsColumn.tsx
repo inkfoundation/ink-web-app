@@ -130,6 +130,7 @@ export function NftsColumn() {
           <h2 className="headline headline--sm headline--narrow">
             {t("nftsHeadline")}
           </h2>
+          <p className="col__note">{t("marketDisclaimer")}</p>
         </div>
         <div className="token-list">
           <div className="token-list__heading">
