@@ -5,8 +5,8 @@ import { useRelayChains } from "@reservoir0x/relay-kit-hooks";
 import { RelayKitProvider } from "@reservoir0x/relay-kit-ui";
 import { MAINNET_RELAY_API } from "@reservoir0x/relay-sdk";
 
+import { relayBoardTheme } from "@/app/[locale]/_components/HomeBoard/relay-board";
 import { useCurrentInkAppName } from "@/hooks/useCurrentInkAppName";
-import { theme } from "@/util/relay-kit-theme";
 
 import "@reservoir0x/relay-kit-ui/styles.css";
 
@@ -32,7 +32,7 @@ export const RelayProvider: React.FC<RelayProviderProps> = ({ children }) => {
 
   return (
     <RelayKitProvider
-      theme={theme}
+      theme={relayBoardTheme}
       options={{
         appName: appName,
         appFees: [],

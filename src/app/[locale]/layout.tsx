@@ -1,4 +1,3 @@
-"use server";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { cookies, headers } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
@@ -6,7 +5,6 @@ import { getMessages } from "next-intl/server";
 
 import { ConsentLogger } from "@/components/CookieConsent/ConsentLogger";
 import { CookieConsent } from "@/components/CookieConsent/CookieConsent";
-import { Footer } from "@/components/Footer";
 import { GlobalSvgStuff } from "@/components/icons/GlobalSvgStuff";
 import { ContactUsModal } from "@/components/Modals";
 import { Providers } from "@/components/Providers";
@@ -17,14 +15,56 @@ import { COOKIE_CONSENT } from "@/integrations/consent";
 
 import { inter, plus_jakarta_sans } from "../fonts";
 
-import { LayoutColumns } from "./_components/LayoutColumns";
-import { MainPageBackground } from "./_components/MainPageBackground";
 import { RoutedLayout } from "./_components/RoutedLayout";
 
 const themeClassesMapping: Record<string, string> = {
   dark: "dark ink:dark-theme",
   light: "light ink:light-theme",
 };
+
+const homeBoardThemeBootstrap = `
+(() => {
+  const root = document.documentElement;
+  const segments = window.location.pathname.split("/").filter(Boolean);
+
+  if (segments[0] === root.lang) segments.shift();
+
+  const pathname = "/" + segments.join("/");
+  const isHomeBoard =
+    pathname === "/" ||
+    pathname === "/bridge" ||
+    pathname === "/builders" ||
+    pathname === "/apps" ||
+    pathname.startsWith("/apps/");
+
+  if (!isHomeBoard) return;
+
+  let storedTheme = null;
+  try {
+    storedTheme = window.localStorage.getItem("theme");
+  } catch {}
+
+  const classTheme = root.classList.contains("dark")
+    ? "dark"
+    : root.classList.contains("light")
+      ? "light"
+      : null;
+  const dataTheme =
+    root.dataset.theme === "dark" || root.dataset.theme === "light"
+      ? root.dataset.theme
+      : null;
+  const theme =
+    classTheme ||
+    dataTheme ||
+    (storedTheme === "dark" || storedTheme === "light" ? storedTheme : null) ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+
+  root.dataset.theme = theme;
+  root.setAttribute("data-home-board", "");
+})();
+`;
 
 export default async function LocaleLayout({
   children,
@@ -52,6 +92,9 @@ export default async function LocaleLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${plus_jakarta_sans.variable} ${themeClasses}`}
       data-version={process.env.GITHUB_SHA?.slice(0, 7)}
+      {...(theme === "dark" || theme === "light"
+        ? { "data-theme": theme }
+        : {})}
     >
       {userHasAcceptedCookiePolicy && (
         <>
@@ -61,32 +104,27 @@ export default async function LocaleLayout({
 
       <meta
         name="theme-color"
-        content="#f0efff"
+        content="#ffffff"
         media="(prefers-color-scheme: light)"
       />
       <meta
         name="theme-color"
-        content="#160f1f"
+        content="#0f0e12"
         media="(prefers-color-scheme: dark)"
       />
 
       <body>
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: homeBoardThemeBootstrap }}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <ToggleThemeShortcut />
 
             <SiteBanner />
 
-            <RoutedLayout>
-              <div className="relative pt-0 overflow-hidden flex flex-col gap-8 w-full items-center">
-                <div className="flex flex-col w-full items-center min-h-[80vh]">
-                  <LayoutColumns>{children}</LayoutColumns>
-                </div>
-                <Footer />
-              </div>
-
-              <MainPageBackground />
-            </RoutedLayout>
+            <RoutedLayout>{children}</RoutedLayout>
 
             <CookieConsent />
             <ConsentLogger />

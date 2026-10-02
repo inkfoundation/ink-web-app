@@ -28,9 +28,16 @@ const ThemeConsumer: React.FC<PropsWithChildren> = ({ children }) => {
 const SyncTheme = () => {
   const { resolvedTheme } = useTheme();
   useEffect(() => {
-    if (resolvedTheme) {
+    if (resolvedTheme && readThemeCookie() !== resolvedTheme) {
       setTheme(resolvedTheme);
     }
   }, [resolvedTheme]);
   return null;
 };
+
+function readThemeCookie() {
+  return document.cookie
+    .split("; ")
+    .find((cookie) => cookie.startsWith("__theme__="))
+    ?.slice("__theme__=".length);
+}
