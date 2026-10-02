@@ -2128,10 +2128,12 @@ html[data-home-board] .about-ship {
   width: 100%;
 }
 
+/* Single line when it fits; otherwise the socials drop below the legal links
+   rather than the legal text running underneath them in narrow columns. */
 html[data-home-board] .board-footer {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 8px 16px;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -2216,9 +2218,9 @@ html[data-home-board] .home-board .board-footer__icon:active {
 
 html[data-home-board] .board-footer__legal {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex: 0 1 auto;
-  gap: 8px;
+  gap: 4px 8px;
   align-items: center;
   min-width: 0;
   color: var(--text-secondary);
@@ -2227,6 +2229,10 @@ html[data-home-board] .board-footer__legal {
   font-weight: 500;
   line-height: 14px;
   letter-spacing: 0;
+}
+
+/* Wrap between the legal items, never inside one. */
+html[data-home-board] .board-footer__legal > * {
   white-space: nowrap;
 }
 
@@ -4589,7 +4595,10 @@ html[data-home-board] .app--hero .app__media::after {
     right: auto;
     bottom: auto;
     left: auto;
-    z-index: 18;
+    /* Above the page columns (which top out at 6) but below ink-kit modals,
+       which portal to <body> at z-index 15. Higher and the Submit app and
+       Contact dialogs open invisibly behind this layer on mobile. */
+    z-index: 10;
     flex-direction: column;
     height: auto;
     overflow: visible;
