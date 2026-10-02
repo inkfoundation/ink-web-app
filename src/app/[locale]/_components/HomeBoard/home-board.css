@@ -4718,6 +4718,31 @@ html[data-home-board] .app--hero .app__media::after {
   }
 }
 
+/* Phones: Tags + Mainnet + Submit app don't fit on one row. Flatten the
+   actions wrapper so its pills join the search row directly: Submit app sits
+   beside the search field and the two filter menus drop to the next line.
+   Goo is off below 641px, so nothing tracks the wrapper's box. */
+@media (max-width: 640px) {
+  html[data-home-board] .apps-filter__actions {
+    display: contents;
+  }
+
+  /* Fill the first line up to the Submit app pill so the menus wrap. */
+  html[data-home-board] .apps-filter__search {
+    flex: 1 1 calc(100% - 130px);
+    order: 0;
+  }
+
+  html[data-home-board] .apps-filter__actions .pill--purple {
+    flex: none;
+    order: 1;
+  }
+
+  html[data-home-board] .apps-filter__menu {
+    order: 2;
+  }
+}
+
 html[data-home-board],
 html[data-home-board] body {
   margin: 0;
