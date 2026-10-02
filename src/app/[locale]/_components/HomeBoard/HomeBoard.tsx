@@ -730,7 +730,7 @@ export function HomeBoard() {
               href={{ pathname: "/builders", query }}
             >
               <canvas className="pill__glass" aria-hidden="true" />
-              <span className="pill__label">{t("builtOnInk")}</span>
+              <span className="pill__label">{t("buildCta")}</span>
             </Link>
           </section>
           <button

@@ -160,7 +160,7 @@
     },
     "cta": {
       "docs": "Docs",
-      "testnet": "Testnet",
+      "testnet": "Testnet faucet",
       "explorer": "Explorer",
       "github": "GitHub"
     },
