@@ -561,6 +561,25 @@
       }
     },
     {
+      "id": "inkquests",
+      "name": "InkQuests",
+      "description": "Your daily quest board for the Ink ecosystem. Do simple onchain actions, earn XP and compete on the leaderboard.",
+      "imageUrl": "/featured-apps/icons/inkquests.webp",
+      "category": ["Social"],
+      "network": "Mainnet",
+      "tags": ["fun", "nfts", "dex"],
+      "links": {
+        "mainnetWebsite": "https://inkquests.xyz/",
+        "testnetWebsite": "https://inkquests.xyz/",
+        "x": "https://x.com/inkquests",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/st1vv/ink-quests",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "inkypump",
       "name": "InkyPump",
       "description": "The first pump.fun-style protocol on Ink Network. Users can instantly create tokens by choosing a name, ticker, and JPG image.",
