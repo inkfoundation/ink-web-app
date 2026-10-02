@@ -563,7 +563,7 @@
     {
       "id": "inkypump",
       "name": "InkyPump",
-      "description": "The first pump.fun-style protocol on Ink Network (Kraken's L2). Users can instantly create tokens by choosing a name, ticker, and JPG image.",
+      "description": "The first pump.fun-style protocol on Ink Network. Users can instantly create tokens by choosing a name, ticker, and JPG image.",
       "imageUrl": "/featured-apps/icons/inkypump.webp",
       "category": ["DeFi"],
       "network": "Mainnet",
@@ -804,7 +804,7 @@
         "smartContractUrl": ""
       },
       "order": 1,
-      "pills": ["AIRDROP"]
+      "pills": ["POINTS"]
     },
     {
       "id": "nado-explorer",
@@ -1346,7 +1346,7 @@
         "smartContractUrl": ""
       },
       "order": 2,
-      "pills": ["AIRDROP"]
+      "pills": ["POINTS"]
     },
     {
       "id": "uniswap",

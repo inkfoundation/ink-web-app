@@ -27,10 +27,11 @@ export function useForm<FormState, FormValues extends FieldValues>(
   ) => Promise<FormState>,
   initialState: Awaited<FormState>,
   schema: ZodSchema,
-  defaultValues?: Partial<FormValues>
+  defaultValues?: Partial<FormValues>,
+  { loadCaptcha = true }: { loadCaptcha?: boolean } = {}
 ): UseFormHook<FormState, FormValues> {
   const [isSubmitting, startTransition] = useTransition();
-  const { isReady, executeHCaptcha } = useCaptcha();
+  const { isReady, executeHCaptcha } = useCaptcha({ load: loadCaptcha });
 
   const [state, formAction] = useActionState(
     async (state: Awaited<FormState>, payload: FormValues | null) => {
