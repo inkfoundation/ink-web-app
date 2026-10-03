@@ -505,6 +505,25 @@
       }
     },
     {
+      "id": "hookit",
+      "name": "Hookit",
+      "description": "The Uniswap v4 hooked launchpad on Ink. Launch a coin with built-in modules: anti-snipe, a backed floor you can borrow against, holder airdrops paid every second, auto-burn and more.",
+      "imageUrl": "/featured-apps/icons/hookit.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["dex", "fun", "tokens"],
+      "links": {
+        "mainnetWebsite": "https://www.hookit.fun/",
+        "testnetWebsite": "https://www.hookit.fun/",
+        "x": "https://x.com/hookitfun",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x145c3F3560c23fDA93eA79f2EfeB7f33D8A9Ff3e"
+      }
+    },
+    {
       "id": "hypernative",
       "name": "Hypernative",
       "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
