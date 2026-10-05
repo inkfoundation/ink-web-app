@@ -4,7 +4,23 @@ import { useTranslations } from "next-intl";
 
 import { newLayoutSectionClasses } from "@/components/styles/container";
 
-const FAUCET_OPTIONS_URL = "https://docs.inkonchain.com/tools/faucets";
+const FAUCET_OPTIONS = [
+  {
+    name: "Alchemy",
+    description: "Request Ink Sepolia ETH every 24 hours.",
+    href: "https://www.alchemy.com/faucets/ink-sepolia",
+  },
+  {
+    name: "QuickNode",
+    description: "Claim Ink Sepolia ETH from QuickNode's faucet.",
+    href: "https://faucet.quicknode.com/ink",
+  },
+  {
+    name: "Optimism Superchain",
+    description: "Claim test ETH for Ink and other OP Stack chains.",
+    href: "https://console.optimism.io/faucet",
+  },
+];
 
 export function Faucet() {
   const t = useTranslations("Faucet");
@@ -18,14 +34,23 @@ export function Faucet() {
             {t("maintenanceDescription")}
           </p>
         </div>
-        <a
-          href={FAUCET_OPTIONS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ink:text-body-2-bold underline underline-offset-4"
-        >
-          {t("maintenanceCta")}
-        </a>
+        <ul className="grid w-full gap-3 sm:grid-cols-3">
+          {FAUCET_OPTIONS.map((option) => (
+            <li key={option.href}>
+              <a
+                href={option.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ink:rounded-md flex h-full flex-col gap-2 border border-[color:var(--border-subtle,#e7e7e7)] p-4 transition-colors hover:bg-white/5"
+              >
+                <span className="ink:text-body-2-bold">{option.name}</span>
+                <span className="ink:text-body-3-regular ink:text-text-muted">
+                  {option.description}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
