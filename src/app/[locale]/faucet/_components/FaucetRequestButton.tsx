@@ -16,7 +16,6 @@ import { useAccount } from "wagmi";
 import { Backdrop } from "@/components/Backdrop";
 import { ColoredText } from "@/components/ColoredText";
 import { useCaptcha } from "@/contexts/CaptchaProvider";
-import { clientEnv } from "@/env-client";
 
 interface FaucetRequestButtonProps {
   onClick?: () => void;
@@ -182,16 +181,13 @@ export const FaucetRequestButton: React.FC<FaucetRequestButtonProps> = ({
 
       try {
         // Check rate limit first
-        const rateLimitRes = await fetch(
-          `${clientEnv.NEXT_PUBLIC_FAUCET_API_URL}/api/check-rate-limit`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ address: resolvedAddress, chainId }),
-          }
-        );
+        const rateLimitRes = await fetch("/api/faucet/check-rate-limit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ address: resolvedAddress, chainId }),
+        });
 
         if (!rateLimitRes.ok) {
           const errorData = await rateLimitRes.json();
@@ -276,7 +272,7 @@ export const FaucetRequestButton: React.FC<FaucetRequestButtonProps> = ({
         }
 
         // If not rate limited, proceed with captcha verification
-        let hcaptchaToken = undefined;
+        let hcaptchaToken: string | undefined;
         if (isReady) {
           try {
             setIsHCaptchaVisible(true);
@@ -286,7 +282,8 @@ export const FaucetRequestButton: React.FC<FaucetRequestButtonProps> = ({
               setShowBackdrop(true);
             }, 600);
 
-            hcaptchaToken = await executeHCaptcha();
+            const captcha = await executeHCaptcha();
+            hcaptchaToken = captcha.response;
 
             setShowBackdrop(false);
             setIsHCaptchaVisible(false);
@@ -306,21 +303,18 @@ export const FaucetRequestButton: React.FC<FaucetRequestButtonProps> = ({
         }
 
         // If captcha is solved, proceed with the claim
-        const res = await fetch(
-          `${clientEnv.NEXT_PUBLIC_FAUCET_API_URL}/api/claim`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              address: resolvedAddress,
-              chainId,
-              hcaptchaToken,
-              multiplierToken: localStorage.getItem("multiplierToken"),
-            }),
-          }
-        );
+        const res = await fetch("/api/faucet/claim", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            address: resolvedAddress,
+            chainId,
+            hcaptchaToken,
+            multiplierToken: localStorage.getItem("multiplierToken"),
+          }),
+        });
 
         const responseData = await res.json();
 
