@@ -21,6 +21,9 @@
     "title": "Ink faucet",
     "description": "Receive 0.01 ETH per request",
     "enterAddress": "Enter your address or ENS name",
+    "maintenanceTitle": "Hosted faucet temporarily unavailable",
+    "maintenanceDescription": "We're fixing our hosted faucet. In the meantime, use one of the other Ink Sepolia faucet options.",
+    "maintenanceCta": "View other faucets",
     "requestTokens": "Request"
   },
   "SmartWallet": {

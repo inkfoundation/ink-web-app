@@ -1,56 +1,32 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Confetti from "react-confetti";
-import { Input } from "@inkonchain/ink-kit";
 import { useTranslations } from "next-intl";
-import { useAccount } from "wagmi";
 
 import { newLayoutSectionClasses } from "@/components/styles/container";
 
-import { FaucetRequestButton } from "./FaucetRequestButton";
+const FAUCET_OPTIONS_URL = "https://docs.inkonchain.com/tools/faucets";
 
 export function Faucet() {
   const t = useTranslations("Faucet");
-  const [address, setAddress] = useState("");
-  const hasSetInitialAddress = useRef(false);
-  const [requestSuccess, setRequestSuccess] = useState<boolean | null>(null);
-  const { address: connectedAddress, isConnected } = useAccount();
-
-  useEffect(() => {
-    if (isConnected && connectedAddress && !hasSetInitialAddress.current) {
-      setAddress(connectedAddress);
-      hasSetInitialAddress.current = true;
-    }
-  }, [isConnected, connectedAddress]);
 
   return (
-    <>
-      <div className={newLayoutSectionClasses()}>
-        <form className="max-w-(--breakpoint-lg) flex items-center gap-2 flex-wrap sm:flex-nowrap">
-          <Input
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder={t("enterAddress")}
-          />
-          <FaucetRequestButton
-            type="submit"
-            onChange={setRequestSuccess}
-            address={address}
-          >
-            {t("requestTokens")}
-          </FaucetRequestButton>
-        </form>
+    <div className={newLayoutSectionClasses()}>
+      <div className="max-w-(--breakpoint-lg) ink:bg-background-container ink:rounded-lg flex flex-col items-start gap-4 p-6">
+        <div className="flex flex-col gap-2">
+          <h2 className="ink:text-body-1-bold">{t("maintenanceTitle")}</h2>
+          <p className="ink:text-body-2-regular ink:text-text-muted">
+            {t("maintenanceDescription")}
+          </p>
+        </div>
+        <a
+          href={FAUCET_OPTIONS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ink:text-body-2-bold underline underline-offset-4"
+        >
+          {t("maintenanceCta")}
+        </a>
       </div>
-      {requestSuccess && (
-        <Confetti
-          width={window.innerWidth}
-          height={window.innerHeight}
-          numberOfPieces={400}
-          gravity={0.5}
-          recycle={false}
-        />
-      )}
-    </>
+    </div>
   );
 }
