@@ -21,8 +21,8 @@
     "title": "Ink faucet",
     "description": "Receive 0.01 ETH per request",
     "enterAddress": "Enter your address or ENS name",
-    "maintenanceTitle": "Ink hosted faucet unavailable",
-    "maintenanceDescription": "The hosted Ink faucet is currently unavailable. Use one of these external Ink Sepolia faucets instead.",
+    "maintenanceTitle": "Get Ink Sepolia ETH",
+    "maintenanceDescription": "Choose a faucet provider below to fund your testnet wallet.",
     "requestTokens": "Request"
   },
   "SmartWallet": {
