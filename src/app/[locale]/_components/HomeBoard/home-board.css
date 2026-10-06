@@ -3752,9 +3752,13 @@ html[data-home-board] .app__meta {
   min-height: 0;
 }
 
+/* The copy block shrinks to whatever is left above the tags row, but as a
+   plain block it never passed that limit down to the description, which
+   spilled under the social icons. Clip at the copy's own edge instead. */
 html[data-home-board] .app__copy {
   width: 100%;
   min-height: 0;
+  overflow: hidden;
 }
 
 html[data-home-board] .app__name {
@@ -3807,6 +3811,51 @@ html[data-home-board] .col--apps .app__desc-text {
 
 html[data-home-board] .col--apps .app__desc-clip {
   max-height: 36px;
+}
+
+/* Catalog cards are fixed squares, so the hover-revealed description only
+   gets what is left after the icon, name and tags row: the card's content
+   width minus 128px (20px padding top and bottom, 56px icon, 16px name,
+   48px tags row, 8px description padding). Clamp to the whole 20px lines
+   that fit so the text ends with an ellipsis instead of running under the
+   social icons. Each step below is 128px + 20px per line. */
+@media (min-width: 961px) {
+  html[data-home-board] .col--catalog .app:not(.app--hero) .app__desc-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  @container (min-width: 208px) {
+    html[data-home-board] .col--catalog .app:not(.app--hero) .app__desc-text {
+      -webkit-line-clamp: 4;
+    }
+  }
+
+  @container (min-width: 228px) {
+    html[data-home-board] .col--catalog .app:not(.app--hero) .app__desc-text {
+      -webkit-line-clamp: 5;
+    }
+  }
+
+  @container (min-width: 248px) {
+    html[data-home-board] .col--catalog .app:not(.app--hero) .app__desc-text {
+      -webkit-line-clamp: 6;
+    }
+  }
+
+  @container (min-width: 268px) {
+    html[data-home-board] .col--catalog .app:not(.app--hero) .app__desc-text {
+      -webkit-line-clamp: 7;
+    }
+  }
+
+  @container (min-width: 288px) {
+    html[data-home-board] .col--catalog .app:not(.app--hero) .app__desc-text {
+      -webkit-line-clamp: 8;
+    }
+  }
 }
 
 /* The column cards are fixed squares with no tags row to collapse, so the
