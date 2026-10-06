@@ -134,7 +134,7 @@
     {
       "id": "boi",
       "name": "BOI",
-      "description": "First swipable NFT marketplace on Earth, built by the Bois for the Bois. Forget floors, swipe what you vibe with. Floor prices? Hidden deep for nerds. Real alpha: like the JPEG, not ROI math.",
+      "description": "BOI Protocol turns NFTs into an active onchain economy, combining utility, progression and onchain rewards. Create and evolve your NFTs, put them to W.O.R.K. to mine xStocks, and unlock more utility as they progress through the protocol. BOI Market complements the ecosystem with a simple swipe-based NFT minting experience.",
       "imageUrl": "/featured-apps/icons/boi.webp",
       "category": ["Other", "Social"],
       "network": "Mainnet",
@@ -142,9 +142,9 @@
       "links": {
         "mainnetWebsite": "https://boi.market/",
         "testnetWebsite": "",
-        "x": "https://x.com/AndruKollor",
-        "discord": "",
-        "telegram": "https://t.me/AndruKollor",
+        "x": "https://x.com/boi_market",
+        "discord": "https://discord.gg/UhndYvyNd",
+        "telegram": "https://t.me/InkChainCommunity",
         "github": "",
         "farcaster": "",
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x63FEbFa0a5474803F4261a1628763b1B2cC3AB83"
