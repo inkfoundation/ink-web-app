@@ -276,7 +276,7 @@ export const FaucetRequestButton: React.FC<FaucetRequestButtonProps> = ({
         }
 
         // If not rate limited, proceed with captcha verification
-        let hcaptchaToken = undefined;
+        let hcaptchaToken: string | undefined;
         if (isReady) {
           try {
             setIsHCaptchaVisible(true);
@@ -286,7 +286,8 @@ export const FaucetRequestButton: React.FC<FaucetRequestButtonProps> = ({
               setShowBackdrop(true);
             }, 600);
 
-            hcaptchaToken = await executeHCaptcha();
+            const captcha = await executeHCaptcha();
+            hcaptchaToken = captcha.response;
 
             setShowBackdrop(false);
             setIsHCaptchaVisible(false);
