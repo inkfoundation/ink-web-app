@@ -38,6 +38,25 @@
       }
     },
     {
+      "id": "aftermint",
+      "name": "AfterMint",
+      "description": "AfterMint is a mobile-first discovery feed and on-chain radar built for the Ink ecosystem (plus QUOTRONS on Robinhood Chain).",
+      "imageUrl": "/featured-apps/icons/aftermint.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["fun"],
+      "links": {
+        "mainnetWebsite": "https://aftermint.trade/",
+        "testnetWebsite": "https://aftermint.trade/",
+        "x": "https://x.com/inkednodes",
+        "discord": "",
+        "telegram": "https://t.me/auranodes",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "aleph-cloud",
       "name": "Aleph Cloud",
       "description": "Decentralized supercloud",
