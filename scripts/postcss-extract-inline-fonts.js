@@ -5,9 +5,16 @@ const crypto = require("crypto");
 const fs = require("fs");
 const path = require("path");
 
-// `next build` keeps .next/cache (and Vercel restores it), so these files live
-// exactly as long as the webpack cache entries that reference them.
-const OUT_DIR = path.join(__dirname, "..", ".next", "cache", "inline-fonts");
+// Fonts are written to `public/` and referenced by absolute URL rather than
+// emitted through the bundler: Turbopack refuses to resolve anything under
+// `.next/` and can't see files created mid-compilation elsewhere either, so a
+// relative `url()` pointing at a just-written file fails in both `next dev`
+// and `next build`. `public/` is served as-is (and copied into the Docker
+// image after the build), so no resolution is needed. The directory is
+// gitignored; `next.config.ts` gives it immutable cache headers since the
+// file names are content-hashed.
+const PUBLIC_PATH = "/inline-fonts";
+const OUT_DIR = path.join(__dirname, "..", "public", "inline-fonts");
 
 const EXTENSIONS = {
   "font/otf": "otf",
@@ -41,10 +48,7 @@ function writeFont(bytes, extension) {
 module.exports = () => ({
   postcssPlugin: "extract-inline-fonts",
   AtRule: {
-    "font-face": (rule, { result }) => {
-      const from = result.opts.from;
-      if (!from) return;
-
+    "font-face": (rule) => {
       rule.walkDecls("src", (decl) => {
         decl.value = decl.value.replace(
           DATA_URL,
@@ -53,12 +57,7 @@ module.exports = () => ({
             if (!extension) return match;
 
             const file = writeFont(Buffer.from(data, "base64"), extension);
-            const relative = path
-              .relative(path.dirname(from), file)
-              .split(path.sep)
-              .join("/");
-
-            return `url(${relative})`;
+            return `url(${PUBLIC_PATH}/${path.basename(file)})`;
           }
         );
       });

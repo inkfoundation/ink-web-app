@@ -18,6 +18,8 @@ out/
 build
 *.tsbuildinfo
 next-env.d.ts
+# Fonts extracted from vendored CSS at build time (scripts/postcss-extract-inline-fonts.js)
+/public/inline-fonts/
 
 # Environment and local files
 .env*

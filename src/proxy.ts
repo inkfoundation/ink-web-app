@@ -6,11 +6,12 @@ import { routing } from "./routing";
 export const locales = routing.locales;
 export const defaultLocale = routing.defaultLocale;
 
-// Create and export the middleware
+// next-intl still calls this "middleware"; Next.js 16 renamed the file
+// convention to `proxy` (Node.js runtime).
 const routingMiddleware = createMiddleware(routing);
 const isProduction = process.env.NEXT_PUBLIC_ENVIRONMENT === "production";
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const { searchParams } = request.nextUrl;
 
   const requestHeaders = new Headers(request.headers);

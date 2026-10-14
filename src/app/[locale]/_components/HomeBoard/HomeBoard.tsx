@@ -16,6 +16,7 @@ import { useTheme } from "next-themes";
 import { OnlyWithFeatureFlag } from "@/components/OnlyWithFeatureFlag";
 import { RelayKitUI } from "@/components/RelayKitUI";
 import { useFeatureFlag } from "@/hooks/useFeatureFlag";
+import { useIsHydrated } from "@/hooks/useIsHydrated";
 import { useRouterQuery } from "@/hooks/useRouterQuery";
 import { EXTERNAL_LINKS, Link, usePathname, useRouter } from "@/routing";
 
@@ -707,7 +708,11 @@ export function HomeBoard() {
     }, 460);
   }, [resolvedTheme, setTheme]);
 
-  const isDark = resolvedTheme === "dark";
+  // `resolvedTheme` is undefined during SSR, so without the hydration gate the
+  // toggle's aria state mismatches for dark-mode users and React leaves the
+  // stale server attributes in place.
+  const isHydrated = useIsHydrated();
+  const isDark = isHydrated && resolvedTheme === "dark";
 
   // next-themes rewrites <html> classes on theme change, so font vars stay here.
   return (

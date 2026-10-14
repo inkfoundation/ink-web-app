@@ -1,7 +1,5 @@
 import { expect, test } from "@playwright/test";
 
-import { routing } from "@/routing";
-
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
   const locator = page.locator("#threejs-loader");
