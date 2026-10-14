@@ -1,6 +1,7 @@
 import { GoogleTagManager } from "@next/third-parties/google";
 import { cookies, headers } from "next/headers";
-import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 import { ConsentLogger } from "@/components/CookieConsent/ConsentLogger";
@@ -12,6 +13,7 @@ import { SiteBanner } from "@/components/SiteBanner";
 import { ToggleThemeShortcut } from "@/components/ToggleThemeShortcut";
 import { clientEnv } from "@/env-client";
 import { COOKIE_CONSENT } from "@/integrations/consent";
+import { routing } from "@/routing";
 
 import { inter, plus_jakarta_sans } from "../fonts";
 
@@ -79,6 +81,14 @@ export default async function LocaleLayout({
     getMessages(),
     headers(),
   ]);
+
+  // Paths excluded from the proxy matcher (e.g. the Sentry tunnel route
+  // `/monitoring`) otherwise reach this layout with the first segment as the
+  // "locale", rendering the app under a bogus `lang` and spamming next-intl
+  // errors.
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   const userHasAcceptedCookiePolicy =
     resolvedCookies.get(COOKIE_CONSENT)?.value === "true";

@@ -1,8 +1,8 @@
-import { withSentryConfig } from "@sentry/nextjs";
-import createNextIntlPlugin from "next-intl/plugin";
+import { withSentryConfig } from "@sentry/nextjs/config";
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
 import { env } from "@/env";
-import { clientEnv } from "@/env-client";
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -22,6 +22,22 @@ const nextConfig: NextConfig = {
   // webpack can't statically analyze, and we use it at runtime in the
   // `submit-your-app` server action to format `apps-data.json` before opening a PR.
   serverExternalPackages: ["prettier"],
+  async headers() {
+    return [
+      {
+        // Content-hashed font files written by
+        // `scripts/postcss-extract-inline-fonts.js`; cache them like
+        // bundler-emitted `/_next/static` assets.
+        source: "/inline-fonts/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
   experimental: {
     serverActions: {
       // Restricted from "*": on Vercel every preview deploy gets its own URL,
@@ -54,10 +70,12 @@ export default withSentryConfig(withNextIntl(nextConfig), {
 
   // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
   // This can increase your server load as well as your hosting bill.
-  // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
-  // side errors will fail.
+  // Note: Check that the configured route will not match with your Next.js proxy (see `src/proxy.ts`), otherwise
+  // reporting of client-side errors will fail.
   tunnelRoute: "/monitoring",
 
   // Automatically tree-shake Sentry logger statements to reduce bundle size
-  disableLogger: true,
+  bundleSizeOptimizations: {
+    excludeDebugStatements: true,
+  },
 });

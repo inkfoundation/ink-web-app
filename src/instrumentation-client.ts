@@ -1,11 +1,14 @@
 // This file configures the initialization of Sentry on the client.
-// The config you add here will be used whenever a users loads a page in their browser.
+// The config you add here will be used whenever a user loads a page in their browser.
+// Next.js runs this file before hydration; it replaces the legacy
+// `sentry.client.config.ts` convention, which is not injected by Turbopack.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
+// https://nextjs.org/docs/app/api-reference/file-conventions/instrumentation-client
 
 import * as Sentry from "@sentry/nextjs";
 
-import { clientEnv } from "../env-client";
-import Consent, { ConsentType } from "../integrations/consent";
+import Consent, { ConsentType } from "./integrations/consent";
+import { clientEnv } from "./env-client";
 
 const integrations = [
   Sentry.replayIntegration({
@@ -14,7 +17,6 @@ const integrations = [
     blockAllMedia: true,
   }),
   Sentry.breadcrumbsIntegration({
-    console: false,
     dom: false,
     fetch: false,
     history: false,
@@ -24,6 +26,11 @@ const integrations = [
 ];
 
 Consent.on(ConsentType.CONSENT, () => {
+  // `Consent.fire` re-runs every registered callback on each consent change
+  // (OneTrust's `OnConsentChanged`, the `?consent` query, the banner buttons),
+  // but the SDK must only be initialised once per page.
+  if (Sentry.getClient()) return;
+
   Sentry.init({
     dsn: clientEnv.NEXT_PUBLIC_SENTRY_DSN,
     enabled:
@@ -46,3 +53,6 @@ Consent.on(ConsentType.CONSENT, () => {
     integrations: [...integrations],
   });
 });
+
+// Lets Sentry instrument App Router navigations as spans.
+export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;
