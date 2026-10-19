@@ -939,6 +939,25 @@
       }
     },
     {
+      "id": "pop-up-ventures",
+      "name": "Pop-Up Ventures",
+      "description": "Launch virtual workgroups on INK building cooperating teams on USDC stablecoins. Teams vote on collective assets and get paid as a team.",
+      "imageUrl": "/featured-apps/icons/pop-up-ventures.webp",
+      "category": ["Social", "Bridge", "Other"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "domain names", "funding"],
+      "links": {
+        "mainnetWebsite": "https://www.ungravel.lat/?bd?264",
+        "testnetWebsite": "https://www.ungravel.lat/?bd?264",
+        "x": "https://x.com/peterhaas795141",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "pump",
       "name": "Pump",
       "description": "Launch and trade coins on Pump. Trade Ink tokens seamlessly with USDC, no bridging required.",
