@@ -1368,6 +1368,25 @@
       }
     },
     {
+      "id": "usdc-teamwallet",
+      "name": "USDC-Teamwallet",
+      "description": "Multi-party-vault on stablecoin - live on INK and 20+ EVMs. Build teams and send USDC across Name Spaces over CCTP: one.boca-junior.ink sends USD to henry.on-arbitrum.one. CCTP-Across-AORI-UNISWAP.",
+      "imageUrl": "/featured-apps/icons/usdc-teamwallet.webp",
+      "category": ["Bridge", "Infra"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "wallet", "domain names"],
+      "links": {
+        "mainnetWebsite": "https://www.ungravel.lat/?bd?264",
+        "testnetWebsite": "https://www.ungravel.com",
+        "x": "https://x.com/peterhaas795141",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "utila",
       "name": "Utila",
       "description": "Utila is the digital asset and stablecoin infrastructure platform for fintechs and enterprises.",
