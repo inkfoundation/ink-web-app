@@ -2,6 +2,11 @@
 import { useState } from "react";
 import { InkIcon } from "@inkonchain/ink-kit";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
+// NOTE: SwapWidget calls viem's `parseUnits("")` while the amount input is
+// empty (initially and after each swap). viem >= 2.55.4 throws
+// `InvalidDecimalNumberError` there instead of returning 0n, which crashes the
+// whole page, so `viem` is held at 2.55.2 in package.json until this widget is
+// replaced or patched.
 import { SwapWidget } from "@reservoir0x/relay-kit-ui";
 import { useAccount } from "wagmi";
 
