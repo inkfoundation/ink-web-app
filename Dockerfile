@@ -1,5 +1,5 @@
 # Build
-FROM node:20 AS base
+FROM node:22 AS base
 
 WORKDIR /app
 
@@ -19,7 +19,9 @@ ENV GITHUB_SHA=$GITHUB_SHA
 RUN pnpm build
 
 # Run
-FROM node:20-alpine3.19 AS release
+# Deliberately not pinned to an Alpine minor: the old `alpine3.19` tag went EOL
+# and silently stopped receiving Node.js security patches.
+FROM node:22-alpine AS release
 
 WORKDIR /app
 
