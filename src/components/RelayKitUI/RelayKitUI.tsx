@@ -2,11 +2,13 @@
 import { useState } from "react";
 import { InkIcon } from "@inkonchain/ink-kit";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
-// NOTE: SwapWidget (still in 12.0.5) calls viem's `parseUnits("")` while the
+// NOTE: SwapWidget (as of 12.0.5) calls viem's `parseUnits("")` while the
 // amount input is empty (initially and after each swap). viem >= 2.55.4 throws
 // `InvalidDecimalNumberError` there instead of returning 0n, which crashes the
-// whole page, so `viem` is held at 2.55.2 in package.json until the upstream
-// fix (relayprotocol/relay-kit: guard the empty amount) ships in a release.
+// whole page. The kit is patched locally to treat an empty amount as zero (see
+// `patches/@relayprotocol__relay-kit-ui@12.0.5.patch`, applied by pnpm at
+// install) so `viem` can stay current. Drop the patch once the upstream fix
+// (https://github.com/relayprotocol/relay-kit/pull/1159) ships in a release.
 import { SwapWidget } from "@relayprotocol/relay-kit-ui";
 import { useAccount } from "wagmi";
 

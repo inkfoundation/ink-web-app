@@ -60,7 +60,7 @@
     "sass": "1.77.6",
     "sharp": "0.35.5",
     "three": "0.165.0",
-    "viem": "2.55.2",
+    "viem": "2.57.10",
     "wagmi": "2.17.5",
     "zod": "3.24.1"
   },
@@ -100,6 +100,9 @@
       "postcss": "^8.5.31",
       "ws": "^8.21.0",
       "@walletconnect/jsonrpc-ws-connection>ws": "^7.5.11"
+    },
+    "patchedDependencies": {
+      "@relayprotocol/relay-kit-ui@12.0.5": "patches/@relayprotocol__relay-kit-ui@12.0.5.patch"
     }
   }
 }
