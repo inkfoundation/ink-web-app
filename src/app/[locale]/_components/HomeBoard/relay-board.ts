@@ -23,7 +23,7 @@ export { relayBoardTheme, theme } from "./relay-board-theme";
  *    `bridge__history` class on the history row. Do **not** restore
  *    `RelayKitUI.css` — it maps ink-kit tokens and fights this kit.
  *    Keep the Relay package stylesheet:
- *    `import "@reservoir0x/relay-kit-ui/styles.css"`.
+ *    `import "@relayprotocol/relay-kit-ui/styles.css"`.
  * 4. Mount the widget in the `/bridge` overlay, ahead of the catalog:
  *
  *        <section className="col col--relay" data-name="relay">

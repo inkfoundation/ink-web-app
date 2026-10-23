@@ -2,18 +2,18 @@
 import { useState } from "react";
 import { InkIcon } from "@inkonchain/ink-kit";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
-// NOTE: SwapWidget calls viem's `parseUnits("")` while the amount input is
-// empty (initially and after each swap). viem >= 2.55.4 throws
+// NOTE: SwapWidget (still in 12.0.5) calls viem's `parseUnits("")` while the
+// amount input is empty (initially and after each swap). viem >= 2.55.4 throws
 // `InvalidDecimalNumberError` there instead of returning 0n, which crashes the
-// whole page, so `viem` is held at 2.55.2 in package.json until this widget is
-// replaced or patched.
-import { SwapWidget } from "@reservoir0x/relay-kit-ui";
+// whole page, so `viem` is held at 2.55.2 in package.json until the upstream
+// fix (relayprotocol/relay-kit: guard the empty amount) ships in a release.
+import { SwapWidget } from "@relayprotocol/relay-kit-ui";
 import { useAccount } from "wagmi";
 
 import { RelayLogo } from "@/components/icons/RelayLogo";
 import { useAdaptedWallet } from "@/hooks/useAdaptedWallet";
 
-import "@reservoir0x/relay-kit-ui/styles.css";
+import "@relayprotocol/relay-kit-ui/styles.css";
 
 export const RelayKitUI: React.FC = () => {
   const { openConnectModal } = useConnectModal();

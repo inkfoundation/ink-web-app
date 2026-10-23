@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { adaptViemWallet } from "@reservoir0x/relay-sdk";
+import { adaptViemWallet } from "@relayprotocol/relay-sdk";
 import { useAccount, useWalletClient } from "wagmi";
 
 export const useAdaptedWallet = () => {

@@ -1,14 +1,14 @@
 "use client";
 
 import { ReactNode } from "react";
-import { useRelayChains } from "@reservoir0x/relay-kit-hooks";
-import { RelayKitProvider } from "@reservoir0x/relay-kit-ui";
-import { MAINNET_RELAY_API } from "@reservoir0x/relay-sdk";
+import { useRelayChains } from "@relayprotocol/relay-kit-hooks";
+import { RelayKitProvider } from "@relayprotocol/relay-kit-ui";
+import { MAINNET_RELAY_API } from "@relayprotocol/relay-sdk";
 
 import { relayBoardTheme } from "@/app/[locale]/_components/HomeBoard/relay-board";
 import { useCurrentInkAppName } from "@/hooks/useCurrentInkAppName";
 
-import "@reservoir0x/relay-kit-ui/styles.css";
+import "@relayprotocol/relay-kit-ui/styles.css";
 
 /**
  * All Relay traffic goes through our own /api/relay proxy, which attaches

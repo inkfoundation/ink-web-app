@@ -1,4 +1,4 @@
-import type { RelayKitTheme } from "@reservoir0x/relay-kit-ui";
+import type { RelayKitTheme } from "@relayprotocol/relay-kit-ui";
 
 /**
  * RelayKit theme mapped to homepage board tokens.
@@ -9,6 +9,7 @@ import type { RelayKitTheme } from "@reservoir0x/relay-kit-ui";
  */
 export const relayBoardTheme: RelayKitTheme = {
   font: "var(--relay-kit-font-family)",
+  fontHeading: "var(--relay-kit-font-family)",
   primaryColor: "var(--relay-kit-primary)",
   focusColor: "var(--relay-kit-primary-hover)",
   subtleBackgroundColor: "var(--relay-kit-subtle-bg)",
@@ -34,14 +35,6 @@ export const relayBoardTheme: RelayKitTheme = {
       hover: {
         color: "var(--relay-kit-text)",
         background: "var(--relay-kit-button-secondary-hover)",
-      },
-    },
-    tertiary: {
-      color: "var(--relay-kit-text)",
-      background: "transparent",
-      hover: {
-        color: "var(--relay-kit-text)",
-        background: "var(--relay-kit-button-secondary-bg)",
       },
     },
     disabled: {

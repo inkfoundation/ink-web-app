@@ -31,7 +31,7 @@ import { ink, inkSepolia, mainnet, sepolia } from "wagmi/chains";
 import { clientEnv } from "@/env-client";
 import { useCurrentInkAppName } from "@/hooks/useCurrentInkAppName";
 
-import "@reservoir0x/relay-kit-ui/styles.css";
+import "@relayprotocol/relay-kit-ui/styles.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import "react-toastify/dist/ReactToastify.css";
 

@@ -1,6 +1,11 @@
 /* Board restyle for Relay. Safe to keep imported while the widget is out.
    Tokens live on html[data-home-board] so portaled dialogs inherit them.
-   See relay-board.ts for the remount steps. */
+   See relay-board.ts for the remount steps.
+
+   Kit internals are matched with `[class*="…"]` on the Tailwind utilities
+   @relayprotocol/relay-kit-ui 12 emits (e.g. `relay:border-widget-card`,
+   `relay:bg-[var(--relay-colors-widget-selector-background)]`), since the
+   kit exposes no stable hooks for cards, selector pills or the CTA. */
 
 html[data-home-board] {
   --relay-kit-font-family: var(--board-font, "Satoshi"), sans-serif;
@@ -186,28 +191,29 @@ html[data-home-board] .relay-kit-reset img {
 
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  .relay-rounded_widget-card-border-radius,
+  [class*="border-widget-card"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button[aria-label="Connect wallet"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button[aria-label="Swap"] {
+  button[class*="cta-font-style"] {
   --r-max: var(--radius-card);
 }
 
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button.relay-bg_widget-selector-background,
+  button[class*="widget-selector-background"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button.relay-bg_secondary-button-background,
+  button[class*="secondary-button-hover-background"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button[aria-label="Swap Tokens Direction"],
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
@@ -215,6 +221,7 @@ html[data-home-board]
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
@@ -224,25 +231,26 @@ html[data-home-board]
 
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  .relay-rounded_widget-card-border-radius,
+  [class*="border-widget-card"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button[aria-label="Connect wallet"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button[aria-label="Swap"],
+  button[class*="cta-font-style"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button.relay-bg_widget-selector-background,
+  button[class*="widget-selector-background"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button.relay-bg_secondary-button-background,
+  button[class*="secondary-button-hover-background"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button[aria-label="Swap Tokens Direction"],
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
@@ -250,13 +258,14 @@ html[data-home-board]
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
   input[placeholder="Address or ENS"],
 html[data-home-board]
   [role="dialog"]:has(input[placeholder="Address or ENS"])
-  button.relay-bg_primary-button-background {
+  button[class*="primary-button-background"] {
   border-radius: min(
     var(--radius),
     calc(
@@ -269,6 +278,7 @@ html[data-home-board]
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
@@ -276,6 +286,7 @@ html[data-home-board]
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
@@ -293,6 +304,7 @@ html[data-home-board]
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
@@ -300,6 +312,7 @@ html[data-home-board]
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
@@ -310,6 +323,7 @@ html[data-home-board]
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
@@ -317,6 +331,7 @@ html[data-home-board]
 html[data-home-board]
   [role="dialog"]:is(
     .relay-kit-reset,
+    [class*="modal-background"],
     :has(.relay-kit-reset),
     :has(input[placeholder="Address or ENS"])
   )
@@ -334,18 +349,19 @@ html[data-home-board] [role="dialog"]:has(input[placeholder="Address or ENS"]) {
 
 html[data-home-board]
   [role="dialog"]:has(input[placeholder="Address or ENS"])
-  button.relay-bg_primary-button-background {
+  button[class*="primary-button-background"] {
   --r-max: 19px;
   width: 100%;
   border: 1px solid transparent !important;
   background: var(--accent) !important;
   color: var(--on-accent) !important;
   font-family: var(--board-font, "Satoshi"), sans-serif !important;
+  text-transform: none !important;
 }
 
 html[data-home-board]
   [role="dialog"]:has(input[placeholder="Address or ENS"])
-  button.relay-bg_primary-button-background:disabled {
+  button[class*="primary-button-background"]:disabled {
   border: 1px solid var(--border-subtle) !important;
   background: var(--surface-muted) !important;
   color: var(--text-secondary) !important;
@@ -353,18 +369,30 @@ html[data-home-board]
 
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  .relay-rounded_widget-card-border-radius {
+  [class*="border-widget-card"] {
   background: var(--surface-page) !important;
   border: 1px solid var(--border-subtle) !important;
   padding: 20px !important;
 }
 
+/* The kit centres the swap-direction button between the cards with
+   `mx-auto` / `my-[-13px]`, which home-board.css's `.home-board *` margin
+   reset outranks. Restore it with a more specific selector. */
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button.relay-bg_widget-selector-background,
+  :has(> button[aria-label="Swap Tokens Direction"]) {
+  position: relative;
+  z-index: 1;
+  margin-inline: auto;
+  margin-block: -13px;
+}
+
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button.relay-bg_secondary-button-background,
+  button[class*="widget-selector-background"],
+html[data-home-board]
+  :is(.relay-board, .bridge__widget)
+  button[class*="secondary-button-hover-background"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button[aria-label="Swap Tokens Direction"] {
@@ -381,7 +409,7 @@ html[data-home-board]
 
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button.relay-bg_secondary-button-background
+  button[class*="secondary-button-hover-background"]
   * {
   color: var(--text-primary) !important;
 }
@@ -391,7 +419,7 @@ html[data-home-board]
   button[aria-label="Connect wallet"],
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button[aria-label="Swap"] {
+  button[class*="cta-font-style"] {
   width: 100%;
   border: 1px solid transparent !important;
   background: var(--accent) !important;
@@ -399,6 +427,7 @@ html[data-home-board]
   font-size: 16px !important;
   font-weight: 700 !important;
   line-height: 20px !important;
+  text-transform: none !important;
   color: var(--on-accent) !important;
   transition:
     background-color 160ms ease,
@@ -410,13 +439,13 @@ html[data-home-board]
   button[aria-label="Connect wallet"]:active,
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button[aria-label="Swap"]:active,
+  button[class*="cta-font-style"]:active,
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button.relay-bg_widget-selector-background:active,
+  button[class*="widget-selector-background"]:active,
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
-  button.relay-bg_secondary-button-background:active,
+  button[class*="secondary-button-hover-background"]:active,
 html[data-home-board]
   :is(.relay-board, .bridge__widget)
   button[aria-label="Swap Tokens Direction"]:active {
@@ -429,25 +458,26 @@ html[data-home-board]
     button[aria-label="Connect wallet"]:hover,
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
-    button[aria-label="Swap"]:hover,
+    button[class*="cta-font-style"]:hover,
   html[data-home-board]
     [role="dialog"]:has(input[placeholder="Address or ENS"])
-    button.relay-bg_primary-button-background:not(:disabled):hover {
+    button[class*="primary-button-background"]:not(:disabled):hover {
     background: var(--accent-hover) !important;
   }
 
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
-    button.relay-bg_widget-selector-background:hover,
+    button[class*="widget-selector-background"]:hover,
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
-    button.relay-bg_secondary-button-background:hover,
+    button[class*="secondary-button-hover-background"]:hover,
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
     button[aria-label="Swap Tokens Direction"]:hover,
   html[data-home-board]
     [role="dialog"]:is(
       .relay-kit-reset,
+      [class*="modal-background"],
       :has(.relay-kit-reset),
       :has(input[placeholder="Address or ENS"])
     )
@@ -455,6 +485,7 @@ html[data-home-board]
   html[data-home-board]
     [role="dialog"]:is(
       .relay-kit-reset,
+      [class*="modal-background"],
       :has(.relay-kit-reset),
       :has(input[placeholder="Address or ENS"])
     )
@@ -471,13 +502,13 @@ html[data-home-board]
     button[aria-label="Connect wallet"],
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
-    button[aria-label="Swap"],
+    button[class*="cta-font-style"],
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
-    button.relay-bg_widget-selector-background,
+    button[class*="widget-selector-background"],
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
-    button.relay-bg_secondary-button-background,
+    button[class*="secondary-button-hover-background"],
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
     button[aria-label="Swap Tokens Direction"] {
@@ -492,13 +523,13 @@ html[data-home-board]
     button[aria-label="Connect wallet"]:active,
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
-    button[aria-label="Swap"]:active,
+    button[class*="cta-font-style"]:active,
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
-    button.relay-bg_widget-selector-background:active,
+    button[class*="widget-selector-background"]:active,
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
-    button.relay-bg_secondary-button-background:active,
+    button[class*="secondary-button-hover-background"]:active,
   html[data-home-board]
     :is(.relay-board, .bridge__widget)
     button[aria-label="Swap Tokens Direction"]:active {
