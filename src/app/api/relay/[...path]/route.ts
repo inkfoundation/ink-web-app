@@ -18,8 +18,10 @@ const RELAY_API_URL = "https://api.relay.link";
  * key back in its response body) and spend our rate limit on arbitrary
  * routes. Anything not listed here is rejected before reaching Relay.
  *
- * Sources: @reservoir0x/relay-kit-hooks hooks, relay-sdk actions, and the
- * `check`/`post` step endpoints returned by `/quote`.
+ * Sources: @relayprotocol/relay-kit-hooks hooks, relay-sdk `execute`, and the
+ * `check`/`post` step endpoints returned by `/quote/v2`. `GET /requests/v3`
+ * (post-swap status) only works with the key, so it must stay behind this
+ * proxy; Relay retires the keyless `/requests/v2` on 2026-11-24.
  */
 const ALLOWED_ROUTES: Record<string, ReadonlySet<string>> = {
   chains: new Set(["GET"]),
@@ -27,9 +29,8 @@ const ALLOWED_ROUTES: Record<string, ReadonlySet<string>> = {
   "currencies/v2": new Set(["POST"]),
   "currencies/token/price": new Set(["GET"]),
   "currencies/trending": new Set(["GET"]),
-  price: new Set(["POST"]),
-  quote: new Set(["POST"]),
-  "requests/v2": new Set(["GET"]),
+  "quote/v2": new Set(["POST"]),
+  "requests/v3": new Set(["GET"]),
   "requests/metadata": new Set(["POST"]),
   "intents/status": new Set(["GET"]),
   "intents/status/v2": new Set(["GET"]),
