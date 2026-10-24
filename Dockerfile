@@ -5,7 +5,10 @@ WORKDIR /app
 
 RUN npm i -g pnpm@9.12.1
 
+# `patches/` holds pnpm patches referenced from package.json's
+# `pnpm.patchedDependencies`; install fails without it.
 COPY package.json pnpm-lock.yaml ./
+COPY patches ./patches
 
 RUN pnpm install --frozen-lockfile
 

@@ -1,0 +1,197 @@
+diff --git a/_cjs/src/components/common/TransactionModal/DepositAddressModalRenderer.js b/_cjs/src/components/common/TransactionModal/DepositAddressModalRenderer.js
+index 6507b7ebcb8085e5868ef7bdaeee980dfa204683..4e1cc7c3b84aab07edca94ccd0b89e18d4961344 100644
+--- a/_cjs/src/components/common/TransactionModal/DepositAddressModalRenderer.js
++++ b/_cjs/src/components/common/TransactionModal/DepositAddressModalRenderer.js
+@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.DepositAddressModalRenderer = exports.TransactionProgressStep = void 0;
+ const jsx_runtime_1 = require("react/jsx-runtime");
+ const react_1 = require("react");
+-const viem_1 = require("viem");
++const numbers_js_1 = require("../../../utils/numbers.js");
+ const relayTransaction_js_1 = require("../../../utils/relayTransaction.js");
+ const relay_kit_hooks_1 = require("@relayprotocol/relay-kit-hooks");
+ const index_js_1 = require("../../../hooks/index.js");
+@@ -61,7 +61,7 @@ const DepositAddressModalRenderer = ({ open, address, fromChain, fromToken, toTo
+                     recipient: recipient,
+                     tradeType: 'EXACT_INPUT',
+                     appFees: providerOptionsContext.appFees,
+-                    amount: (0, viem_1.parseUnits)(debouncedInputAmountValue, fromToken.decimals).toString(),
++                    amount: (0, numbers_js_1.parseUnitsOrZero)(debouncedInputAmountValue, fromToken.decimals).toString(),
+                     referrer: relayClient?.source ?? undefined,
+                     useDepositAddress: true
+                 }
+diff --git a/_cjs/src/components/widgets/OnrampWidget/modals/OnrampModal.js b/_cjs/src/components/widgets/OnrampWidget/modals/OnrampModal.js
+index de394bea935a6824481035b7f67620391d9e63ab..19518ff9b8541d873191498b334c6ede1a477bd7 100644
+--- a/_cjs/src/components/widgets/OnrampWidget/modals/OnrampModal.js
++++ b/_cjs/src/components/widgets/OnrampWidget/modals/OnrampModal.js
+@@ -86,8 +86,8 @@ const OnrampModal = ({ open, amount, amountFormatted, recipient, fromToken, toTo
+         useDepositAddress: true,
+         tradeType: 'EXACT_INPUT',
+         amount: fromToken.symbol === 'USDC'
+-            ? (0, viem_1.parseUnits)(`${amount}`, 6).toString()
+-            : (0, viem_1.parseUnits)(`${ethAmount}`, fromToken.decimals).toString(),
++            ? (0, numbers_js_1.parseUnitsOrZero)(amount, 6).toString()
++            : (0, numbers_js_1.parseUnitsOrZero)(ethAmount, fromToken.decimals).toString(),
+         user: (0, relay_sdk_1.getDeadAddress)(),
+         recipient
+     }, undefined, undefined, {
+diff --git a/_cjs/src/components/widgets/SwapWidgetRenderer.js b/_cjs/src/components/widgets/SwapWidgetRenderer.js
+index 6e5ce1b765aa43bb067d6c8049225df8f645919b..bc75101f202ffcf702a2ab60f0f53ff898655379 100644
+--- a/_cjs/src/components/widgets/SwapWidgetRenderer.js
++++ b/_cjs/src/components/widgets/SwapWidgetRenderer.js
+@@ -5,6 +5,7 @@ const react_1 = require("react");
+ const index_js_1 = require("../../hooks/index.js");
+ const useSolanaTokenAccount_js_1 = require("../../hooks/useSolanaTokenAccount.js");
+ const viem_1 = require("viem");
++const numbers_js_1 = require("../../utils/numbers.js");
+ const wagmi_1 = require("wagmi");
+ const experimental_1 = require("wagmi/experimental");
+ const react_query_1 = require("@tanstack/react-query");
+@@ -177,8 +178,8 @@ const SwapWidgetRenderer = ({ transactionModalOpen, setTransactionModalOpen, dep
+             tradeType,
+             appFees: providerOptionsContext.appFees,
+             amount: tradeType === 'EXACT_INPUT'
+-                ? (0, viem_1.parseUnits)(debouncedInputAmountValue, fromToken.decimals).toString()
+-                : (0, viem_1.parseUnits)(debouncedOutputAmountValue, toToken.decimals).toString(),
++                ? (0, numbers_js_1.parseUnitsOrZero)(debouncedInputAmountValue, fromToken.decimals).toString()
++                : (0, numbers_js_1.parseUnitsOrZero)(debouncedOutputAmountValue, toToken.decimals).toString(),
+             referrer: relayClient?.source ?? undefined,
+             useDepositAddress,
+             indicativeQuote: !useDepositAddress && (!isValidFromAddress || !isValidToAddress)
+diff --git a/_cjs/src/utils/numbers.js b/_cjs/src/utils/numbers.js
+index 5d57b82ba7d4b1e3ef806203e5bf00a811a46393..099d9996e95a1aefb4e0cbce4dc8a88a7890e94e 100644
+--- a/_cjs/src/utils/numbers.js
++++ b/_cjs/src/utils/numbers.js
+@@ -3,6 +3,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.convertBpsToPercent = exports.truncateBalance = exports.formatSignificantDigits = exports.formatNumber = exports.formatAmountWithCommas = exports.formatFixedLength = exports.formatBN = exports.formatDollarCompact = exports.formatDollar = void 0;
+ const viem_1 = require("viem");
+ const browser_js_1 = require("./browser.js");
++/**
++ * `parseUnits` wrapper for user-typed amounts. viem >= 2.55.4 throws
++ * `InvalidDecimalNumberError` for '' / '.' / '-' instead of returning 0n, which
++ * would crash the widget while the amount input is empty or mid-keystroke.
++ * Anything else that is malformed still throws, as before.
++ * (Local patch mirroring the fix proposed upstream in relayprotocol/relay-kit.)
++ */
++function parseUnitsOrZero(value, decimals) {
++    const normalized = `${value ?? ''}`.trim();
++    if (/^[-.]*$/.test(normalized)) {
++        return 0n;
++    }
++    return (0, viem_1.parseUnits)(normalized, decimals);
++}
++exports.parseUnitsOrZero = parseUnitsOrZero;
+ const { format: formatUsdCurrency } = new Intl.NumberFormat('en-US', {
+     style: 'currency',
+     currency: 'USD'
+diff --git a/_esm/src/components/common/TransactionModal/DepositAddressModalRenderer.js b/_esm/src/components/common/TransactionModal/DepositAddressModalRenderer.js
+index 92feba71264aa90dcb1a2ce0b4bb0617569e95cc..88e5f50a0a4863850d33046bcbda209b2fd40436 100644
+--- a/_esm/src/components/common/TransactionModal/DepositAddressModalRenderer.js
++++ b/_esm/src/components/common/TransactionModal/DepositAddressModalRenderer.js
+@@ -1,6 +1,6 @@
+ import { Fragment as _Fragment, jsx as _jsx } from "react/jsx-runtime";
+ import { useMemo, useState, useEffect, useContext } from 'react';
+-import { parseUnits } from 'viem';
++import { parseUnitsOrZero } from '../../../utils/numbers.js';
+ import {} from '@relayprotocol/relay-sdk';
+ import { calculateFillTime, extractDepositRequestId } from '../../../utils/relayTransaction.js';
+ import { useRequests, useDepositAddressStatus, queryQuote } from '@relayprotocol/relay-kit-hooks';
+@@ -59,7 +59,7 @@ export const DepositAddressModalRenderer = ({ open, address, fromChain, fromToke
+                     recipient: recipient,
+                     tradeType: 'EXACT_INPUT',
+                     appFees: providerOptionsContext.appFees,
+-                    amount: parseUnits(debouncedInputAmountValue, fromToken.decimals).toString(),
++                    amount: parseUnitsOrZero(debouncedInputAmountValue, fromToken.decimals).toString(),
+                     referrer: relayClient?.source ?? undefined,
+                     useDepositAddress: true
+                 }
+diff --git a/_esm/src/components/widgets/OnrampWidget/modals/OnrampModal.js b/_esm/src/components/widgets/OnrampWidget/modals/OnrampModal.js
+index fd10be67beb7b059907f8a3396fe4784d6585bbd..2b4a585c056f1d4197d37051922ffba5881b316f 100644
+--- a/_esm/src/components/widgets/OnrampWidget/modals/OnrampModal.js
++++ b/_esm/src/components/widgets/OnrampWidget/modals/OnrampModal.js
+@@ -7,7 +7,7 @@ import { EventNames } from '../../../../constants/events.js';
+ import { useHapticEvent } from '../../../../providers/RelayKitProvider.js';
+ import { useDepositAddressStatus, useQuote, useRequests, useTokenPrice } from '@relayprotocol/relay-kit-hooks';
+ import { extractDepositRequestId, getRequestCurrencies } from '../../../../utils/relayTransaction.js';
+-import { parseUnits, zeroAddress } from 'viem';
++import { zeroAddress } from 'viem';
+ import { appendMetadataToRequest, extractDepositAddress } from '../../../../utils/quote.js';
+ import { getTxBlockExplorerUrl } from '../../../../utils/getTxBlockExplorerUrl.js';
+ import { OnrampConfirmingStep } from './steps/OnrampConfirmingStep.js';
+@@ -15,7 +15,7 @@ import { OnrampProcessingStepUI } from './steps/OnrampProcessingStepUI.js';
+ import { OnrampProcessingPassthroughStep } from './steps/OnrampProcessingPassthroughStep.js';
+ import { OnrampSuccessStep } from './steps/OnrampSuccessStep.js';
+ import { OnrampMoonPayStep } from './steps/OnrampMoonPayStep.js';
+-import { formatBN } from '../../../../utils/numbers.js';
++import { formatBN, parseUnitsOrZero } from '../../../../utils/numbers.js';
+ import { ErrorStep } from '../../../common/TransactionModal/steps/ErrorStep.js';
+ import { errorToJSON } from '../../../../utils/errors.js';
+ import { useAccount } from 'wagmi';
+@@ -82,8 +82,8 @@ export const OnrampModal = ({ open, amount, amountFormatted, recipient, fromToke
+         useDepositAddress: true,
+         tradeType: 'EXACT_INPUT',
+         amount: fromToken.symbol === 'USDC'
+-            ? parseUnits(`${amount}`, 6).toString()
+-            : parseUnits(`${ethAmount}`, fromToken.decimals).toString(),
++            ? parseUnitsOrZero(amount, 6).toString()
++            : parseUnitsOrZero(ethAmount, fromToken.decimals).toString(),
+         user: getDeadAddress(),
+         recipient
+     }, undefined, undefined, {
+diff --git a/_esm/src/components/widgets/SwapWidgetRenderer.js b/_esm/src/components/widgets/SwapWidgetRenderer.js
+index a0ccba6ed79c952b615726673c732f2b68bf0d1c..9763477e5adb1aa5e959e8928e3205b46da4cc18 100644
+--- a/_esm/src/components/widgets/SwapWidgetRenderer.js
++++ b/_esm/src/components/widgets/SwapWidgetRenderer.js
+@@ -2,7 +2,8 @@ import { Fragment as _Fragment, jsx as _jsx } from "react/jsx-runtime";
+ import { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+ import { useCurrencyBalance, useRelayClient, useDebounceState, useWalletAddress, useDisconnected, usePreviousValueChange, useIsWalletCompatible, useKnownTokenContract, useSolanaTokenAccount, useFallbackState, useGasTopUpRequired, useExplicitDeposit, useDisplayName, useLighterAccount } from '../../hooks/index.js';
+ import { checkSolanaTokenAccount } from '../../hooks/useSolanaTokenAccount.js';
+-import { formatUnits, parseUnits } from 'viem';
++import { formatUnits } from 'viem';
++import { parseUnitsOrZero } from '../../utils/numbers.js';
+ import { useAccount, useWalletClient } from 'wagmi';
+ import { useCapabilities } from 'wagmi/experimental';
+ import { useQueryClient } from '@tanstack/react-query';
+@@ -182,8 +183,8 @@ const SwapWidgetRenderer = ({ transactionModalOpen, setTransactionModalOpen, dep
+             tradeType,
+             appFees: providerOptionsContext.appFees,
+             amount: tradeType === 'EXACT_INPUT'
+-                ? parseUnits(debouncedInputAmountValue, fromToken.decimals).toString()
+-                : parseUnits(debouncedOutputAmountValue, toToken.decimals).toString(),
++                ? parseUnitsOrZero(debouncedInputAmountValue, fromToken.decimals).toString()
++                : parseUnitsOrZero(debouncedOutputAmountValue, toToken.decimals).toString(),
+             referrer: relayClient?.source ?? undefined,
+             useDepositAddress,
+             indicativeQuote: !useDepositAddress && (!isValidFromAddress || !isValidToAddress)
+diff --git a/_esm/src/utils/numbers.js b/_esm/src/utils/numbers.js
+index 7427ba896651175111b518930602515549c581fe..8e46d57fcddae084363a5f4ac5cddb61941fb73b 100644
+--- a/_esm/src/utils/numbers.js
++++ b/_esm/src/utils/numbers.js
+@@ -1,5 +1,19 @@
+-import { formatUnits } from 'viem';
++import { formatUnits, parseUnits } from 'viem';
+ import { isSafariBrowser } from './browser.js';
++/**
++ * `parseUnits` wrapper for user-typed amounts. viem >= 2.55.4 throws
++ * `InvalidDecimalNumberError` for '' / '.' / '-' instead of returning 0n, which
++ * would crash the widget while the amount input is empty or mid-keystroke.
++ * Anything else that is malformed still throws, as before.
++ * (Local patch mirroring the fix proposed upstream in relayprotocol/relay-kit.)
++ */
++function parseUnitsOrZero(value, decimals) {
++    const normalized = `${value ?? ''}`.trim();
++    if (/^[-.]*$/.test(normalized)) {
++        return 0n;
++    }
++    return parseUnits(normalized, decimals);
++}
+ const { format: formatUsdCurrency } = new Intl.NumberFormat('en-US', {
+     style: 'currency',
+     currency: 'USD'
+@@ -298,5 +312,5 @@ function formatAmountWithCommas(amount) {
+         ? `${groupedInteger}.${decimalPart}`
+         : groupedInteger;
+ }
+-export { formatDollar, formatDollarCompact, formatBN, formatFixedLength, formatAmountWithCommas, formatNumber, formatSignificantDigits, truncateBalance, convertBpsToPercent };
++export { formatDollar, formatDollarCompact, formatBN, formatFixedLength, formatAmountWithCommas, formatNumber, formatSignificantDigits, truncateBalance, convertBpsToPercent, parseUnitsOrZero };
+ //# sourceMappingURL=numbers.js.map
