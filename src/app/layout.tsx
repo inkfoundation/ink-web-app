@@ -20,8 +20,7 @@ export const metadata: Metadata = {
     images: ["/ink-opengraph.png"],
   },
   verification: {
-    // TODO: Put the valid verification ID here.
-    google: "",
+    google: "yriQjvgd-sESOvBKq5FVGWczWyPDNmLtgF8yPrQVtF4",
   },
 };
 
