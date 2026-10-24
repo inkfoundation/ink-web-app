@@ -11,12 +11,40 @@ interface ServiceStatus {
   error?: string;
 }
 
+interface RuntimeInfo {
+  /** `process.version` of the instance that served this request. */
+  node: string;
+  /** Vercel region (e.g. `iad1`); null on other hosts. */
+  region: string | null;
+  /** Vercel deployment id; null on other hosts. */
+  deployment: string | null;
+  /** Short git SHA the running build was made from, when known. */
+  commit: string | null;
+}
+
 interface HealthResponse {
   status: "healthy" | "degraded" | "unhealthy";
   timestamp: string;
+  /**
+   * Identifies the instance that answered. The Oct 2026 outage (#397) only
+   * reproduced on some Vercel instances, so being able to see which Node
+   * build, region and deployment served a request matters when a page is
+   * intermittently failing.
+   */
+  runtime: RuntimeInfo;
   services: {
     app: ServiceStatus;
     faucetApi?: ServiceStatus;
+  };
+}
+
+function getRuntimeInfo(): RuntimeInfo {
+  const sha = process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA;
+  return {
+    node: process.version,
+    region: process.env.VERCEL_REGION ?? null,
+    deployment: process.env.VERCEL_DEPLOYMENT_ID ?? null,
+    commit: sha ? sha.slice(0, 7) : null,
   };
 }
 
@@ -70,6 +98,7 @@ export async function GET(request: NextRequest) {
   const healthResponse: HealthResponse = {
     status: "healthy",
     timestamp: new Date().toISOString(),
+    runtime: getRuntimeInfo(),
     services: {
       app: { status: "healthy", responseTime: 0 },
     },

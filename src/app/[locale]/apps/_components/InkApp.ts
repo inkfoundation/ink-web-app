@@ -1,4 +1,4 @@
-import DOMPurify from "isomorphic-dompurify";
+import { sanitizeText, sanitizeUrl } from "@/util/sanitize";
 
 import appsData from "./apps-data.json";
 
@@ -29,27 +29,27 @@ export type InkAppNetwork = "Mainnet" | "Testnet" | "Both";
 const apps = appsData.apps
   .map((app) => {
     return {
-      id: DOMPurify.sanitize(app.id),
-      name: DOMPurify.sanitize(app.name),
-      description: DOMPurify.sanitize(app.description),
-      imageUrl: DOMPurify.sanitize(app.imageUrl),
-      category: app.category.map((c) => DOMPurify.sanitize(c)),
-      tags: app.tags.map((t) => DOMPurify.sanitize(t)),
-      network: DOMPurify.sanitize(app.network) as InkAppNetwork,
+      id: sanitizeText(app.id),
+      name: sanitizeText(app.name),
+      description: sanitizeText(app.description),
+      imageUrl: sanitizeUrl(app.imageUrl, { allowRelative: true }),
+      category: app.category.map((c) => sanitizeText(c)),
+      tags: app.tags.map((t) => sanitizeText(t)),
+      network: sanitizeText(app.network) as InkAppNetwork,
       links: {
-        mainnetWebsite: DOMPurify.sanitize(app.links.mainnetWebsite),
-        testnetWebsite: DOMPurify.sanitize(app.links.testnetWebsite),
-        x: DOMPurify.sanitize(app.links.x),
-        discord: DOMPurify.sanitize(app.links.discord),
-        telegram: DOMPurify.sanitize(app.links.telegram),
-        github: DOMPurify.sanitize(app.links.github),
-        farcaster: DOMPurify.sanitize(app.links.farcaster),
+        mainnetWebsite: sanitizeUrl(app.links.mainnetWebsite),
+        testnetWebsite: sanitizeUrl(app.links.testnetWebsite),
+        x: sanitizeUrl(app.links.x),
+        discord: sanitizeUrl(app.links.discord),
+        telegram: sanitizeUrl(app.links.telegram),
+        github: sanitizeUrl(app.links.github),
+        farcaster: sanitizeUrl(app.links.farcaster),
         smartContractUrl: app.links.smartContractUrl
-          ? DOMPurify.sanitize(app.links.smartContractUrl)
+          ? sanitizeUrl(app.links.smartContractUrl)
           : undefined,
       },
       order: app.order,
-      pills: app.pills?.map((p) => DOMPurify.sanitize(p)),
+      pills: app.pills?.map((p) => sanitizeText(p)),
     } satisfies InkApp;
   })
   .sort((a, b) => a.name.localeCompare(b.name));
