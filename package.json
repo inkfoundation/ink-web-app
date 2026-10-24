@@ -41,7 +41,7 @@
     "cookies-next": "4.2.1",
     "ethers": "6.17.0",
     "framer-motion": "12.0.0-alpha.1",
-    "isomorphic-dompurify": "4.6.0",
+    "isomorphic-dompurify": "2.26.0",
     "jose": "5.9.6",
     "leva": "0.9.35",
     "lottie-react": "2.4.0",
