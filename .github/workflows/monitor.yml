@@ -1,0 +1,42 @@
+name: Production monitor
+# Checks that the actual pages on inkonchain.com render, not just that the
+# process answers /api/health. Each page is requested several times because
+# the Oct 2026 failures (#397) were instance-specific: health stayed green
+# while page routes 500'd depending on which instance served the request.
+#
+# Runs every 30 minutes (each run bills as 1 Actions minute; tighten the cron
+# if the minutes budget allows). Failures show as red runs under Actions. To
+# also get a Slack message, add a MONITOR_SLACK_WEBHOOK_URL repository secret
+# (Slack incoming webhook).
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SITE_URL: https://inkonchain.com
+
+jobs:
+  uptime:
+    name: Page-level uptime
+    runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.MONITOR_SLACK_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Fetch pages on ${{ env.SITE_URL }}
+        run: scripts/smoke-test.sh "$SITE_URL"
+
+      - name: Post to Slack
+        if: failure() && env.SLACK_WEBHOOK_URL != ''
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          text="Production monitor failed: pages on $SITE_URL are not rendering. $RUN_URL"
+          curl -fsS -X POST -H 'Content-type: application/json' \
+            --data "$(jq -n --arg text "$text" '{text: $text}')" \
+            "$SLACK_WEBHOOK_URL"

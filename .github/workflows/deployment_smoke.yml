@@ -1,0 +1,35 @@
+name: Deployment smoke test
+# Vercel's GitHub integration reports every preview and production deployment
+# as a GitHub Deployment. Once Vercel marks one successful, this fetches the
+# real pages on it (see scripts/smoke-test.sh) so a deployment that builds fine
+# but 500s at request time, like #394 did, is flagged on the PR instead of
+# being discovered in production.
+on:
+  deployment_status:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    if: github.event.deployment_status.state == 'success'
+    name: Smoke test ${{ github.event.deployment.environment }}
+    runs-on: ubuntu-latest
+    steps:
+      # The workflow runs from the deployed ref, so the script is always
+      # present at the deployed commit.
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+      - name: Run page-level smoke test
+        env:
+          TARGET_URL: ${{ github.event.deployment_status.environment_url || github.event.deployment_status.target_url }}
+          ENVIRONMENT: ${{ github.event.deployment.environment }}
+          DEPLOYED_SHA: ${{ github.event.deployment.sha }}
+        run: |
+          if [ -z "$TARGET_URL" ]; then
+            echo "::notice::Deployment has no URL to test; skipping"
+            exit 0
+          fi
+          echo "Deployment: $ENVIRONMENT @ $DEPLOYED_SHA"
+          scripts/smoke-test.sh "$TARGET_URL"
