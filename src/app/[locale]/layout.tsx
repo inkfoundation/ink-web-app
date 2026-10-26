@@ -18,12 +18,20 @@ import { routing } from "@/routing";
 import { inter, plus_jakarta_sans } from "../fonts";
 
 import { RoutedLayout } from "./_components/RoutedLayout";
+import { appCategories } from "./apps/_components/categories";
 
 const themeClassesMapping: Record<string, string> = {
   dark: "dark ink:dark-theme",
   light: "light ink:light-theme",
 };
 
+const appCategorySlugs = appCategories
+  .map((category) => category.value)
+  .filter((value): value is NonNullable<typeof value> => value !== null);
+
+// Must agree with `isAppsPath` in `apps/_components/filter-apps.ts`: unknown
+// categories 404 and render in the regular layout, so they must not get the
+// board's root styles either.
 const homeBoardThemeBootstrap = `
 (() => {
   const root = document.documentElement;
@@ -32,12 +40,23 @@ const homeBoardThemeBootstrap = `
   if (segments[0] === root.lang) segments.shift();
 
   const pathname = "/" + segments.join("/");
+  const appCategories = ${JSON.stringify(appCategorySlugs)};
+  const decode = (value) => {
+    try {
+      return decodeURIComponent(value);
+    } catch {
+      return value;
+    }
+  };
+  const isAppsPath =
+    segments[0] === "apps" &&
+    (segments.length === 1 ||
+      (segments.length === 2 && appCategories.includes(decode(segments[1]))));
   const isHomeBoard =
     pathname === "/" ||
     pathname === "/bridge" ||
     pathname === "/builders" ||
-    pathname === "/apps" ||
-    pathname.startsWith("/apps/");
+    isAppsPath;
 
   if (!isHomeBoard) return;
 

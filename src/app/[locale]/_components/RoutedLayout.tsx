@@ -1,12 +1,12 @@
 "use client";
 import { Suspense } from "react";
 import { InkLayout } from "@inkonchain/ink-kit";
+import { usePathname } from "next/navigation";
 
 import { ConnectWalletButton } from "@/components/ConnectWalletButton";
 import { Footer } from "@/components/Footer";
-import { usePathname } from "@/routing";
 
-import { isAppsPath } from "../apps/_components/filter-apps";
+import { isAppsPath, normalizeAppPath } from "../apps/_components/filter-apps";
 
 import { HomeBoard } from "./HomeBoard";
 import { InkLogo, InkLogoImage } from "./InkLogo";
@@ -22,7 +22,12 @@ const isBoardPath = (pathname: string) =>
   pathname === "/builders";
 
 export function RoutedLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+  // Deliberately the URL pathname from `next/navigation`, not `usePathname`
+  // from `@/routing`: next-intl returns the route template (`/apps/[category]`)
+  // for both `/apps/defi` and `/apps/nope`, so it can't tell a category page
+  // from a 404. `normalizeAppPath` drops the locale prefix next-intl would
+  // otherwise have stripped.
+  const pathname = normalizeAppPath(usePathname());
 
   if (isBoardPath(pathname)) {
     return (
