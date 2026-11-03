@@ -939,6 +939,25 @@
       }
     },
     {
+      "id": "pheasant-network",
+      "name": "Pheasant Network",
+      "description": "Pheasant Network is an AI-powered DeFi Super App and Intent-based BaaS protocol that connects blockchain ecosystems.",
+      "imageUrl": "/featured-apps/icons/pheasant-network.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex", "interop"],
+      "links": {
+        "mainnetWebsite": "https://pheasant.network/",
+        "testnetWebsite": "https://pheasant.network/",
+        "x": "https://x.com/PheasantNetwork",
+        "discord": "https://discord.gg/pRYSEUVERT",
+        "telegram": "https://t.me/pheasant_network",
+        "github": "https://github.com/Pheasant-Network",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xfC9C6B6e0D02EaDE37aC8b6c59e7181726075696"
+      }
+    },
+    {
       "id": "pump",
       "name": "Pump",
       "description": "Launch and trade coins on Pump. Trade Ink tokens seamlessly with USDC, no bridging required.",
