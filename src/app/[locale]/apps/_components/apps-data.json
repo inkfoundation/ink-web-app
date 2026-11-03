@@ -542,6 +542,25 @@
       }
     },
     {
+      "id": "ink-bubble-cats",
+      "name": "Ink Bubble Cats",
+      "description": "Ink Bubble Cats is a pixel-art NFT project on Ink, featuring an exclusive holder-only raffle system with exciting rewards and benefits.",
+      "imageUrl": "/featured-apps/icons/ink-bubble-cats.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["fun", "nfts"],
+      "links": {
+        "mainnetWebsite": "https://www.inkbubblecats.ink/",
+        "testnetWebsite": "https://www.inkbubblecats.ink/",
+        "x": "https://x.com/InkBubbleCats",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xd5e11440ca64a53dc7efb369a1dcceff0c95dfcd"
+      }
+    },
+    {
       "id": "inkdca",
       "name": "InkDCA",
       "description": "InkDCA is a fully decentralized, trust minimized Dollar-Cost Averaging (DCA) platform built exclusively on Ink .",
