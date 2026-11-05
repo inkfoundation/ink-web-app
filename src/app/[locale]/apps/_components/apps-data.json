@@ -1141,6 +1141,25 @@
       }
     },
     {
+      "id": "splicex",
+      "name": "SpliceX",
+      "description": "Your stocks and tokens, spliced. Swap your xStocks and tokens into any stock mix or any token in one transaction. Claim dividends too.",
+      "imageUrl": "/featured-apps/icons/splicex.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["interop", "tokens", "tools"],
+      "links": {
+        "mainnetWebsite": "https://splicex.io/",
+        "testnetWebsite": "https://splicex.io/",
+        "x": "https://x.com/SpliceXProtocol",
+        "discord": "",
+        "telegram": "https://t.me/SpliceXProtocol",
+        "github": "https://github.com/SpliceXProtocol/splicex",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x7fac725320889826586EB767bfFcc87b24f479b6"
+      }
+    },
+    {
       "id": "spreads-finance",
       "name": "Spreads Finance",
       "description": "Connecting TradFi assets to DeFi rails",
