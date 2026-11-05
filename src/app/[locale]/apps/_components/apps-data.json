@@ -1254,6 +1254,25 @@
       }
     },
     {
+      "id": "swiftnodes",
+      "name": "SwiftNodes",
+      "description": "SwiftNodes runs RPC endpoints for 128 blockchains. There is a free tier, and paid plans are flat-rate rather than per-request credits. Tools include rpc-doctor and an MCP server",
+      "imageUrl": "/featured-apps/icons/swiftnodes.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["tools", "rpc"],
+      "links": {
+        "mainnetWebsite": "https://swiftnodes.io/ink-rpc",
+        "testnetWebsite": "https://swiftnodes.io/ink-rpc",
+        "x": "https://x.com/@swiftnodesio",
+        "discord": "",
+        "telegram": "",
+        "github": "https://github.com/swiftnodes",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "templars-trade",
       "name": "Templars Trade",
       "description": "Templars Trade is a professional trading terminal built for NADO. It brings trading, copy-trading bots, grid bots, wallet analytics and leaderboard into one interface for active traders",
