@@ -1291,6 +1291,25 @@
       }
     },
     {
+      "id": "tidestar",
+      "name": "Tidestar",
+      "description": "Kraken world on one screen: live Ink chain data, Nado perps, xStocks, INK points and a news feed. Free and independent.",
+      "imageUrl": "/featured-apps/icons/tidestar.webp",
+      "category": ["Other"],
+      "network": "Mainnet",
+      "tags": ["data", "tools"],
+      "links": {
+        "mainnetWebsite": "https://tidestar.xyz",
+        "testnetWebsite": "https://tidestar.xyz",
+        "x": "https://x.com/oleksiisavchen1",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "token-terminal",
       "name": "Token Terminal",
       "description": "Fundamentals for crypto. Available also on the Bloomberg Terminal App Portal at APPS TOKEN GO.",
