@@ -1160,6 +1160,25 @@
       }
     },
     {
+      "id": "squinkfun",
+      "name": "SquinkFun",
+      "description": "SquinkFun Launchpad discover launches on Inkchain.",
+      "imageUrl": "/featured-apps/icons/squinkfun.webp",
+      "category": ["Infra"],
+      "network": "Mainnet",
+      "tags": ["nfts", "tokens"],
+      "links": {
+        "mainnetWebsite": "https://squinkfun.xyz/",
+        "testnetWebsite": "https://squinkfun.xyz/",
+        "x": "https://x.com/squinkfun",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x398202b031e767a85bd995a6f14970f9e4ad30a9"
+      }
+    },
+    {
       "id": "stableflow",
       "name": "StableFlow",
       "description": "StableFlow is an intent-based routing layer for large stablecoin transfers across 25+ chains, offering zero slippage and best rates while aiming for true 1:1 execution.",
