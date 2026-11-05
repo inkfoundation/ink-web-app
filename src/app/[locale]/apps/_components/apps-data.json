@@ -542,6 +542,25 @@
       }
     },
     {
+      "id": "ink-hornet",
+      "name": "INK Hornet",
+      "description": "Hornet is 2,222 angry hornets living on Ink. They sting twice for fun, challenge bears, and always look pissed off. Nobody knows why. That’s the energy.",
+      "imageUrl": "/featured-apps/icons/ink-hornet.webp",
+      "category": ["Social"],
+      "network": "Mainnet",
+      "tags": ["nfts"],
+      "links": {
+        "mainnetWebsite": "https://www.inkhornet.com/",
+        "testnetWebsite": "https://www.inkhornet.com/",
+        "x": "https://x.com/inkthehornet",
+        "discord": "",
+        "telegram": "https://t.me/catchainchat",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x4d243f15743F6df7C832Fcd5Ee9A3e8453D47a4B"
+      }
+    },
+    {
       "id": "inkdca",
       "name": "InkDCA",
       "description": "InkDCA is a fully decentralized, trust minimized Dollar-Cost Averaging (DCA) platform built exclusively on Ink .",
