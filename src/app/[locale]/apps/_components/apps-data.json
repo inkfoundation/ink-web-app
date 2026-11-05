@@ -786,6 +786,25 @@
       }
     },
     {
+      "id": "nabot",
+      "name": "Nabot",
+      "description": "Nabot is a non-custodial trading workspace for Nado on Ink. Trade perps, configure and monitor automated strategies, track your portfolio, and access swaps, bridging and lending in one app.",
+      "imageUrl": "/featured-apps/icons/nabot.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex", "yield"],
+      "links": {
+        "mainnetWebsite": "https://nabot.app",
+        "testnetWebsite": "https://nabot.app",
+        "x": "https://x.com/nabotapp",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "nado",
       "name": "Nado",
       "description": "All-in-one CLOB DEX for spot, perps & money markets powered by unified margin. From the team that brought you Kraken.",
