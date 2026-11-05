@@ -53,7 +53,7 @@ export class MorpheusMeshMaterial extends THREE.MeshPhysicalMaterial {
         #include <begin_vertex>
         vUv = uv;
         vec3 newPosition = calculatePositionDisplacement(position, PI);
-        vNormal = computeNormal(position, newPosition, PI);
+        vNormal = normalize(normalMatrix * computeNormal(position, newPosition, PI));
         transformed = newPosition ;
       `;
 

@@ -58,7 +58,8 @@ export const methods = /* glsl */ `
     float smoothAngle = 0.5 - 0.5 * cos(2.0 * PI * movingEffectAngle);
 
     float poleFactor = (1. - customSmoothstep(direction.y, uPoleFallOffPoint));
-    float influence = 1. - smoothstep(angleStart, angleEnd, smoothAngle) * poleFactor;
+    float angleMask = 1.0 - smoothstep(angleEnd, angleStart, smoothAngle);
+    float influence = 1.0 - angleMask * poleFactor;
 
     float surfaceDistortion = (cnoise(position + uTime * uWaveSpeed)) * 0.05;
     float spikesDistortion = voronoi(2.0 * position, 0.2, uTime * uWaveSpeed) * 0.2;
