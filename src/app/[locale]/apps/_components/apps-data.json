@@ -1254,6 +1254,25 @@
       }
     },
     {
+      "id": "sweep-finance",
+      "name": "Sweep Finance",
+      "description": "Sweep is a multi-chain, multi-asset DEX aggregator that moves your crypto portfolio in just a few clicks. Select tokens across chains, choose destination assets, and Sweep handles swaps and bridges.",
+      "imageUrl": "/featured-apps/icons/sweep-finance.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex"],
+      "links": {
+        "mainnetWebsite": "https://www.trysweep.finance/",
+        "testnetWebsite": "https://www.trysweep.finance/",
+        "x": "https://x.com/trysweepfinance",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "templars-trade",
       "name": "Templars Trade",
       "description": "Templars Trade is a professional trading terminal built for NADO. It brings trading, copy-trading bots, grid bots, wallet analytics and leaderboard into one interface for active traders",
