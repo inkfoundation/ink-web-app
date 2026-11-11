@@ -672,6 +672,25 @@
       }
     },
     {
+      "id": "legions.ink",
+      "name": "Legions.ink",
+      "description": "Interactive NFT, one of a kind for Ink, to celebrate xStocks coming to Ink.",
+      "imageUrl": "/featured-apps/icons/legions.ink.webp",
+      "category": ["Other", "Social"],
+      "network": "Mainnet",
+      "tags": ["nfts", "yield"],
+      "links": {
+        "mainnetWebsite": "https://legions.ink/",
+        "testnetWebsite": "https://legions.ink/",
+        "x": "https://x.com/inklegions",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xd65aA2EC3f35d06853e6324cE4f51a8Ca3bf0B90"
+      }
+    },
+    {
       "id": "lunar-finance",
       "name": "Lunar finance",
       "description": "Lunar Finance is a multichain meta aggregator that ensure users get the best route for their transactions",
