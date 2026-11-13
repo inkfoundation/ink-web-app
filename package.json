@@ -30,7 +30,7 @@
     "@relayprotocol/relay-sdk": "8.0.4",
     "@segment/analytics-next": "1.84.3",
     "@sentry/nextjs": "11.8.0",
-    "@slack/web-api": "7.8.0",
+    "@slack/web-api": "8.3.0",
     "@t3-oss/env-nextjs": "0.12.0",
     "@tanstack/react-query": "5.60.6",
     "@types/react": "19.3.0",
