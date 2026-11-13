@@ -1,12 +1,124 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for more information:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-# https://containers.dev/guide/dependabot
+# Dependabot version updates.
+#
+# This file only controls *version* updates. Dependabot *alerts* and *security*
+# updates are repository settings (Settings → Advanced Security) and run
+# independently of this file.
+#
+# Reference:
+# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
 
 version: 2
 updates:
- - package-ecosystem: "devcontainers"
-   directory: "/"
-   schedule:
-     interval: weekly
+  # ---------------------------------------------------------------------------
+  # npm packages (installed with pnpm, see `packageManager` in package.json)
+  # ---------------------------------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "07:00"
+      timezone: "Europe/London"
+    open-pull-requests-limit: 10
+    # Conventional commits, matching the repo convention: `chore(deps): …` and
+    # `chore(deps-dev): …`. Also used for PR titles.
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    # Supply-chain guard: don't propose a release until it is a week old, so
+    # compromised releases are usually yanked before Dependabot offers them.
+    # Security updates are never delayed by this. Our own packages are exempt.
+    cooldown:
+      default-days: 7
+      exclude:
+        - "@inkonchain/*"
+    # Groups collect minor/patch bumps into one PR per related stack so a failing
+    # group doesn't block the rest, and so the blast radius of each PR is clear.
+    # A dependency joins the first group it matches, so the specific stacks come
+    # before the catch-alls. Major updates are never grouped: each one gets its
+    # own PR, because majors here (Next, wagmi, relay kit…) are deliberate
+    # migrations.
+    groups:
+      next:
+        patterns: ["next", "@next/*", "eslint-config-next"]
+        update-types: ["minor", "patch"]
+      wallet-stack:
+        patterns:
+          ["wagmi", "viem", "@rainbow-me/*", "@walletconnect/*", "ethers"]
+        update-types: ["minor", "patch"]
+      relay:
+        patterns: ["@relayprotocol/*"]
+        update-types: ["minor", "patch"]
+      three:
+        patterns:
+          - "three"
+          - "@types/three"
+          - "@react-three/*"
+          - "postprocessing"
+          - "maath"
+          - "leva"
+        update-types: ["minor", "patch"]
+      forms:
+        patterns: ["react-hook-form", "@hookform/*", "zod"]
+        update-types: ["minor", "patch"]
+      octokit:
+        patterns: ["@octokit/*"]
+        update-types: ["minor", "patch"]
+      tailwind:
+        patterns: ["tailwindcss", "@tailwindcss/*", "postcss", "tailwind-merge"]
+        update-types: ["minor", "patch"]
+      lint-tooling:
+        patterns:
+          - "eslint"
+          - "@typescript-eslint/*"
+          - "eslint-plugin-*"
+          - "eslint-config-prettier"
+          - "prettier"
+        update-types: ["minor", "patch"]
+      production-minor-patch:
+        dependency-type: "production"
+        patterns: ["*"]
+        # ink-kit is our own design system; keep each release as its own PR.
+        exclude-patterns: ["@inkonchain/*"]
+        update-types: ["minor", "patch"]
+      development-minor-patch:
+        dependency-type: "development"
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+    ignore:
+      # React is pinned for the whole dependency tree via `pnpm.overrides`, which
+      # Dependabot cannot update (dependabot/dependabot-core#16529). A bump here
+      # would change package.json while pnpm kept installing the overridden
+      # version. Bump React by hand, changing `dependencies` and `pnpm.overrides`
+      # together.
+      - dependency-name: "react"
+      - dependency-name: "react-dom"
+      - dependency-name: "@types/react"
+      - dependency-name: "@types/react-dom"
+      # The Node major tracks the runtime, which is pinned in `engines`,
+      # `.nvmrc`, the Dockerfile and CI, and is bumped by hand as one change.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+
+  # ---------------------------------------------------------------------------
+  # GitHub Actions
+  # ---------------------------------------------------------------------------
+  - package-ecosystem: "github-actions"
+    # "/" only covers `.github/workflows`; the composite actions under
+    # `.github/actions/*` have to be listed separately.
+    directories:
+      - "/"
+      - "/.github/actions/*"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "07:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns: ["*"]
