@@ -26,7 +26,7 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.MONITOR_SLACK_WEBHOOK_URL }}
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
 
       - name: Fetch pages on ${{ env.SITE_URL }}
         run: scripts/smoke-test.sh "$SITE_URL"
