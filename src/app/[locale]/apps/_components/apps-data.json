@@ -1309,6 +1309,25 @@
       }
     },
     {
+      "id": "tokenry",
+      "name": "Tokenry",
+      "description": "No-code token tools on Ink: create an ERC-20 token, open its Uniswap pool with an optional first buy, airdrop it to thousands of wallets and manage liquidity, all signed in your own wallet.",
+      "imageUrl": "/featured-apps/icons/tokenry.webp",
+      "category": ["DeFi", "Infra"],
+      "network": "Mainnet",
+      "tags": ["tokens", "tools"],
+      "links": {
+        "mainnetWebsite": "https://tokenry.tools/ink",
+        "testnetWebsite": "https://tokenry.tools/ink",
+        "x": "https://x.com/tokenryTools",
+        "discord": "",
+        "telegram": "https://t.me/tokenrytools",
+        "github": "https://github.com/TokenryTools",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0xD1f1DA33b2934981aDe31f6AD525f0D1646114F5"
+      }
+    },
+    {
       "id": "tristero",
       "name": "Tristero",
       "description": "Tristero is the world’s first omnichain darkpool DEX. One click provides you private orders, best-in-class pricing, and instant settlement to any chain.",
