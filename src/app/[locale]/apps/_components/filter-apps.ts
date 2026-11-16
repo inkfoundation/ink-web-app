@@ -10,15 +10,34 @@ export function normalizeAppPath(pathname: string) {
   return pathname.replace(/^\/en-US(?=\/|$)/, "") || "/";
 }
 
+/**
+ * True for `/apps` and `/apps/<known category>`. Anything else under `/apps/`
+ * is a 404 (see `apps/[category]/page.tsx`) and must not be treated as an
+ * apps page, otherwise `RoutedLayout` mounts the home board and paints the
+ * apps overlay over the not-found page.
+ *
+ * next-intl's `usePathname` (from `@/routing`) returns the route template,
+ * `/apps/[category]`, for every URL under `/apps/`, valid or not. Callers that
+ * need to tell a category page from a 404 must pass the URL pathname instead
+ * (`next/navigation`'s `usePathname` or `window.location.pathname`). The
+ * template is accepted here because the home board, which compares against
+ * the next-intl value, only mounts once `RoutedLayout` has vetted the URL.
+ */
 export function isAppsPath(pathname: string) {
   const path = normalizeAppPath(pathname);
-  return path === "/apps" || path.startsWith("/apps/");
+  return (
+    path === "/apps" ||
+    path === "/apps/[category]" ||
+    getCategoryFromPath(path) !== null
+  );
 }
 
 export function getCategoryFromPath(pathname: string): string | null {
   const path = normalizeAppPath(pathname);
   if (!path.startsWith("/apps/")) return null;
-  let value = path.slice("/apps/".length).split("/")[0];
+  const segments = path.slice("/apps/".length).split("/");
+  if (segments.length !== 1) return null;
+  let value = segments[0];
   try {
     value = decodeURIComponent(value);
   } catch {
