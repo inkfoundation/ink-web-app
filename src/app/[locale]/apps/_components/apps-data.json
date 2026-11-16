@@ -1181,8 +1181,8 @@
     {
       "id": "velodrome",
       "name": "Aero",
-      "description": "Velodrome Finance is a next-generation AMM that combines the best of Curve, Convex and Uniswap, designed to serve as the liquidity hub for the Superchain.",
-      "imageUrl": "/featured-apps/icons/velodrome.webp",
+      "description": "Aero is a cross-chain exchange that unifies liquidity across Ethereum, making it the best place to trade, earn, and launch any token or asset onchain.",
+      "imageUrl": "/featured-apps/icons/aero.webp",
       "category": ["DeFi"],
       "network": "Mainnet",
       "tags": ["dex"],

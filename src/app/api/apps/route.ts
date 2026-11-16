@@ -26,6 +26,10 @@ export function GET() {
     },
     {
       headers: {
+        // Set explicitly so browser clients on other origins can read this.
+        // Vercel adds the same header to prerendered output, but that would
+        // silently disappear if this route ever became dynamic.
+        "Access-Control-Allow-Origin": "*",
         "Cache-Control": "public, s-maxage=300, stale-while-revalidate=86400",
       },
     }
