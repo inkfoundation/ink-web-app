@@ -28,51 +28,13 @@
       "network": "Mainnet",
       "tags": ["cross-chain"],
       "links": {
-        "mainnetWebsite": "https://app.across.to/bridge",
-        "testnetWebsite": "https://app.across.to/bridge",
+        "mainnetWebsite": "https://across.to/",
+        "testnetWebsite": "https://across.to/",
         "x": "https://x.com/AcrossProtocol",
         "discord": "https://discord.across.to/",
         "telegram": "",
         "github": "https://github.com/across-protocol",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "aleph-cloud",
-      "name": "Aleph Cloud",
-      "description": "Decentralized supercloud",
-      "imageUrl": "/featured-apps/icons/aleph-cloud.webp",
-      "category": ["Infra"],
-      "network": "Mainnet",
-      "tags": ["tools"],
-      "links": {
-        "mainnetWebsite": "https://aleph.cloud/",
-        "testnetWebsite": "https://aleph.cloud/",
-        "x": "https://x.com/aleph_im",
-        "discord": "",
-        "telegram": "https://t.me/alephcloud",
-        "github": "https://github.com/aleph-im",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "anycampus",
-      "name": "AnyCampus",
-      "description": "AnyCampus is a Web3 “learn-to-earn” platform that enables you to earn tokens while you learn.",
-      "imageUrl": "/featured-apps/icons/anycampus.webp",
-      "category": ["Social"],
-      "network": "Mainnet",
-      "tags": ["fun", "nfts", "tokens"],
-      "links": {
-        "mainnetWebsite": "https://anycampus.io/",
-        "testnetWebsite": "https://anycampus.io/",
-        "x": "https://x.com/anycampus_io",
-        "discord": "https://discord.gg/YUjGmrrDyR",
-        "telegram": "https://t.me/anycampus",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x37f3855eF805739189cC2dd9F1435a6CD8AF87CE"
       }
     },
     {
@@ -105,30 +67,11 @@
       "links": {
         "mainnetWebsite": "https://explorer.inkonchain.com/",
         "testnetWebsite": "https://explorer-sepolia.inkonchain.com/",
-        "x": "https://x.com/blockscoutcom",
+        "x": "https://x.com/blockscout",
         "discord": "https://discord.gg/ApbA39BKyJ",
         "telegram": "https://t.me/blockscoutcommunity",
         "github": "",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "blocksense",
-      "name": "Blocksense",
-      "description": "Blocksense is a programmable oracle platform that brings real-world data on-chain using zero-knowledge proofs and game-theoretic consensus.",
-      "imageUrl": "/featured-apps/icons/blocksense.webp",
-      "category": ["Infra"],
-      "network": "Testnet",
-      "tags": ["oracle"],
-      "links": {
-        "mainnetWebsite": "https://blocksense.network",
-        "testnetWebsite": "https://blocksense.network",
-        "x": "https://x.com/blocksense_",
-        "discord": "https://discord.gg/blocksense",
-        "telegram": "https://t.me/BlocksenseNetwork",
-        "github": "https://github.com/blocksense-network/blocksense",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer-sepolia.inkonchain.com/address/0xADF5aacfA254FbC566d3b81e04b95db4bCF7b40F"
       }
     },
     {
@@ -318,44 +261,6 @@
       }
     },
     {
-      "id": "eco",
-      "name": "Eco",
-      "description": "Eco enables any onchain action to be a simple, one-click send. With Eco, apps can easily accept stablecoins, regardless of the network.",
-      "imageUrl": "/featured-apps/icons/eco.webp",
-      "category": ["Infra"],
-      "network": "Mainnet",
-      "tags": ["cross-chain", "interop", "yield"],
-      "links": {
-        "mainnetWebsite": "https://eco.com/",
-        "testnetWebsite": "https://eco.com/",
-        "x": "https://x.com/eco",
-        "discord": "https://discord.gg/ecommunity",
-        "telegram": "",
-        "github": "https://github.com/eco",
-        "farcaster": "https://warpcast.com/eco",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "eco-portal",
-      "name": "Eco Portal",
-      "description": "The Eco Portal allows easy stablecoin transfers to Ink with one low fee powered by Eco Routes. See how Eco Routes can help your app quickly accept stablecoins on any connected chain.",
-      "imageUrl": "/featured-apps/icons/eco-portal.webp",
-      "category": ["Bridge"],
-      "network": "Mainnet",
-      "tags": ["cross-chain", "interop"],
-      "links": {
-        "mainnetWebsite": "https://portal.eco.com/?dc=INK",
-        "testnetWebsite": "https://portal.eco.com/?dc=INK",
-        "x": "https://x.com/eco",
-        "discord": "https://discord.gg/ecommunity",
-        "telegram": "",
-        "github": "",
-        "farcaster": "https://warpcast.com/eco",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "envio",
       "name": "Envio",
       "description": "Envio is a modern, multi-chain EVM blockchain indexing framework speed-optimized for querying real-time and historical data.",
@@ -370,44 +275,6 @@
         "discord": "https://discord.com/invite/envio",
         "telegram": "https://t.me/+5mI61oZibEM5OGQ8",
         "github": "https://github.com/enviodev",
-        "farcaster": "",
-        "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "firefly-bridge",
-      "name": "Firefly Bridge",
-      "description": "Cross chain bridge supporting 70 networks and Circle CCTP v2. Enabling seamless stablecoin and token transfers across EVM and heterogeneous chains.",
-      "imageUrl": "/featured-apps/icons/firefly-bridge.webp",
-      "category": ["Bridge"],
-      "network": "Mainnet",
-      "tags": ["cross-chain", "interop", "data"],
-      "links": {
-        "mainnetWebsite": "https://fireflylabs.app/",
-        "testnetWebsite": "https://fireflylabs.app/",
-        "x": "https://x.com/FireflyLabs",
-        "discord": "https://discord.com/invite/rrFzuqe2RZ",
-        "telegram": "https://t.me/FireFly_Echo",
-        "github": "https://github.com/firefly-dao",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0xA858803c5a7a0d0D68dd4440f40dB363Faff1001"
-      }
-    },
-    {
-      "id": "flowbot",
-      "name": "FlowBot",
-      "description": "FlowBot is a professional automated trading platform for Perp DEX traders. With $4B+ volume and 1M+ trades across 7 DEXs, maximize rebates and liquidity provision with proven strategies.",
-      "imageUrl": "/featured-apps/icons/flowbot.webp",
-      "category": ["Other"],
-      "network": "Mainnet",
-      "tags": ["dex"],
-      "links": {
-        "mainnetWebsite": "https://flowbot.pro/",
-        "testnetWebsite": "https://flowbot.pro/",
-        "x": "https://x.com/Flowbot_pro",
-        "discord": "https://discord.com/invite/flowbot",
-        "telegram": "",
-        "github": "",
         "farcaster": "",
         "smartContractUrl": ""
       }
@@ -429,24 +296,6 @@
         "github": "",
         "farcaster": "",
         "smartContractUrl": "https://explorer.inkonchain.com/address/0x3D5070E3Bc81861171ff28BdA7BbD480da0a79AF"
-      }
-    },
-    {
-      "id": "gelato",
-      "name": "Gelato",
-      "description": "Build scalable, custom enterprise-grade Rollups with Gelato's Web3 Services natively integrated.",
-      "imageUrl": "/featured-apps/icons/gelato.webp",
-      "category": ["Bridge"],
-      "network": "Both",
-      "tags": ["cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://bridge.gelato.network/bridge/ink",
-        "testnetWebsite": "https://testnet-bridge.gelato.network/bridge/ink-sepolia",
-        "x": "https://x.com/gelatonetwork",
-        "discord": "https://discord.gg/ApbA39BKyJ",
-        "telegram": "https://t.me/gelatonetwork",
-        "github": "",
-        "farcaster": ""
       }
     },
     {
@@ -477,8 +326,8 @@
       "network": "Mainnet",
       "tags": ["fun"],
       "links": {
-        "mainnetWebsite": "https://gm.inkonchain.com/",
-        "testnetWebsite": "https://gm.inkonchain.com/",
+        "mainnetWebsite": "https://www.gm.ink/",
+        "testnetWebsite": "https://www.gm.ink/",
         "discord": "",
         "x": "https://x.com/inkonchain",
         "telegram": "https://t.me/inkonchain",
@@ -569,8 +418,8 @@
       "network": "Mainnet",
       "tags": ["fun"],
       "links": {
-        "mainnetWebsite": "https://pump.inkyswap.com/",
-        "testnetWebsite": "https://pump.inkyswap.com/",
+        "mainnetWebsite": "https://inkypump.com/ink",
+        "testnetWebsite": "https://inkypump.com/ink",
         "x": "https://x.com/inkyswap",
         "discord": "",
         "telegram": "https://t.me/inkyswap",
@@ -596,25 +445,6 @@
         "github": "",
         "farcaster": "",
         "smartContractUrl": ""
-      }
-    },
-    {
-      "id": "interport-finance",
-      "name": "Interport Finance",
-      "description": "Interport is a comprehensive cross-chain hub offering seamless asset swaps, bridging, and gas transfer solutions across multiple chains.",
-      "imageUrl": "/featured-apps/icons/interport-finance.webp",
-      "category": ["Bridge", "DeFi", "Infra"],
-      "network": "Mainnet",
-      "tags": ["cross-chain", "tools"],
-      "links": {
-        "mainnetWebsite": "https://app.interport.fi/",
-        "testnetWebsite": "",
-        "x": "https://x.com/InterportFi",
-        "discord": "https://discord.com/invite/interport",
-        "telegram": "https://t.me/interport_fi",
-        "github": "https://github.com/Interport-Finance",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x4F0c01b41741f8022c6FB9Fe357Ea480184719D4"
       }
     },
     {
@@ -718,8 +548,8 @@
       "network": "Mainnet",
       "tags": ["cross-chain", "fun", "tokens", "wallet", "tools"],
       "links": {
-        "mainnetWebsite": "https://www.mavrk.ink",
-        "testnetWebsite": "https://www.mavrk.ink",
+        "mainnetWebsite": "https://www.mavrk.xyz",
+        "testnetWebsite": "https://www.mavrk.xyz",
         "x": "https://www.x.com/MavrkOfficial",
         "discord": "",
         "telegram": "https://www.t.me/MavrkOfficial",
@@ -1051,7 +881,7 @@
     },
     {
       "id": "reservoir:-relay",
-      "name": "Reservoir: Relay",
+      "name": "Relay",
       "description": "Instant, low-cost bridging\nand swapping.",
       "imageUrl": "/featured-apps/icons/reservoir_relay.webp",
       "category": ["Bridge"],
@@ -1060,7 +890,7 @@
       "links": {
         "mainnetWebsite": "https://relay.link/bridge/ink?includeChainIds=57073",
         "testnetWebsite": "https://relay.link/bridge/ink?includeChainIds=57073",
-        "x": "https://x.com/reservoir0x",
+        "x": "https://x.com/RelayProtocol",
         "discord": "",
         "telegram": "",
         "github": "https://github.com/reservoirprotocol",
@@ -1086,25 +916,6 @@
       }
     },
     {
-      "id": "routescan",
-      "name": "Routescan",
-      "description": "Multichain Unified Block Explorer",
-      "imageUrl": "/featured-apps/icons/routescan.webp",
-      "category": ["Explorers"],
-      "network": "Both",
-      "tags": ["explorer"],
-      "links": {
-        "mainnetWebsite": "https://inkonscan.xyz/",
-        "testnetWebsite": "https://sepolia.inkonscan.xyz/",
-        "x": "https://x.com/routescan_io",
-        "discord": "",
-        "telegram": "https://t.me/routescan_io",
-        "github": "",
-        "farcaster": "https://warpcast.com/routescan",
-        "smartContractUrl": ""
-      }
-    },
-    {
       "id": "safe",
       "name": "SAFE",
       "description": "Single unified balance. Instant cross-chain transactions.\nExecution guarantees. On any network.",
@@ -1113,8 +924,8 @@
       "network": "Mainnet",
       "tags": ["wallet"],
       "links": {
-        "mainnetWebsite": "https://safe.global/safenet",
-        "testnetWebsite": "https://safe.global/safenet",
+        "mainnetWebsite": "https://app.safe.global/",
+        "testnetWebsite": "https://app.safe.global/",
         "x": "https://x.com/safe",
         "discord": "https://chat.safe.global/",
         "telegram": "https://t.me/+jHGVUd8y1FQxMzJi",
@@ -1207,7 +1018,7 @@
       "links": {
         "mainnetWebsite": "https://superbridge.app/ink",
         "testnetWebsite": "https://superbridge.app/ink",
-        "x": "https://twitter.com/superbridgeapp",
+        "x": "https://x.com/superbridge",
         "discord": "",
         "telegram": "",
         "github": "https://github.com/superbridgeapp",
@@ -1309,25 +1120,6 @@
       }
     },
     {
-      "id": "tristero",
-      "name": "Tristero",
-      "description": "Tristero is the world’s first omnichain darkpool DEX. One click provides you private orders, best-in-class pricing, and instant settlement to any chain.",
-      "imageUrl": "/featured-apps/icons/tristero.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["cross-chain", "dex"],
-      "links": {
-        "mainnetWebsite": "https://app.tristero.com/",
-        "testnetWebsite": "https://app.tristero.com/",
-        "x": "https://x.com/0xtristero",
-        "discord": "https://discord.gg/mach",
-        "telegram": "https://t.me/mach_exchange",
-        "github": "https://github.com/tristeroresearch",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x90000069af5a354cf1dC438dEFbF8e0469d87F02"
-      }
-    },
-    {
       "id": "tydro",
       "name": "Tydro",
       "description": "A decentralized, non-custodial liquidity protocol built on Ink and powered by Aave.",
@@ -1388,16 +1180,16 @@
     },
     {
       "id": "velodrome",
-      "name": "Velodrome",
-      "description": "Velodrome Finance is a next-generation AMM that combines the best of Curve, Convex and Uniswap, designed to serve as the liquidity hub for the Superchain.",
-      "imageUrl": "/featured-apps/icons/velodrome.webp",
+      "name": "Aero",
+      "description": "Aero is a cross-chain exchange that unifies liquidity across Ethereum, making it the best place to trade, earn, and launch any token or asset onchain.",
+      "imageUrl": "/featured-apps/icons/aero.webp",
       "category": ["DeFi"],
       "network": "Mainnet",
       "tags": ["dex"],
       "links": {
-        "mainnetWebsite": "https://velo.drome.eth.limo/",
-        "testnetWebsite": "https://velo.drome.eth.limo/",
-        "x": "https://x.com/VelodromeFi",
+        "mainnetWebsite": "https://aero.xyz/",
+        "testnetWebsite": "https://aero.xyz/",
+        "x": "https://x.com/aeroxyz",
         "discord": "https://discord.gg/velodrome",
         "telegram": "",
         "github": "https://github.com/velodrome-finance",
@@ -1420,25 +1212,6 @@
         "telegram": "https://t.me/wormholecrypto",
         "github": "",
         "farcaster": ""
-      }
-    },
-    {
-      "id": "yieldnest",
-      "name": "YieldNest",
-      "description": "YieldNest simplifies DeFi with high-yield, risk-adjusted restaking and DeFi strategies—unified in a single asset, secured by DeFAI, and settled on L1.",
-      "imageUrl": "/featured-apps/icons/yieldnest.webp",
-      "category": ["DeFi"],
-      "network": "Mainnet",
-      "tags": ["yield", "tokens"],
-      "links": {
-        "mainnetWebsite": "https://www.yieldnest.finance/",
-        "testnetWebsite": "https://www.yieldnest.finance/",
-        "x": "https://x.com/YieldNestFi",
-        "discord": "https://discord.com/invite/ayAZuQgFaE",
-        "telegram": "https://t.me/YieldNest",
-        "github": "https://github.com/yieldnest/",
-        "farcaster": "",
-        "smartContractUrl": ""
       }
     },
     {
@@ -1471,47 +1244,10 @@
       "links": {
         "mainnetWebsite": "https://zerodev.app/",
         "testnetWebsite": "https://zerodev.app/",
-        "x": "https://x.com/zerodev_app",
+        "x": "https://x.com/ZeroDev",
         "discord": "https://discord.gg/KS9MRaTSjx",
         "telegram": "https://t.me/derek_chiang",
         "github": "https://github.com/zerodevapp",
-        "farcaster": ""
-      }
-    },
-    {
-      "id": "zeroway",
-      "name": "Zeroway",
-      "description": "Simple and cheap bridge using  Polymer, LayerZero and Hyperlane decentralised omnichain technology.",
-      "imageUrl": "/featured-apps/icons/zeroway.webp",
-      "category": ["Bridge", "Infra"],
-      "network": "Mainnet",
-      "tags": ["cross-chain"],
-      "links": {
-        "mainnetWebsite": "https://zeroway.io/",
-        "testnetWebsite": "https://zeroway.io/",
-        "x": "https://x.com/zeroway_io",
-        "discord": "https://discord.com/invite/bQNEWkXdDG",
-        "telegram": "https://t.me/zeroway_announcements",
-        "github": "",
-        "farcaster": "",
-        "smartContractUrl": "https://explorer.inkonchain.com/address/0x224cC518C715F178fb96BC3c7e793B5B72b56Dc5"
-      }
-    },
-    {
-      "id": "zns-connect",
-      "name": "ZNS Connect",
-      "description": "Decentralized ID platform powered by decentralized addresses.",
-      "imageUrl": "/featured-apps/icons/znsconnect.webp",
-      "category": ["Social"],
-      "network": "Both",
-      "tags": ["domain names"],
-      "links": {
-        "mainnetWebsite": "https://zns.bio/search",
-        "testnetWebsite": "https://zns.bio/search",
-        "x": "https://x.com/ZNSConnect",
-        "discord": "https://discord.gg/2rrkuqT8pB",
-        "telegram": "https://t.me/znsconnect",
-        "github": "",
         "farcaster": ""
       }
     }

@@ -20,7 +20,7 @@
 # Env: SMOKE_ATTEMPTS (3), SMOKE_TIMEOUT seconds per request (30).
 set -uo pipefail
 
-DEFAULT_PATHS=(/ /apps /bridge /faucet /api/health)
+DEFAULT_PATHS=(/ /apps /bridge /faucet /api/health /api/apps)
 
 if [ $# -lt 1 ]; then
   echo "usage: $0 <base-url> [path ...]" >&2
@@ -89,6 +89,11 @@ check() {
   elif [ "$path" = "/api/health" ]; then
     # Surface which runtime answered; useful when failures are instance-specific.
     detail="$(grep -oE '"(node|region|deployment)":"[^"]*"' "$BODY" | tr -d '"' | tr '\n' ' ')"
+  elif [ "$path" = "/api/apps" ]; then
+    # Other Ink properties read this list, so an empty one is a failure too.
+    if ! grep -q '"apps":\[{' "$BODY"; then
+      reason="HTTP 200 but the apps list is empty or malformed"
+    fi
   fi
 
   if [ -z "$reason" ]; then
