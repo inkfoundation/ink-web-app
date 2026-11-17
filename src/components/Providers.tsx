@@ -13,11 +13,14 @@ import { useGlobalKeyCallback } from "@/hooks/useGlobalKey";
 
 const queryClient = new QueryClient();
 
-export const Providers: React.FC<PropsWithChildren> = ({ children }) => {
+export const Providers: React.FC<PropsWithChildren<{ nonce?: string }>> = ({
+  children,
+  nonce,
+}) => {
   useGlobalKeyCallback();
 
   return (
-    <ThemeProvider>
+    <ThemeProvider nonce={nonce}>
       <ModalProvider>
         <AnalyticsProvider writeKey={clientEnv.NEXT_PUBLIC_SEGMENT_WRITE_KEY}>
           <QueryClientProvider client={queryClient}>

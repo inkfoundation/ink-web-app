@@ -1,6 +1,14 @@
 import { NextRequest } from "next/server";
 import createMiddleware from "next-intl/middleware";
 
+import { COOKIE_CONSENT } from "./integrations/consent";
+import {
+  buildContentSecurityPolicy,
+  CSP_HEADER,
+  CSP_REPORTING_ENDPOINTS,
+  generateNonce,
+  NONCE_HEADER,
+} from "./util/csp";
 import { routing } from "./routing";
 
 export const locales = routing.locales;
@@ -21,7 +29,31 @@ export default function proxy(request: NextRequest) {
     }
   });
 
+  // Violation reports are sent by the browser straight to Sentry, so they
+  // follow the same consent as the Sentry SDK (`src/instrumentation-client.ts`).
+  const reportViolations =
+    request.cookies.get(COOKIE_CONSENT)?.value === "true";
+
+  // next-intl forwards the request headers to the page render. Next.js takes
+  // the nonce for its own inline scripts from the CSP request header, and the
+  // root layout reads `x-nonce` for the scripts we render ourselves.
+  const nonce = generateNonce();
+  const contentSecurityPolicy = buildContentSecurityPolicy(nonce, {
+    reportViolations,
+  });
+  // Next.js accepts the nonce from either CSP header name and checks the
+  // enforcing one first, so a copy sent by the client must not get through.
+  request.headers.delete("content-security-policy");
+  request.headers.delete("content-security-policy-report-only");
+  request.headers.set(NONCE_HEADER, nonce);
+  request.headers.set(CSP_HEADER, contentSecurityPolicy);
+
   const response = routingMiddleware(request);
+
+  response.headers.set(CSP_HEADER, contentSecurityPolicy);
+  if (reportViolations && CSP_REPORTING_ENDPOINTS) {
+    response.headers.set("Reporting-Endpoints", CSP_REPORTING_ENDPOINTS);
+  }
 
   if (!isProduction) {
     response.headers.set("X-Robots-Tag", "noindex, nofollow");

@@ -25,6 +25,14 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Stops browsers from guessing a different content type for anything
+        // we serve, e.g. running an API response as a script. The Content
+        // Security Policy needs a per-request nonce, so it is set in
+        // `src/proxy.ts` instead.
+        source: "/:path*",
+        headers: [{ key: "X-Content-Type-Options", value: "nosniff" }],
+      },
+      {
         // Content-hashed font files written by
         // `scripts/postcss-extract-inline-fonts.js`; cache them like
         // bundler-emitted `/_next/static` assets.

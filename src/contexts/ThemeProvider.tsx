@@ -5,9 +5,19 @@ import { useTheme } from "next-themes";
 
 import { setTheme } from "@/actions/theme";
 
-export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
+export const ThemeProvider: React.FC<PropsWithChildren<{ nonce?: string }>> = ({
+  children,
+  nonce,
+}) => {
   return (
-    <NextThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    // The nonce is for the inline script next-themes renders to set the theme
+    // before paint.
+    <NextThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      nonce={nonce}
+    >
       <ThemeConsumer>{children}</ThemeConsumer>
     </NextThemeProvider>
   );

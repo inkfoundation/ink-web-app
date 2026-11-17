@@ -1,4 +1,3 @@
-import { GoogleTagManager } from "@next/third-parties/google";
 import { cookies, headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -6,6 +5,7 @@ import { getMessages } from "next-intl/server";
 
 import { ConsentLogger } from "@/components/CookieConsent/ConsentLogger";
 import { CookieConsent } from "@/components/CookieConsent/CookieConsent";
+import { GoogleTagManager } from "@/components/GoogleTagManager";
 import { GlobalSvgStuff } from "@/components/icons/GlobalSvgStuff";
 import { ContactUsModal } from "@/components/Modals";
 import { Providers } from "@/components/Providers";
@@ -14,6 +14,7 @@ import { ToggleThemeShortcut } from "@/components/ToggleThemeShortcut";
 import { clientEnv } from "@/env-client";
 import { COOKIE_CONSENT } from "@/integrations/consent";
 import { routing } from "@/routing";
+import { NONCE_HEADER } from "@/util/csp";
 
 import { inter, plus_jakarta_sans } from "../fonts";
 
@@ -75,12 +76,8 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  const [resolvedCookies, { locale }, messages] = await Promise.all([
-    cookies(),
-    params,
-    getMessages(),
-    headers(),
-  ]);
+  const [resolvedCookies, { locale }, messages, requestHeaders] =
+    await Promise.all([cookies(), params, getMessages(), headers()]);
 
   // Paths excluded from the proxy matcher (e.g. the Sentry tunnel route
   // `/monitoring`) otherwise reach this layout with the first segment as the
@@ -94,6 +91,8 @@ export default async function LocaleLayout({
     resolvedCookies.get(COOKIE_CONSENT)?.value === "true";
   const theme = resolvedCookies.get("__theme__")?.value || "system";
   const themeClasses = themeClassesMapping[theme] || "";
+  // Set by `src/proxy.ts`; every inline script needs it to pass the CSP.
+  const nonce = requestHeaders.get(NONCE_HEADER) ?? undefined;
 
   return (
     // suppressHydrationWarning is necessary for next-themese to properly render the right theme without a flash of the wrong theme
@@ -108,7 +107,10 @@ export default async function LocaleLayout({
     >
       {userHasAcceptedCookiePolicy && (
         <>
-          <GoogleTagManager gtmId={clientEnv.NEXT_PUBLIC_GTM_ID} />
+          <GoogleTagManager
+            gtmId={clientEnv.NEXT_PUBLIC_GTM_ID}
+            nonce={nonce}
+          />
         </>
       )}
 
@@ -125,18 +127,19 @@ export default async function LocaleLayout({
 
       <body>
         <script
+          nonce={nonce}
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: homeBoardThemeBootstrap }}
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Providers>
+          <Providers nonce={nonce}>
             <ToggleThemeShortcut />
 
             <SiteBanner />
 
             <RoutedLayout>{children}</RoutedLayout>
 
-            <CookieConsent />
+            <CookieConsent nonce={nonce} />
             <ConsentLogger />
 
             <ContactUsModal />

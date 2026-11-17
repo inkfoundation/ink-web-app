@@ -10,10 +10,12 @@ import "./onetrust-banner.css";
 
 interface OneTrustCookieConsentProps {
   id: string;
+  nonce?: string;
 }
 
 export const OneTrustCookieConsent: React.FC<OneTrustCookieConsentProps> = ({
   id,
+  nonce,
 }) => {
   const query = useSearchParams();
 
@@ -68,9 +70,11 @@ export const OneTrustCookieConsent: React.FC<OneTrustCookieConsentProps> = ({
         type="text/javascript"
         charSet="UTF-8"
         data-domain-script={id}
+        nonce={nonce}
       ></Script>
       <script
         type="text/javascript"
+        nonce={nonce}
         dangerouslySetInnerHTML={{ __html: initCode }}
       />
     </>
