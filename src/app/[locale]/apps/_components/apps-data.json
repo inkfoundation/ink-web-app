@@ -502,6 +502,25 @@
       }
     },
     {
+      "id": "lockin-app",
+      "name": "lockin app",
+      "description": "social trading app on telegram",
+      "imageUrl": "/featured-apps/icons/lockin-app.webp",
+      "category": ["Social"],
+      "network": "Mainnet",
+      "tags": ["tokens", "cross-chain"],
+      "links": {
+        "mainnetWebsite": "https://lockin.cash/",
+        "testnetWebsite": "https://lockin.cash/",
+        "x": "https://x.com/tradeonlockin",
+        "discord": "",
+        "telegram": "https://t.me/lockin_app",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "lunar-finance",
       "name": "Lunar finance",
       "description": "Lunar Finance is a multichain meta aggregator that ensure users get the best route for their transactions",
