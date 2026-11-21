@@ -354,6 +354,25 @@
       }
     },
     {
+      "id": "helmswap",
+      "name": "HelmSwap",
+      "description": "Non-custodial swap terminal on Ink and 8 other chains. You sign every swap in your own wallet, and the fee is shown on the quote before you sign.",
+      "imageUrl": "/featured-apps/icons/helmswap.webp",
+      "category": ["DeFi"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex", "tools"],
+      "links": {
+        "mainnetWebsite": "https://helmswap.com",
+        "testnetWebsite": "https://helmswap.com",
+        "x": "https://x.com/HelmSwap",
+        "discord": "",
+        "telegram": "",
+        "github": "",
+        "farcaster": "",
+        "smartContractUrl": "https://explorer.inkonchain.com/address/0x2384EFffE80523aAe945d996257810282D4E25eB"
+      }
+    },
+    {
       "id": "hypernative",
       "name": "Hypernative",
       "description": "Hypernative stops web3 threats before they do any damage with the most accurate real-time advanced warning system and connection to automated onchain actions.",
