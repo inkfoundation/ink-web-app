@@ -4,8 +4,8 @@ jobs:
   install_modules:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "22.x"
       - name: Enable corepack (pnpm)
@@ -21,7 +21,7 @@ jobs:
         run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Cache node modules
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -34,7 +34,7 @@ jobs:
     needs: install_modules
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
       - uses: ./.github/actions/base-setup
         name: Base Setup
       - name: Install dependencies
@@ -49,7 +49,7 @@ jobs:
     needs: install_modules
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
       - uses: ./.github/actions/base-setup
         name: Base Setup
       - name: Install dependencies
@@ -64,7 +64,7 @@ jobs:
     needs: install_modules
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
       - uses: ./.github/actions/base-setup
         name: Base Setup
       - name: Install dependencies
@@ -75,7 +75,7 @@ jobs:
       # Restores Turbopack's persistent build cache (.next/cache) so builds are
       # incremental; saved automatically at the end of the job on a cache miss.
       - name: Restore Next.js build cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('src/**', 'public/**', 'messages/**', 'next.config.ts', 'postcss.config.mjs', 'tsconfig.json') }}

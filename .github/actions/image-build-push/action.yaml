@@ -20,13 +20,13 @@ outputs:
 runs:
   using: composite
   steps:
-    - uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446
+    - uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ inputs.github-token }}
     - id: metadata
-      uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81
+      uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302
       with:
         images: ghcr.io/inkfoundation/${{ inputs.repository-name }}
         tags: |
@@ -35,7 +35,7 @@ runs:
           type=raw,value=main,enable={{is_default_branch}}
           type=raw,value=staging,enable=${{ github.ref == 'refs/heads/ops/preview-1' }}
     - id: build
-      uses: docker/build-push-action@1a162644f9a7e87d8f4b053101d1d9a712edc18c
+      uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc
       with:
         context: ${{ inputs.docker-context }}
         file: ${{ inputs.dockerfile-path }}
