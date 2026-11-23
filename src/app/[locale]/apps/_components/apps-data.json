@@ -769,6 +769,25 @@
       }
     },
     {
+      "id": "picoswap",
+      "name": "PicoSwap",
+      "description": "All in one onchain trading app for swaps across 25 chains perps limit orders DCA portfolio and wallet tracking with USDC rewards",
+      "imageUrl": "/featured-apps/icons/picoswap.webp",
+      "category": ["DeFi", "Bridge"],
+      "network": "Mainnet",
+      "tags": ["cross-chain", "dex"],
+      "links": {
+        "mainnetWebsite": "https://app.picoswap.xyz/swap",
+        "testnetWebsite": "https://app.picoswap.xyz/swap",
+        "x": "https://x.com/picoswapxyz",
+        "discord": "",
+        "telegram": "https://t.me/picoswap",
+        "github": "",
+        "farcaster": "https://warpcast.com/picoswap",
+        "smartContractUrl": ""
+      }
+    },
+    {
       "id": "pump",
       "name": "Pump",
       "description": "Launch and trade coins on Pump. Trade Ink tokens seamlessly with USDC, no bridging required.",
